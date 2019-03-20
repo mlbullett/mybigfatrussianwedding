@@ -1,0 +1,54 @@
+{% load static %***REMOVED***
+{% load i18n %***REMOVED***
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Maximilien Bullett" />
+
+    <!-- Title -->
+    <title>{% trans "Anastasia & Max" %***REMOVED***</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %***REMOVED***" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %***REMOVED***" />
+    <link rel="stylesheet" href="{% static 'css/extras.css' %***REMOVED***" />
+
+    <!-- No Script -->
+    <noscript>
+      <link rel="stylesheet" href="{% static 'css/noscript.css' %***REMOVED***" />
+    </noscript>
+
+  <!-- Global site tag (gtag.js***REMOVED*** - Google Analytics -->
+***REMOVED***% include "partials/_google-analytics.html" %***REMOVED***
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Content -->
+  ***REMOVED***% block content %***REMOVED*** {% endblock %***REMOVED***
+
+      <!-- Footer -->
+  ***REMOVED***% include 'partials/_footer.html' %***REMOVED***
+    </div>
+
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js' %***REMOVED***"></script>
+    <script src="{% static 'js/browser.min.js' %***REMOVED***"></script>
+    <script src="{% static 'js/breakpoints.min.js' %***REMOVED***"></script>
+    <script src="{% static 'js/main.js' %***REMOVED***"></script>
+    <script src="{% static 'js/util.js' %***REMOVED***"></script>
+  </body>
+</html>

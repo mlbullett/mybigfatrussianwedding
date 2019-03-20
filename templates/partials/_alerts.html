@@ -1,0 +1,19 @@
+{% if messages %***REMOVED***
+***REMOVED***% for message in messages %***REMOVED***
+    <div id="message" class="container">
+        <div class="alert alert-{{ message.tags ***REMOVED******REMOVED*** alert-dismissable text-center" role="alert">
+            <button class="close" type="button" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>
+            ***REMOVED***% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %***REMOVED***
+                    Error:
+            ***REMOVED***% else %***REMOVED***
+                ***REMOVED***{ message.tags|title ***REMOVED******REMOVED***
+            ***REMOVED***% endif %***REMOVED***
+            </strong>
+        ***REMOVED***{ message ***REMOVED******REMOVED***
+        </div>
+    </div>
+***REMOVED***% endfor %***REMOVED***
+{% endif %***REMOVED***

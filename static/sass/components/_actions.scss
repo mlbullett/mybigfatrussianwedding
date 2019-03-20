@@ -1,0 +1,101 @@
+///
+/// Dimension by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+///
+
+/* Actions */
+
+	ul.actions {
+		@include vendor('display', 'flex'***REMOVED***;
+		cursor: default;
+		list-style: none;
+		margin-left: (_size(element-margin***REMOVED*** * -0.5***REMOVED***;
+		padding-left: 0;
+
+		li {
+			padding: 0 0 0 (_size(element-margin***REMOVED*** * 0.5***REMOVED***;
+			vertical-align: middle;
+		***REMOVED***
+
+		&.special {
+			@include vendor('justify-content', 'center'***REMOVED***;
+			width: 100%;
+			margin-left: 0;
+
+			li {
+				&:first-child {
+					padding-left: 0;
+				***REMOVED***
+			***REMOVED***
+		***REMOVED***
+
+		&.stacked {
+			@include vendor('flex-direction', 'column'***REMOVED***;
+			margin-left: 0;
+
+			li {
+				padding: (_size(element-margin***REMOVED*** * 0.65***REMOVED*** 0 0 0;
+
+				&:first-child {
+					padding-top: 0;
+				***REMOVED***
+			***REMOVED***
+		***REMOVED***
+
+		&.fit {
+			width: calc(100% + #{_size(element-margin***REMOVED*** * 0.5***REMOVED******REMOVED***;
+
+			li {
+				@include vendor('flex-grow', '1'***REMOVED***;
+				@include vendor('flex-shrink', '1'***REMOVED***;
+				width: 100%;
+
+				> * {
+					width: 100%;
+				***REMOVED***
+			***REMOVED***
+
+			&.stacked {
+				width: 100%;
+			***REMOVED***
+		***REMOVED***
+
+		@include breakpoint('<=xsmall'***REMOVED*** {
+			&:not(.fixed***REMOVED*** {
+				@include vendor('flex-direction', 'column'***REMOVED***;
+				margin-left: 0;
+				width: 100% !important;
+
+				li {
+					@include vendor('flex-grow', '1'***REMOVED***;
+					@include vendor('flex-shrink', '1'***REMOVED***;
+					padding: (_size(element-margin***REMOVED*** * 0.5***REMOVED*** 0 0 0;
+					text-align: center;
+					width: 100%;
+
+					> * {
+						width: 100%;
+					***REMOVED***
+
+					&:first-child {
+						padding-top: 0;
+					***REMOVED***
+
+					input[type="submit"***REMOVED***,
+					input[type="reset"***REMOVED***,
+					input[type="button"***REMOVED***,
+					button,
+					.button {
+						width: 100%;
+
+						&.icon {
+							&:before {
+								margin-left: -0.5em;
+							***REMOVED***
+						***REMOVED***
+					***REMOVED***
+				***REMOVED***
+			***REMOVED***
+		***REMOVED***
+	***REMOVED***

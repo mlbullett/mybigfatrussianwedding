@@ -1,0 +1,223 @@
+// breakpoints.scss v1.0 | @ajlkn | MIT licensed */
+
+// Vars.
+
+	/// Breakpoints.
+	/// @var {list***REMOVED***
+	$breakpoints: (***REMOVED*** !global;
+
+// Mixins.
+
+	/// Sets breakpoints.
+	/// @param {map***REMOVED*** $x Breakpoints.
+	@mixin breakpoints($x: (***REMOVED******REMOVED*** {
+		$breakpoints: $x !global;
+	***REMOVED***
+
+	/// Wraps @content in a @media block targeting a specific orientation.
+	/// @param {string***REMOVED*** $orientation Orientation.
+	@mixin orientation($orientation***REMOVED*** {
+		@media screen and (orientation: #{$orientation***REMOVED******REMOVED*** {
+			@content;
+		***REMOVED***
+	***REMOVED***
+
+	/// Wraps @content in a @media block using a given query.
+	/// @param {string***REMOVED*** $query Query.
+	@mixin breakpoint($query: null***REMOVED*** {
+
+		$breakpoint: null;
+		$op: null;
+		$media: null;
+
+		// Determine operator, breakpoint.
+
+			// Greater than or equal.
+				@if (str-slice($query, 0, 2***REMOVED*** == '>='***REMOVED*** {
+
+					$op: 'gte';
+					$breakpoint: str-slice($query, 3***REMOVED***;
+
+				***REMOVED***
+
+			// Less than or equal.
+				@elseif (str-slice($query, 0, 2***REMOVED*** == '<='***REMOVED*** {
+
+					$op: 'lte';
+					$breakpoint: str-slice($query, 3***REMOVED***;
+
+				***REMOVED***
+
+			// Greater than.
+				@elseif (str-slice($query, 0, 1***REMOVED*** == '>'***REMOVED*** {
+
+					$op: 'gt';
+					$breakpoint: str-slice($query, 2***REMOVED***;
+
+				***REMOVED***
+
+			// Less than.
+				@elseif (str-slice($query, 0, 1***REMOVED*** == '<'***REMOVED*** {
+
+					$op: 'lt';
+					$breakpoint: str-slice($query, 2***REMOVED***;
+
+				***REMOVED***
+
+			// Not.
+				@elseif (str-slice($query, 0, 1***REMOVED*** == '!'***REMOVED*** {
+
+					$op: 'not';
+					$breakpoint: str-slice($query, 2***REMOVED***;
+
+				***REMOVED***
+
+			// Equal.
+				@else {
+
+					$op: 'eq';
+					$breakpoint: $query;
+
+				***REMOVED***
+
+		// Build media.
+			@if ($breakpoint and map-has-key($breakpoints, $breakpoint***REMOVED******REMOVED*** {
+
+				$a: map-get($breakpoints, $breakpoint***REMOVED***;
+
+				// Range.
+					@if (type-of($a***REMOVED*** == 'list'***REMOVED*** {
+
+						$x: nth($a, 1***REMOVED***;
+						$y: nth($a, 2***REMOVED***;
+
+						// Max only.
+							@if ($x == null***REMOVED*** {
+
+								// Greater than or equal (>= 0 / anything***REMOVED***
+									@if ($op == 'gte'***REMOVED*** {
+										$media: 'screen';
+									***REMOVED***
+
+								// Less than or equal (<= y***REMOVED***
+									@elseif ($op == 'lte'***REMOVED*** {
+										$media: 'screen and (max-width: ' + $y + '***REMOVED***';
+									***REMOVED***
+
+								// Greater than (> y***REMOVED***
+									@elseif ($op == 'gt'***REMOVED*** {
+										$media: 'screen and (min-width: ' + ($y + 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Less than (< 0 / invalid***REMOVED***
+									@elseif ($op == 'lt'***REMOVED*** {
+										$media: 'screen and (max-width: -1px***REMOVED***';
+									***REMOVED***
+
+								// Not (> y***REMOVED***
+									@elseif ($op == 'not'***REMOVED*** {
+										$media: 'screen and (min-width: ' + ($y + 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Equal (<= y***REMOVED***
+									@else {
+										$media: 'screen and (max-width: ' + $y + '***REMOVED***';
+									***REMOVED***
+
+							***REMOVED***
+
+						// Min only.
+							@else if ($y == null***REMOVED*** {
+
+								// Greater than or equal (>= x***REMOVED***
+									@if ($op == 'gte'***REMOVED*** {
+										$media: 'screen and (min-width: ' + $x + '***REMOVED***';
+									***REMOVED***
+
+								// Less than or equal (<= inf / anything***REMOVED***
+									@elseif ($op == 'lte'***REMOVED*** {
+										$media: 'screen';
+									***REMOVED***
+
+								// Greater than (> inf / invalid***REMOVED***
+									@elseif ($op == 'gt'***REMOVED*** {
+										$media: 'screen and (max-width: -1px***REMOVED***';
+									***REMOVED***
+
+								// Less than (< x***REMOVED***
+									@elseif ($op == 'lt'***REMOVED*** {
+										$media: 'screen and (max-width: ' + ($x - 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Not (< x***REMOVED***
+									@elseif ($op == 'not'***REMOVED*** {
+										$media: 'screen and (max-width: ' + ($x - 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Equal (>= x***REMOVED***
+									@else {
+										$media: 'screen and (min-width: ' + $x + '***REMOVED***';
+									***REMOVED***
+
+							***REMOVED***
+
+						// Min and max.
+							@else {
+
+								// Greater than or equal (>= x***REMOVED***
+									@if ($op == 'gte'***REMOVED*** {
+										$media: 'screen and (min-width: ' + $x + '***REMOVED***';
+									***REMOVED***
+
+								// Less than or equal (<= y***REMOVED***
+									@elseif ($op == 'lte'***REMOVED*** {
+										$media: 'screen and (max-width: ' + $y + '***REMOVED***';
+									***REMOVED***
+
+								// Greater than (> y***REMOVED***
+									@elseif ($op == 'gt'***REMOVED*** {
+										$media: 'screen and (min-width: ' + ($y + 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Less than (< x***REMOVED***
+									@elseif ($op == 'lt'***REMOVED*** {
+										$media: 'screen and (max-width: ' + ($x - 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Not (< x and > y***REMOVED***
+									@elseif ($op == 'not'***REMOVED*** {
+										$media: 'screen and (max-width: ' + ($x - 1***REMOVED*** + '***REMOVED***, screen and (min-width: ' + ($y + 1***REMOVED*** + '***REMOVED***';
+									***REMOVED***
+
+								// Equal (>= x and <= y***REMOVED***
+									@else {
+										$media: 'screen and (min-width: ' + $x + '***REMOVED*** and (max-width: ' + $y + '***REMOVED***';
+									***REMOVED***
+
+							***REMOVED***
+
+					***REMOVED***
+
+				// String.
+					@else {
+
+						// Missing a media type? Prefix with "screen".
+							@if (str-slice($a, 0, 1***REMOVED*** == '('***REMOVED*** {
+								$media: 'screen and ' + $a;
+							***REMOVED***
+
+						// Otherwise, use as-is.
+							@else {
+								$media: $a;
+							***REMOVED***
+
+					***REMOVED***
+
+			***REMOVED***
+
+		// Output.
+	        @media #{$media***REMOVED*** {
+				@content;
+			***REMOVED***
+
+	***REMOVED***

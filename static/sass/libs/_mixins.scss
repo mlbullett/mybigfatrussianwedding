@@ -1,0 +1,63 @@
+/// Makes an element's :before pseudoelement a FontAwesome icon.
+/// @param {string***REMOVED*** $content Optional content value to use.
+/// @param {string***REMOVED*** $where Optional pseudoelement to target (before or after***REMOVED***.
+@mixin icon($content: false, $where: before***REMOVED*** {
+
+	text-decoration: none;
+
+	&:#{$where***REMOVED*** {
+
+		@if $content {
+			content: $content;
+		***REMOVED***
+
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+
+	***REMOVED***
+
+***REMOVED***
+
+/// Applies padding to an element, taking the current element-margin value into account.
+/// @param {mixed***REMOVED*** $tb Top/bottom padding.
+/// @param {mixed***REMOVED*** $lr Left/right padding.
+/// @param {list***REMOVED*** $pad Optional extra padding (in the following order top, right, bottom, left***REMOVED***
+/// @param {bool***REMOVED*** $important If true, adds !important.
+@mixin padding($tb, $lr, $pad: (0,0,0,0***REMOVED***, $important: null***REMOVED*** {
+
+	@if $important {
+		$important: '!important';
+	***REMOVED***
+
+	$x: 0.1em;
+
+	@if unit(_size(element-margin***REMOVED******REMOVED*** == 'rem' {
+		$x: 0.1rem;
+	***REMOVED***
+
+	padding: ($tb + nth($pad,1***REMOVED******REMOVED*** ($lr + nth($pad,2***REMOVED******REMOVED*** max($x, $tb - _size(element-margin***REMOVED*** + nth($pad,3***REMOVED******REMOVED*** ($lr + nth($pad,4***REMOVED******REMOVED*** #{$important***REMOVED***;
+
+***REMOVED***
+
+/// Encodes a SVG data URL so IE doesn't choke (via codepen.io/jakob-e/pen/YXXBrp***REMOVED***.
+/// @param {string***REMOVED*** $svg SVG data URL.
+/// @return {string***REMOVED*** Encoded SVG data URL.
+@function svg-url($svg***REMOVED*** {
+
+	$svg: str-replace($svg, '"', '\''***REMOVED***;
+	$svg: str-replace($svg, '%', '%25'***REMOVED***;
+	$svg: str-replace($svg, '<', '%3C'***REMOVED***;
+	$svg: str-replace($svg, '>', '%3E'***REMOVED***;
+	$svg: str-replace($svg, '&', '%26'***REMOVED***;
+	$svg: str-replace($svg, '#', '%23'***REMOVED***;
+	$svg: str-replace($svg, '{', '%7B'***REMOVED***;
+	$svg: str-replace($svg, '***REMOVED***', '%7D'***REMOVED***;
+	$svg: str-replace($svg, ';', '%3B'***REMOVED***;
+
+	@return url("data:image/svg+xml;charset=utf8,#{$svg***REMOVED***"***REMOVED***;
+
+***REMOVED***

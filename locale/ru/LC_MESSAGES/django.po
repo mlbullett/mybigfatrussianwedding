@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C***REMOVED*** YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-20 22:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14***REMOVED*** ? 1 : n%10==0 || (n%10>=5 && n%10<=9***REMOVED*** || (n"
+"%100>=11 && n%100<=14***REMOVED***? 2 : 3***REMOVED***;\n"
+
+#: templates/base.html:16
+msgid "Anastasia & Max"
+msgstr ""
+
+#: templates/pages/index.html:15
+msgid "Anastasia &<br />Max's wedding"
+msgstr ""
+
+#: templates/pages/index.html:16
+msgid "Join us!"
+msgstr ""
+
+#: templates/pages/index.html:22 templates/pages/index.html:48
+msgid "Story"
+msgstr ""
+
+#: templates/pages/index.html:23 templates/pages/index.html:76
+msgid "Wedding"
+msgstr ""
+
+#: templates/pages/index.html:24 templates/pages/index.html:98
+msgid "Travel"
+msgstr ""
+
+#: templates/pages/index.html:25 templates/pages/index.html:111
+msgid "Registry"
+msgstr ""
+
+#: templates/pages/index.html:26 templates/pages/index.html:124
+msgid "RSVP"
+msgstr ""
+
+#: templates/pages/index.html:35
+msgid "Languages"
+msgstr ""
+
+#: templates/pages/index.html:53
+msgid ""
+"<b>Saturday, 21 March 2015:</b><br />There <strong>SHE</strong> sat, in one "
+"of the typically rundown and smoky dives just off Torstraße, Berlin's "
+"wealthy slums. Time crawled on at it's usual imperceptible pace as she "
+"phased in and out of her friends' conversations. Despite its languor, the "
+"evening was coming to a dull close, absent of coveted adventure. Suddenly, "
+"the door crashed open..."
+msgstr ""
+
+#: templates/pages/index.html:58
+msgid ""
+"<b>Thursday, 8 March 2018:</b><br /><strong>HE</strong> hoped his cool and "
+"jaunty demeanor was enough to mask the tempest of butterflies currently "
+"laying waste to his stomach. They had set out to Chenonceau that morning "
+"under the guise of a quixotic expedition, little did his better half know "
+"what awaited for her. Although he had gotten used to the weight of the small "
+"box that had been sitting in his pocket for the last 4 months, it seemed to "
+"get exponentially heavier with each step down the fir-lined trail until he "
+"couldn't bear it anymore and dropped to one knee."
+msgstr ""
+
+#: templates/pages/index.html:63
+msgid ""
+"<b>Tuesday, 10 July 2018:</b><br /><strong>THEY</strong> stood in front of "
+"the mayor of that fateful little village in the Loire valley. Backed by "
+"their close family, they beamed with delight as they tried to listen "
+"attentively to his courteous discourse. In the eyes of the law, they were "
+"now bound."
+msgstr ""
+
+#: templates/pages/index.html:68
+msgid ""
+"<b>Sunday, 1 September 2019</b><br />Now the moment has come for <strong>US</"
+"strong> to vow our undying love in the presence of God and <strong>YOU</"
+"strong> our most cherished comrades. Join us for our crowning ceremony "
+"(orthodox wedding rite***REMOVED*** and a celebration of unprecedented lavishness in "
+"Saint Petersburg."
+msgstr ""
+
+#: templates/pages/index.html:81
+msgid ""
+"The Wedding Day starts at 3pm and begins with the crowning ceremony in the "
+"ancient baroque Church of of the Holy Righteous Simeon and Anna the "
+"Prophetess build in 1734 and located in the heart of Saint Petersburg. The "
+"ceremony follows age-old traditions and rituals of the Russian Orthodox "
+"Church. The crown held above the heads of the bride and the groom symbolize "
+"the glory and honor that is being bestowed on them by God during the "
+"sacrament. The wine that is being presented to the couple is reminding us "
+"about the water that was turned into wine by Jesus at the wedding of of Cana "
+"at Galilee. And finally, the walk around the altar completes the ritual to "
+"strengthen the union."
+msgstr ""
+
+#: templates/pages/index.html:86
+msgid ""
+"The ceremony will be followed by the reception in the Wedding Craft Loft "
+"“Vesseniy” which will start around 5pm. After seeing the lush, rich, "
+"Imperial Saint Petersburg you will get the opportunity to see the other side "
+"of Saint Petersburg: underground, vintage, artistic."
+msgstr ""
+
+#: templates/pages/index.html:90
+msgid ""
+"We will provide you with a more precise information about the exact time of "
+"the reception and the transportation between the church and the celebration "
+"venue."
+msgstr ""
+
+#: templates/pages/index.html:103 templates/pages/index.html:116
+msgid ""
+"Your presence is the best ever gift we could expect for our wedding day. "
+"However, we also know that people like making presents. That’s why we "
+"prepared this registry list for you where every one of you can donate "
+"something to the things that we will need in our new married life."
+msgstr ""

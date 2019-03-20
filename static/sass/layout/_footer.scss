@@ -1,0 +1,37 @@
+///
+/// Dimension by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+///
+
+/* Footer */
+
+	#footer {
+		@include vendor('transition', (
+			'transform #{_duration(article***REMOVED******REMOVED*** ease-in-out',
+			'filter #{_duration(article***REMOVED******REMOVED*** ease-in-out',
+			'opacity #{_duration(article***REMOVED******REMOVED*** ease-in-out',
+		***REMOVED******REMOVED***;
+		width: 100%;
+		max-width: 100%;
+		margin-top: 2rem;
+		text-align: center;
+
+		.copyright {
+			letter-spacing: _font(letter-spacing***REMOVED***;
+			font-size: 0.6rem;
+			opacity: 0.75;
+			margin-bottom: 0;
+			text-transform: uppercase;
+		***REMOVED***
+
+		body.is-article-visible & {
+			@include vendor('transform', 'scale(0.95***REMOVED***'***REMOVED***;
+			@include vendor('filter', 'blur(0.1rem***REMOVED***'***REMOVED***;
+			opacity: 0;
+		***REMOVED***
+
+		body.is-preload & {
+			opacity: 0;
+		***REMOVED***
+	***REMOVED***

@@ -1,0 +1,49 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+ALLOWED_HOSTS	../wedding/settings.py	/^ALLOWED_HOSTS = ["localhost", "mybigfatrussian.wedding"***REMOVED***$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:94
+BASE_DIR	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:16
+DATABASES	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:79
+DEBUG	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:26
+INSTALLED_APPS	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:33
+LANGUAGES	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:115
+LANGUAGE_CODE	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:113
+LOCALE_PATHS	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:121
+MEDIA_ROOT	../wedding/settings.py	/^MEDIA_ROOT = os.path.join(BASE_DIR, 'media'***REMOVED***$/;"	kind:variable	line:144
+MEDIA_URL	../wedding/settings.py	/^MEDIA_URL = '\/media\/'$/;"	kind:variable	line:145
+MIDDLEWARE	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:43
+PagesConfig	../pages/apps.py	/^class PagesConfig(AppConfig***REMOVED***:$/;"	kind:class	line:4
+ROOT_URLCONF	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:54
+SECRET_KEY	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:23
+STATICFILES_DIRS	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:139
+STATIC_ROOT	../wedding/settings.py	/^STATIC_ROOT = os.path.join(BASE_DIR, 'static'***REMOVED***$/;"	kind:variable	line:137
+STATIC_URL	../wedding/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:138
+TEMPLATES	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:56
+TIME_ZONE	../wedding/settings.py	/^TIME_ZONE = 'Europe\/Berlin'$/;"	kind:variable	line:125
+USE_I18N	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:127
+USE_L10N	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:129
+USE_TZ	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:131
+WSGI_APPLICATION	../wedding/settings.py	/^***REMOVED***$/;"	kind:variable	line:73
+__init__.py	../pages/__init__.py	1;"	kind:file	line:1
+__init__.py	../pages/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../wedding/__init__.py	1;"	kind:file	line:1
+admin.py	../pages/admin.py	1;"	kind:file	line:1
+application	../wedding/wsgi.py	/^application = get_wsgi_application(***REMOVED***$/;"	kind:variable	line:16
+apps.py	../pages/apps.py	1;"	kind:file	line:1
+index	../pages/views.py	/^def index(request***REMOVED***:$/;"	kind:function	line:4
+manage.py	../manage.py	1;"	kind:file	line:1
+models.py	../pages/models.py	1;"	kind:file	line:1
+name	../pages/apps.py	/^    name = 'pages'$/;"	kind:variable	line:5
+settings.py	../wedding/settings.py	1;"	kind:file	line:1
+tests.py	../pages/tests.py	1;"	kind:file	line:1
+urlpatterns	../pages/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../wedding/urls.py	/^urlpatterns = [$/;"	kind:variable	line:5
+urls.py	../pages/urls.py	1;"	kind:file	line:1
+urls.py	../wedding/urls.py	1;"	kind:file	line:1
+views.py	../pages/views.py	1;"	kind:file	line:1
+wsgi.py	../wedding/wsgi.py	1;"	kind:file	line:1

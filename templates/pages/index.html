@@ -1,0 +1,210 @@
+{% extends "base.html" %***REMOVED***
+{% load i18n %***REMOVED***
+{% get_current_language as LANGUAGE_CODE %***REMOVED***
+{% get_available_languages as LANGUAGES %***REMOVED***
+{% load static %***REMOVED***
+
+{% block content %***REMOVED***
+<!-- Header -->
+<header id="header">
+  <div class="logo">
+    <span class="icon fa-diamond"></span>
+  </div>
+  <div class="content">
+    <div class="inner">
+      <h1>{% trans "Anastasia &<br />Max's wedding" %***REMOVED***</h1>
+      <p>{% trans "Join us!" %***REMOVED***</p>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#story">{% trans "Story" %***REMOVED***</a></li>
+      <li><a href="#wedding">{% trans "Wedding" %***REMOVED***</a></li>
+      <li><a href="#travel">{% trans "Travel" %***REMOVED***</a></li>
+      <li><a href="#registry">{% trans "Registry" %***REMOVED***</a></li>
+      <li><a href="#rsvp">{% trans "RSVP" %***REMOVED***</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main -->
+<div id="main">
+  <!-- Languages -->
+  <article id="languages">
+    <h2 class="major">{% trans "Languages" %***REMOVED***</h2>
+    <ul class="actions">
+    ***REMOVED***% for code, name in LANGUAGES %***REMOVED***
+        <li>
+          <input type="button" value="{{ name ***REMOVED******REMOVED***" onClick="location.href='/{{ code ***REMOVED******REMOVED***'" {% if code == LANGUAGE_CODE %***REMOVED***disabled{% endif %***REMOVED*** >
+        </li>
+    ***REMOVED***% endfor %***REMOVED***
+    </ul>
+    </p>
+  </article>
+
+  <!-- Story -->
+  <article id="story">
+    <h2 class="major">{% trans "Story" %***REMOVED***</h2>
+    <span class="image main"
+      ><img src="{% static 'img/ourstory.jpg' %***REMOVED***" alt=""
+    /></span>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        <b>Saturday, 21 March 2015:</b><br />There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open...
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        <b>Thursday, 8 March 2018:</b><br /><strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of butterflies currently laying waste to his stomach. They had set out to Chenonceau that morning under the guise of a quixotic expedition, little did his better half know what awaited for her. Although he had gotten used to the weight of the small box that had been sitting in his pocket for the last 4 months, it seemed to get exponentially heavier with each step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee.
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        <b>Tuesday, 10 July 2018:</b><br /><strong>THEY</strong> stood in front of the mayor of that fateful little village in the Loire valley. Backed by their close family, they beamed with delight as they tried to listen attentively to his courteous discourse. In the eyes of the law, they were now bound.
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        <b>Sunday, 1 September 2019</b><br />Now the moment has come for <strong>US</strong> to vow our undying love in the presence of God and <strong>YOU</strong> our most cherished comrades. Join us for our crowning ceremony (orthodox wedding rite***REMOVED*** and a celebration of unprecedented lavishness in Saint Petersburg.
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+  </article>
+
+  <!-- Wedding -->
+  <article id="wedding">
+    <h2 class="major">{% trans "Wedding" %***REMOVED***</h2>
+    <span class="image main"
+      ><img src="{% static 'img/ourstory.jpg' %***REMOVED***" alt=""
+    /></span>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        <b>Sunday, 1 September 2019:<br />15:00</b><br />
+        The wedding day will begin with the traditional Russian Orthodox crowning ceremony in the Church Of the Holy Righteous Simeon and Anna the Prophetess. The church was built in 1734 by Empress Anna Ioannovna in the heart of Saint Petersburg.<br />
+        The ceremony will start with the bethrothal service, during which the priest blesses the rings. After which the couple exchanges them, placing them on their right hand.<br />
+        This is immediately followed by the wedding service. The bride and groom will carry candles as the priest joins their hands whilst praying for their marriage. The candle- and hand-holding will continue until the end of the ceremony as a symbol of union.<br />
+        Now comes the moment for the centerpiece of the Orthodox wedding ceremony: the Crowning. The crowns, held above the heads of the bride and the groom by the witnesses, symbolize the glory and honor that is being bestowed on them by God during the holy sacrament of mariage.<br />
+        After the crowns have been placed firmly on the couple's heads, the bride and groom take three sips of wine from a shared cup. The wine is reminiscent of the miracle of the wedding of Cana of Galilee, where water was famously turned into wine.<br />
+        Finally, the bride and groom will circle the central altar three times, echoing a pre-Christian ritual dance, accompagnied by a choir. In this act, the couple takes their first steps as a married couple and the ceremony is concluded with the ancient blessing "Na zisete" ("May you live!"***REMOVED***
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        <b>17:00</b><br />
+        After seeing the lush, rich, Imperial Saint Petersburg, you will get the opportunity to see the other side of the city: underground, vintage, and artistic. The reception will take place in the Craft Loft “Vesseniy”, not 15 minutes away by car. You'll be greeted with bubbles, canapés, and music. Shortly after which, the banquet will be served.<br />
+        Russian wedding traditions are numerous and rich, a few you may want to know and participate in are as follows.<br />
+        You may overhear guests talking about the bitterness of the food. This is no culinary critique, but one of the traditional wedding games. Guests slowly start to chant "Gorka, gorka, gorka..." (meaning "bitter"***REMOVED*** until the newlyweds kiss after which the guests start counting upwards. The goal being to kiss for as long as possible and then exclaim: "No, it's sweet!".<br />
+        During the long banquet, all guests are welcome to perform a speech, song, dance, roast, or any other variety of number, in groups or alone. With multiple cultures and languages present, this is a relaxed and informal opportunity to exchange and bring the party together.<br />
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        We will provide you with further information about the proceedings, transportation, and activities surrounding this momentous occasion by email and on the website as the story develops.
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+  </article>
+
+    <!-- Travel -->
+    <article id="travel">
+      <h2 class="major">{% trans "Travel" %***REMOVED***</h2>
+      <span class="image main"
+        ><img src="{% static 'img/ourstory.jpg' %***REMOVED***" alt=""
+      /></span>
+      <p>
+    ***REMOVED***% blocktrans trimmed %***REMOVED***
+          Your presence is the best ever gift we could expect for our wedding day. However, we also know that people like making presents. That’s why we prepared this registry list for you where every one of you can donate something to the things that we will need in our new married life.
+    ***REMOVED***% endblocktrans %***REMOVED***
+      </p>
+    </article>
+
+  <!-- Registry -->
+  <article id="registry">
+    <h2 class="major">{% trans "Registry" %***REMOVED***</h2>
+    <span class="image main"
+      ><img src="{% static 'img/ourstory.jpg' %***REMOVED***" alt=""
+    /></span>
+    <p>
+  ***REMOVED***% blocktrans trimmed %***REMOVED***
+        Your presence is the best ever gift we could expect for our wedding day. However, we also know that people like making presents. That’s why we prepared this registry list for you where every one of you can donate something to the things that we will need in our new married life.
+  ***REMOVED***% endblocktrans %***REMOVED***
+    </p>
+  </article>
+
+  <!-- RSVP -->
+  <article id="rsvp">
+    <h2 class="major">{% trans "RSVP" %***REMOVED***</h2>
+    <section>
+      <!-- Alerts -->
+  ***REMOVED***% include 'partials/_alerts.html' %***REMOVED***
+      <form method="post" action="#">
+        <div class="fields">
+          <div class="field">
+            <input
+              type="text"
+              name="rsvp-code"
+              id="rsvp-code"
+              placeholder="RSVP code"
+              required
+            />
+          </div>
+          <div class="field half">
+            <input
+              type="text"
+              name="rsvp-name"
+              id="rsvp-name"
+              placeholder="Fullname"
+              required
+            />
+          </div>
+          <div class="field half">
+            <input
+              type="email"
+              name="rsvp-email"
+              id="rsvp-email"
+              placeholder="Email address"
+              required
+            />
+          </div>
+          <div class="field half">
+            <input
+              type="radio"
+              name="rsvp-attendance"
+              id="rsvp-accept"
+              value="accepted"
+            />
+            <label for="rsvp-accept">Accept, with pleasure</label>
+          </div>
+          <div class="field half">
+            <input
+              type="radio"
+              name="rsvp-attendance"
+              id="rsvp-decline"
+              value="declined"
+            />
+            <label for="rsvp-decline">Decline, with regrets</label>
+          </div>
+          <div class="field">
+            <input
+              type="text"
+              name="rsvp-song"
+              id="rsvp-song"
+              placeholder="Suggest a song for the reception!"
+            />
+          </div>
+          <div class="field">
+            <textarea
+              name="rsvp-message"
+              id="rsvp-message"
+              placeholder="Leave a message for the bride and groom!"
+              rows="6"
+            ></textarea>
+          </div>
+        </div>
+        <ul class="actions">
+          <li><input type="submit" value="Confirm" class="primary" /></li>
+          <li><input type="reset" value="Reset" /></li>
+        </ul>
+      </form>
+    </section>
+  </article>
+</div>
+{% endblock content %***REMOVED***

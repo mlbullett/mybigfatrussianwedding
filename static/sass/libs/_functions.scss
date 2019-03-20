@@ -1,0 +1,90 @@
+/// Removes a specific item from a list.
+/// @author Hugo Giraudel
+/// @param {list***REMOVED*** $list List.
+/// @param {integer***REMOVED*** $index Index.
+/// @return {list***REMOVED*** Updated list.
+@function remove-nth($list, $index***REMOVED*** {
+
+	$result: null;
+
+	@if type-of($index***REMOVED*** != number {
+		@warn "$index: #{quote($index***REMOVED******REMOVED*** is not a number for `remove-nth`.";
+	***REMOVED***
+	@else if $index == 0 {
+		@warn "List index 0 must be a non-zero integer for `remove-nth`.";
+	***REMOVED***
+	@else if abs($index***REMOVED*** > length($list***REMOVED*** {
+		@warn "List index is #{$index***REMOVED*** but list is only #{length($list***REMOVED******REMOVED*** item long for `remove-nth`.";
+	***REMOVED***
+	@else {
+
+		$result: (***REMOVED***;
+		$index: if($index < 0, length($list***REMOVED*** + $index + 1, $index***REMOVED***;
+
+		@for $i from 1 through length($list***REMOVED*** {
+
+			@if $i != $index {
+				$result: append($result, nth($list, $i***REMOVED******REMOVED***;
+			***REMOVED***
+
+		***REMOVED***
+
+	***REMOVED***
+
+	@return $result;
+
+***REMOVED***
+
+/// Gets a value from a map.
+/// @author Hugo Giraudel
+/// @param {map***REMOVED*** $map Map.
+/// @param {string***REMOVED*** $keys Key(s***REMOVED***.
+/// @return {string***REMOVED*** Value.
+@function val($map, $keys...***REMOVED*** {
+
+	@if nth($keys, 1***REMOVED*** == null {
+		$keys: remove-nth($keys, 1***REMOVED***;
+	***REMOVED***
+
+	@each $key in $keys {
+		$map: map-get($map, $key***REMOVED***;
+	***REMOVED***
+
+	@return $map;
+
+***REMOVED***
+
+/// Gets a duration value.
+/// @param {string***REMOVED*** $keys Key(s***REMOVED***.
+/// @return {string***REMOVED*** Value.
+@function _duration($keys...***REMOVED*** {
+	@return val($duration, $keys...***REMOVED***;
+***REMOVED***
+
+/// Gets a font value.
+/// @param {string***REMOVED*** $keys Key(s***REMOVED***.
+/// @return {string***REMOVED*** Value.
+@function _font($keys...***REMOVED*** {
+	@return val($font, $keys...***REMOVED***;
+***REMOVED***
+
+/// Gets a misc value.
+/// @param {string***REMOVED*** $keys Key(s***REMOVED***.
+/// @return {string***REMOVED*** Value.
+@function _misc($keys...***REMOVED*** {
+	@return val($misc, $keys...***REMOVED***;
+***REMOVED***
+
+/// Gets a palette value.
+/// @param {string***REMOVED*** $keys Key(s***REMOVED***.
+/// @return {string***REMOVED*** Value.
+@function _palette($keys...***REMOVED*** {
+	@return val($palette, $keys...***REMOVED***;
+***REMOVED***
+
+/// Gets a size value.
+/// @param {string***REMOVED*** $keys Key(s***REMOVED***.
+/// @return {string***REMOVED*** Value.
+@function _size($keys...***REMOVED*** {
+	@return val($size, $keys...***REMOVED***;
+***REMOVED***
