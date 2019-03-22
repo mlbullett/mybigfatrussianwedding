@@ -1,9 +1,9 @@
-[[source***REMOVED******REMOVED***
+[[source]]
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
-[dev-packages***REMOVED***
+[dev-packages]
 nose = "*"
 pylint = "*"
 bandit = "*"
@@ -11,7 +11,7 @@ flake8 = "*"
 autopep8 = "*"
 pep8 = "*"
 
-[packages***REMOVED***
+[packages]
 
-[requires***REMOVED***
+[requires]
 python_version = "3.7"

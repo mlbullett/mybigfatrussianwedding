@@ -1,13 +1,13 @@
 ///
 /// Dimension by HTML5 UP
 /// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* BG */
 
 	#bg {
-		@include vendor('transform', 'scale(1.0***REMOVED***'***REMOVED***;
+		@include vendor('transform', 'scale(1.0)');
 		-webkit-backface-visibility: hidden;
 		position: fixed;
 		top: 0;
@@ -24,13 +24,13 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-		***REMOVED***
+		}
 
 		&:before {
-			@include vendor('transition', 'background-color #{_duration(bg***REMOVED******REMOVED*** ease-in-out'***REMOVED***;
-			@include vendor('transition-delay', '#{_duration(intro***REMOVED******REMOVED***'***REMOVED***;
-			background-image:		linear-gradient(to top, #{_palette(bg-overlay***REMOVED******REMOVED***, #{_palette(bg-overlay***REMOVED******REMOVED******REMOVED***,
-									url('../../images/overlay.png'***REMOVED***;
+			@include vendor('transition', 'background-color #{_duration(bg)} ease-in-out');
+			@include vendor('transition-delay', '#{_duration(intro)}');
+			background-image:		linear-gradient(to top, #{_palette(bg-overlay)}, #{_palette(bg-overlay)}),
+									url('../../images/overlay.png');
 			background-size:		auto,
 									256px 256px;
 			background-position:	center,
@@ -38,31 +38,31 @@
 			background-repeat:		no-repeat,
 									repeat;
 			z-index: 2;
-		***REMOVED***
+		}
 
 		&:after {
-			@include vendor('transform', 'scale(1.125***REMOVED***'***REMOVED***;
+			@include vendor('transform', 'scale(1.125)');
 			@include vendor('transition', (
-				'transform #{_duration(article***REMOVED******REMOVED*** ease-in-out',
-				'filter #{_duration(article***REMOVED******REMOVED*** ease-in-out'
-			***REMOVED******REMOVED***;
-			background-image:		url('../../images/bg.jpg'***REMOVED***;
+				'transform #{_duration(article)} ease-in-out',
+				'filter #{_duration(article)} ease-in-out'
+			));
+			background-image:		url('../../images/bg.jpg');
 			background-position:	center;
 			background-size:		cover;
 			background-repeat:		no-repeat;
 			z-index: 1;
-		***REMOVED***
+		}
 
 		body.is-article-visible & {
 			&:after {
-				@include vendor('transform', 'scale(1.0825***REMOVED***'***REMOVED***;
-				@include vendor('filter', 'blur(0.2rem***REMOVED***'***REMOVED***;
-			***REMOVED***
-		***REMOVED***
+				@include vendor('transform', 'scale(1.0825)');
+				@include vendor('filter', 'blur(0.2rem)');
+			}
+		}
 
 		body.is-preload & {
 			&:before {
-				background-color: _palette(bg-alt***REMOVED***;
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+				background-color: _palette(bg-alt);
+			}
+		}
+	}

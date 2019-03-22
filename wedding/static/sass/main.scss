@@ -4,24 +4,24 @@
 @import 'libs/vendor';
 @import 'libs/breakpoints';
 @import 'font-awesome.min.css';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600'***REMOVED***;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600');
 
 /*
 	Dimension by HTML5 UP
 	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 // Breakpoints.
 
 	@include breakpoints((
-		xlarge:   ( 1281px,  1680px ***REMOVED***,
-		large:    ( 981px,   1280px ***REMOVED***,
-		medium:   ( 737px,   980px  ***REMOVED***,
-		small:    ( 481px,   736px  ***REMOVED***,
-		xsmall:   ( 361px,   480px  ***REMOVED***,
-		xxsmall:  ( null,    360px  ***REMOVED***
-	***REMOVED******REMOVED***;
+		xlarge:   ( 1281px,  1680px ),
+		large:    ( 981px,   1280px ),
+		medium:   ( 737px,   980px  ),
+		small:    ( 481px,   736px  ),
+		xsmall:   ( 361px,   480px  ),
+		xxsmall:  ( null,    360px  )
+	));
 
 // Base.
 

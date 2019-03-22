@@ -1,29 +1,29 @@
 ///
 /// Dimension by HTML5 UP
 /// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Header */
 
 	#header {
-		@include vendor('display', 'flex'***REMOVED***;
-		@include vendor('flex-direction', 'column'***REMOVED***;
-		@include vendor('align-items', 'center'***REMOVED***;
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
+		@include vendor('align-items', 'center');
 		@include vendor('transition', (
-			'transform #{_duration(article***REMOVED******REMOVED*** ease-in-out',
-			'filter #{_duration(article***REMOVED******REMOVED*** ease-in-out',
-			'opacity #{_duration(article***REMOVED******REMOVED*** ease-in-out',
-		***REMOVED******REMOVED***;
-		background-image: -moz-radial-gradient(rgba(0,0,0,0.25***REMOVED*** 25%, rgba(0,0,0,0***REMOVED*** 55%***REMOVED***;
-		background-image: -webkit-radial-gradient(rgba(0,0,0,0.25***REMOVED*** 25%, rgba(0,0,0,0***REMOVED*** 55%***REMOVED***;
-		background-image: -ms-radial-gradient(rgba(0,0,0,0.25***REMOVED*** 25%, rgba(0,0,0,0***REMOVED*** 55%***REMOVED***;
-		background-image: radial-gradient(rgba(0,0,0,0.25***REMOVED*** 25%, rgba(0,0,0,0***REMOVED*** 55%***REMOVED***;
+			'transform #{_duration(article)} ease-in-out',
+			'filter #{_duration(article)} ease-in-out',
+			'opacity #{_duration(article)} ease-in-out',
+		));
+		background-image: -moz-radial-gradient(rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 55%);
+		background-image: -webkit-radial-gradient(rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 55%);
+		background-image: -ms-radial-gradient(rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 55%);
+		background-image: radial-gradient(rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 55%);
 		max-width: 100%;
 		text-align: center;
 
 		> * {
-			@include vendor('transition', 'opacity #{_duration(article***REMOVED******REMOVED*** ease-in-out'***REMOVED***;
+			@include vendor('transition', 'opacity #{_duration(article)} ease-in-out');
 			position: relative;
 			margin-top: 3.5rem;
 
@@ -31,105 +31,105 @@
 				content: '';
 				display: block;
 				position: absolute;
-				top: calc(-3.5rem - 1px***REMOVED***;
-				left: calc(50% - #{_size(border-width***REMOVED*** * 1***REMOVED******REMOVED***;
-				width: _size(border-width***REMOVED***;
-				height: calc(3.5rem + 1px***REMOVED***;
-				background: _palette(border***REMOVED***;
-			***REMOVED***
-		***REMOVED***
+				top: calc(-3.5rem - 1px);
+				left: calc(50% - #{_size(border-width) * 1});
+				width: _size(border-width);
+				height: calc(3.5rem + 1px);
+				background: _palette(border);
+			}
+		}
 
 		> :first-child {
 			margin-top: 0;
 
 			&:before {
 				display: none;
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		.logo {
 			width: 5.5rem;
 			height: 5.5rem;
 			line-height: 5.5rem;
-			border: solid _size(border-width***REMOVED*** _palette(border***REMOVED***;
+			border: solid _size(border-width) _palette(border);
 			border-radius: 100%;
 
 			.icon {
 				&:before {
 					font-size: 2rem;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
 		.content {
 			border-style: solid;
-			border-color: _palette(border***REMOVED***;
-			border-top-width: _size(border-width***REMOVED***;
-			border-bottom-width: _size(border-width***REMOVED***;
+			border-color: _palette(border);
+			border-top-width: _size(border-width);
+			border-bottom-width: _size(border-width);
 			max-width: 100%;
 
 			.inner {
 				@include vendor('transition', (
-					'max-height #{_duration(intro***REMOVED******REMOVED*** ease',
-					'padding #{_duration(intro***REMOVED******REMOVED*** ease',
-					'opacity #{_duration(article***REMOVED******REMOVED*** ease-in-out'
-				***REMOVED******REMOVED***;
-				@include vendor('transition-delay', '0.25s'***REMOVED***;
+					'max-height #{_duration(intro)} ease',
+					'padding #{_duration(intro)} ease',
+					'opacity #{_duration(article)} ease-in-out'
+				));
+				@include vendor('transition-delay', '0.25s');
 				padding: 3rem 2rem;
 				max-height: 40rem;
 				overflow: hidden;
 
 				> :last-child {
 					margin-bottom: 0;
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 
 			p {
 				text-transform: uppercase;
-				letter-spacing: _font(letter-spacing***REMOVED***;
+				letter-spacing: _font(letter-spacing);
 				font-size: 0.8rem;
 				line-height: 2;
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		nav {
 			ul {
-				@include vendor('display', 'flex'***REMOVED***;
+				@include vendor('display', 'flex');
 				margin-bottom: 0;
 				list-style: none;
 				padding-left: 0;
-				border: solid _size(border-width***REMOVED*** _palette(border***REMOVED***;
-				border-radius: _size(border-radius***REMOVED***;
+				border: solid _size(border-width) _palette(border);
+				border-radius: _size(border-radius);
 
 				li {
 					padding-left: 0;
-					border-left: solid _size(border-width***REMOVED*** _palette(border***REMOVED***;
+					border-left: solid _size(border-width) _palette(border);
 
 					&:first-child {
 						border-left: 0;
-					***REMOVED***
+					}
 
 					a {
 						display: block;
 						min-width: 7.5rem;
 						height: 2.75rem;
 						line-height: 2.75rem;
-						padding: 0 1.25rem 0 (1.25rem + _font(letter-spacing***REMOVED******REMOVED***;
+						padding: 0 1.25rem 0 (1.25rem + _font(letter-spacing));
 						text-transform: uppercase;
-						letter-spacing: _font(letter-spacing***REMOVED***;
+						letter-spacing: _font(letter-spacing);
 						font-size: 0.8rem;
 						border-bottom: 0;
 
 						&:hover {
-							background-color: _palette(border-bg***REMOVED***;
-						***REMOVED***
+							background-color: _palette(border-bg);
+						}
 
 						&:active {
-							background-color: _palette(border-bg-alt***REMOVED***;
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
+							background-color: _palette(border-bg-alt);
+						}
+					}
+				}
+			}
 
 			&.use-middle {
 				&:after {
@@ -137,34 +137,34 @@
 					display: block;
 					position: absolute;
 					top: 0;
-					left: calc(50% - #{_size(border-width***REMOVED*** * 1***REMOVED******REMOVED***;
-					width: _size(border-width***REMOVED***;
+					left: calc(50% - #{_size(border-width) * 1});
+					width: _size(border-width);
 					height: 100%;
-					background: _palette(border***REMOVED***;
-				***REMOVED***
+					background: _palette(border);
+				}
 
 				ul {
 					li {
 						&.is-middle {
 							border-left: 0;
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+						}
+					}
+				}
+			}
+		}
 
 		body.is-article-visible & {
-			@include vendor('transform', 'scale(0.95***REMOVED***'***REMOVED***;
-			@include vendor('filter', 'blur(0.1rem***REMOVED***'***REMOVED***;
+			@include vendor('transform', 'scale(0.95)');
+			@include vendor('filter', 'blur(0.1rem)');
 			opacity: 0;
-		***REMOVED***
+		}
 
 		body.is-preload & {
 			> * {
 				opacity: 0;
-			***REMOVED***
+			}
 
-			@include vendor('filter', 'blur(0.125rem***REMOVED***'***REMOVED***;
+			@include vendor('filter', 'blur(0.125rem)');
 
 			.content {
 				.inner {
@@ -172,29 +172,29 @@
 					padding-top: 0;
 					padding-bottom: 0;
 					opacity: 0;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
-		@include breakpoint('<=medium'***REMOVED*** {
+		@include breakpoint('<=medium') {
 			.content {
 				p {
 					br {
 						display: none;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+					}
+				}
+			}
+		}
 
-		@include breakpoint('<=small'***REMOVED*** {
+		@include breakpoint('<=small') {
 			> * {
 				margin-top: 2rem;
 
 				&:before {
-					top: calc(-2rem - 1px***REMOVED***;
-					height: calc(2rem + 1px***REMOVED***;
-				***REMOVED***
-			***REMOVED***
+					top: calc(-2rem - 1px);
+					height: calc(2rem + 1px);
+				}
+			}
 
 			.logo {
 				width: 4.75rem;
@@ -204,58 +204,58 @@
 				.icon {
 					&:before {
 						font-size: 1.75rem;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
+					}
+				}
+			}
 
 			.content {
 				.inner {
 					padding: 2.5rem 1rem;
-				***REMOVED***
+				}
 
 				p {
 					line-height: 1.875;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
-		@include breakpoint('<=xsmall'***REMOVED*** {
+		@include breakpoint('<=xsmall') {
 			padding: 1.5rem 0;
 
 			.content {
 				.inner {
 					padding: 2.5rem 0;
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 
 			nav {
 				ul {
-					@include vendor('flex-direction', 'column'***REMOVED***;
+					@include vendor('flex-direction', 'column');
 					min-width: 10rem;
 					max-width: 100%;
 
 					li {
 						border-left: 0;
-						border-top: solid _size(border-width***REMOVED*** _palette(border***REMOVED***;
+						border-top: solid _size(border-width) _palette(border);
 
 						&:first-child {
 							border-top: 0;
-						***REMOVED***
+						}
 
 						a {
 							height: 3rem;
 							line-height: 3rem;
 							min-width: 0;
 							width: 100%;
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
+						}
+					}
+				}
 
 				&.use-middle {
 					&:after {
 						display: none;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+					}
+				}
+			}
+		}
+	}

@@ -1,65 +1,65 @@
-(function($***REMOVED*** {
+(function($) {
 
 	/**
-	 * Generate an indented list of links from a nav. Meant for use with panel(***REMOVED***.
-	 * @return {jQuery***REMOVED*** jQuery object.
+	 * Generate an indented list of links from a nav. Meant for use with panel().
+	 * @return {jQuery} jQuery object.
 	 */
-	$.fn.navList = function(***REMOVED*** {
+	$.fn.navList = function() {
 
-		var	$this = $(this***REMOVED***;
-			$a = $this.find('a'***REMOVED***,
-			b = [***REMOVED***;
+		var	$this = $(this);
+			$a = $this.find('a'),
+			b = [];
 
-		$a.each(function(***REMOVED*** {
+		$a.each(function() {
 
-			var	$this = $(this***REMOVED***,
-				indent = Math.max(0, $this.parents('li'***REMOVED***.length - 1***REMOVED***,
-				href = $this.attr('href'***REMOVED***,
-				target = $this.attr('target'***REMOVED***;
+			var	$this = $(this),
+				indent = Math.max(0, $this.parents('li').length - 1),
+				href = $this.attr('href'),
+				target = $this.attr('target');
 
 			b.push(
 				'<a ' +
 					'class="link depth-' + indent + '"' +
-					( (typeof target !== 'undefined' && target != ''***REMOVED*** ? ' target="' + target + '"' : ''***REMOVED*** +
-					( (typeof href !== 'undefined' && href != ''***REMOVED*** ? ' href="' + href + '"' : ''***REMOVED*** +
+					( (typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
+					( (typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
 				'>' +
 					'<span class="indent-' + indent + '"></span>' +
-					$this.text(***REMOVED*** +
+					$this.text() +
 				'</a>'
-			***REMOVED***;
+			);
 
-		***REMOVED******REMOVED***;
+		});
 
-		return b.join(''***REMOVED***;
+		return b.join('');
 
-	***REMOVED***;
+	};
 
 	/**
 	 * Panel-ify an element.
-	 * @param {object***REMOVED*** userConfig User config.
-	 * @return {jQuery***REMOVED*** jQuery object.
+	 * @param {object} userConfig User config.
+	 * @return {jQuery} jQuery object.
 	 */
-	$.fn.panel = function(userConfig***REMOVED*** {
+	$.fn.panel = function(userConfig) {
 
 		// No elements?
-			if (this.length == 0***REMOVED***
+			if (this.length == 0)
 				return $this;
 
 		// Multiple elements?
-			if (this.length > 1***REMOVED*** {
+			if (this.length > 1) {
 
-				for (var i=0; i < this.length; i++***REMOVED***
-					$(this[i***REMOVED******REMOVED***.panel(userConfig***REMOVED***;
+				for (var i=0; i < this.length; i++)
+					$(this[i]).panel(userConfig);
 
 				return $this;
 
-			***REMOVED***
+			}
 
 		// Vars.
-			var	$this = $(this***REMOVED***,
-				$body = $('body'***REMOVED***,
-				$window = $(window***REMOVED***,
-				id = $this.attr('id'***REMOVED***,
+			var	$this = $(this),
+				$body = $('body'),
+				$window = $(window),
+				id = $this.attr('id'),
 				config;
 
 		// Config.
@@ -92,496 +92,496 @@
 				// Class to toggle.
 					visibleClass: 'visible'
 
-			***REMOVED***, userConfig***REMOVED***;
+			}, userConfig);
 
 			// Expand "target" if it's not a jQuery object already.
-				if (typeof config.target != 'jQuery'***REMOVED***
-					config.target = $(config.target***REMOVED***;
+				if (typeof config.target != 'jQuery')
+					config.target = $(config.target);
 
 		// Panel.
 
 			// Methods.
-				$this._hide = function(event***REMOVED*** {
+				$this._hide = function(event) {
 
 					// Already hidden? Bail.
-						if (!config.target.hasClass(config.visibleClass***REMOVED******REMOVED***
+						if (!config.target.hasClass(config.visibleClass))
 							return;
 
 					// If an event was provided, cancel it.
-						if (event***REMOVED*** {
+						if (event) {
 
-							event.preventDefault(***REMOVED***;
-							event.stopPropagation(***REMOVED***;
+							event.preventDefault();
+							event.stopPropagation();
 
-						***REMOVED***
+						}
 
 					// Hide.
-						config.target.removeClass(config.visibleClass***REMOVED***;
+						config.target.removeClass(config.visibleClass);
 
 					// Post-hide stuff.
-						window.setTimeout(function(***REMOVED*** {
+						window.setTimeout(function() {
 
 							// Reset scroll position.
-								if (config.resetScroll***REMOVED***
-									$this.scrollTop(0***REMOVED***;
+								if (config.resetScroll)
+									$this.scrollTop(0);
 
 							// Reset forms.
-								if (config.resetForms***REMOVED***
-									$this.find('form'***REMOVED***.each(function(***REMOVED*** {
-										this.reset(***REMOVED***;
-									***REMOVED******REMOVED***;
+								if (config.resetForms)
+									$this.find('form').each(function() {
+										this.reset();
+									});
 
-						***REMOVED***, config.delay***REMOVED***;
+						}, config.delay);
 
-				***REMOVED***;
+				};
 
 			// Vendor fixes.
 				$this
-					.css('-ms-overflow-style', '-ms-autohiding-scrollbar'***REMOVED***
-					.css('-webkit-overflow-scrolling', 'touch'***REMOVED***;
+					.css('-ms-overflow-style', '-ms-autohiding-scrollbar')
+					.css('-webkit-overflow-scrolling', 'touch');
 
 			// Hide on click.
-				if (config.hideOnClick***REMOVED*** {
+				if (config.hideOnClick) {
 
-					$this.find('a'***REMOVED***
-						.css('-webkit-tap-highlight-color', 'rgba(0,0,0,0***REMOVED***'***REMOVED***;
+					$this.find('a')
+						.css('-webkit-tap-highlight-color', 'rgba(0,0,0,0)');
 
 					$this
-						.on('click', 'a', function(event***REMOVED*** {
+						.on('click', 'a', function(event) {
 
-							var $a = $(this***REMOVED***,
-								href = $a.attr('href'***REMOVED***,
-								target = $a.attr('target'***REMOVED***;
+							var $a = $(this),
+								href = $a.attr('href'),
+								target = $a.attr('target');
 
-							if (!href || href == '#' || href == '' || href == '#' + id***REMOVED***
+							if (!href || href == '#' || href == '' || href == '#' + id)
 								return;
 
 							// Cancel original event.
-								event.preventDefault(***REMOVED***;
-								event.stopPropagation(***REMOVED***;
+								event.preventDefault();
+								event.stopPropagation();
 
 							// Hide panel.
-								$this._hide(***REMOVED***;
+								$this._hide();
 
 							// Redirect to href.
-								window.setTimeout(function(***REMOVED*** {
+								window.setTimeout(function() {
 
-									if (target == '_blank'***REMOVED***
-										window.open(href***REMOVED***;
+									if (target == '_blank')
+										window.open(href);
 									else
 										window.location.href = href;
 
-								***REMOVED***, config.delay + 10***REMOVED***;
+								}, config.delay + 10);
 
-						***REMOVED******REMOVED***;
+						});
 
-				***REMOVED***
+				}
 
 			// Event: Touch stuff.
-				$this.on('touchstart', function(event***REMOVED*** {
+				$this.on('touchstart', function(event) {
 
-					$this.touchPosX = event.originalEvent.touches[0***REMOVED***.pageX;
-					$this.touchPosY = event.originalEvent.touches[0***REMOVED***.pageY;
+					$this.touchPosX = event.originalEvent.touches[0].pageX;
+					$this.touchPosY = event.originalEvent.touches[0].pageY;
 
-				***REMOVED******REMOVED***
+				})
 
-				$this.on('touchmove', function(event***REMOVED*** {
+				$this.on('touchmove', function(event) {
 
 					if ($this.touchPosX === null
-					||	$this.touchPosY === null***REMOVED***
+					||	$this.touchPosY === null)
 						return;
 
-					var	diffX = $this.touchPosX - event.originalEvent.touches[0***REMOVED***.pageX,
-						diffY = $this.touchPosY - event.originalEvent.touches[0***REMOVED***.pageY,
-						th = $this.outerHeight(***REMOVED***,
-						ts = ($this.get(0***REMOVED***.scrollHeight - $this.scrollTop(***REMOVED******REMOVED***;
+					var	diffX = $this.touchPosX - event.originalEvent.touches[0].pageX,
+						diffY = $this.touchPosY - event.originalEvent.touches[0].pageY,
+						th = $this.outerHeight(),
+						ts = ($this.get(0).scrollHeight - $this.scrollTop());
 
 					// Hide on swipe?
-						if (config.hideOnSwipe***REMOVED*** {
+						if (config.hideOnSwipe) {
 
 							var result = false,
 								boundary = 20,
 								delta = 50;
 
-							switch (config.side***REMOVED*** {
+							switch (config.side) {
 
 								case 'left':
-									result = (diffY < boundary && diffY > (-1 * boundary***REMOVED******REMOVED*** && (diffX > delta***REMOVED***;
+									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
 									break;
 
 								case 'right':
-									result = (diffY < boundary && diffY > (-1 * boundary***REMOVED******REMOVED*** && (diffX < (-1 * delta***REMOVED******REMOVED***;
+									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX < (-1 * delta));
 									break;
 
 								case 'top':
-									result = (diffX < boundary && diffX > (-1 * boundary***REMOVED******REMOVED*** && (diffY > delta***REMOVED***;
+									result = (diffX < boundary && diffX > (-1 * boundary)) && (diffY > delta);
 									break;
 
 								case 'bottom':
-									result = (diffX < boundary && diffX > (-1 * boundary***REMOVED******REMOVED*** && (diffY < (-1 * delta***REMOVED******REMOVED***;
+									result = (diffX < boundary && diffX > (-1 * boundary)) && (diffY < (-1 * delta));
 									break;
 
 								default:
 									break;
 
-							***REMOVED***
+							}
 
-							if (result***REMOVED*** {
+							if (result) {
 
 								$this.touchPosX = null;
 								$this.touchPosY = null;
-								$this._hide(***REMOVED***;
+								$this._hide();
 
 								return false;
 
-							***REMOVED***
+							}
 
-						***REMOVED***
+						}
 
 					// Prevent vertical scrolling past the top or bottom.
-						if (($this.scrollTop(***REMOVED*** < 0 && diffY < 0***REMOVED***
-						|| (ts > (th - 2***REMOVED*** && ts < (th + 2***REMOVED*** && diffY > 0***REMOVED******REMOVED*** {
+						if (($this.scrollTop() < 0 && diffY < 0)
+						|| (ts > (th - 2) && ts < (th + 2) && diffY > 0)) {
 
-							event.preventDefault(***REMOVED***;
-							event.stopPropagation(***REMOVED***;
+							event.preventDefault();
+							event.stopPropagation();
 
-						***REMOVED***
+						}
 
-				***REMOVED******REMOVED***;
+				});
 
 			// Event: Prevent certain events inside the panel from bubbling.
-				$this.on('click touchend touchstart touchmove', function(event***REMOVED*** {
-					event.stopPropagation(***REMOVED***;
-				***REMOVED******REMOVED***;
+				$this.on('click touchend touchstart touchmove', function(event) {
+					event.stopPropagation();
+				});
 
 			// Event: Hide panel if a child anchor tag pointing to its ID is clicked.
-				$this.on('click', 'a[href="#' + id + '"***REMOVED***', function(event***REMOVED*** {
+				$this.on('click', 'a[href="#' + id + '"]', function(event) {
 
-					event.preventDefault(***REMOVED***;
-					event.stopPropagation(***REMOVED***;
+					event.preventDefault();
+					event.stopPropagation();
 
-					config.target.removeClass(config.visibleClass***REMOVED***;
+					config.target.removeClass(config.visibleClass);
 
-				***REMOVED******REMOVED***;
+				});
 
 		// Body.
 
 			// Event: Hide panel on body click/tap.
-				$body.on('click touchend', function(event***REMOVED*** {
-					$this._hide(event***REMOVED***;
-				***REMOVED******REMOVED***;
+				$body.on('click touchend', function(event) {
+					$this._hide(event);
+				});
 
 			// Event: Toggle.
-				$body.on('click', 'a[href="#' + id + '"***REMOVED***', function(event***REMOVED*** {
+				$body.on('click', 'a[href="#' + id + '"]', function(event) {
 
-					event.preventDefault(***REMOVED***;
-					event.stopPropagation(***REMOVED***;
+					event.preventDefault();
+					event.stopPropagation();
 
-					config.target.toggleClass(config.visibleClass***REMOVED***;
+					config.target.toggleClass(config.visibleClass);
 
-				***REMOVED******REMOVED***;
+				});
 
 		// Window.
 
 			// Event: Hide on ESC.
-				if (config.hideOnEscape***REMOVED***
-					$window.on('keydown', function(event***REMOVED*** {
+				if (config.hideOnEscape)
+					$window.on('keydown', function(event) {
 
-						if (event.keyCode == 27***REMOVED***
-							$this._hide(event***REMOVED***;
+						if (event.keyCode == 27)
+							$this._hide(event);
 
-					***REMOVED******REMOVED***;
+					});
 
 		return $this;
 
-	***REMOVED***;
+	};
 
 	/**
 	 * Apply "placeholder" attribute polyfill to one or more forms.
-	 * @return {jQuery***REMOVED*** jQuery object.
+	 * @return {jQuery} jQuery object.
 	 */
-	$.fn.placeholder = function(***REMOVED*** {
+	$.fn.placeholder = function() {
 
 		// Browser natively supports placeholders? Bail.
-			if (typeof (document.createElement('input'***REMOVED******REMOVED***.placeholder != 'undefined'***REMOVED***
-				return $(this***REMOVED***;
+			if (typeof (document.createElement('input')).placeholder != 'undefined')
+				return $(this);
 
 		// No elements?
-			if (this.length == 0***REMOVED***
+			if (this.length == 0)
 				return $this;
 
 		// Multiple elements?
-			if (this.length > 1***REMOVED*** {
+			if (this.length > 1) {
 
-				for (var i=0; i < this.length; i++***REMOVED***
-					$(this[i***REMOVED******REMOVED***.placeholder(***REMOVED***;
+				for (var i=0; i < this.length; i++)
+					$(this[i]).placeholder();
 
 				return $this;
 
-			***REMOVED***
+			}
 
 		// Vars.
-			var $this = $(this***REMOVED***;
+			var $this = $(this);
 
 		// Text, TextArea.
-			$this.find('input[type=text***REMOVED***,textarea'***REMOVED***
-				.each(function(***REMOVED*** {
+			$this.find('input[type=text],textarea')
+				.each(function() {
 
-					var i = $(this***REMOVED***;
+					var i = $(this);
 
-					if (i.val(***REMOVED*** == ''
-					||  i.val(***REMOVED*** == i.attr('placeholder'***REMOVED******REMOVED***
+					if (i.val() == ''
+					||  i.val() == i.attr('placeholder'))
 						i
-							.addClass('polyfill-placeholder'***REMOVED***
-							.val(i.attr('placeholder'***REMOVED******REMOVED***;
+							.addClass('polyfill-placeholder')
+							.val(i.attr('placeholder'));
 
-				***REMOVED******REMOVED***
-				.on('blur', function(***REMOVED*** {
+				})
+				.on('blur', function() {
 
-					var i = $(this***REMOVED***;
+					var i = $(this);
 
-					if (i.attr('name'***REMOVED***.match(/-polyfill-field$/***REMOVED******REMOVED***
+					if (i.attr('name').match(/-polyfill-field$/))
 						return;
 
-					if (i.val(***REMOVED*** == ''***REMOVED***
+					if (i.val() == '')
 						i
-							.addClass('polyfill-placeholder'***REMOVED***
-							.val(i.attr('placeholder'***REMOVED******REMOVED***;
+							.addClass('polyfill-placeholder')
+							.val(i.attr('placeholder'));
 
-				***REMOVED******REMOVED***
-				.on('focus', function(***REMOVED*** {
+				})
+				.on('focus', function() {
 
-					var i = $(this***REMOVED***;
+					var i = $(this);
 
-					if (i.attr('name'***REMOVED***.match(/-polyfill-field$/***REMOVED******REMOVED***
+					if (i.attr('name').match(/-polyfill-field$/))
 						return;
 
-					if (i.val(***REMOVED*** == i.attr('placeholder'***REMOVED******REMOVED***
+					if (i.val() == i.attr('placeholder'))
 						i
-							.removeClass('polyfill-placeholder'***REMOVED***
-							.val(''***REMOVED***;
+							.removeClass('polyfill-placeholder')
+							.val('');
 
-				***REMOVED******REMOVED***;
+				});
 
 		// Password.
-			$this.find('input[type=password***REMOVED***'***REMOVED***
-				.each(function(***REMOVED*** {
+			$this.find('input[type=password]')
+				.each(function() {
 
-					var i = $(this***REMOVED***;
+					var i = $(this);
 					var x = $(
-								$('<div>'***REMOVED***
-									.append(i.clone(***REMOVED******REMOVED***
-									.remove(***REMOVED***
-									.html(***REMOVED***
-									.replace(/type="password"/i, 'type="text"'***REMOVED***
-									.replace(/type=password/i, 'type=text'***REMOVED***
-					***REMOVED***;
+								$('<div>')
+									.append(i.clone())
+									.remove()
+									.html()
+									.replace(/type="password"/i, 'type="text"')
+									.replace(/type=password/i, 'type=text')
+					);
 
-					if (i.attr('id'***REMOVED*** != ''***REMOVED***
-						x.attr('id', i.attr('id'***REMOVED*** + '-polyfill-field'***REMOVED***;
+					if (i.attr('id') != '')
+						x.attr('id', i.attr('id') + '-polyfill-field');
 
-					if (i.attr('name'***REMOVED*** != ''***REMOVED***
-						x.attr('name', i.attr('name'***REMOVED*** + '-polyfill-field'***REMOVED***;
+					if (i.attr('name') != '')
+						x.attr('name', i.attr('name') + '-polyfill-field');
 
-					x.addClass('polyfill-placeholder'***REMOVED***
-						.val(x.attr('placeholder'***REMOVED******REMOVED***.insertAfter(i***REMOVED***;
+					x.addClass('polyfill-placeholder')
+						.val(x.attr('placeholder')).insertAfter(i);
 
-					if (i.val(***REMOVED*** == ''***REMOVED***
-						i.hide(***REMOVED***;
+					if (i.val() == '')
+						i.hide();
 					else
-						x.hide(***REMOVED***;
+						x.hide();
 
 					i
-						.on('blur', function(event***REMOVED*** {
+						.on('blur', function(event) {
 
-							event.preventDefault(***REMOVED***;
+							event.preventDefault();
 
-							var x = i.parent(***REMOVED***.find('input[name=' + i.attr('name'***REMOVED*** + '-polyfill-field***REMOVED***'***REMOVED***;
+							var x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
-							if (i.val(***REMOVED*** == ''***REMOVED*** {
+							if (i.val() == '') {
 
-								i.hide(***REMOVED***;
-								x.show(***REMOVED***;
+								i.hide();
+								x.show();
 
-							***REMOVED***
+							}
 
-						***REMOVED******REMOVED***;
+						});
 
 					x
-						.on('focus', function(event***REMOVED*** {
+						.on('focus', function(event) {
 
-							event.preventDefault(***REMOVED***;
+							event.preventDefault();
 
-							var i = x.parent(***REMOVED***.find('input[name=' + x.attr('name'***REMOVED***.replace('-polyfill-field', ''***REMOVED*** + '***REMOVED***'***REMOVED***;
+							var i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field', '') + ']');
 
-							x.hide(***REMOVED***;
+							x.hide();
 
 							i
-								.show(***REMOVED***
-								.focus(***REMOVED***;
+								.show()
+								.focus();
 
-						***REMOVED******REMOVED***
-						.on('keypress', function(event***REMOVED*** {
+						})
+						.on('keypress', function(event) {
 
-							event.preventDefault(***REMOVED***;
-							x.val(''***REMOVED***;
+							event.preventDefault();
+							x.val('');
 
-						***REMOVED******REMOVED***;
+						});
 
-				***REMOVED******REMOVED***;
+				});
 
 		// Events.
 			$this
-				.on('submit', function(***REMOVED*** {
+				.on('submit', function() {
 
-					$this.find('input[type=text***REMOVED***,input[type=password***REMOVED***,textarea'***REMOVED***
-						.each(function(event***REMOVED*** {
+					$this.find('input[type=text],input[type=password],textarea')
+						.each(function(event) {
 
-							var i = $(this***REMOVED***;
+							var i = $(this);
 
-							if (i.attr('name'***REMOVED***.match(/-polyfill-field$/***REMOVED******REMOVED***
-								i.attr('name', ''***REMOVED***;
+							if (i.attr('name').match(/-polyfill-field$/))
+								i.attr('name', '');
 
-							if (i.val(***REMOVED*** == i.attr('placeholder'***REMOVED******REMOVED*** {
+							if (i.val() == i.attr('placeholder')) {
 
-								i.removeClass('polyfill-placeholder'***REMOVED***;
-								i.val(''***REMOVED***;
+								i.removeClass('polyfill-placeholder');
+								i.val('');
 
-							***REMOVED***
+							}
 
-						***REMOVED******REMOVED***;
+						});
 
-				***REMOVED******REMOVED***
-				.on('reset', function(event***REMOVED*** {
+				})
+				.on('reset', function(event) {
 
-					event.preventDefault(***REMOVED***;
+					event.preventDefault();
 
-					$this.find('select'***REMOVED***
-						.val($('option:first'***REMOVED***.val(***REMOVED******REMOVED***;
+					$this.find('select')
+						.val($('option:first').val());
 
-					$this.find('input,textarea'***REMOVED***
-						.each(function(***REMOVED*** {
+					$this.find('input,textarea')
+						.each(function() {
 
-							var i = $(this***REMOVED***,
+							var i = $(this),
 								x;
 
-							i.removeClass('polyfill-placeholder'***REMOVED***;
+							i.removeClass('polyfill-placeholder');
 
-							switch (this.type***REMOVED*** {
+							switch (this.type) {
 
 								case 'submit':
 								case 'reset':
 									break;
 
 								case 'password':
-									i.val(i.attr('defaultValue'***REMOVED******REMOVED***;
+									i.val(i.attr('defaultValue'));
 
-									x = i.parent(***REMOVED***.find('input[name=' + i.attr('name'***REMOVED*** + '-polyfill-field***REMOVED***'***REMOVED***;
+									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
-									if (i.val(***REMOVED*** == ''***REMOVED*** {
-										i.hide(***REMOVED***;
-										x.show(***REMOVED***;
-									***REMOVED***
+									if (i.val() == '') {
+										i.hide();
+										x.show();
+									}
 									else {
-										i.show(***REMOVED***;
-										x.hide(***REMOVED***;
-									***REMOVED***
+										i.show();
+										x.hide();
+									}
 
 									break;
 
 								case 'checkbox':
 								case 'radio':
-									i.attr('checked', i.attr('defaultValue'***REMOVED******REMOVED***;
+									i.attr('checked', i.attr('defaultValue'));
 									break;
 
 								case 'text':
 								case 'textarea':
-									i.val(i.attr('defaultValue'***REMOVED******REMOVED***;
+									i.val(i.attr('defaultValue'));
 
-									if (i.val(***REMOVED*** == ''***REMOVED*** {
-										i.addClass('polyfill-placeholder'***REMOVED***;
-										i.val(i.attr('placeholder'***REMOVED******REMOVED***;
-									***REMOVED***
+									if (i.val() == '') {
+										i.addClass('polyfill-placeholder');
+										i.val(i.attr('placeholder'));
+									}
 
 									break;
 
 								default:
-									i.val(i.attr('defaultValue'***REMOVED******REMOVED***;
+									i.val(i.attr('defaultValue'));
 									break;
 
-							***REMOVED***
-						***REMOVED******REMOVED***;
+							}
+						});
 
-				***REMOVED******REMOVED***;
+				});
 
 		return $this;
 
-	***REMOVED***;
+	};
 
 	/**
 	 * Moves elements to/from the first positions of their respective parents.
-	 * @param {jQuery***REMOVED*** $elements Elements (or selector***REMOVED*** to move.
-	 * @param {bool***REMOVED*** condition If true, moves elements to the top. Otherwise, moves elements back to their original locations.
+	 * @param {jQuery} $elements Elements (or selector) to move.
+	 * @param {bool} condition If true, moves elements to the top. Otherwise, moves elements back to their original locations.
 	 */
-	$.prioritize = function($elements, condition***REMOVED*** {
+	$.prioritize = function($elements, condition) {
 
 		var key = '__prioritize';
 
 		// Expand $elements if it's not already a jQuery object.
-			if (typeof $elements != 'jQuery'***REMOVED***
-				$elements = $($elements***REMOVED***;
+			if (typeof $elements != 'jQuery')
+				$elements = $($elements);
 
 		// Step through elements.
-			$elements.each(function(***REMOVED*** {
+			$elements.each(function() {
 
-				var	$e = $(this***REMOVED***, $p,
-					$parent = $e.parent(***REMOVED***;
+				var	$e = $(this), $p,
+					$parent = $e.parent();
 
 				// No parent? Bail.
-					if ($parent.length == 0***REMOVED***
+					if ($parent.length == 0)
 						return;
 
 				// Not moved? Move it.
-					if (!$e.data(key***REMOVED******REMOVED*** {
+					if (!$e.data(key)) {
 
 						// Condition is false? Bail.
-							if (!condition***REMOVED***
+							if (!condition)
 								return;
 
-						// Get placeholder (which will serve as our point of reference for when this element needs to move back***REMOVED***.
-							$p = $e.prev(***REMOVED***;
+						// Get placeholder (which will serve as our point of reference for when this element needs to move back).
+							$p = $e.prev();
 
 							// Couldn't find anything? Means this element's already at the top, so bail.
-								if ($p.length == 0***REMOVED***
+								if ($p.length == 0)
 									return;
 
 						// Move element to top of parent.
-							$e.prependTo($parent***REMOVED***;
+							$e.prependTo($parent);
 
 						// Mark element as moved.
-							$e.data(key, $p***REMOVED***;
+							$e.data(key, $p);
 
-					***REMOVED***
+					}
 
 				// Moved already?
 					else {
 
 						// Condition is true? Bail.
-							if (condition***REMOVED***
+							if (condition)
 								return;
 
-						$p = $e.data(key***REMOVED***;
+						$p = $e.data(key);
 
-						// Move element back to its original location (using our placeholder***REMOVED***.
-							$e.insertAfter($p***REMOVED***;
+						// Move element back to its original location (using our placeholder).
+							$e.insertAfter($p);
 
 						// Unmark element as moved.
-							$e.removeData(key***REMOVED***;
+							$e.removeData(key);
 
-					***REMOVED***
+					}
 
-			***REMOVED******REMOVED***;
+			});
 
-	***REMOVED***;
+	};
 
-***REMOVED******REMOVED***(jQuery***REMOVED***;
+})(jQuery);

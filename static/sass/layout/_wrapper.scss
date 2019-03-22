@@ -1,16 +1,16 @@
 ///
 /// Dimension by HTML5 UP
 /// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Wrapper */
 
 	#wrapper {
-		@include vendor('display', 'flex'***REMOVED***;
-		@include vendor('flex-direction', 'column'***REMOVED***;
-		@include vendor('align-items', 'center'***REMOVED***;
-		@include vendor('justify-content', 'space-between'***REMOVED***;
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
+		@include vendor('align-items', 'center');
+		@include vendor('justify-content', 'space-between');
 		position: relative;
 		min-height: 100vh;
 		width: 100%;
@@ -20,17 +20,17 @@
 		&:before {
 			content: '';
 			display: block;
-		***REMOVED***
+		}
 
-		@include breakpoint('<=xlarge'***REMOVED*** {
+		@include breakpoint('<=xlarge') {
 			padding: 3rem 2rem;
-		***REMOVED***
+		}
 
-		@include breakpoint('<=small'***REMOVED*** {
+		@include breakpoint('<=small') {
 			padding: 2rem 1rem;
-		***REMOVED***
+		}
 
-		@include breakpoint('<=xsmall'***REMOVED*** {
+		@include breakpoint('<=xsmall') {
 			padding: 1rem;
-		***REMOVED***
-	***REMOVED***
+		}
+	}

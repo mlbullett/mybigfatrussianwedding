@@ -13,7 +13,7 @@ media
 
 ### Django.Python Stack ###
 # Byte-compiled / optimized / DLL files
-*.py[cod***REMOVED***
+*.py[cod]
 *$py.class
 
 # C extensions

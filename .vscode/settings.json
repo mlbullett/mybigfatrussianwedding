@@ -1,10 +1,10 @@
 {
   "python.pythonPath": "/home/max/.local/share/virtualenvs/mybigfatrussian.wedding-iDQmNpuD/bin/python",
-  "python.linting.pylintArgs": ["--errors-only"***REMOVED***,
+  "python.linting.pylintArgs": ["--errors-only"],
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "python.linting.flake8Args": [
     "--ignore=E501"
-  ***REMOVED***
-***REMOVED***
+  ]
+}

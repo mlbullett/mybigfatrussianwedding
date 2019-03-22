@@ -5,43 +5,43 @@ import django.db.models.deletion
 import guests.models
 
 
-class Migration(migrations.Migration***REMOVED***:
+class Migration(migrations.Migration):
 
     initial = True
 
     dependencies = [
-    ***REMOVED***
+    ]
 
     operations = [
         migrations.CreateModel(
             name='Guest',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'***REMOVED******REMOVED***,
-                ('first_name', models.CharField(max_length=100***REMOVED******REMOVED***,
-                ('last_name', models.CharField(max_length=100***REMOVED******REMOVED***,
-                ('email', models.EmailField(blank=True, max_length=254, null=True***REMOVED******REMOVED***,
-                ('is_attending', models.BooleanField(default=None***REMOVED******REMOVED***,
-                ('dietary_specs', models.TextField(blank=True***REMOVED******REMOVED***,
-            ***REMOVED***,
-        ***REMOVED***,
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('first_name', models.CharField(max_length=100)),
+                ('last_name', models.CharField(max_length=100)),
+                ('email', models.EmailField(blank=True, max_length=254, null=True)),
+                ('is_attending', models.BooleanField(default=None)),
+                ('dietary_specs', models.TextField(blank=True)),
+            ],
+        ),
         migrations.CreateModel(
             name='Party',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'***REMOVED******REMOVED***,
-                ('name', models.CharField(max_length=100***REMOVED******REMOVED***,
-                ('category', models.CharField(choices=[('max,', 'max'***REMOVED***, ('nastia', 'nastia'***REMOVED***, ('both', 'both'***REMOVED******REMOVED***, max_length=10***REMOVED******REMOVED***,
-                ('language', models.CharField(choices=[('en', 'en'***REMOVED***, ('fr', 'fr'***REMOVED***, ('ru', 'ru'***REMOVED******REMOVED***, max_length=10***REMOVED******REMOVED***,
-                ('invitation_id', models.CharField(db_index=True, default=guests.models._random_uuid, max_length=32, unique=True***REMOVED******REMOVED***,
-                ('invitation_sent', models.DateTimeField(blank=True, default=None, null=True***REMOVED******REMOVED***,
-                ('invitation_opened', models.DateTimeField(blank=True, default=None, null=True***REMOVED******REMOVED***,
-                ('is_invited', models.BooleanField(default=False***REMOVED******REMOVED***,
-                ('is_attending', models.BooleanField(default=None***REMOVED******REMOVED***,
-                ('message', models.TextField(blank=True, null=True***REMOVED******REMOVED***,
-            ***REMOVED***,
-        ***REMOVED***,
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=100)),
+                ('category', models.CharField(choices=[('max,', 'max'), ('nastia', 'nastia'), ('both', 'both')], max_length=10)),
+                ('language', models.CharField(choices=[('en', 'en'), ('fr', 'fr'), ('ru', 'ru')], max_length=10)),
+                ('invitation_id', models.CharField(db_index=True, default=guests.models._random_uuid, max_length=32, unique=True)),
+                ('invitation_sent', models.DateTimeField(blank=True, default=None, null=True)),
+                ('invitation_opened', models.DateTimeField(blank=True, default=None, null=True)),
+                ('is_invited', models.BooleanField(default=False)),
+                ('is_attending', models.BooleanField(default=None)),
+                ('message', models.TextField(blank=True, null=True)),
+            ],
+        ),
         migrations.AddField(
             model_name='guest',
             name='party',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='guests.Party'***REMOVED***,
-        ***REMOVED***,
-    ***REMOVED***
+            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='guests.Party'),
+        ),
+    ]

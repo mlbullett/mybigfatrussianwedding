@@ -1,6 +1,6 @@
-{% extends "base.html" %***REMOVED***
-{% load static %***REMOVED***
-{% block content %***REMOVED***
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 <!-- Header -->
 <header id="header">
     <div class="logo">
@@ -9,8 +9,8 @@
     <div class="content">
         <div class="inner">
             <h1>404</h1>
-            <h3>Looks like you've had a bit to drink! Time to <a href="/">go home</a>.</h3>
+            <h3>{% trans "Looks like you've had a bit to drink! Time to <a href="/">go home</a>" %}".</h3>
         </div>
     </div>
 </header>
-{% endblock content %***REMOVED***
+{% endblock content %}

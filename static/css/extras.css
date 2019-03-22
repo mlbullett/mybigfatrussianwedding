@@ -3,15 +3,15 @@
 .langmenu {
     position: static;
     border: none;
-***REMOVED***
+}
 
 /* RSVP Form */
-input[type="radio"***REMOVED***#rsvp-decline:checked+label:before {
+input[type="radio"]#rsvp-decline:checked+label:before {
     background: #ffffff !important;
     border-color: #ffffff !important;
     color: #1b1f22;
     content: "\f00d";
-***REMOVED***
+}
 
 /* Bootstrap stuff */
 .container {
@@ -20,11 +20,11 @@ input[type="radio"***REMOVED***#rsvp-decline:checked+label:before {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-***REMOVED***
+}
 
 .text-center {
     text-align: center !important;
-***REMOVED***
+}
 
 .close {
     float: right;
@@ -34,24 +34,24 @@ input[type="radio"***REMOVED***#rsvp-decline:checked+label:before {
     color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: .5;
-***REMOVED***
+}
 
-.close:not(:disabled***REMOVED***:not(.disabled***REMOVED*** {
+.close:not(:disabled):not(.disabled) {
     cursor: pointer;
-***REMOVED***
+}
 
-.close:not(:disabled***REMOVED***:not(.disabled***REMOVED***:hover, .close:not(:disabled***REMOVED***:not(.disabled***REMOVED***:focus {
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
     color: #000;
     text-decoration: none;
     opacity: .75;
-***REMOVED***
+}
 
   button.close {
     padding: 0;
     background-color: transparent;
     border: 0;
     -webkit-appearance: none;
-***REMOVED***
+}
 
 /* Alerts */
 .alert {
@@ -60,19 +60,19 @@ input[type="radio"***REMOVED***#rsvp-decline:checked+label:before {
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-***REMOVED***
+}
 
 .alert-heading {
     color: inherit;
-***REMOVED***
+}
 
 .alert-link {
     font-weight: 700;
-***REMOVED***
+}
 
 .alert-dismissible {
     padding-right: 4rem;
-***REMOVED***
+}
 
 .alert-dismissible .close {
     position: absolute;
@@ -80,88 +80,88 @@ input[type="radio"***REMOVED***#rsvp-decline:checked+label:before {
     right: 0;
     padding: 0.75rem 1.25rem;
     color: inherit;
-***REMOVED***
+}
 
 .alert-primary {
     color: #081529;
     background-color: #cfd4dc;
     border-color: #bcc3cd;
-***REMOVED***
+}
 
 .alert-primary hr {
     border-top-color: #adb6c2;
-***REMOVED***
+}
 
 .alert-primary .alert-link {
     color: black;
-***REMOVED***
+}
 
 .alert-secondary {
     color: #196953;
     background-color: #d6f4ec;
     border-color: #c5f0e4;
-***REMOVED***
+}
 
 .alert-secondary hr {
     border-top-color: #b1ebdb;
-***REMOVED***
+}
 
 .alert-secondary .alert-link {
     color: #0f4032;
-***REMOVED***
+}
 
 .alert-success {
     color: #11694f;
     background-color: #d2f4ea;
     border-color: #c1f0e2;
-***REMOVED***
+}
 
 .alert-success hr {
     border-top-color: #acebd8;
-***REMOVED***
+}
 
 .alert-success .alert-link {
     color: #0a3d2e;
-***REMOVED***
+}
 
 .alert-info {
     color: #0c5460;
     background-color: #d1ecf1;
     border-color: #bee5eb;
-***REMOVED***
+}
 
 .alert-info hr {
     border-top-color: #abdde5;
-***REMOVED***
+}
 
 .alert-info .alert-link {
     color: #062c33;
-***REMOVED***
+}
 
 .alert-warning {
     color: #856404;
     background-color: #fff3cd;
     border-color: #ffeeba;
-***REMOVED***
+}
 
 .alert-warning hr {
     border-top-color: #ffe8a1;
-***REMOVED***
+}
 
 .alert-warning .alert-link {
     color: #533f03;
-***REMOVED***
+}
 
 .alert-error {
     color: #792424;
     background-color: #fbdada;
     border-color: #f9cbcb;
-***REMOVED***
+}
 
 .alert-error hr {
     border-top-color: #f6b4b4;
-***REMOVED***
+}
 
 .alert-error .alert-link {
     color: #521818;
-***REMOVED***
+}

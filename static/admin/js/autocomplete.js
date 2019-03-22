@@ -1,37 +1,37 @@
-(function($***REMOVED*** {
+(function($) {
     'use strict';
-    var init = function($element, options***REMOVED*** {
+    var init = function($element, options) {
         var settings = $.extend({
             ajax: {
-                data: function(params***REMOVED*** {
+                data: function(params) {
                     return {
                         term: params.term,
                         page: params.page
-                ***REMOVED***;
-            ***REMOVED***
-        ***REMOVED***
-***REMOVED*** options***REMOVED***;
-        $element.select2(settings***REMOVED***;
-***REMOVED***;
+                    };
+                }
+            }
+        }, options);
+        $element.select2(settings);
+    };
 
-    $.fn.djangoAdminSelect2 = function(options***REMOVED*** {
-        var settings = $.extend({***REMOVED***, options***REMOVED***;
-        $.each(this, function(i, element***REMOVED*** {
-            var $element = $(element***REMOVED***;
-            init($element, settings***REMOVED***;
-    ***REMOVED******REMOVED***;
+    $.fn.djangoAdminSelect2 = function(options) {
+        var settings = $.extend({}, options);
+        $.each(this, function(i, element) {
+            var $element = $(element);
+            init($element, settings);
+        });
         return this;
-***REMOVED***;
+    };
 
-    $(function(***REMOVED*** {
+    $(function() {
         // Initialize all autocomplete widgets except the one in the template
         // form used when a new formset is added.
-        $('.admin-autocomplete'***REMOVED***.not('[name*=__prefix__***REMOVED***'***REMOVED***.djangoAdminSelect2(***REMOVED***;
-***REMOVED******REMOVED***;
+        $('.admin-autocomplete').not('[name*=__prefix__]').djangoAdminSelect2();
+    });
 
-    $(document***REMOVED***.on('formset:added', (function(***REMOVED*** {
-        return function(event, $newFormset***REMOVED*** {
-            return $newFormset.find('.admin-autocomplete'***REMOVED***.djangoAdminSelect2(***REMOVED***;
-    ***REMOVED***;
-***REMOVED******REMOVED***(this***REMOVED******REMOVED***;
-***REMOVED***(django.jQuery***REMOVED******REMOVED***;
+    $(document).on('formset:added', (function() {
+        return function(event, $newFormset) {
+            return $newFormset.find('.admin-autocomplete').djangoAdminSelect2();
+        };
+    })(this));
+}(django.jQuery));

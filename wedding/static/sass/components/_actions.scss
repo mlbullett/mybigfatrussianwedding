@@ -1,90 +1,90 @@
 ///
 /// Dimension by HTML5 UP
 /// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Actions */
 
 	ul.actions {
-		@include vendor('display', 'flex'***REMOVED***;
+		@include vendor('display', 'flex');
 		cursor: default;
 		list-style: none;
-		margin-left: (_size(element-margin***REMOVED*** * -0.5***REMOVED***;
+		margin-left: (_size(element-margin) * -0.5);
 		padding-left: 0;
 
 		li {
-			padding: 0 0 0 (_size(element-margin***REMOVED*** * 0.5***REMOVED***;
+			padding: 0 0 0 (_size(element-margin) * 0.5);
 			vertical-align: middle;
-		***REMOVED***
+		}
 
 		&.special {
-			@include vendor('justify-content', 'center'***REMOVED***;
+			@include vendor('justify-content', 'center');
 			width: 100%;
 			margin-left: 0;
 
 			li {
 				&:first-child {
 					padding-left: 0;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
 		&.stacked {
-			@include vendor('flex-direction', 'column'***REMOVED***;
+			@include vendor('flex-direction', 'column');
 			margin-left: 0;
 
 			li {
-				padding: (_size(element-margin***REMOVED*** * 0.65***REMOVED*** 0 0 0;
+				padding: (_size(element-margin) * 0.65) 0 0 0;
 
 				&:first-child {
 					padding-top: 0;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
 		&.fit {
-			width: calc(100% + #{_size(element-margin***REMOVED*** * 0.5***REMOVED******REMOVED***;
+			width: calc(100% + #{_size(element-margin) * 0.5});
 
 			li {
-				@include vendor('flex-grow', '1'***REMOVED***;
-				@include vendor('flex-shrink', '1'***REMOVED***;
+				@include vendor('flex-grow', '1');
+				@include vendor('flex-shrink', '1');
 				width: 100%;
 
 				> * {
 					width: 100%;
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 
 			&.stacked {
 				width: 100%;
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
-		@include breakpoint('<=xsmall'***REMOVED*** {
-			&:not(.fixed***REMOVED*** {
-				@include vendor('flex-direction', 'column'***REMOVED***;
+		@include breakpoint('<=xsmall') {
+			&:not(.fixed) {
+				@include vendor('flex-direction', 'column');
 				margin-left: 0;
 				width: 100% !important;
 
 				li {
-					@include vendor('flex-grow', '1'***REMOVED***;
-					@include vendor('flex-shrink', '1'***REMOVED***;
-					padding: (_size(element-margin***REMOVED*** * 0.5***REMOVED*** 0 0 0;
+					@include vendor('flex-grow', '1');
+					@include vendor('flex-shrink', '1');
+					padding: (_size(element-margin) * 0.5) 0 0 0;
 					text-align: center;
 					width: 100%;
 
 					> * {
 						width: 100%;
-					***REMOVED***
+					}
 
 					&:first-child {
 						padding-top: 0;
-					***REMOVED***
+					}
 
-					input[type="submit"***REMOVED***,
-					input[type="reset"***REMOVED***,
-					input[type="button"***REMOVED***,
+					input[type="submit"],
+					input[type="reset"],
+					input[type="button"],
 					button,
 					.button {
 						width: 100%;
@@ -92,10 +92,10 @@
 						&.icon {
 							&:before {
 								margin-left: -0.5em;
-							***REMOVED***
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+							}
+						}
+					}
+				}
+			}
+		}
+	}

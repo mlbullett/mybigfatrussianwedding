@@ -5,32 +5,32 @@
  * Released under the MIT license
  * https://github.com/select2/select2/blob/master/LICENSE.md
  */
-(function (factory***REMOVED*** {
-  if (typeof define === 'function' && define.amd***REMOVED*** {
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['jquery'***REMOVED***, factory***REMOVED***;
-  ***REMOVED*** else if (typeof exports === 'object'***REMOVED*** {
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
     // Node/CommonJS
-    factory(require('jquery'***REMOVED******REMOVED***;
-  ***REMOVED*** else {
+    factory(require('jquery'));
+  } else {
     // Browser globals
-    factory(jQuery***REMOVED***;
-  ***REMOVED***
-***REMOVED***(function (jQuery***REMOVED*** {
+    factory(jQuery);
+  }
+}(function (jQuery) {
   // This is needed so we can catch the AMD loader configuration and use it
-  // The inner file should be wrapped (by `banner.start.js`***REMOVED*** in a function that
+  // The inner file should be wrapped (by `banner.start.js`) in a function that
   // returns the AMD loader references.
   var S2 =
-(function (***REMOVED*** {
+(function () {
   // Restore the Select2 AMD loader so it can be used
   // Needed mostly in the language files, where the loader is not inserted
-  if (jQuery && jQuery.fn && jQuery.fn.select2 && jQuery.fn.select2.amd***REMOVED*** {
+  if (jQuery && jQuery.fn && jQuery.fn.select2 && jQuery.fn.select2.amd) {
     var S2 = jQuery.fn.select2.amd;
-  ***REMOVED***
-var S2;(function (***REMOVED*** { if (!S2 || !S2.requirejs***REMOVED*** {
-if (!S2***REMOVED*** { S2 = {***REMOVED***; ***REMOVED*** else { require = S2; ***REMOVED***
+  }
+var S2;(function () { if (!S2 || !S2.requirejs) {
+if (!S2) { S2 = {}; } else { require = S2; }
 /**
- * @license almond 0.3.1 Copyright (c***REMOVED*** 2011-2014, The Dojo Foundation All Rights Reserved.
+ * @license almond 0.3.1 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
  */
@@ -40,63 +40,63 @@ if (!S2***REMOVED*** { S2 = {***REMOVED***; ***REMOVED*** else { require = S2; *
 /*global setTimeout: false */
 
 var requirejs, require, define;
-(function (undef***REMOVED*** {
+(function (undef) {
     var main, req, makeMap, handlers,
-        defined = {***REMOVED***,
-        waiting = {***REMOVED***,
-        config = {***REMOVED***,
-        defining = {***REMOVED***,
+        defined = {},
+        waiting = {},
+        config = {},
+        defining = {},
         hasOwn = Object.prototype.hasOwnProperty,
-        aps = [***REMOVED***.slice,
+        aps = [].slice,
         jsSuffixRegExp = /\.js$/;
 
-    function hasProp(obj, prop***REMOVED*** {
-        return hasOwn.call(obj, prop***REMOVED***;
-***REMOVED***
+    function hasProp(obj, prop) {
+        return hasOwn.call(obj, prop);
+    }
 
     /**
      * Given a relative module name, like ./something, normalize it to
      * a real name that can be mapped to a path.
-     * @param {String***REMOVED*** name the relative name
-     * @param {String***REMOVED*** baseName a real name that the name arg is relative
+     * @param {String} name the relative name
+     * @param {String} baseName a real name that the name arg is relative
      * to.
-     * @returns {String***REMOVED*** normalized name
+     * @returns {String} normalized name
      */
-    function normalize(name, baseName***REMOVED*** {
+    function normalize(name, baseName) {
         var nameParts, nameSegment, mapValue, foundMap, lastIndex,
             foundI, foundStarMap, starI, i, j, part,
-            baseParts = baseName && baseName.split("/"***REMOVED***,
+            baseParts = baseName && baseName.split("/"),
             map = config.map,
-            starMap = (map && map['*'***REMOVED******REMOVED*** || {***REMOVED***;
+            starMap = (map && map['*']) || {};
 
         //Adjust any relative paths.
-        if (name && name.charAt(0***REMOVED*** === "."***REMOVED*** {
+        if (name && name.charAt(0) === ".") {
             //If have a base name, try to normalize against it,
             //otherwise, assume it is a top-level require that will
             //be relative to baseUrl in the end.
-            if (baseName***REMOVED*** {
-                name = name.split('/'***REMOVED***;
+            if (baseName) {
+                name = name.split('/');
                 lastIndex = name.length - 1;
 
                 // Node .js allowance:
-                if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex***REMOVED******REMOVED******REMOVED*** {
-                    name[lastIndex***REMOVED*** = name[lastIndex***REMOVED***.replace(jsSuffixRegExp, ''***REMOVED***;
-            ***REMOVED***
+                if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
+                    name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
+                }
 
                 //Lop off the last part of baseParts, so that . matches the
                 //"directory" and not name of the baseName's module. For instance,
                 //baseName of "one/two/three", maps to "one/two/three.js", but we
                 //want the directory, "one/two" for this normalization.
-                name = baseParts.slice(0, baseParts.length - 1***REMOVED***.concat(name***REMOVED***;
+                name = baseParts.slice(0, baseParts.length - 1).concat(name);
 
                 //start trimDots
-                for (i = 0; i < name.length; i += 1***REMOVED*** {
-                    part = name[i***REMOVED***;
-                    if (part === "."***REMOVED*** {
-                        name.splice(i, 1***REMOVED***;
+                for (i = 0; i < name.length; i += 1) {
+                    part = name[i];
+                    if (part === ".") {
+                        name.splice(i, 1);
                         i -= 1;
-                ***REMOVED*** else if (part === ".."***REMOVED*** {
-                        if (i === 1 && (name[2***REMOVED*** === '..' || name[0***REMOVED*** === '..'***REMOVED******REMOVED*** {
+                    } else if (part === "..") {
+                        if (i === 1 && (name[2] === '..' || name[0] === '..')) {
                             //End of the line. Keep at least one non-dot
                             //path segment at the front so it can be mapped
                             //correctly to disk. Otherwise, there is likely
@@ -104,165 +104,165 @@ var requirejs, require, define;
                             //This can still fail, but catches the most reasonable
                             //uses of ..
                             break;
-                    ***REMOVED*** else if (i > 0***REMOVED*** {
-                            name.splice(i - 1, 2***REMOVED***;
+                        } else if (i > 0) {
+                            name.splice(i - 1, 2);
                             i -= 2;
-                    ***REMOVED***
-                ***REMOVED***
-            ***REMOVED***
+                        }
+                    }
+                }
                 //end trimDots
 
-                name = name.join("/"***REMOVED***;
-        ***REMOVED*** else if (name.indexOf('./'***REMOVED*** === 0***REMOVED*** {
+                name = name.join("/");
+            } else if (name.indexOf('./') === 0) {
                 // No baseName, so this is ID is resolved relative
                 // to baseUrl, pull off the leading dot.
-                name = name.substring(2***REMOVED***;
-        ***REMOVED***
-    ***REMOVED***
+                name = name.substring(2);
+            }
+        }
 
         //Apply map config if available.
-        if ((baseParts || starMap***REMOVED*** && map***REMOVED*** {
-            nameParts = name.split('/'***REMOVED***;
+        if ((baseParts || starMap) && map) {
+            nameParts = name.split('/');
 
-            for (i = nameParts.length; i > 0; i -= 1***REMOVED*** {
-                nameSegment = nameParts.slice(0, i***REMOVED***.join("/"***REMOVED***;
+            for (i = nameParts.length; i > 0; i -= 1) {
+                nameSegment = nameParts.slice(0, i).join("/");
 
-                if (baseParts***REMOVED*** {
+                if (baseParts) {
                     //Find the longest baseName segment match in the config.
                     //So, do joins on the biggest to smallest lengths of baseParts.
-                    for (j = baseParts.length; j > 0; j -= 1***REMOVED*** {
-                        mapValue = map[baseParts.slice(0, j***REMOVED***.join('/'***REMOVED******REMOVED***;
+                    for (j = baseParts.length; j > 0; j -= 1) {
+                        mapValue = map[baseParts.slice(0, j).join('/')];
 
                         //baseName segment has  config, find if it has one for
                         //this name.
-                        if (mapValue***REMOVED*** {
-                            mapValue = mapValue[nameSegment***REMOVED***;
-                            if (mapValue***REMOVED*** {
+                        if (mapValue) {
+                            mapValue = mapValue[nameSegment];
+                            if (mapValue) {
                                 //Match, update name to the new value.
                                 foundMap = mapValue;
                                 foundI = i;
                                 break;
-                        ***REMOVED***
-                    ***REMOVED***
-                ***REMOVED***
-            ***REMOVED***
+                            }
+                        }
+                    }
+                }
 
-                if (foundMap***REMOVED*** {
+                if (foundMap) {
                     break;
-            ***REMOVED***
+                }
 
                 //Check for a star map match, but just hold on to it,
                 //if there is a shorter segment match later in a matching
                 //config, then favor over this star map.
-                if (!foundStarMap && starMap && starMap[nameSegment***REMOVED******REMOVED*** {
-                    foundStarMap = starMap[nameSegment***REMOVED***;
+                if (!foundStarMap && starMap && starMap[nameSegment]) {
+                    foundStarMap = starMap[nameSegment];
                     starI = i;
-            ***REMOVED***
-        ***REMOVED***
+                }
+            }
 
-            if (!foundMap && foundStarMap***REMOVED*** {
+            if (!foundMap && foundStarMap) {
                 foundMap = foundStarMap;
                 foundI = starI;
-        ***REMOVED***
+            }
 
-            if (foundMap***REMOVED*** {
-                nameParts.splice(0, foundI, foundMap***REMOVED***;
-                name = nameParts.join('/'***REMOVED***;
-        ***REMOVED***
-    ***REMOVED***
+            if (foundMap) {
+                nameParts.splice(0, foundI, foundMap);
+                name = nameParts.join('/');
+            }
+        }
 
         return name;
-***REMOVED***
+    }
 
-    function makeRequire(relName, forceSync***REMOVED*** {
-        return function (***REMOVED*** {
+    function makeRequire(relName, forceSync) {
+        return function () {
             //A version of a require function that passes a moduleName
             //value for items that may need to
             //look up paths relative to the moduleName
-            var args = aps.call(arguments, 0***REMOVED***;
+            var args = aps.call(arguments, 0);
 
-            //If first arg is not require('string'***REMOVED***, and there is only
+            //If first arg is not require('string'), and there is only
             //one arg, it is the array form without a callback. Insert
             //a null so that the following concat is correct.
-            if (typeof args[0***REMOVED*** !== 'string' && args.length === 1***REMOVED*** {
-                args.push(null***REMOVED***;
-        ***REMOVED***
-            return req.apply(undef, args.concat([relName, forceSync***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED***;
-***REMOVED***
+            if (typeof args[0] !== 'string' && args.length === 1) {
+                args.push(null);
+            }
+            return req.apply(undef, args.concat([relName, forceSync]));
+        };
+    }
 
-    function makeNormalize(relName***REMOVED*** {
-        return function (name***REMOVED*** {
-            return normalize(name, relName***REMOVED***;
-    ***REMOVED***;
-***REMOVED***
+    function makeNormalize(relName) {
+        return function (name) {
+            return normalize(name, relName);
+        };
+    }
 
-    function makeLoad(depName***REMOVED*** {
-        return function (value***REMOVED*** {
-            defined[depName***REMOVED*** = value;
-    ***REMOVED***;
-***REMOVED***
+    function makeLoad(depName) {
+        return function (value) {
+            defined[depName] = value;
+        };
+    }
 
-    function callDep(name***REMOVED*** {
-        if (hasProp(waiting, name***REMOVED******REMOVED*** {
-            var args = waiting[name***REMOVED***;
-            delete waiting[name***REMOVED***;
-            defining[name***REMOVED*** = true;
-            main.apply(undef, args***REMOVED***;
-    ***REMOVED***
+    function callDep(name) {
+        if (hasProp(waiting, name)) {
+            var args = waiting[name];
+            delete waiting[name];
+            defining[name] = true;
+            main.apply(undef, args);
+        }
 
-        if (!hasProp(defined, name***REMOVED*** && !hasProp(defining, name***REMOVED******REMOVED*** {
-            throw new Error('No ' + name***REMOVED***;
-    ***REMOVED***
-        return defined[name***REMOVED***;
-***REMOVED***
+        if (!hasProp(defined, name) && !hasProp(defining, name)) {
+            throw new Error('No ' + name);
+        }
+        return defined[name];
+    }
 
-    //Turns a plugin!resource to [plugin, resource***REMOVED***
+    //Turns a plugin!resource to [plugin, resource]
     //with the plugin being undefined if the name
     //did not have a plugin prefix.
-    function splitPrefix(name***REMOVED*** {
+    function splitPrefix(name) {
         var prefix,
-            index = name ? name.indexOf('!'***REMOVED*** : -1;
-        if (index > -1***REMOVED*** {
-            prefix = name.substring(0, index***REMOVED***;
-            name = name.substring(index + 1, name.length***REMOVED***;
-    ***REMOVED***
-        return [prefix, name***REMOVED***;
-***REMOVED***
+            index = name ? name.indexOf('!') : -1;
+        if (index > -1) {
+            prefix = name.substring(0, index);
+            name = name.substring(index + 1, name.length);
+        }
+        return [prefix, name];
+    }
 
     /**
      * Makes a name map, normalizing the name, and using a plugin
      * for normalization if necessary. Grabs a ref to plugin
      * too, as an optimization.
      */
-    makeMap = function (name, relName***REMOVED*** {
+    makeMap = function (name, relName) {
         var plugin,
-            parts = splitPrefix(name***REMOVED***,
-            prefix = parts[0***REMOVED***;
+            parts = splitPrefix(name),
+            prefix = parts[0];
 
-        name = parts[1***REMOVED***;
+        name = parts[1];
 
-        if (prefix***REMOVED*** {
-            prefix = normalize(prefix, relName***REMOVED***;
-            plugin = callDep(prefix***REMOVED***;
-    ***REMOVED***
+        if (prefix) {
+            prefix = normalize(prefix, relName);
+            plugin = callDep(prefix);
+        }
 
         //Normalize according
-        if (prefix***REMOVED*** {
-            if (plugin && plugin.normalize***REMOVED*** {
-                name = plugin.normalize(name, makeNormalize(relName***REMOVED******REMOVED***;
-        ***REMOVED*** else {
-                name = normalize(name, relName***REMOVED***;
-        ***REMOVED***
-    ***REMOVED*** else {
-            name = normalize(name, relName***REMOVED***;
-            parts = splitPrefix(name***REMOVED***;
-            prefix = parts[0***REMOVED***;
-            name = parts[1***REMOVED***;
-            if (prefix***REMOVED*** {
-                plugin = callDep(prefix***REMOVED***;
-        ***REMOVED***
-    ***REMOVED***
+        if (prefix) {
+            if (plugin && plugin.normalize) {
+                name = plugin.normalize(name, makeNormalize(relName));
+            } else {
+                name = normalize(name, relName);
+            }
+        } else {
+            name = normalize(name, relName);
+            parts = splitPrefix(name);
+            prefix = parts[0];
+            name = parts[1];
+            if (prefix) {
+                plugin = callDep(prefix);
+            }
+        }
 
         //Using ridiculous property names for space reasons
         return {
@@ -270,40 +270,40 @@ var requirejs, require, define;
             n: name,
             pr: prefix,
             p: plugin
-    ***REMOVED***;
-***REMOVED***;
+        };
+    };
 
-    function makeConfig(name***REMOVED*** {
-        return function (***REMOVED*** {
-            return (config && config.config && config.config[name***REMOVED******REMOVED*** || {***REMOVED***;
-    ***REMOVED***;
-***REMOVED***
+    function makeConfig(name) {
+        return function () {
+            return (config && config.config && config.config[name]) || {};
+        };
+    }
 
     handlers = {
-        require: function (name***REMOVED*** {
-            return makeRequire(name***REMOVED***;
-***REMOVED***
-        exports: function (name***REMOVED*** {
-            var e = defined[name***REMOVED***;
-            if (typeof e !== 'undefined'***REMOVED*** {
+        require: function (name) {
+            return makeRequire(name);
+        },
+        exports: function (name) {
+            var e = defined[name];
+            if (typeof e !== 'undefined') {
                 return e;
-        ***REMOVED*** else {
-                return (defined[name***REMOVED*** = {***REMOVED******REMOVED***;
-        ***REMOVED***
-***REMOVED***
-        module: function (name***REMOVED*** {
+            } else {
+                return (defined[name] = {});
+            }
+        },
+        module: function (name) {
             return {
                 id: name,
                 uri: '',
-                exports: defined[name***REMOVED***,
-                config: makeConfig(name***REMOVED***
-        ***REMOVED***;
-    ***REMOVED***
-***REMOVED***;
+                exports: defined[name],
+                config: makeConfig(name)
+            };
+        }
+    };
 
-    main = function (name, deps, callback, relName***REMOVED*** {
+    main = function (name, deps, callback, relName) {
         var cjsModule, depName, ret, map, i,
-            args = [***REMOVED***,
+            args = [],
             callbackType = typeof callback,
             usingExports;
 
@@ -311,412 +311,412 @@ var requirejs, require, define;
         relName = relName || name;
 
         //Call the callback to define the module, if necessary.
-        if (callbackType === 'undefined' || callbackType === 'function'***REMOVED*** {
+        if (callbackType === 'undefined' || callbackType === 'function') {
             //Pull out the defined dependencies and pass the ordered
             //values to the callback.
-            //Default to [require, exports, module***REMOVED*** if no deps
-            deps = !deps.length && callback.length ? ['require', 'exports', 'module'***REMOVED*** : deps;
-            for (i = 0; i < deps.length; i += 1***REMOVED*** {
-                map = makeMap(deps[i***REMOVED***, relName***REMOVED***;
+            //Default to [require, exports, module] if no deps
+            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
+            for (i = 0; i < deps.length; i += 1) {
+                map = makeMap(deps[i], relName);
                 depName = map.f;
 
                 //Fast path CommonJS standard dependencies.
-                if (depName === "require"***REMOVED*** {
-                    args[i***REMOVED*** = handlers.require(name***REMOVED***;
-            ***REMOVED*** else if (depName === "exports"***REMOVED*** {
+                if (depName === "require") {
+                    args[i] = handlers.require(name);
+                } else if (depName === "exports") {
                     //CommonJS module spec 1.1
-                    args[i***REMOVED*** = handlers.exports(name***REMOVED***;
+                    args[i] = handlers.exports(name);
                     usingExports = true;
-            ***REMOVED*** else if (depName === "module"***REMOVED*** {
+                } else if (depName === "module") {
                     //CommonJS module spec 1.1
-                    cjsModule = args[i***REMOVED*** = handlers.module(name***REMOVED***;
-            ***REMOVED*** else if (hasProp(defined, depName***REMOVED*** ||
-                           hasProp(waiting, depName***REMOVED*** ||
-                           hasProp(defining, depName***REMOVED******REMOVED*** {
-                    args[i***REMOVED*** = callDep(depName***REMOVED***;
-            ***REMOVED*** else if (map.p***REMOVED*** {
-                    map.p.load(map.n, makeRequire(relName, true***REMOVED***, makeLoad(depName***REMOVED***, {***REMOVED******REMOVED***;
-                    args[i***REMOVED*** = defined[depName***REMOVED***;
-            ***REMOVED*** else {
-                    throw new Error(name + ' missing ' + depName***REMOVED***;
-            ***REMOVED***
-        ***REMOVED***
+                    cjsModule = args[i] = handlers.module(name);
+                } else if (hasProp(defined, depName) ||
+                           hasProp(waiting, depName) ||
+                           hasProp(defining, depName)) {
+                    args[i] = callDep(depName);
+                } else if (map.p) {
+                    map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
+                    args[i] = defined[depName];
+                } else {
+                    throw new Error(name + ' missing ' + depName);
+                }
+            }
 
-            ret = callback ? callback.apply(defined[name***REMOVED***, args***REMOVED*** : undefined;
+            ret = callback ? callback.apply(defined[name], args) : undefined;
 
-            if (name***REMOVED*** {
+            if (name) {
                 //If setting exports via "module" is in play,
                 //favor that over return value and exports. After that,
                 //favor a non-undefined return value over exports use.
                 if (cjsModule && cjsModule.exports !== undef &&
-                        cjsModule.exports !== defined[name***REMOVED******REMOVED*** {
-                    defined[name***REMOVED*** = cjsModule.exports;
-            ***REMOVED*** else if (ret !== undef || !usingExports***REMOVED*** {
+                        cjsModule.exports !== defined[name]) {
+                    defined[name] = cjsModule.exports;
+                } else if (ret !== undef || !usingExports) {
                     //Use the return value from the function.
-                    defined[name***REMOVED*** = ret;
-            ***REMOVED***
-        ***REMOVED***
-    ***REMOVED*** else if (name***REMOVED*** {
+                    defined[name] = ret;
+                }
+            }
+        } else if (name) {
             //May just be an object definition for the module. Only
             //worry about defining if have a module name.
-            defined[name***REMOVED*** = callback;
-    ***REMOVED***
-***REMOVED***;
+            defined[name] = callback;
+        }
+    };
 
-    requirejs = require = req = function (deps, callback, relName, forceSync, alt***REMOVED*** {
-        if (typeof deps === "string"***REMOVED*** {
-            if (handlers[deps***REMOVED******REMOVED*** {
+    requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
+        if (typeof deps === "string") {
+            if (handlers[deps]) {
                 //callback in this case is really relName
-                return handlers[deps***REMOVED***(callback***REMOVED***;
-        ***REMOVED***
+                return handlers[deps](callback);
+            }
             //Just return the module wanted. In this scenario, the
-            //deps arg is the module name, and second arg (if passed***REMOVED***
+            //deps arg is the module name, and second arg (if passed)
             //is just the relName.
             //Normalize module name, if it contains . or ..
-            return callDep(makeMap(deps, callback***REMOVED***.f***REMOVED***;
-    ***REMOVED*** else if (!deps.splice***REMOVED*** {
+            return callDep(makeMap(deps, callback).f);
+        } else if (!deps.splice) {
             //deps is a config object, not an array.
             config = deps;
-            if (config.deps***REMOVED*** {
-                req(config.deps, config.callback***REMOVED***;
-        ***REMOVED***
-            if (!callback***REMOVED*** {
+            if (config.deps) {
+                req(config.deps, config.callback);
+            }
+            if (!callback) {
                 return;
-        ***REMOVED***
+            }
 
-            if (callback.splice***REMOVED*** {
+            if (callback.splice) {
                 //callback is an array, which means it is a dependency list.
                 //Adjust args if there are dependencies
                 deps = callback;
                 callback = relName;
                 relName = null;
-        ***REMOVED*** else {
+            } else {
                 deps = undef;
-        ***REMOVED***
-    ***REMOVED***
+            }
+        }
 
-        //Support require(['a'***REMOVED******REMOVED***
-        callback = callback || function (***REMOVED*** {***REMOVED***;
+        //Support require(['a'])
+        callback = callback || function () {};
 
         //If relName is a function, it is an errback handler,
         //so remove it.
-        if (typeof relName === 'function'***REMOVED*** {
+        if (typeof relName === 'function') {
             relName = forceSync;
             forceSync = alt;
-    ***REMOVED***
+        }
 
         //Simulate async callback;
-        if (forceSync***REMOVED*** {
-            main(undef, deps, callback, relName***REMOVED***;
-    ***REMOVED*** else {
+        if (forceSync) {
+            main(undef, deps, callback, relName);
+        } else {
             //Using a non-zero value because of concern for what old browsers
             //do, and latest browsers "upgrade" to 4 if lower value is used:
             //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
-            //If want a value immediately, use require('id'***REMOVED*** instead -- something
+            //If want a value immediately, use require('id') instead -- something
             //that works in almond on the global level, but not guaranteed and
             //unlikely to work in other AMD implementations.
-            setTimeout(function (***REMOVED*** {
-                main(undef, deps, callback, relName***REMOVED***;
-    ***REMOVED*** 4***REMOVED***;
-    ***REMOVED***
+            setTimeout(function () {
+                main(undef, deps, callback, relName);
+            }, 4);
+        }
 
         return req;
-***REMOVED***;
+    };
 
     /**
      * Just drops the config on the floor, but returns req in case
      * the config return value is used.
      */
-    req.config = function (cfg***REMOVED*** {
-        return req(cfg***REMOVED***;
-***REMOVED***;
+    req.config = function (cfg) {
+        return req(cfg);
+    };
 
     /**
      * Expose module registry for debugging and tooling
      */
     requirejs._defined = defined;
 
-    define = function (name, deps, callback***REMOVED*** {
-        if (typeof name !== 'string'***REMOVED*** {
-            throw new Error('See almond README: incorrect module build, no module name'***REMOVED***;
-    ***REMOVED***
+    define = function (name, deps, callback) {
+        if (typeof name !== 'string') {
+            throw new Error('See almond README: incorrect module build, no module name');
+        }
 
         //This module may not have dependencies
-        if (!deps.splice***REMOVED*** {
+        if (!deps.splice) {
             //deps is not an array, so probably means
             //an object literal or factory function for
             //the value. Adjust args.
             callback = deps;
-            deps = [***REMOVED***;
-    ***REMOVED***
+            deps = [];
+        }
 
-        if (!hasProp(defined, name***REMOVED*** && !hasProp(waiting, name***REMOVED******REMOVED*** {
-            waiting[name***REMOVED*** = [name, deps, callback***REMOVED***;
-    ***REMOVED***
-***REMOVED***;
+        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
+            waiting[name] = [name, deps, callback];
+        }
+    };
 
     define.amd = {
         jQuery: true
-***REMOVED***;
-***REMOVED***(***REMOVED******REMOVED***;
+    };
+}());
 
 S2.requirejs = requirejs;S2.require = require;S2.define = define;
-***REMOVED***
-***REMOVED***(***REMOVED******REMOVED***;
-S2.define("almond", function(***REMOVED***{***REMOVED******REMOVED***;
+}
+}());
+S2.define("almond", function(){});
 
 /* global jQuery:false, $:false */
-S2.define('jquery',[***REMOVED***,function (***REMOVED*** {
+S2.define('jquery',[],function () {
   var _$ = jQuery || $;
 
-  if (_$ == null && console && console.error***REMOVED*** {
+  if (_$ == null && console && console.error) {
     console.error(
       'Select2: An instance of jQuery or a jQuery-compatible library was not ' +
       'found. Make sure that you are including jQuery before Select2 on your ' +
       'web page.'
-    ***REMOVED***;
-  ***REMOVED***
+    );
+  }
 
   return _$;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/utils',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  var Utils = {***REMOVED***;
+], function ($) {
+  var Utils = {};
 
-  Utils.Extend = function (ChildClass, SuperClass***REMOVED*** {
-    var __hasProp = {***REMOVED***.hasOwnProperty;
+  Utils.Extend = function (ChildClass, SuperClass) {
+    var __hasProp = {}.hasOwnProperty;
 
-    function BaseConstructor (***REMOVED*** {
+    function BaseConstructor () {
       this.constructor = ChildClass;
-***REMOVED***
+    }
 
-    for (var key in SuperClass***REMOVED*** {
-      if (__hasProp.call(SuperClass, key***REMOVED******REMOVED*** {
-        ChildClass[key***REMOVED*** = SuperClass[key***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    for (var key in SuperClass) {
+      if (__hasProp.call(SuperClass, key)) {
+        ChildClass[key] = SuperClass[key];
+      }
+    }
 
     BaseConstructor.prototype = SuperClass.prototype;
-    ChildClass.prototype = new BaseConstructor(***REMOVED***;
+    ChildClass.prototype = new BaseConstructor();
     ChildClass.__super__ = SuperClass.prototype;
 
     return ChildClass;
-  ***REMOVED***;
+  };
 
-  function getMethods (theClass***REMOVED*** {
+  function getMethods (theClass) {
     var proto = theClass.prototype;
 
-    var methods = [***REMOVED***;
+    var methods = [];
 
-    for (var methodName in proto***REMOVED*** {
-      var m = proto[methodName***REMOVED***;
+    for (var methodName in proto) {
+      var m = proto[methodName];
 
-      if (typeof m !== 'function'***REMOVED*** {
+      if (typeof m !== 'function') {
         continue;
-  ***REMOVED***
+      }
 
-      if (methodName === 'constructor'***REMOVED*** {
+      if (methodName === 'constructor') {
         continue;
-  ***REMOVED***
+      }
 
-      methods.push(methodName***REMOVED***;
-***REMOVED***
+      methods.push(methodName);
+    }
 
     return methods;
-  ***REMOVED***
+  }
 
-  Utils.Decorate = function (SuperClass, DecoratorClass***REMOVED*** {
-    var decoratedMethods = getMethods(DecoratorClass***REMOVED***;
-    var superMethods = getMethods(SuperClass***REMOVED***;
+  Utils.Decorate = function (SuperClass, DecoratorClass) {
+    var decoratedMethods = getMethods(DecoratorClass);
+    var superMethods = getMethods(SuperClass);
 
-    function DecoratedClass (***REMOVED*** {
+    function DecoratedClass () {
       var unshift = Array.prototype.unshift;
 
       var argCount = DecoratorClass.prototype.constructor.length;
 
       var calledConstructor = SuperClass.prototype.constructor;
 
-      if (argCount > 0***REMOVED*** {
-        unshift.call(arguments, SuperClass.prototype.constructor***REMOVED***;
+      if (argCount > 0) {
+        unshift.call(arguments, SuperClass.prototype.constructor);
 
         calledConstructor = DecoratorClass.prototype.constructor;
-  ***REMOVED***
+      }
 
-      calledConstructor.apply(this, arguments***REMOVED***;
-***REMOVED***
+      calledConstructor.apply(this, arguments);
+    }
 
     DecoratorClass.displayName = SuperClass.displayName;
 
-    function ctr (***REMOVED*** {
+    function ctr () {
       this.constructor = DecoratedClass;
-***REMOVED***
+    }
 
-    DecoratedClass.prototype = new ctr(***REMOVED***;
+    DecoratedClass.prototype = new ctr();
 
-    for (var m = 0; m < superMethods.length; m++***REMOVED*** {
-        var superMethod = superMethods[m***REMOVED***;
+    for (var m = 0; m < superMethods.length; m++) {
+        var superMethod = superMethods[m];
 
-        DecoratedClass.prototype[superMethod***REMOVED*** =
-          SuperClass.prototype[superMethod***REMOVED***;
-***REMOVED***
+        DecoratedClass.prototype[superMethod] =
+          SuperClass.prototype[superMethod];
+    }
 
-    var calledMethod = function (methodName***REMOVED*** {
+    var calledMethod = function (methodName) {
       // Stub out the original method if it's not decorating an actual method
-      var originalMethod = function (***REMOVED*** {***REMOVED***;
+      var originalMethod = function () {};
 
-      if (methodName in DecoratedClass.prototype***REMOVED*** {
-        originalMethod = DecoratedClass.prototype[methodName***REMOVED***;
-  ***REMOVED***
+      if (methodName in DecoratedClass.prototype) {
+        originalMethod = DecoratedClass.prototype[methodName];
+      }
 
-      var decoratedMethod = DecoratorClass.prototype[methodName***REMOVED***;
+      var decoratedMethod = DecoratorClass.prototype[methodName];
 
-      return function (***REMOVED*** {
+      return function () {
         var unshift = Array.prototype.unshift;
 
-        unshift.call(arguments, originalMethod***REMOVED***;
+        unshift.call(arguments, originalMethod);
 
-        return decoratedMethod.apply(this, arguments***REMOVED***;
-  ***REMOVED***;
-***REMOVED***;
+        return decoratedMethod.apply(this, arguments);
+      };
+    };
 
-    for (var d = 0; d < decoratedMethods.length; d++***REMOVED*** {
-      var decoratedMethod = decoratedMethods[d***REMOVED***;
+    for (var d = 0; d < decoratedMethods.length; d++) {
+      var decoratedMethod = decoratedMethods[d];
 
-      DecoratedClass.prototype[decoratedMethod***REMOVED*** = calledMethod(decoratedMethod***REMOVED***;
-***REMOVED***
+      DecoratedClass.prototype[decoratedMethod] = calledMethod(decoratedMethod);
+    }
 
     return DecoratedClass;
-  ***REMOVED***;
+  };
 
-  var Observable = function (***REMOVED*** {
-    this.listeners = {***REMOVED***;
-  ***REMOVED***;
+  var Observable = function () {
+    this.listeners = {};
+  };
 
-  Observable.prototype.on = function (event, callback***REMOVED*** {
-    this.listeners = this.listeners || {***REMOVED***;
+  Observable.prototype.on = function (event, callback) {
+    this.listeners = this.listeners || {};
 
-    if (event in this.listeners***REMOVED*** {
-      this.listeners[event***REMOVED***.push(callback***REMOVED***;
-***REMOVED*** else {
-      this.listeners[event***REMOVED*** = [callback***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if (event in this.listeners) {
+      this.listeners[event].push(callback);
+    } else {
+      this.listeners[event] = [callback];
+    }
+  };
 
-  Observable.prototype.trigger = function (event***REMOVED*** {
+  Observable.prototype.trigger = function (event) {
     var slice = Array.prototype.slice;
-    var params = slice.call(arguments, 1***REMOVED***;
+    var params = slice.call(arguments, 1);
 
-    this.listeners = this.listeners || {***REMOVED***;
+    this.listeners = this.listeners || {};
 
     // Params should always come in as an array
-    if (params == null***REMOVED*** {
-      params = [***REMOVED***;
-***REMOVED***
+    if (params == null) {
+      params = [];
+    }
 
     // If there are no arguments to the event, use a temporary object
-    if (params.length === 0***REMOVED*** {
-      params.push({***REMOVED******REMOVED***;
-***REMOVED***
+    if (params.length === 0) {
+      params.push({});
+    }
 
     // Set the `_type` of the first object to the event
-    params[0***REMOVED***._type = event;
+    params[0]._type = event;
 
-    if (event in this.listeners***REMOVED*** {
-      this.invoke(this.listeners[event***REMOVED***, slice.call(arguments, 1***REMOVED******REMOVED***;
-***REMOVED***
+    if (event in this.listeners) {
+      this.invoke(this.listeners[event], slice.call(arguments, 1));
+    }
 
-    if ('*' in this.listeners***REMOVED*** {
-      this.invoke(this.listeners['*'***REMOVED***, arguments***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if ('*' in this.listeners) {
+      this.invoke(this.listeners['*'], arguments);
+    }
+  };
 
-  Observable.prototype.invoke = function (listeners, params***REMOVED*** {
-    for (var i = 0, len = listeners.length; i < len; i++***REMOVED*** {
-      listeners[i***REMOVED***.apply(this, params***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+  Observable.prototype.invoke = function (listeners, params) {
+    for (var i = 0, len = listeners.length; i < len; i++) {
+      listeners[i].apply(this, params);
+    }
+  };
 
   Utils.Observable = Observable;
 
-  Utils.generateChars = function (length***REMOVED*** {
+  Utils.generateChars = function (length) {
     var chars = '';
 
-    for (var i = 0; i < length; i++***REMOVED*** {
-      var randomChar = Math.floor(Math.random(***REMOVED*** * 36***REMOVED***;
-      chars += randomChar.toString(36***REMOVED***;
-***REMOVED***
+    for (var i = 0; i < length; i++) {
+      var randomChar = Math.floor(Math.random() * 36);
+      chars += randomChar.toString(36);
+    }
 
     return chars;
-  ***REMOVED***;
+  };
 
-  Utils.bind = function (func, context***REMOVED*** {
-    return function (***REMOVED*** {
-      func.apply(context, arguments***REMOVED***;
-***REMOVED***;
-  ***REMOVED***;
+  Utils.bind = function (func, context) {
+    return function () {
+      func.apply(context, arguments);
+    };
+  };
 
-  Utils._convertData = function (data***REMOVED*** {
-    for (var originalKey in data***REMOVED*** {
-      var keys = originalKey.split('-'***REMOVED***;
+  Utils._convertData = function (data) {
+    for (var originalKey in data) {
+      var keys = originalKey.split('-');
 
       var dataLevel = data;
 
-      if (keys.length === 1***REMOVED*** {
+      if (keys.length === 1) {
         continue;
-  ***REMOVED***
+      }
 
-      for (var k = 0; k < keys.length; k++***REMOVED*** {
-        var key = keys[k***REMOVED***;
+      for (var k = 0; k < keys.length; k++) {
+        var key = keys[k];
 
         // Lowercase the first letter
         // By default, dash-separated becomes camelCase
-        key = key.substring(0, 1***REMOVED***.toLowerCase(***REMOVED*** + key.substring(1***REMOVED***;
+        key = key.substring(0, 1).toLowerCase() + key.substring(1);
 
-        if (!(key in dataLevel***REMOVED******REMOVED*** {
-          dataLevel[key***REMOVED*** = {***REMOVED***;
-    ***REMOVED***
+        if (!(key in dataLevel)) {
+          dataLevel[key] = {};
+        }
 
-        if (k == keys.length - 1***REMOVED*** {
-          dataLevel[key***REMOVED*** = data[originalKey***REMOVED***;
-    ***REMOVED***
+        if (k == keys.length - 1) {
+          dataLevel[key] = data[originalKey];
+        }
 
-        dataLevel = dataLevel[key***REMOVED***;
-  ***REMOVED***
+        dataLevel = dataLevel[key];
+      }
 
-      delete data[originalKey***REMOVED***;
-***REMOVED***
+      delete data[originalKey];
+    }
 
     return data;
-  ***REMOVED***;
+  };
 
-  Utils.hasScroll = function (index, el***REMOVED*** {
+  Utils.hasScroll = function (index, el) {
     // Adapted from the function created by @ShadowScripter
     // and adapted by @BillBarry on the Stack Exchange Code Review website.
     // The original code can be found at
     // http://codereview.stackexchange.com/q/13338
     // and was designed to be used with the Sizzle selector engine.
 
-    var $el = $(el***REMOVED***;
+    var $el = $(el);
     var overflowX = el.style.overflowX;
     var overflowY = el.style.overflowY;
 
     //Check both x and y declarations
     if (overflowX === overflowY &&
-        (overflowY === 'hidden' || overflowY === 'visible'***REMOVED******REMOVED*** {
+        (overflowY === 'hidden' || overflowY === 'visible')) {
       return false;
-***REMOVED***
+    }
 
-    if (overflowX === 'scroll' || overflowY === 'scroll'***REMOVED*** {
+    if (overflowX === 'scroll' || overflowY === 'scroll') {
       return true;
-***REMOVED***
+    }
 
-    return ($el.innerHeight(***REMOVED*** < el.scrollHeight ||
-      $el.innerWidth(***REMOVED*** < el.scrollWidth***REMOVED***;
-  ***REMOVED***;
+    return ($el.innerHeight() < el.scrollHeight ||
+      $el.innerWidth() < el.scrollWidth);
+  };
 
-  Utils.escapeMarkup = function (markup***REMOVED*** {
+  Utils.escapeMarkup = function (markup) {
     var replaceMap = {
       '\\': '&#92;',
       '&': '&amp;',
@@ -725,565 +725,565 @@ S2.define('select2/utils',[
       '"': '&quot;',
       '\'': '&#39;',
       '/': '&#47;'
-***REMOVED***;
+    };
 
     // Do not try to escape the markup if it's not a string
-    if (typeof markup !== 'string'***REMOVED*** {
+    if (typeof markup !== 'string') {
       return markup;
-***REMOVED***
+    }
 
-    return String(markup***REMOVED***.replace(/[&<>"'\/\\***REMOVED***/g, function (match***REMOVED*** {
-      return replaceMap[match***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    return String(markup).replace(/[&<>"'\/\\]/g, function (match) {
+      return replaceMap[match];
+    });
+  };
 
   // Append an array of jQuery nodes to a given element.
-  Utils.appendMany = function ($element, $nodes***REMOVED*** {
-    // jQuery 1.7.x does not support $.fn.append(***REMOVED*** with an array
-    // Fall back to a jQuery object collection using $.fn.add(***REMOVED***
-    if ($.fn.jquery.substr(0, 3***REMOVED*** === '1.7'***REMOVED*** {
-      var $jqNodes = $(***REMOVED***;
+  Utils.appendMany = function ($element, $nodes) {
+    // jQuery 1.7.x does not support $.fn.append() with an array
+    // Fall back to a jQuery object collection using $.fn.add()
+    if ($.fn.jquery.substr(0, 3) === '1.7') {
+      var $jqNodes = $();
 
-      $.map($nodes, function (node***REMOVED*** {
-        $jqNodes = $jqNodes.add(node***REMOVED***;
-  ***REMOVED******REMOVED***;
+      $.map($nodes, function (node) {
+        $jqNodes = $jqNodes.add(node);
+      });
 
       $nodes = $jqNodes;
-***REMOVED***
+    }
 
-    $element.append($nodes***REMOVED***;
-  ***REMOVED***;
+    $element.append($nodes);
+  };
 
   return Utils;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/results',[
   'jquery',
   './utils'
-***REMOVED***, function ($, Utils***REMOVED*** {
-  function Results ($element, options, dataAdapter***REMOVED*** {
+], function ($, Utils) {
+  function Results ($element, options, dataAdapter) {
     this.$element = $element;
     this.data = dataAdapter;
     this.options = options;
 
-    Results.__super__.constructor.call(this***REMOVED***;
-  ***REMOVED***
+    Results.__super__.constructor.call(this);
+  }
 
-  Utils.Extend(Results, Utils.Observable***REMOVED***;
+  Utils.Extend(Results, Utils.Observable);
 
-  Results.prototype.render = function (***REMOVED*** {
+  Results.prototype.render = function () {
     var $results = $(
       '<ul class="select2-results__options" role="tree"></ul>'
-    ***REMOVED***;
+    );
 
-    if (this.options.get('multiple'***REMOVED******REMOVED*** {
-      $results.attr('aria-multiselectable', 'true'***REMOVED***;
-***REMOVED***
+    if (this.options.get('multiple')) {
+      $results.attr('aria-multiselectable', 'true');
+    }
 
     this.$results = $results;
 
     return $results;
-  ***REMOVED***;
+  };
 
-  Results.prototype.clear = function (***REMOVED*** {
-    this.$results.empty(***REMOVED***;
-  ***REMOVED***;
+  Results.prototype.clear = function () {
+    this.$results.empty();
+  };
 
-  Results.prototype.displayMessage = function (params***REMOVED*** {
-    var escapeMarkup = this.options.get('escapeMarkup'***REMOVED***;
+  Results.prototype.displayMessage = function (params) {
+    var escapeMarkup = this.options.get('escapeMarkup');
 
-    this.clear(***REMOVED***;
-    this.hideLoading(***REMOVED***;
+    this.clear();
+    this.hideLoading();
 
     var $message = $(
       '<li role="treeitem" aria-live="assertive"' +
       ' class="select2-results__option"></li>'
-    ***REMOVED***;
+    );
 
-    var message = this.options.get('translations'***REMOVED***.get(params.message***REMOVED***;
+    var message = this.options.get('translations').get(params.message);
 
     $message.append(
       escapeMarkup(
-        message(params.args***REMOVED***
-      ***REMOVED***
-    ***REMOVED***;
+        message(params.args)
+      )
+    );
 
-    $message[0***REMOVED***.className += ' select2-results__message';
+    $message[0].className += ' select2-results__message';
 
-    this.$results.append($message***REMOVED***;
-  ***REMOVED***;
+    this.$results.append($message);
+  };
 
-  Results.prototype.hideMessages = function (***REMOVED*** {
-    this.$results.find('.select2-results__message'***REMOVED***.remove(***REMOVED***;
-  ***REMOVED***;
+  Results.prototype.hideMessages = function () {
+    this.$results.find('.select2-results__message').remove();
+  };
 
-  Results.prototype.append = function (data***REMOVED*** {
-    this.hideLoading(***REMOVED***;
+  Results.prototype.append = function (data) {
+    this.hideLoading();
 
-    var $options = [***REMOVED***;
+    var $options = [];
 
-    if (data.results == null || data.results.length === 0***REMOVED*** {
-      if (this.$results.children(***REMOVED***.length === 0***REMOVED*** {
+    if (data.results == null || data.results.length === 0) {
+      if (this.$results.children().length === 0) {
         this.trigger('results:message', {
           message: 'noResults'
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+        });
+      }
 
       return;
-***REMOVED***
+    }
 
-    data.results = this.sort(data.results***REMOVED***;
+    data.results = this.sort(data.results);
 
-    for (var d = 0; d < data.results.length; d++***REMOVED*** {
-      var item = data.results[d***REMOVED***;
+    for (var d = 0; d < data.results.length; d++) {
+      var item = data.results[d];
 
-      var $option = this.option(item***REMOVED***;
+      var $option = this.option(item);
 
-      $options.push($option***REMOVED***;
-***REMOVED***
+      $options.push($option);
+    }
 
-    this.$results.append($options***REMOVED***;
-  ***REMOVED***;
+    this.$results.append($options);
+  };
 
-  Results.prototype.position = function ($results, $dropdown***REMOVED*** {
-    var $resultsContainer = $dropdown.find('.select2-results'***REMOVED***;
-    $resultsContainer.append($results***REMOVED***;
-  ***REMOVED***;
+  Results.prototype.position = function ($results, $dropdown) {
+    var $resultsContainer = $dropdown.find('.select2-results');
+    $resultsContainer.append($results);
+  };
 
-  Results.prototype.sort = function (data***REMOVED*** {
-    var sorter = this.options.get('sorter'***REMOVED***;
+  Results.prototype.sort = function (data) {
+    var sorter = this.options.get('sorter');
 
-    return sorter(data***REMOVED***;
-  ***REMOVED***;
+    return sorter(data);
+  };
 
-  Results.prototype.highlightFirstItem = function (***REMOVED*** {
+  Results.prototype.highlightFirstItem = function () {
     var $options = this.$results
-      .find('.select2-results__option[aria-selected***REMOVED***'***REMOVED***;
+      .find('.select2-results__option[aria-selected]');
 
-    var $selected = $options.filter('[aria-selected=true***REMOVED***'***REMOVED***;
+    var $selected = $options.filter('[aria-selected=true]');
 
     // Check if there are any selected options
-    if ($selected.length > 0***REMOVED*** {
+    if ($selected.length > 0) {
       // If there are selected options, highlight the first
-      $selected.first(***REMOVED***.trigger('mouseenter'***REMOVED***;
-***REMOVED*** else {
+      $selected.first().trigger('mouseenter');
+    } else {
       // If there are no selected options, highlight the first option
       // in the dropdown
-      $options.first(***REMOVED***.trigger('mouseenter'***REMOVED***;
-***REMOVED***
+      $options.first().trigger('mouseenter');
+    }
 
-    this.ensureHighlightVisible(***REMOVED***;
-  ***REMOVED***;
+    this.ensureHighlightVisible();
+  };
 
-  Results.prototype.setClasses = function (***REMOVED*** {
+  Results.prototype.setClasses = function () {
     var self = this;
 
-    this.data.current(function (selected***REMOVED*** {
-      var selectedIds = $.map(selected, function (s***REMOVED*** {
-        return s.id.toString(***REMOVED***;
-  ***REMOVED******REMOVED***;
+    this.data.current(function (selected) {
+      var selectedIds = $.map(selected, function (s) {
+        return s.id.toString();
+      });
 
       var $options = self.$results
-        .find('.select2-results__option[aria-selected***REMOVED***'***REMOVED***;
+        .find('.select2-results__option[aria-selected]');
 
-      $options.each(function (***REMOVED*** {
-        var $option = $(this***REMOVED***;
+      $options.each(function () {
+        var $option = $(this);
 
-        var item = $.data(this, 'data'***REMOVED***;
+        var item = $.data(this, 'data');
 
         // id needs to be converted to a string when comparing
         var id = '' + item.id;
 
-        if ((item.element != null && item.element.selected***REMOVED*** ||
-            (item.element == null && $.inArray(id, selectedIds***REMOVED*** > -1***REMOVED******REMOVED*** {
-          $option.attr('aria-selected', 'true'***REMOVED***;
-    ***REMOVED*** else {
-          $option.attr('aria-selected', 'false'***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
+        if ((item.element != null && item.element.selected) ||
+            (item.element == null && $.inArray(id, selectedIds) > -1)) {
+          $option.attr('aria-selected', 'true');
+        } else {
+          $option.attr('aria-selected', 'false');
+        }
+      });
 
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    });
+  };
 
-  Results.prototype.showLoading = function (params***REMOVED*** {
-    this.hideLoading(***REMOVED***;
+  Results.prototype.showLoading = function (params) {
+    this.hideLoading();
 
-    var loadingMore = this.options.get('translations'***REMOVED***.get('searching'***REMOVED***;
+    var loadingMore = this.options.get('translations').get('searching');
 
     var loading = {
       disabled: true,
       loading: true,
-      text: loadingMore(params***REMOVED***
-***REMOVED***;
-    var $loading = this.option(loading***REMOVED***;
+      text: loadingMore(params)
+    };
+    var $loading = this.option(loading);
     $loading.className += ' loading-results';
 
-    this.$results.prepend($loading***REMOVED***;
-  ***REMOVED***;
+    this.$results.prepend($loading);
+  };
 
-  Results.prototype.hideLoading = function (***REMOVED*** {
-    this.$results.find('.loading-results'***REMOVED***.remove(***REMOVED***;
-  ***REMOVED***;
+  Results.prototype.hideLoading = function () {
+    this.$results.find('.loading-results').remove();
+  };
 
-  Results.prototype.option = function (data***REMOVED*** {
-    var option = document.createElement('li'***REMOVED***;
+  Results.prototype.option = function (data) {
+    var option = document.createElement('li');
     option.className = 'select2-results__option';
 
     var attrs = {
       'role': 'treeitem',
       'aria-selected': 'false'
-***REMOVED***;
+    };
 
-    if (data.disabled***REMOVED*** {
-      delete attrs['aria-selected'***REMOVED***;
-      attrs['aria-disabled'***REMOVED*** = 'true';
-***REMOVED***
+    if (data.disabled) {
+      delete attrs['aria-selected'];
+      attrs['aria-disabled'] = 'true';
+    }
 
-    if (data.id == null***REMOVED*** {
-      delete attrs['aria-selected'***REMOVED***;
-***REMOVED***
+    if (data.id == null) {
+      delete attrs['aria-selected'];
+    }
 
-    if (data._resultId != null***REMOVED*** {
+    if (data._resultId != null) {
       option.id = data._resultId;
-***REMOVED***
+    }
 
-    if (data.title***REMOVED*** {
+    if (data.title) {
       option.title = data.title;
-***REMOVED***
+    }
 
-    if (data.children***REMOVED*** {
+    if (data.children) {
       attrs.role = 'group';
-      attrs['aria-label'***REMOVED*** = data.text;
-      delete attrs['aria-selected'***REMOVED***;
-***REMOVED***
+      attrs['aria-label'] = data.text;
+      delete attrs['aria-selected'];
+    }
 
-    for (var attr in attrs***REMOVED*** {
-      var val = attrs[attr***REMOVED***;
+    for (var attr in attrs) {
+      var val = attrs[attr];
 
-      option.setAttribute(attr, val***REMOVED***;
-***REMOVED***
+      option.setAttribute(attr, val);
+    }
 
-    if (data.children***REMOVED*** {
-      var $option = $(option***REMOVED***;
+    if (data.children) {
+      var $option = $(option);
 
-      var label = document.createElement('strong'***REMOVED***;
+      var label = document.createElement('strong');
       label.className = 'select2-results__group';
 
-      var $label = $(label***REMOVED***;
-      this.template(data, label***REMOVED***;
+      var $label = $(label);
+      this.template(data, label);
 
-      var $children = [***REMOVED***;
+      var $children = [];
 
-      for (var c = 0; c < data.children.length; c++***REMOVED*** {
-        var child = data.children[c***REMOVED***;
+      for (var c = 0; c < data.children.length; c++) {
+        var child = data.children[c];
 
-        var $child = this.option(child***REMOVED***;
+        var $child = this.option(child);
 
-        $children.push($child***REMOVED***;
-  ***REMOVED***
+        $children.push($child);
+      }
 
       var $childrenContainer = $('<ul></ul>', {
         'class': 'select2-results__options select2-results__options--nested'
-  ***REMOVED******REMOVED***;
+      });
 
-      $childrenContainer.append($children***REMOVED***;
+      $childrenContainer.append($children);
 
-      $option.append(label***REMOVED***;
-      $option.append($childrenContainer***REMOVED***;
-***REMOVED*** else {
-      this.template(data, option***REMOVED***;
-***REMOVED***
+      $option.append(label);
+      $option.append($childrenContainer);
+    } else {
+      this.template(data, option);
+    }
 
-    $.data(option, 'data', data***REMOVED***;
+    $.data(option, 'data', data);
 
     return option;
-  ***REMOVED***;
+  };
 
-  Results.prototype.bind = function (container, $container***REMOVED*** {
+  Results.prototype.bind = function (container, $container) {
     var self = this;
 
     var id = container.id + '-results';
 
-    this.$results.attr('id', id***REMOVED***;
+    this.$results.attr('id', id);
 
-    container.on('results:all', function (params***REMOVED*** {
-      self.clear(***REMOVED***;
-      self.append(params.data***REMOVED***;
+    container.on('results:all', function (params) {
+      self.clear();
+      self.append(params.data);
 
-      if (container.isOpen(***REMOVED******REMOVED*** {
-        self.setClasses(***REMOVED***;
-        self.highlightFirstItem(***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+      if (container.isOpen()) {
+        self.setClasses();
+        self.highlightFirstItem();
+      }
+    });
 
-    container.on('results:append', function (params***REMOVED*** {
-      self.append(params.data***REMOVED***;
+    container.on('results:append', function (params) {
+      self.append(params.data);
 
-      if (container.isOpen(***REMOVED******REMOVED*** {
-        self.setClasses(***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+      if (container.isOpen()) {
+        self.setClasses();
+      }
+    });
 
-    container.on('query', function (params***REMOVED*** {
-      self.hideMessages(***REMOVED***;
-      self.showLoading(params***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('query', function (params) {
+      self.hideMessages();
+      self.showLoading(params);
+    });
 
-    container.on('select', function (***REMOVED*** {
-      if (!container.isOpen(***REMOVED******REMOVED*** {
+    container.on('select', function () {
+      if (!container.isOpen()) {
         return;
-  ***REMOVED***
+      }
 
-      self.setClasses(***REMOVED***;
-      self.highlightFirstItem(***REMOVED***;
-***REMOVED******REMOVED***;
+      self.setClasses();
+      self.highlightFirstItem();
+    });
 
-    container.on('unselect', function (***REMOVED*** {
-      if (!container.isOpen(***REMOVED******REMOVED*** {
+    container.on('unselect', function () {
+      if (!container.isOpen()) {
         return;
-  ***REMOVED***
+      }
 
-      self.setClasses(***REMOVED***;
-      self.highlightFirstItem(***REMOVED***;
-***REMOVED******REMOVED***;
+      self.setClasses();
+      self.highlightFirstItem();
+    });
 
-    container.on('open', function (***REMOVED*** {
+    container.on('open', function () {
       // When the dropdown is open, aria-expended="true"
-      self.$results.attr('aria-expanded', 'true'***REMOVED***;
-      self.$results.attr('aria-hidden', 'false'***REMOVED***;
+      self.$results.attr('aria-expanded', 'true');
+      self.$results.attr('aria-hidden', 'false');
 
-      self.setClasses(***REMOVED***;
-      self.ensureHighlightVisible(***REMOVED***;
-***REMOVED******REMOVED***;
+      self.setClasses();
+      self.ensureHighlightVisible();
+    });
 
-    container.on('close', function (***REMOVED*** {
+    container.on('close', function () {
       // When the dropdown is closed, aria-expended="false"
-      self.$results.attr('aria-expanded', 'false'***REMOVED***;
-      self.$results.attr('aria-hidden', 'true'***REMOVED***;
-      self.$results.removeAttr('aria-activedescendant'***REMOVED***;
-***REMOVED******REMOVED***;
+      self.$results.attr('aria-expanded', 'false');
+      self.$results.attr('aria-hidden', 'true');
+      self.$results.removeAttr('aria-activedescendant');
+    });
 
-    container.on('results:toggle', function (***REMOVED*** {
-      var $highlighted = self.getHighlightedResults(***REMOVED***;
+    container.on('results:toggle', function () {
+      var $highlighted = self.getHighlightedResults();
 
-      if ($highlighted.length === 0***REMOVED*** {
+      if ($highlighted.length === 0) {
         return;
-  ***REMOVED***
+      }
 
-      $highlighted.trigger('mouseup'***REMOVED***;
-***REMOVED******REMOVED***;
+      $highlighted.trigger('mouseup');
+    });
 
-    container.on('results:select', function (***REMOVED*** {
-      var $highlighted = self.getHighlightedResults(***REMOVED***;
+    container.on('results:select', function () {
+      var $highlighted = self.getHighlightedResults();
 
-      if ($highlighted.length === 0***REMOVED*** {
+      if ($highlighted.length === 0) {
         return;
-  ***REMOVED***
+      }
 
-      var data = $highlighted.data('data'***REMOVED***;
+      var data = $highlighted.data('data');
 
-      if ($highlighted.attr('aria-selected'***REMOVED*** == 'true'***REMOVED*** {
-        self.trigger('close', {***REMOVED******REMOVED***;
-  ***REMOVED*** else {
+      if ($highlighted.attr('aria-selected') == 'true') {
+        self.trigger('close', {});
+      } else {
         self.trigger('select', {
           data: data
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+        });
+      }
+    });
 
-    container.on('results:previous', function (***REMOVED*** {
-      var $highlighted = self.getHighlightedResults(***REMOVED***;
+    container.on('results:previous', function () {
+      var $highlighted = self.getHighlightedResults();
 
-      var $options = self.$results.find('[aria-selected***REMOVED***'***REMOVED***;
+      var $options = self.$results.find('[aria-selected]');
 
-      var currentIndex = $options.index($highlighted***REMOVED***;
+      var currentIndex = $options.index($highlighted);
 
       // If we are already at te top, don't move further
-      if (currentIndex === 0***REMOVED*** {
+      if (currentIndex === 0) {
         return;
-  ***REMOVED***
+      }
 
       var nextIndex = currentIndex - 1;
 
       // If none are highlighted, highlight the first
-      if ($highlighted.length === 0***REMOVED*** {
+      if ($highlighted.length === 0) {
         nextIndex = 0;
-  ***REMOVED***
+      }
 
-      var $next = $options.eq(nextIndex***REMOVED***;
+      var $next = $options.eq(nextIndex);
 
-      $next.trigger('mouseenter'***REMOVED***;
+      $next.trigger('mouseenter');
 
-      var currentOffset = self.$results.offset(***REMOVED***.top;
-      var nextTop = $next.offset(***REMOVED***.top;
-      var nextOffset = self.$results.scrollTop(***REMOVED*** + (nextTop - currentOffset***REMOVED***;
+      var currentOffset = self.$results.offset().top;
+      var nextTop = $next.offset().top;
+      var nextOffset = self.$results.scrollTop() + (nextTop - currentOffset);
 
-      if (nextIndex === 0***REMOVED*** {
-        self.$results.scrollTop(0***REMOVED***;
-  ***REMOVED*** else if (nextTop - currentOffset < 0***REMOVED*** {
-        self.$results.scrollTop(nextOffset***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+      if (nextIndex === 0) {
+        self.$results.scrollTop(0);
+      } else if (nextTop - currentOffset < 0) {
+        self.$results.scrollTop(nextOffset);
+      }
+    });
 
-    container.on('results:next', function (***REMOVED*** {
-      var $highlighted = self.getHighlightedResults(***REMOVED***;
+    container.on('results:next', function () {
+      var $highlighted = self.getHighlightedResults();
 
-      var $options = self.$results.find('[aria-selected***REMOVED***'***REMOVED***;
+      var $options = self.$results.find('[aria-selected]');
 
-      var currentIndex = $options.index($highlighted***REMOVED***;
+      var currentIndex = $options.index($highlighted);
 
       var nextIndex = currentIndex + 1;
 
       // If we are at the last option, stay there
-      if (nextIndex >= $options.length***REMOVED*** {
+      if (nextIndex >= $options.length) {
         return;
-  ***REMOVED***
+      }
 
-      var $next = $options.eq(nextIndex***REMOVED***;
+      var $next = $options.eq(nextIndex);
 
-      $next.trigger('mouseenter'***REMOVED***;
+      $next.trigger('mouseenter');
 
-      var currentOffset = self.$results.offset(***REMOVED***.top +
-        self.$results.outerHeight(false***REMOVED***;
-      var nextBottom = $next.offset(***REMOVED***.top + $next.outerHeight(false***REMOVED***;
-      var nextOffset = self.$results.scrollTop(***REMOVED*** + nextBottom - currentOffset;
+      var currentOffset = self.$results.offset().top +
+        self.$results.outerHeight(false);
+      var nextBottom = $next.offset().top + $next.outerHeight(false);
+      var nextOffset = self.$results.scrollTop() + nextBottom - currentOffset;
 
-      if (nextIndex === 0***REMOVED*** {
-        self.$results.scrollTop(0***REMOVED***;
-  ***REMOVED*** else if (nextBottom > currentOffset***REMOVED*** {
-        self.$results.scrollTop(nextOffset***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+      if (nextIndex === 0) {
+        self.$results.scrollTop(0);
+      } else if (nextBottom > currentOffset) {
+        self.$results.scrollTop(nextOffset);
+      }
+    });
 
-    container.on('results:focus', function (params***REMOVED*** {
-      params.element.addClass('select2-results__option--highlighted'***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('results:focus', function (params) {
+      params.element.addClass('select2-results__option--highlighted');
+    });
 
-    container.on('results:message', function (params***REMOVED*** {
-      self.displayMessage(params***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('results:message', function (params) {
+      self.displayMessage(params);
+    });
 
-    if ($.fn.mousewheel***REMOVED*** {
-      this.$results.on('mousewheel', function (e***REMOVED*** {
-        var top = self.$results.scrollTop(***REMOVED***;
+    if ($.fn.mousewheel) {
+      this.$results.on('mousewheel', function (e) {
+        var top = self.$results.scrollTop();
 
-        var bottom = self.$results.get(0***REMOVED***.scrollHeight - top + e.deltaY;
+        var bottom = self.$results.get(0).scrollHeight - top + e.deltaY;
 
         var isAtTop = e.deltaY > 0 && top - e.deltaY <= 0;
-        var isAtBottom = e.deltaY < 0 && bottom <= self.$results.height(***REMOVED***;
+        var isAtBottom = e.deltaY < 0 && bottom <= self.$results.height();
 
-        if (isAtTop***REMOVED*** {
-          self.$results.scrollTop(0***REMOVED***;
+        if (isAtTop) {
+          self.$results.scrollTop(0);
 
-          e.preventDefault(***REMOVED***;
-          e.stopPropagation(***REMOVED***;
-    ***REMOVED*** else if (isAtBottom***REMOVED*** {
+          e.preventDefault();
+          e.stopPropagation();
+        } else if (isAtBottom) {
           self.$results.scrollTop(
-            self.$results.get(0***REMOVED***.scrollHeight - self.$results.height(***REMOVED***
-          ***REMOVED***;
+            self.$results.get(0).scrollHeight - self.$results.height()
+          );
 
-          e.preventDefault(***REMOVED***;
-          e.stopPropagation(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED***
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+    }
 
-    this.$results.on('mouseup', '.select2-results__option[aria-selected***REMOVED***',
-      function (evt***REMOVED*** {
-      var $this = $(this***REMOVED***;
+    this.$results.on('mouseup', '.select2-results__option[aria-selected]',
+      function (evt) {
+      var $this = $(this);
 
-      var data = $this.data('data'***REMOVED***;
+      var data = $this.data('data');
 
-      if ($this.attr('aria-selected'***REMOVED*** === 'true'***REMOVED*** {
-        if (self.options.get('multiple'***REMOVED******REMOVED*** {
+      if ($this.attr('aria-selected') === 'true') {
+        if (self.options.get('multiple')) {
           self.trigger('unselect', {
             originalEvent: evt,
             data: data
-      ***REMOVED******REMOVED***;
-    ***REMOVED*** else {
-          self.trigger('close', {***REMOVED******REMOVED***;
-    ***REMOVED***
+          });
+        } else {
+          self.trigger('close', {});
+        }
 
         return;
-  ***REMOVED***
+      }
 
       self.trigger('select', {
         originalEvent: evt,
         data: data
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+      });
+    });
 
-    this.$results.on('mouseenter', '.select2-results__option[aria-selected***REMOVED***',
-      function (evt***REMOVED*** {
-      var data = $(this***REMOVED***.data('data'***REMOVED***;
+    this.$results.on('mouseenter', '.select2-results__option[aria-selected]',
+      function (evt) {
+      var data = $(this).data('data');
 
-      self.getHighlightedResults(***REMOVED***
-          .removeClass('select2-results__option--highlighted'***REMOVED***;
+      self.getHighlightedResults()
+          .removeClass('select2-results__option--highlighted');
 
       self.trigger('results:focus', {
         data: data,
-        element: $(this***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+        element: $(this)
+      });
+    });
+  };
 
-  Results.prototype.getHighlightedResults = function (***REMOVED*** {
+  Results.prototype.getHighlightedResults = function () {
     var $highlighted = this.$results
-    .find('.select2-results__option--highlighted'***REMOVED***;
+    .find('.select2-results__option--highlighted');
 
     return $highlighted;
-  ***REMOVED***;
+  };
 
-  Results.prototype.destroy = function (***REMOVED*** {
-    this.$results.remove(***REMOVED***;
-  ***REMOVED***;
+  Results.prototype.destroy = function () {
+    this.$results.remove();
+  };
 
-  Results.prototype.ensureHighlightVisible = function (***REMOVED*** {
-    var $highlighted = this.getHighlightedResults(***REMOVED***;
+  Results.prototype.ensureHighlightVisible = function () {
+    var $highlighted = this.getHighlightedResults();
 
-    if ($highlighted.length === 0***REMOVED*** {
+    if ($highlighted.length === 0) {
       return;
-***REMOVED***
+    }
 
-    var $options = this.$results.find('[aria-selected***REMOVED***'***REMOVED***;
+    var $options = this.$results.find('[aria-selected]');
 
-    var currentIndex = $options.index($highlighted***REMOVED***;
+    var currentIndex = $options.index($highlighted);
 
-    var currentOffset = this.$results.offset(***REMOVED***.top;
-    var nextTop = $highlighted.offset(***REMOVED***.top;
-    var nextOffset = this.$results.scrollTop(***REMOVED*** + (nextTop - currentOffset***REMOVED***;
+    var currentOffset = this.$results.offset().top;
+    var nextTop = $highlighted.offset().top;
+    var nextOffset = this.$results.scrollTop() + (nextTop - currentOffset);
 
     var offsetDelta = nextTop - currentOffset;
-    nextOffset -= $highlighted.outerHeight(false***REMOVED*** * 2;
+    nextOffset -= $highlighted.outerHeight(false) * 2;
 
-    if (currentIndex <= 2***REMOVED*** {
-      this.$results.scrollTop(0***REMOVED***;
-***REMOVED*** else if (offsetDelta > this.$results.outerHeight(***REMOVED*** || offsetDelta < 0***REMOVED*** {
-      this.$results.scrollTop(nextOffset***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if (currentIndex <= 2) {
+      this.$results.scrollTop(0);
+    } else if (offsetDelta > this.$results.outerHeight() || offsetDelta < 0) {
+      this.$results.scrollTop(nextOffset);
+    }
+  };
 
-  Results.prototype.template = function (result, container***REMOVED*** {
-    var template = this.options.get('templateResult'***REMOVED***;
-    var escapeMarkup = this.options.get('escapeMarkup'***REMOVED***;
+  Results.prototype.template = function (result, container) {
+    var template = this.options.get('templateResult');
+    var escapeMarkup = this.options.get('escapeMarkup');
 
-    var content = template(result, container***REMOVED***;
+    var content = template(result, container);
 
-    if (content == null***REMOVED*** {
+    if (content == null) {
       container.style.display = 'none';
-***REMOVED*** else if (typeof content === 'string'***REMOVED*** {
-      container.innerHTML = escapeMarkup(content***REMOVED***;
-***REMOVED*** else {
-      $(container***REMOVED***.append(content***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    } else if (typeof content === 'string') {
+      container.innerHTML = escapeMarkup(content);
+    } else {
+      $(container).append(content);
+    }
+  };
 
   return Results;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/keys',[
 
-***REMOVED***, function (***REMOVED*** {
+], function () {
   var KEYS = {
     BACKSPACE: 8,
     TAB: 9,
@@ -1302,49 +1302,49 @@ S2.define('select2/keys',[
     RIGHT: 39,
     DOWN: 40,
     DELETE: 46
-  ***REMOVED***;
+  };
 
   return KEYS;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/base',[
   'jquery',
   '../utils',
   '../keys'
-***REMOVED***, function ($, Utils, KEYS***REMOVED*** {
-  function BaseSelection ($element, options***REMOVED*** {
+], function ($, Utils, KEYS) {
+  function BaseSelection ($element, options) {
     this.$element = $element;
     this.options = options;
 
-    BaseSelection.__super__.constructor.call(this***REMOVED***;
-  ***REMOVED***
+    BaseSelection.__super__.constructor.call(this);
+  }
 
-  Utils.Extend(BaseSelection, Utils.Observable***REMOVED***;
+  Utils.Extend(BaseSelection, Utils.Observable);
 
-  BaseSelection.prototype.render = function (***REMOVED*** {
+  BaseSelection.prototype.render = function () {
     var $selection = $(
       '<span class="select2-selection" role="combobox" ' +
       ' aria-haspopup="true" aria-expanded="false">' +
       '</span>'
-    ***REMOVED***;
+    );
 
     this._tabindex = 0;
 
-    if (this.$element.data('old-tabindex'***REMOVED*** != null***REMOVED*** {
-      this._tabindex = this.$element.data('old-tabindex'***REMOVED***;
-***REMOVED*** else if (this.$element.attr('tabindex'***REMOVED*** != null***REMOVED*** {
-      this._tabindex = this.$element.attr('tabindex'***REMOVED***;
-***REMOVED***
+    if (this.$element.data('old-tabindex') != null) {
+      this._tabindex = this.$element.data('old-tabindex');
+    } else if (this.$element.attr('tabindex') != null) {
+      this._tabindex = this.$element.attr('tabindex');
+    }
 
-    $selection.attr('title', this.$element.attr('title'***REMOVED******REMOVED***;
-    $selection.attr('tabindex', this._tabindex***REMOVED***;
+    $selection.attr('title', this.$element.attr('title'));
+    $selection.attr('tabindex', this._tabindex);
 
     this.$selection = $selection;
 
     return $selection;
-  ***REMOVED***;
+  };
 
-  BaseSelection.prototype.bind = function (container, $container***REMOVED*** {
+  BaseSelection.prototype.bind = function (container, $container) {
     var self = this;
 
     var id = container.id + '-container';
@@ -1352,569 +1352,569 @@ S2.define('select2/selection/base',[
 
     this.container = container;
 
-    this.$selection.on('focus', function (evt***REMOVED*** {
-      self.trigger('focus', evt***REMOVED***;
-***REMOVED******REMOVED***;
+    this.$selection.on('focus', function (evt) {
+      self.trigger('focus', evt);
+    });
 
-    this.$selection.on('blur', function (evt***REMOVED*** {
-      self._handleBlur(evt***REMOVED***;
-***REMOVED******REMOVED***;
+    this.$selection.on('blur', function (evt) {
+      self._handleBlur(evt);
+    });
 
-    this.$selection.on('keydown', function (evt***REMOVED*** {
-      self.trigger('keypress', evt***REMOVED***;
+    this.$selection.on('keydown', function (evt) {
+      self.trigger('keypress', evt);
 
-      if (evt.which === KEYS.SPACE***REMOVED*** {
-        evt.preventDefault(***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+      if (evt.which === KEYS.SPACE) {
+        evt.preventDefault();
+      }
+    });
 
-    container.on('results:focus', function (params***REMOVED*** {
-      self.$selection.attr('aria-activedescendant', params.data._resultId***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('results:focus', function (params) {
+      self.$selection.attr('aria-activedescendant', params.data._resultId);
+    });
 
-    container.on('selection:update', function (params***REMOVED*** {
-      self.update(params.data***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('selection:update', function (params) {
+      self.update(params.data);
+    });
 
-    container.on('open', function (***REMOVED*** {
+    container.on('open', function () {
       // When the dropdown is open, aria-expanded="true"
-      self.$selection.attr('aria-expanded', 'true'***REMOVED***;
-      self.$selection.attr('aria-owns', resultsId***REMOVED***;
+      self.$selection.attr('aria-expanded', 'true');
+      self.$selection.attr('aria-owns', resultsId);
 
-      self._attachCloseHandler(container***REMOVED***;
-***REMOVED******REMOVED***;
+      self._attachCloseHandler(container);
+    });
 
-    container.on('close', function (***REMOVED*** {
+    container.on('close', function () {
       // When the dropdown is closed, aria-expanded="false"
-      self.$selection.attr('aria-expanded', 'false'***REMOVED***;
-      self.$selection.removeAttr('aria-activedescendant'***REMOVED***;
-      self.$selection.removeAttr('aria-owns'***REMOVED***;
+      self.$selection.attr('aria-expanded', 'false');
+      self.$selection.removeAttr('aria-activedescendant');
+      self.$selection.removeAttr('aria-owns');
 
-      self.$selection.focus(***REMOVED***;
+      self.$selection.focus();
 
-      self._detachCloseHandler(container***REMOVED***;
-***REMOVED******REMOVED***;
+      self._detachCloseHandler(container);
+    });
 
-    container.on('enable', function (***REMOVED*** {
-      self.$selection.attr('tabindex', self._tabindex***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('enable', function () {
+      self.$selection.attr('tabindex', self._tabindex);
+    });
 
-    container.on('disable', function (***REMOVED*** {
-      self.$selection.attr('tabindex', '-1'***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    container.on('disable', function () {
+      self.$selection.attr('tabindex', '-1');
+    });
+  };
 
-  BaseSelection.prototype._handleBlur = function (evt***REMOVED*** {
+  BaseSelection.prototype._handleBlur = function (evt) {
     var self = this;
 
     // This needs to be delayed as the active element is the body when the tab
     // key is pressed, possibly along with others.
-    window.setTimeout(function (***REMOVED*** {
+    window.setTimeout(function () {
       // Don't trigger `blur` if the focus is still in the selection
       if (
-        (document.activeElement == self.$selection[0***REMOVED******REMOVED*** ||
-        ($.contains(self.$selection[0***REMOVED***, document.activeElement***REMOVED******REMOVED***
-      ***REMOVED*** {
+        (document.activeElement == self.$selection[0]) ||
+        ($.contains(self.$selection[0], document.activeElement))
+      ) {
         return;
-  ***REMOVED***
+      }
 
-      self.trigger('blur', evt***REMOVED***;
-***REMOVED*** 1***REMOVED***;
-  ***REMOVED***;
+      self.trigger('blur', evt);
+    }, 1);
+  };
 
-  BaseSelection.prototype._attachCloseHandler = function (container***REMOVED*** {
+  BaseSelection.prototype._attachCloseHandler = function (container) {
     var self = this;
 
-    $(document.body***REMOVED***.on('mousedown.select2.' + container.id, function (e***REMOVED*** {
-      var $target = $(e.target***REMOVED***;
+    $(document.body).on('mousedown.select2.' + container.id, function (e) {
+      var $target = $(e.target);
 
-      var $select = $target.closest('.select2'***REMOVED***;
+      var $select = $target.closest('.select2');
 
-      var $all = $('.select2.select2-container--open'***REMOVED***;
+      var $all = $('.select2.select2-container--open');
 
-      $all.each(function (***REMOVED*** {
-        var $this = $(this***REMOVED***;
+      $all.each(function () {
+        var $this = $(this);
 
-        if (this == $select[0***REMOVED******REMOVED*** {
+        if (this == $select[0]) {
           return;
-    ***REMOVED***
+        }
 
-        var $element = $this.data('element'***REMOVED***;
+        var $element = $this.data('element');
 
-        $element.select2('close'***REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+        $element.select2('close');
+      });
+    });
+  };
 
-  BaseSelection.prototype._detachCloseHandler = function (container***REMOVED*** {
-    $(document.body***REMOVED***.off('mousedown.select2.' + container.id***REMOVED***;
-  ***REMOVED***;
+  BaseSelection.prototype._detachCloseHandler = function (container) {
+    $(document.body).off('mousedown.select2.' + container.id);
+  };
 
-  BaseSelection.prototype.position = function ($selection, $container***REMOVED*** {
-    var $selectionContainer = $container.find('.selection'***REMOVED***;
-    $selectionContainer.append($selection***REMOVED***;
-  ***REMOVED***;
+  BaseSelection.prototype.position = function ($selection, $container) {
+    var $selectionContainer = $container.find('.selection');
+    $selectionContainer.append($selection);
+  };
 
-  BaseSelection.prototype.destroy = function (***REMOVED*** {
-    this._detachCloseHandler(this.container***REMOVED***;
-  ***REMOVED***;
+  BaseSelection.prototype.destroy = function () {
+    this._detachCloseHandler(this.container);
+  };
 
-  BaseSelection.prototype.update = function (data***REMOVED*** {
-    throw new Error('The `update` method must be defined in child classes.'***REMOVED***;
-  ***REMOVED***;
+  BaseSelection.prototype.update = function (data) {
+    throw new Error('The `update` method must be defined in child classes.');
+  };
 
   return BaseSelection;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/single',[
   'jquery',
   './base',
   '../utils',
   '../keys'
-***REMOVED***, function ($, BaseSelection, Utils, KEYS***REMOVED*** {
-  function SingleSelection (***REMOVED*** {
-    SingleSelection.__super__.constructor.apply(this, arguments***REMOVED***;
-  ***REMOVED***
+], function ($, BaseSelection, Utils, KEYS) {
+  function SingleSelection () {
+    SingleSelection.__super__.constructor.apply(this, arguments);
+  }
 
-  Utils.Extend(SingleSelection, BaseSelection***REMOVED***;
+  Utils.Extend(SingleSelection, BaseSelection);
 
-  SingleSelection.prototype.render = function (***REMOVED*** {
-    var $selection = SingleSelection.__super__.render.call(this***REMOVED***;
+  SingleSelection.prototype.render = function () {
+    var $selection = SingleSelection.__super__.render.call(this);
 
-    $selection.addClass('select2-selection--single'***REMOVED***;
+    $selection.addClass('select2-selection--single');
 
     $selection.html(
       '<span class="select2-selection__rendered"></span>' +
       '<span class="select2-selection__arrow" role="presentation">' +
         '<b role="presentation"></b>' +
       '</span>'
-    ***REMOVED***;
+    );
 
     return $selection;
-  ***REMOVED***;
+  };
 
-  SingleSelection.prototype.bind = function (container, $container***REMOVED*** {
+  SingleSelection.prototype.bind = function (container, $container) {
     var self = this;
 
-    SingleSelection.__super__.bind.apply(this, arguments***REMOVED***;
+    SingleSelection.__super__.bind.apply(this, arguments);
 
     var id = container.id + '-container';
 
-    this.$selection.find('.select2-selection__rendered'***REMOVED***.attr('id', id***REMOVED***;
-    this.$selection.attr('aria-labelledby', id***REMOVED***;
+    this.$selection.find('.select2-selection__rendered').attr('id', id);
+    this.$selection.attr('aria-labelledby', id);
 
-    this.$selection.on('mousedown', function (evt***REMOVED*** {
+    this.$selection.on('mousedown', function (evt) {
       // Only respond to left clicks
-      if (evt.which !== 1***REMOVED*** {
+      if (evt.which !== 1) {
         return;
-  ***REMOVED***
+      }
 
       self.trigger('toggle', {
         originalEvent: evt
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+      });
+    });
 
-    this.$selection.on('focus', function (evt***REMOVED*** {
+    this.$selection.on('focus', function (evt) {
       // User focuses on the container
-***REMOVED******REMOVED***;
+    });
 
-    this.$selection.on('blur', function (evt***REMOVED*** {
+    this.$selection.on('blur', function (evt) {
       // User exits the container
-***REMOVED******REMOVED***;
+    });
 
-    container.on('focus', function (evt***REMOVED*** {
-      if (!container.isOpen(***REMOVED******REMOVED*** {
-        self.$selection.focus(***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+    container.on('focus', function (evt) {
+      if (!container.isOpen()) {
+        self.$selection.focus();
+      }
+    });
 
-    container.on('selection:update', function (params***REMOVED*** {
-      self.update(params.data***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    container.on('selection:update', function (params) {
+      self.update(params.data);
+    });
+  };
 
-  SingleSelection.prototype.clear = function (***REMOVED*** {
-    this.$selection.find('.select2-selection__rendered'***REMOVED***.empty(***REMOVED***;
-  ***REMOVED***;
+  SingleSelection.prototype.clear = function () {
+    this.$selection.find('.select2-selection__rendered').empty();
+  };
 
-  SingleSelection.prototype.display = function (data, container***REMOVED*** {
-    var template = this.options.get('templateSelection'***REMOVED***;
-    var escapeMarkup = this.options.get('escapeMarkup'***REMOVED***;
+  SingleSelection.prototype.display = function (data, container) {
+    var template = this.options.get('templateSelection');
+    var escapeMarkup = this.options.get('escapeMarkup');
 
-    return escapeMarkup(template(data, container***REMOVED******REMOVED***;
-  ***REMOVED***;
+    return escapeMarkup(template(data, container));
+  };
 
-  SingleSelection.prototype.selectionContainer = function (***REMOVED*** {
-    return $('<span></span>'***REMOVED***;
-  ***REMOVED***;
+  SingleSelection.prototype.selectionContainer = function () {
+    return $('<span></span>');
+  };
 
-  SingleSelection.prototype.update = function (data***REMOVED*** {
-    if (data.length === 0***REMOVED*** {
-      this.clear(***REMOVED***;
+  SingleSelection.prototype.update = function (data) {
+    if (data.length === 0) {
+      this.clear();
       return;
-***REMOVED***
+    }
 
-    var selection = data[0***REMOVED***;
+    var selection = data[0];
 
-    var $rendered = this.$selection.find('.select2-selection__rendered'***REMOVED***;
-    var formatted = this.display(selection, $rendered***REMOVED***;
+    var $rendered = this.$selection.find('.select2-selection__rendered');
+    var formatted = this.display(selection, $rendered);
 
-    $rendered.empty(***REMOVED***.append(formatted***REMOVED***;
-    $rendered.prop('title', selection.title || selection.text***REMOVED***;
-  ***REMOVED***;
+    $rendered.empty().append(formatted);
+    $rendered.prop('title', selection.title || selection.text);
+  };
 
   return SingleSelection;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/multiple',[
   'jquery',
   './base',
   '../utils'
-***REMOVED***, function ($, BaseSelection, Utils***REMOVED*** {
-  function MultipleSelection ($element, options***REMOVED*** {
-    MultipleSelection.__super__.constructor.apply(this, arguments***REMOVED***;
-  ***REMOVED***
+], function ($, BaseSelection, Utils) {
+  function MultipleSelection ($element, options) {
+    MultipleSelection.__super__.constructor.apply(this, arguments);
+  }
 
-  Utils.Extend(MultipleSelection, BaseSelection***REMOVED***;
+  Utils.Extend(MultipleSelection, BaseSelection);
 
-  MultipleSelection.prototype.render = function (***REMOVED*** {
-    var $selection = MultipleSelection.__super__.render.call(this***REMOVED***;
+  MultipleSelection.prototype.render = function () {
+    var $selection = MultipleSelection.__super__.render.call(this);
 
-    $selection.addClass('select2-selection--multiple'***REMOVED***;
+    $selection.addClass('select2-selection--multiple');
 
     $selection.html(
       '<ul class="select2-selection__rendered"></ul>'
-    ***REMOVED***;
+    );
 
     return $selection;
-  ***REMOVED***;
+  };
 
-  MultipleSelection.prototype.bind = function (container, $container***REMOVED*** {
+  MultipleSelection.prototype.bind = function (container, $container) {
     var self = this;
 
-    MultipleSelection.__super__.bind.apply(this, arguments***REMOVED***;
+    MultipleSelection.__super__.bind.apply(this, arguments);
 
-    this.$selection.on('click', function (evt***REMOVED*** {
+    this.$selection.on('click', function (evt) {
       self.trigger('toggle', {
         originalEvent: evt
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+      });
+    });
 
     this.$selection.on(
       'click',
       '.select2-selection__choice__remove',
-      function (evt***REMOVED*** {
+      function (evt) {
         // Ignore the event if it is disabled
-        if (self.options.get('disabled'***REMOVED******REMOVED*** {
+        if (self.options.get('disabled')) {
           return;
-    ***REMOVED***
+        }
 
-        var $remove = $(this***REMOVED***;
-        var $selection = $remove.parent(***REMOVED***;
+        var $remove = $(this);
+        var $selection = $remove.parent();
 
-        var data = $selection.data('data'***REMOVED***;
+        var data = $selection.data('data');
 
         self.trigger('unselect', {
           originalEvent: evt,
           data: data
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***;
+        });
+      }
+    );
+  };
 
-  MultipleSelection.prototype.clear = function (***REMOVED*** {
-    this.$selection.find('.select2-selection__rendered'***REMOVED***.empty(***REMOVED***;
-  ***REMOVED***;
+  MultipleSelection.prototype.clear = function () {
+    this.$selection.find('.select2-selection__rendered').empty();
+  };
 
-  MultipleSelection.prototype.display = function (data, container***REMOVED*** {
-    var template = this.options.get('templateSelection'***REMOVED***;
-    var escapeMarkup = this.options.get('escapeMarkup'***REMOVED***;
+  MultipleSelection.prototype.display = function (data, container) {
+    var template = this.options.get('templateSelection');
+    var escapeMarkup = this.options.get('escapeMarkup');
 
-    return escapeMarkup(template(data, container***REMOVED******REMOVED***;
-  ***REMOVED***;
+    return escapeMarkup(template(data, container));
+  };
 
-  MultipleSelection.prototype.selectionContainer = function (***REMOVED*** {
+  MultipleSelection.prototype.selectionContainer = function () {
     var $container = $(
       '<li class="select2-selection__choice">' +
         '<span class="select2-selection__choice__remove" role="presentation">' +
           '&times;' +
         '</span>' +
       '</li>'
-    ***REMOVED***;
+    );
 
     return $container;
-  ***REMOVED***;
+  };
 
-  MultipleSelection.prototype.update = function (data***REMOVED*** {
-    this.clear(***REMOVED***;
+  MultipleSelection.prototype.update = function (data) {
+    this.clear();
 
-    if (data.length === 0***REMOVED*** {
+    if (data.length === 0) {
       return;
-***REMOVED***
+    }
 
-    var $selections = [***REMOVED***;
+    var $selections = [];
 
-    for (var d = 0; d < data.length; d++***REMOVED*** {
-      var selection = data[d***REMOVED***;
+    for (var d = 0; d < data.length; d++) {
+      var selection = data[d];
 
-      var $selection = this.selectionContainer(***REMOVED***;
-      var formatted = this.display(selection, $selection***REMOVED***;
+      var $selection = this.selectionContainer();
+      var formatted = this.display(selection, $selection);
 
-      $selection.append(formatted***REMOVED***;
-      $selection.prop('title', selection.title || selection.text***REMOVED***;
+      $selection.append(formatted);
+      $selection.prop('title', selection.title || selection.text);
 
-      $selection.data('data', selection***REMOVED***;
+      $selection.data('data', selection);
 
-      $selections.push($selection***REMOVED***;
-***REMOVED***
+      $selections.push($selection);
+    }
 
-    var $rendered = this.$selection.find('.select2-selection__rendered'***REMOVED***;
+    var $rendered = this.$selection.find('.select2-selection__rendered');
 
-    Utils.appendMany($rendered, $selections***REMOVED***;
-  ***REMOVED***;
+    Utils.appendMany($rendered, $selections);
+  };
 
   return MultipleSelection;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/placeholder',[
   '../utils'
-***REMOVED***, function (Utils***REMOVED*** {
-  function Placeholder (decorated, $element, options***REMOVED*** {
-    this.placeholder = this.normalizePlaceholder(options.get('placeholder'***REMOVED******REMOVED***;
+], function (Utils) {
+  function Placeholder (decorated, $element, options) {
+    this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
 
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options);
+  }
 
-  Placeholder.prototype.normalizePlaceholder = function (_, placeholder***REMOVED*** {
-    if (typeof placeholder === 'string'***REMOVED*** {
+  Placeholder.prototype.normalizePlaceholder = function (_, placeholder) {
+    if (typeof placeholder === 'string') {
       placeholder = {
         id: '',
         text: placeholder
-  ***REMOVED***;
-***REMOVED***
+      };
+    }
 
     return placeholder;
-  ***REMOVED***;
+  };
 
-  Placeholder.prototype.createPlaceholder = function (decorated, placeholder***REMOVED*** {
-    var $placeholder = this.selectionContainer(***REMOVED***;
+  Placeholder.prototype.createPlaceholder = function (decorated, placeholder) {
+    var $placeholder = this.selectionContainer();
 
-    $placeholder.html(this.display(placeholder***REMOVED******REMOVED***;
-    $placeholder.addClass('select2-selection__placeholder'***REMOVED***
-                .removeClass('select2-selection__choice'***REMOVED***;
+    $placeholder.html(this.display(placeholder));
+    $placeholder.addClass('select2-selection__placeholder')
+                .removeClass('select2-selection__choice');
 
     return $placeholder;
-  ***REMOVED***;
+  };
 
-  Placeholder.prototype.update = function (decorated, data***REMOVED*** {
+  Placeholder.prototype.update = function (decorated, data) {
     var singlePlaceholder = (
-      data.length == 1 && data[0***REMOVED***.id != this.placeholder.id
-    ***REMOVED***;
+      data.length == 1 && data[0].id != this.placeholder.id
+    );
     var multipleSelections = data.length > 1;
 
-    if (multipleSelections || singlePlaceholder***REMOVED*** {
-      return decorated.call(this, data***REMOVED***;
-***REMOVED***
+    if (multipleSelections || singlePlaceholder) {
+      return decorated.call(this, data);
+    }
 
-    this.clear(***REMOVED***;
+    this.clear();
 
-    var $placeholder = this.createPlaceholder(this.placeholder***REMOVED***;
+    var $placeholder = this.createPlaceholder(this.placeholder);
 
-    this.$selection.find('.select2-selection__rendered'***REMOVED***.append($placeholder***REMOVED***;
-  ***REMOVED***;
+    this.$selection.find('.select2-selection__rendered').append($placeholder);
+  };
 
   return Placeholder;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/allowClear',[
   'jquery',
   '../keys'
-***REMOVED***, function ($, KEYS***REMOVED*** {
-  function AllowClear (***REMOVED*** { ***REMOVED***
+], function ($, KEYS) {
+  function AllowClear () { }
 
-  AllowClear.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  AllowClear.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    if (this.placeholder == null***REMOVED*** {
-      if (this.options.get('debug'***REMOVED*** && window.console && console.error***REMOVED*** {
+    if (this.placeholder == null) {
+      if (this.options.get('debug') && window.console && console.error) {
         console.error(
           'Select2: The `allowClear` option should be used in combination ' +
           'with the `placeholder` option.'
-        ***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        );
+      }
+    }
 
     this.$selection.on('mousedown', '.select2-selection__clear',
-      function (evt***REMOVED*** {
-        self._handleClear(evt***REMOVED***;
-***REMOVED******REMOVED***;
+      function (evt) {
+        self._handleClear(evt);
+    });
 
-    container.on('keypress', function (evt***REMOVED*** {
-      self._handleKeyboardClear(evt, container***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    container.on('keypress', function (evt) {
+      self._handleKeyboardClear(evt, container);
+    });
+  };
 
-  AllowClear.prototype._handleClear = function (_, evt***REMOVED*** {
+  AllowClear.prototype._handleClear = function (_, evt) {
     // Ignore the event if it is disabled
-    if (this.options.get('disabled'***REMOVED******REMOVED*** {
+    if (this.options.get('disabled')) {
       return;
-***REMOVED***
+    }
 
-    var $clear = this.$selection.find('.select2-selection__clear'***REMOVED***;
+    var $clear = this.$selection.find('.select2-selection__clear');
 
     // Ignore the event if nothing has been selected
-    if ($clear.length === 0***REMOVED*** {
+    if ($clear.length === 0) {
       return;
-***REMOVED***
+    }
 
-    evt.stopPropagation(***REMOVED***;
+    evt.stopPropagation();
 
-    var data = $clear.data('data'***REMOVED***;
+    var data = $clear.data('data');
 
-    for (var d = 0; d < data.length; d++***REMOVED*** {
+    for (var d = 0; d < data.length; d++) {
       var unselectData = {
-        data: data[d***REMOVED***
-  ***REMOVED***;
+        data: data[d]
+      };
 
       // Trigger the `unselect` event, so people can prevent it from being
       // cleared.
-      this.trigger('unselect', unselectData***REMOVED***;
+      this.trigger('unselect', unselectData);
 
       // If the event was prevented, don't clear it out.
-      if (unselectData.prevented***REMOVED*** {
+      if (unselectData.prevented) {
         return;
-  ***REMOVED***
-***REMOVED***
+      }
+    }
 
-    this.$element.val(this.placeholder.id***REMOVED***.trigger('change'***REMOVED***;
+    this.$element.val(this.placeholder.id).trigger('change');
 
-    this.trigger('toggle', {***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.trigger('toggle', {});
+  };
 
-  AllowClear.prototype._handleKeyboardClear = function (_, evt, container***REMOVED*** {
-    if (container.isOpen(***REMOVED******REMOVED*** {
+  AllowClear.prototype._handleKeyboardClear = function (_, evt, container) {
+    if (container.isOpen()) {
       return;
-***REMOVED***
+    }
 
-    if (evt.which == KEYS.DELETE || evt.which == KEYS.BACKSPACE***REMOVED*** {
-      this._handleClear(evt***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if (evt.which == KEYS.DELETE || evt.which == KEYS.BACKSPACE) {
+      this._handleClear(evt);
+    }
+  };
 
-  AllowClear.prototype.update = function (decorated, data***REMOVED*** {
-    decorated.call(this, data***REMOVED***;
+  AllowClear.prototype.update = function (decorated, data) {
+    decorated.call(this, data);
 
-    if (this.$selection.find('.select2-selection__placeholder'***REMOVED***.length > 0 ||
-        data.length === 0***REMOVED*** {
+    if (this.$selection.find('.select2-selection__placeholder').length > 0 ||
+        data.length === 0) {
       return;
-***REMOVED***
+    }
 
     var $remove = $(
       '<span class="select2-selection__clear">' +
         '&times;' +
       '</span>'
-    ***REMOVED***;
-    $remove.data('data', data***REMOVED***;
+    );
+    $remove.data('data', data);
 
-    this.$selection.find('.select2-selection__rendered'***REMOVED***.prepend($remove***REMOVED***;
-  ***REMOVED***;
+    this.$selection.find('.select2-selection__rendered').prepend($remove);
+  };
 
   return AllowClear;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/search',[
   'jquery',
   '../utils',
   '../keys'
-***REMOVED***, function ($, Utils, KEYS***REMOVED*** {
-  function Search (decorated, $element, options***REMOVED*** {
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+], function ($, Utils, KEYS) {
+  function Search (decorated, $element, options) {
+    decorated.call(this, $element, options);
+  }
 
-  Search.prototype.render = function (decorated***REMOVED*** {
+  Search.prototype.render = function (decorated) {
     var $search = $(
       '<li class="select2-search select2-search--inline">' +
         '<input class="select2-search__field" type="search" tabindex="-1"' +
         ' autocomplete="off" autocorrect="off" autocapitalize="off"' +
         ' spellcheck="false" role="textbox" aria-autocomplete="list" />' +
       '</li>'
-    ***REMOVED***;
+    );
 
     this.$searchContainer = $search;
-    this.$search = $search.find('input'***REMOVED***;
+    this.$search = $search.find('input');
 
-    var $rendered = decorated.call(this***REMOVED***;
+    var $rendered = decorated.call(this);
 
-    this._transferTabIndex(***REMOVED***;
+    this._transferTabIndex();
 
     return $rendered;
-  ***REMOVED***;
+  };
 
-  Search.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  Search.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    container.on('open', function (***REMOVED*** {
-      self.$search.trigger('focus'***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('open', function () {
+      self.$search.trigger('focus');
+    });
 
-    container.on('close', function (***REMOVED*** {
-      self.$search.val(''***REMOVED***;
-      self.$search.removeAttr('aria-activedescendant'***REMOVED***;
-      self.$search.trigger('focus'***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('close', function () {
+      self.$search.val('');
+      self.$search.removeAttr('aria-activedescendant');
+      self.$search.trigger('focus');
+    });
 
-    container.on('enable', function (***REMOVED*** {
-      self.$search.prop('disabled', false***REMOVED***;
+    container.on('enable', function () {
+      self.$search.prop('disabled', false);
 
-      self._transferTabIndex(***REMOVED***;
-***REMOVED******REMOVED***;
+      self._transferTabIndex();
+    });
 
-    container.on('disable', function (***REMOVED*** {
-      self.$search.prop('disabled', true***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('disable', function () {
+      self.$search.prop('disabled', true);
+    });
 
-    container.on('focus', function (evt***REMOVED*** {
-      self.$search.trigger('focus'***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('focus', function (evt) {
+      self.$search.trigger('focus');
+    });
 
-    container.on('results:focus', function (params***REMOVED*** {
-      self.$search.attr('aria-activedescendant', params.id***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('results:focus', function (params) {
+      self.$search.attr('aria-activedescendant', params.id);
+    });
 
-    this.$selection.on('focusin', '.select2-search--inline', function (evt***REMOVED*** {
-      self.trigger('focus', evt***REMOVED***;
-***REMOVED******REMOVED***;
+    this.$selection.on('focusin', '.select2-search--inline', function (evt) {
+      self.trigger('focus', evt);
+    });
 
-    this.$selection.on('focusout', '.select2-search--inline', function (evt***REMOVED*** {
-      self._handleBlur(evt***REMOVED***;
-***REMOVED******REMOVED***;
+    this.$selection.on('focusout', '.select2-search--inline', function (evt) {
+      self._handleBlur(evt);
+    });
 
-    this.$selection.on('keydown', '.select2-search--inline', function (evt***REMOVED*** {
-      evt.stopPropagation(***REMOVED***;
+    this.$selection.on('keydown', '.select2-search--inline', function (evt) {
+      evt.stopPropagation();
 
-      self.trigger('keypress', evt***REMOVED***;
+      self.trigger('keypress', evt);
 
-      self._keyUpPrevented = evt.isDefaultPrevented(***REMOVED***;
+      self._keyUpPrevented = evt.isDefaultPrevented();
 
       var key = evt.which;
 
-      if (key === KEYS.BACKSPACE && self.$search.val(***REMOVED*** === ''***REMOVED*** {
+      if (key === KEYS.BACKSPACE && self.$search.val() === '') {
         var $previousChoice = self.$searchContainer
-          .prev('.select2-selection__choice'***REMOVED***;
+          .prev('.select2-selection__choice');
 
-        if ($previousChoice.length > 0***REMOVED*** {
-          var item = $previousChoice.data('data'***REMOVED***;
+        if ($previousChoice.length > 0) {
+          var item = $previousChoice.data('data');
 
-          self.searchRemoveChoice(item***REMOVED***;
+          self.searchRemoveChoice(item);
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED******REMOVED***;
+          evt.preventDefault();
+        }
+      }
+    });
 
     // Try to detect the IE version should the `documentMode` property that
     // is stored on the document. This is only implemented in IE and is
@@ -1930,48 +1930,48 @@ S2.define('select2/selection/search',[
     this.$selection.on(
       'input.searchcheck',
       '.select2-search--inline',
-      function (evt***REMOVED*** {
+      function (evt) {
         // IE will trigger the `input` event when a placeholder is used on a
         // search box. To get around this issue, we are forced to ignore all
         // `input` events in IE and keep using `keyup`.
-        if (disableInputEvents***REMOVED*** {
-          self.$selection.off('input.search input.searchcheck'***REMOVED***;
+        if (disableInputEvents) {
+          self.$selection.off('input.search input.searchcheck');
           return;
-    ***REMOVED***
+        }
 
         // Unbind the duplicated `keyup` event
-        self.$selection.off('keyup.search'***REMOVED***;
-  ***REMOVED***
-    ***REMOVED***;
+        self.$selection.off('keyup.search');
+      }
+    );
 
     this.$selection.on(
       'keyup.search input.search',
       '.select2-search--inline',
-      function (evt***REMOVED*** {
+      function (evt) {
         // IE will trigger the `input` event when a placeholder is used on a
         // search box. To get around this issue, we are forced to ignore all
         // `input` events in IE and keep using `keyup`.
-        if (disableInputEvents && evt.type === 'input'***REMOVED*** {
-          self.$selection.off('input.search input.searchcheck'***REMOVED***;
+        if (disableInputEvents && evt.type === 'input') {
+          self.$selection.off('input.search input.searchcheck');
           return;
-    ***REMOVED***
+        }
 
         var key = evt.which;
 
         // We can freely ignore events from modifier keys
-        if (key == KEYS.SHIFT || key == KEYS.CTRL || key == KEYS.ALT***REMOVED*** {
+        if (key == KEYS.SHIFT || key == KEYS.CTRL || key == KEYS.ALT) {
           return;
-    ***REMOVED***
+        }
 
         // Tabbing will be handled during the `keydown` phase
-        if (key == KEYS.TAB***REMOVED*** {
+        if (key == KEYS.TAB) {
           return;
-    ***REMOVED***
+        }
 
-        self.handleSearch(evt***REMOVED***;
-  ***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***;
+        self.handleSearch(evt);
+      }
+    );
+  };
 
   /**
    * This method will transfer the tabindex attribute from the rendered
@@ -1980,159 +1980,159 @@ S2.define('select2/selection/search',[
    *
    * @private
    */
-  Search.prototype._transferTabIndex = function (decorated***REMOVED*** {
-    this.$search.attr('tabindex', this.$selection.attr('tabindex'***REMOVED******REMOVED***;
-    this.$selection.attr('tabindex', '-1'***REMOVED***;
-  ***REMOVED***;
+  Search.prototype._transferTabIndex = function (decorated) {
+    this.$search.attr('tabindex', this.$selection.attr('tabindex'));
+    this.$selection.attr('tabindex', '-1');
+  };
 
-  Search.prototype.createPlaceholder = function (decorated, placeholder***REMOVED*** {
-    this.$search.attr('placeholder', placeholder.text***REMOVED***;
-  ***REMOVED***;
+  Search.prototype.createPlaceholder = function (decorated, placeholder) {
+    this.$search.attr('placeholder', placeholder.text);
+  };
 
-  Search.prototype.update = function (decorated, data***REMOVED*** {
-    var searchHadFocus = this.$search[0***REMOVED*** == document.activeElement;
+  Search.prototype.update = function (decorated, data) {
+    var searchHadFocus = this.$search[0] == document.activeElement;
 
-    this.$search.attr('placeholder', ''***REMOVED***;
+    this.$search.attr('placeholder', '');
 
-    decorated.call(this, data***REMOVED***;
+    decorated.call(this, data);
 
-    this.$selection.find('.select2-selection__rendered'***REMOVED***
-                   .append(this.$searchContainer***REMOVED***;
+    this.$selection.find('.select2-selection__rendered')
+                   .append(this.$searchContainer);
 
-    this.resizeSearch(***REMOVED***;
-    if (searchHadFocus***REMOVED*** {
-      this.$search.focus(***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    this.resizeSearch();
+    if (searchHadFocus) {
+      this.$search.focus();
+    }
+  };
 
-  Search.prototype.handleSearch = function (***REMOVED*** {
-    this.resizeSearch(***REMOVED***;
+  Search.prototype.handleSearch = function () {
+    this.resizeSearch();
 
-    if (!this._keyUpPrevented***REMOVED*** {
-      var input = this.$search.val(***REMOVED***;
+    if (!this._keyUpPrevented) {
+      var input = this.$search.val();
 
       this.trigger('query', {
         term: input
-  ***REMOVED******REMOVED***;
-***REMOVED***
+      });
+    }
 
     this._keyUpPrevented = false;
-  ***REMOVED***;
+  };
 
-  Search.prototype.searchRemoveChoice = function (decorated, item***REMOVED*** {
+  Search.prototype.searchRemoveChoice = function (decorated, item) {
     this.trigger('unselect', {
       data: item
-***REMOVED******REMOVED***;
+    });
 
-    this.$search.val(item.text***REMOVED***;
-    this.handleSearch(***REMOVED***;
-  ***REMOVED***;
+    this.$search.val(item.text);
+    this.handleSearch();
+  };
 
-  Search.prototype.resizeSearch = function (***REMOVED*** {
-    this.$search.css('width', '25px'***REMOVED***;
+  Search.prototype.resizeSearch = function () {
+    this.$search.css('width', '25px');
 
     var width = '';
 
-    if (this.$search.attr('placeholder'***REMOVED*** !== ''***REMOVED*** {
-      width = this.$selection.find('.select2-selection__rendered'***REMOVED***.innerWidth(***REMOVED***;
-***REMOVED*** else {
-      var minimumWidth = this.$search.val(***REMOVED***.length + 1;
+    if (this.$search.attr('placeholder') !== '') {
+      width = this.$selection.find('.select2-selection__rendered').innerWidth();
+    } else {
+      var minimumWidth = this.$search.val().length + 1;
 
-      width = (minimumWidth * 0.75***REMOVED*** + 'em';
-***REMOVED***
+      width = (minimumWidth * 0.75) + 'em';
+    }
 
-    this.$search.css('width', width***REMOVED***;
-  ***REMOVED***;
+    this.$search.css('width', width);
+  };
 
   return Search;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/eventRelay',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function EventRelay (***REMOVED*** { ***REMOVED***
+], function ($) {
+  function EventRelay () { }
 
-  EventRelay.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  EventRelay.prototype.bind = function (decorated, container, $container) {
     var self = this;
     var relayEvents = [
       'open', 'opening',
       'close', 'closing',
       'select', 'selecting',
       'unselect', 'unselecting'
-    ***REMOVED***;
+    ];
 
-    var preventableEvents = ['opening', 'closing', 'selecting', 'unselecting'***REMOVED***;
+    var preventableEvents = ['opening', 'closing', 'selecting', 'unselecting'];
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    container.on('*', function (name, params***REMOVED*** {
+    container.on('*', function (name, params) {
       // Ignore events that should not be relayed
-      if ($.inArray(name, relayEvents***REMOVED*** === -1***REMOVED*** {
+      if ($.inArray(name, relayEvents) === -1) {
         return;
-  ***REMOVED***
+      }
 
       // The parameters should always be an object
-      params = params || {***REMOVED***;
+      params = params || {};
 
       // Generate the jQuery event for the Select2 event
       var evt = $.Event('select2:' + name, {
         params: params
-  ***REMOVED******REMOVED***;
+      });
 
-      self.$element.trigger(evt***REMOVED***;
+      self.$element.trigger(evt);
 
       // Only handle preventable events if it was one
-      if ($.inArray(name, preventableEvents***REMOVED*** === -1***REMOVED*** {
+      if ($.inArray(name, preventableEvents) === -1) {
         return;
-  ***REMOVED***
+      }
 
-      params.prevented = evt.isDefaultPrevented(***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      params.prevented = evt.isDefaultPrevented();
+    });
+  };
 
   return EventRelay;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/translation',[
   'jquery',
   'require'
-***REMOVED***, function ($, require***REMOVED*** {
-  function Translation (dict***REMOVED*** {
-    this.dict = dict || {***REMOVED***;
-  ***REMOVED***
+], function ($, require) {
+  function Translation (dict) {
+    this.dict = dict || {};
+  }
 
-  Translation.prototype.all = function (***REMOVED*** {
+  Translation.prototype.all = function () {
     return this.dict;
-  ***REMOVED***;
+  };
 
-  Translation.prototype.get = function (key***REMOVED*** {
-    return this.dict[key***REMOVED***;
-  ***REMOVED***;
+  Translation.prototype.get = function (key) {
+    return this.dict[key];
+  };
 
-  Translation.prototype.extend = function (translation***REMOVED*** {
-    this.dict = $.extend({***REMOVED***, translation.all(***REMOVED***, this.dict***REMOVED***;
-  ***REMOVED***;
+  Translation.prototype.extend = function (translation) {
+    this.dict = $.extend({}, translation.all(), this.dict);
+  };
 
   // Static functions
 
-  Translation._cache = {***REMOVED***;
+  Translation._cache = {};
 
-  Translation.loadPath = function (path***REMOVED*** {
-    if (!(path in Translation._cache***REMOVED******REMOVED*** {
-      var translations = require(path***REMOVED***;
+  Translation.loadPath = function (path) {
+    if (!(path in Translation._cache)) {
+      var translations = require(path);
 
-      Translation._cache[path***REMOVED*** = translations;
-***REMOVED***
+      Translation._cache[path] = translations;
+    }
 
-    return new Translation(Translation._cache[path***REMOVED******REMOVED***;
-  ***REMOVED***;
+    return new Translation(Translation._cache[path]);
+  };
 
   return Translation;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/diacritics',[
 
-***REMOVED***, function (***REMOVED*** {
+], function () {
   var diacritics = {
     '\u24B6': 'A',
     '\uFF21': 'A',
@@ -2973,917 +2973,917 @@ S2.define('select2/diacritics',[
     '\u03B0': '\u03C5',
     '\u03C9': '\u03C9',
     '\u03C2': '\u03C3'
-  ***REMOVED***;
+  };
 
   return diacritics;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/base',[
   '../utils'
-***REMOVED***, function (Utils***REMOVED*** {
-  function BaseAdapter ($element, options***REMOVED*** {
-    BaseAdapter.__super__.constructor.call(this***REMOVED***;
-  ***REMOVED***
+], function (Utils) {
+  function BaseAdapter ($element, options) {
+    BaseAdapter.__super__.constructor.call(this);
+  }
 
-  Utils.Extend(BaseAdapter, Utils.Observable***REMOVED***;
+  Utils.Extend(BaseAdapter, Utils.Observable);
 
-  BaseAdapter.prototype.current = function (callback***REMOVED*** {
-    throw new Error('The `current` method must be defined in child classes.'***REMOVED***;
-  ***REMOVED***;
+  BaseAdapter.prototype.current = function (callback) {
+    throw new Error('The `current` method must be defined in child classes.');
+  };
 
-  BaseAdapter.prototype.query = function (params, callback***REMOVED*** {
-    throw new Error('The `query` method must be defined in child classes.'***REMOVED***;
-  ***REMOVED***;
+  BaseAdapter.prototype.query = function (params, callback) {
+    throw new Error('The `query` method must be defined in child classes.');
+  };
 
-  BaseAdapter.prototype.bind = function (container, $container***REMOVED*** {
+  BaseAdapter.prototype.bind = function (container, $container) {
     // Can be implemented in subclasses
-  ***REMOVED***;
+  };
 
-  BaseAdapter.prototype.destroy = function (***REMOVED*** {
+  BaseAdapter.prototype.destroy = function () {
     // Can be implemented in subclasses
-  ***REMOVED***;
+  };
 
-  BaseAdapter.prototype.generateResultId = function (container, data***REMOVED*** {
+  BaseAdapter.prototype.generateResultId = function (container, data) {
     var id = container.id + '-result-';
 
-    id += Utils.generateChars(4***REMOVED***;
+    id += Utils.generateChars(4);
 
-    if (data.id != null***REMOVED*** {
-      id += '-' + data.id.toString(***REMOVED***;
-***REMOVED*** else {
-      id += '-' + Utils.generateChars(4***REMOVED***;
-***REMOVED***
+    if (data.id != null) {
+      id += '-' + data.id.toString();
+    } else {
+      id += '-' + Utils.generateChars(4);
+    }
     return id;
-  ***REMOVED***;
+  };
 
   return BaseAdapter;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/select',[
   './base',
   '../utils',
   'jquery'
-***REMOVED***, function (BaseAdapter, Utils, $***REMOVED*** {
-  function SelectAdapter ($element, options***REMOVED*** {
+], function (BaseAdapter, Utils, $) {
+  function SelectAdapter ($element, options) {
     this.$element = $element;
     this.options = options;
 
-    SelectAdapter.__super__.constructor.call(this***REMOVED***;
-  ***REMOVED***
+    SelectAdapter.__super__.constructor.call(this);
+  }
 
-  Utils.Extend(SelectAdapter, BaseAdapter***REMOVED***;
+  Utils.Extend(SelectAdapter, BaseAdapter);
 
-  SelectAdapter.prototype.current = function (callback***REMOVED*** {
-    var data = [***REMOVED***;
+  SelectAdapter.prototype.current = function (callback) {
+    var data = [];
     var self = this;
 
-    this.$element.find(':selected'***REMOVED***.each(function (***REMOVED*** {
-      var $option = $(this***REMOVED***;
+    this.$element.find(':selected').each(function () {
+      var $option = $(this);
 
-      var option = self.item($option***REMOVED***;
+      var option = self.item($option);
 
-      data.push(option***REMOVED***;
-***REMOVED******REMOVED***;
+      data.push(option);
+    });
 
-    callback(data***REMOVED***;
-  ***REMOVED***;
+    callback(data);
+  };
 
-  SelectAdapter.prototype.select = function (data***REMOVED*** {
+  SelectAdapter.prototype.select = function (data) {
     var self = this;
 
     data.selected = true;
 
     // If data.element is a DOM node, use it instead
-    if ($(data.element***REMOVED***.is('option'***REMOVED******REMOVED*** {
+    if ($(data.element).is('option')) {
       data.element.selected = true;
 
-      this.$element.trigger('change'***REMOVED***;
+      this.$element.trigger('change');
 
       return;
-***REMOVED***
+    }
 
-    if (this.$element.prop('multiple'***REMOVED******REMOVED*** {
-      this.current(function (currentData***REMOVED*** {
-        var val = [***REMOVED***;
+    if (this.$element.prop('multiple')) {
+      this.current(function (currentData) {
+        var val = [];
 
-        data = [data***REMOVED***;
-        data.push.apply(data, currentData***REMOVED***;
+        data = [data];
+        data.push.apply(data, currentData);
 
-        for (var d = 0; d < data.length; d++***REMOVED*** {
-          var id = data[d***REMOVED***.id;
+        for (var d = 0; d < data.length; d++) {
+          var id = data[d].id;
 
-          if ($.inArray(id, val***REMOVED*** === -1***REMOVED*** {
-            val.push(id***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+          if ($.inArray(id, val) === -1) {
+            val.push(id);
+          }
+        }
 
-        self.$element.val(val***REMOVED***;
-        self.$element.trigger('change'***REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED*** else {
+        self.$element.val(val);
+        self.$element.trigger('change');
+      });
+    } else {
       var val = data.id;
 
-      this.$element.val(val***REMOVED***;
-      this.$element.trigger('change'***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+      this.$element.val(val);
+      this.$element.trigger('change');
+    }
+  };
 
-  SelectAdapter.prototype.unselect = function (data***REMOVED*** {
+  SelectAdapter.prototype.unselect = function (data) {
     var self = this;
 
-    if (!this.$element.prop('multiple'***REMOVED******REMOVED*** {
+    if (!this.$element.prop('multiple')) {
       return;
-***REMOVED***
+    }
 
     data.selected = false;
 
-    if ($(data.element***REMOVED***.is('option'***REMOVED******REMOVED*** {
+    if ($(data.element).is('option')) {
       data.element.selected = false;
 
-      this.$element.trigger('change'***REMOVED***;
+      this.$element.trigger('change');
 
       return;
-***REMOVED***
+    }
 
-    this.current(function (currentData***REMOVED*** {
-      var val = [***REMOVED***;
+    this.current(function (currentData) {
+      var val = [];
 
-      for (var d = 0; d < currentData.length; d++***REMOVED*** {
-        var id = currentData[d***REMOVED***.id;
+      for (var d = 0; d < currentData.length; d++) {
+        var id = currentData[d].id;
 
-        if (id !== data.id && $.inArray(id, val***REMOVED*** === -1***REMOVED*** {
-          val.push(id***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+        if (id !== data.id && $.inArray(id, val) === -1) {
+          val.push(id);
+        }
+      }
 
-      self.$element.val(val***REMOVED***;
+      self.$element.val(val);
 
-      self.$element.trigger('change'***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      self.$element.trigger('change');
+    });
+  };
 
-  SelectAdapter.prototype.bind = function (container, $container***REMOVED*** {
+  SelectAdapter.prototype.bind = function (container, $container) {
     var self = this;
 
     this.container = container;
 
-    container.on('select', function (params***REMOVED*** {
-      self.select(params.data***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('select', function (params) {
+      self.select(params.data);
+    });
 
-    container.on('unselect', function (params***REMOVED*** {
-      self.unselect(params.data***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    container.on('unselect', function (params) {
+      self.unselect(params.data);
+    });
+  };
 
-  SelectAdapter.prototype.destroy = function (***REMOVED*** {
+  SelectAdapter.prototype.destroy = function () {
     // Remove anything added to child elements
-    this.$element.find('*'***REMOVED***.each(function (***REMOVED*** {
+    this.$element.find('*').each(function () {
       // Remove any custom data set by Select2
-      $.removeData(this, 'data'***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      $.removeData(this, 'data');
+    });
+  };
 
-  SelectAdapter.prototype.query = function (params, callback***REMOVED*** {
-    var data = [***REMOVED***;
+  SelectAdapter.prototype.query = function (params, callback) {
+    var data = [];
     var self = this;
 
-    var $options = this.$element.children(***REMOVED***;
+    var $options = this.$element.children();
 
-    $options.each(function (***REMOVED*** {
-      var $option = $(this***REMOVED***;
+    $options.each(function () {
+      var $option = $(this);
 
-      if (!$option.is('option'***REMOVED*** && !$option.is('optgroup'***REMOVED******REMOVED*** {
+      if (!$option.is('option') && !$option.is('optgroup')) {
         return;
-  ***REMOVED***
+      }
 
-      var option = self.item($option***REMOVED***;
+      var option = self.item($option);
 
-      var matches = self.matches(params, option***REMOVED***;
+      var matches = self.matches(params, option);
 
-      if (matches !== null***REMOVED*** {
-        data.push(matches***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+      if (matches !== null) {
+        data.push(matches);
+      }
+    });
 
     callback({
       results: data
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    });
+  };
 
-  SelectAdapter.prototype.addOptions = function ($options***REMOVED*** {
-    Utils.appendMany(this.$element, $options***REMOVED***;
-  ***REMOVED***;
+  SelectAdapter.prototype.addOptions = function ($options) {
+    Utils.appendMany(this.$element, $options);
+  };
 
-  SelectAdapter.prototype.option = function (data***REMOVED*** {
+  SelectAdapter.prototype.option = function (data) {
     var option;
 
-    if (data.children***REMOVED*** {
-      option = document.createElement('optgroup'***REMOVED***;
+    if (data.children) {
+      option = document.createElement('optgroup');
       option.label = data.text;
-***REMOVED*** else {
-      option = document.createElement('option'***REMOVED***;
+    } else {
+      option = document.createElement('option');
 
-      if (option.textContent !== undefined***REMOVED*** {
+      if (option.textContent !== undefined) {
         option.textContent = data.text;
-  ***REMOVED*** else {
+      } else {
         option.innerText = data.text;
-  ***REMOVED***
-***REMOVED***
+      }
+    }
 
-    if (data.id***REMOVED*** {
+    if (data.id) {
       option.value = data.id;
-***REMOVED***
+    }
 
-    if (data.disabled***REMOVED*** {
+    if (data.disabled) {
       option.disabled = true;
-***REMOVED***
+    }
 
-    if (data.selected***REMOVED*** {
+    if (data.selected) {
       option.selected = true;
-***REMOVED***
+    }
 
-    if (data.title***REMOVED*** {
+    if (data.title) {
       option.title = data.title;
-***REMOVED***
+    }
 
-    var $option = $(option***REMOVED***;
+    var $option = $(option);
 
-    var normalizedData = this._normalizeItem(data***REMOVED***;
+    var normalizedData = this._normalizeItem(data);
     normalizedData.element = option;
 
     // Override the option's data with the combined data
-    $.data(option, 'data', normalizedData***REMOVED***;
+    $.data(option, 'data', normalizedData);
 
     return $option;
-  ***REMOVED***;
+  };
 
-  SelectAdapter.prototype.item = function ($option***REMOVED*** {
-    var data = {***REMOVED***;
+  SelectAdapter.prototype.item = function ($option) {
+    var data = {};
 
-    data = $.data($option[0***REMOVED***, 'data'***REMOVED***;
+    data = $.data($option[0], 'data');
 
-    if (data != null***REMOVED*** {
+    if (data != null) {
       return data;
-***REMOVED***
+    }
 
-    if ($option.is('option'***REMOVED******REMOVED*** {
+    if ($option.is('option')) {
       data = {
-        id: $option.val(***REMOVED***,
-        text: $option.text(***REMOVED***,
-        disabled: $option.prop('disabled'***REMOVED***,
-        selected: $option.prop('selected'***REMOVED***,
-        title: $option.prop('title'***REMOVED***
-  ***REMOVED***;
-***REMOVED*** else if ($option.is('optgroup'***REMOVED******REMOVED*** {
+        id: $option.val(),
+        text: $option.text(),
+        disabled: $option.prop('disabled'),
+        selected: $option.prop('selected'),
+        title: $option.prop('title')
+      };
+    } else if ($option.is('optgroup')) {
       data = {
-        text: $option.prop('label'***REMOVED***,
-        children: [***REMOVED***,
-        title: $option.prop('title'***REMOVED***
-  ***REMOVED***;
+        text: $option.prop('label'),
+        children: [],
+        title: $option.prop('title')
+      };
 
-      var $children = $option.children('option'***REMOVED***;
-      var children = [***REMOVED***;
+      var $children = $option.children('option');
+      var children = [];
 
-      for (var c = 0; c < $children.length; c++***REMOVED*** {
-        var $child = $($children[c***REMOVED******REMOVED***;
+      for (var c = 0; c < $children.length; c++) {
+        var $child = $($children[c]);
 
-        var child = this.item($child***REMOVED***;
+        var child = this.item($child);
 
-        children.push(child***REMOVED***;
-  ***REMOVED***
+        children.push(child);
+      }
 
       data.children = children;
-***REMOVED***
+    }
 
-    data = this._normalizeItem(data***REMOVED***;
-    data.element = $option[0***REMOVED***;
+    data = this._normalizeItem(data);
+    data.element = $option[0];
 
-    $.data($option[0***REMOVED***, 'data', data***REMOVED***;
+    $.data($option[0], 'data', data);
 
     return data;
-  ***REMOVED***;
+  };
 
-  SelectAdapter.prototype._normalizeItem = function (item***REMOVED*** {
-    if (!$.isPlainObject(item***REMOVED******REMOVED*** {
+  SelectAdapter.prototype._normalizeItem = function (item) {
+    if (!$.isPlainObject(item)) {
       item = {
         id: item,
         text: item
-  ***REMOVED***;
-***REMOVED***
+      };
+    }
 
-    item = $.extend({***REMOVED***, {
+    item = $.extend({}, {
       text: ''
-***REMOVED*** item***REMOVED***;
+    }, item);
 
     var defaults = {
       selected: false,
       disabled: false
-***REMOVED***;
+    };
 
-    if (item.id != null***REMOVED*** {
-      item.id = item.id.toString(***REMOVED***;
-***REMOVED***
+    if (item.id != null) {
+      item.id = item.id.toString();
+    }
 
-    if (item.text != null***REMOVED*** {
-      item.text = item.text.toString(***REMOVED***;
-***REMOVED***
+    if (item.text != null) {
+      item.text = item.text.toString();
+    }
 
-    if (item._resultId == null && item.id && this.container != null***REMOVED*** {
-      item._resultId = this.generateResultId(this.container, item***REMOVED***;
-***REMOVED***
+    if (item._resultId == null && item.id && this.container != null) {
+      item._resultId = this.generateResultId(this.container, item);
+    }
 
-    return $.extend({***REMOVED***, defaults, item***REMOVED***;
-  ***REMOVED***;
+    return $.extend({}, defaults, item);
+  };
 
-  SelectAdapter.prototype.matches = function (params, data***REMOVED*** {
-    var matcher = this.options.get('matcher'***REMOVED***;
+  SelectAdapter.prototype.matches = function (params, data) {
+    var matcher = this.options.get('matcher');
 
-    return matcher(params, data***REMOVED***;
-  ***REMOVED***;
+    return matcher(params, data);
+  };
 
   return SelectAdapter;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/array',[
   './select',
   '../utils',
   'jquery'
-***REMOVED***, function (SelectAdapter, Utils, $***REMOVED*** {
-  function ArrayAdapter ($element, options***REMOVED*** {
-    var data = options.get('data'***REMOVED*** || [***REMOVED***;
+], function (SelectAdapter, Utils, $) {
+  function ArrayAdapter ($element, options) {
+    var data = options.get('data') || [];
 
-    ArrayAdapter.__super__.constructor.call(this, $element, options***REMOVED***;
+    ArrayAdapter.__super__.constructor.call(this, $element, options);
 
-    this.addOptions(this.convertToOptions(data***REMOVED******REMOVED***;
-  ***REMOVED***
+    this.addOptions(this.convertToOptions(data));
+  }
 
-  Utils.Extend(ArrayAdapter, SelectAdapter***REMOVED***;
+  Utils.Extend(ArrayAdapter, SelectAdapter);
 
-  ArrayAdapter.prototype.select = function (data***REMOVED*** {
-    var $option = this.$element.find('option'***REMOVED***.filter(function (i, elm***REMOVED*** {
-      return elm.value == data.id.toString(***REMOVED***;
-***REMOVED******REMOVED***;
+  ArrayAdapter.prototype.select = function (data) {
+    var $option = this.$element.find('option').filter(function (i, elm) {
+      return elm.value == data.id.toString();
+    });
 
-    if ($option.length === 0***REMOVED*** {
-      $option = this.option(data***REMOVED***;
+    if ($option.length === 0) {
+      $option = this.option(data);
 
-      this.addOptions($option***REMOVED***;
-***REMOVED***
+      this.addOptions($option);
+    }
 
-    ArrayAdapter.__super__.select.call(this, data***REMOVED***;
-  ***REMOVED***;
+    ArrayAdapter.__super__.select.call(this, data);
+  };
 
-  ArrayAdapter.prototype.convertToOptions = function (data***REMOVED*** {
+  ArrayAdapter.prototype.convertToOptions = function (data) {
     var self = this;
 
-    var $existing = this.$element.find('option'***REMOVED***;
-    var existingIds = $existing.map(function (***REMOVED*** {
-      return self.item($(this***REMOVED******REMOVED***.id;
-***REMOVED******REMOVED***.get(***REMOVED***;
+    var $existing = this.$element.find('option');
+    var existingIds = $existing.map(function () {
+      return self.item($(this)).id;
+    }).get();
 
-    var $options = [***REMOVED***;
+    var $options = [];
 
     // Filter out all items except for the one passed in the argument
-    function onlyItem (item***REMOVED*** {
-      return function (***REMOVED*** {
-        return $(this***REMOVED***.val(***REMOVED*** == item.id;
-  ***REMOVED***;
-***REMOVED***
+    function onlyItem (item) {
+      return function () {
+        return $(this).val() == item.id;
+      };
+    }
 
-    for (var d = 0; d < data.length; d++***REMOVED*** {
-      var item = this._normalizeItem(data[d***REMOVED******REMOVED***;
+    for (var d = 0; d < data.length; d++) {
+      var item = this._normalizeItem(data[d]);
 
       // Skip items which were pre-loaded, only merge the data
-      if ($.inArray(item.id, existingIds***REMOVED*** >= 0***REMOVED*** {
-        var $existingOption = $existing.filter(onlyItem(item***REMOVED******REMOVED***;
+      if ($.inArray(item.id, existingIds) >= 0) {
+        var $existingOption = $existing.filter(onlyItem(item));
 
-        var existingData = this.item($existingOption***REMOVED***;
-        var newData = $.extend(true, {***REMOVED***, item, existingData***REMOVED***;
+        var existingData = this.item($existingOption);
+        var newData = $.extend(true, {}, item, existingData);
 
-        var $newOption = this.option(newData***REMOVED***;
+        var $newOption = this.option(newData);
 
-        $existingOption.replaceWith($newOption***REMOVED***;
+        $existingOption.replaceWith($newOption);
 
         continue;
-  ***REMOVED***
+      }
 
-      var $option = this.option(item***REMOVED***;
+      var $option = this.option(item);
 
-      if (item.children***REMOVED*** {
-        var $children = this.convertToOptions(item.children***REMOVED***;
+      if (item.children) {
+        var $children = this.convertToOptions(item.children);
 
-        Utils.appendMany($option, $children***REMOVED***;
-  ***REMOVED***
+        Utils.appendMany($option, $children);
+      }
 
-      $options.push($option***REMOVED***;
-***REMOVED***
+      $options.push($option);
+    }
 
     return $options;
-  ***REMOVED***;
+  };
 
   return ArrayAdapter;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/ajax',[
   './array',
   '../utils',
   'jquery'
-***REMOVED***, function (ArrayAdapter, Utils, $***REMOVED*** {
-  function AjaxAdapter ($element, options***REMOVED*** {
-    this.ajaxOptions = this._applyDefaults(options.get('ajax'***REMOVED******REMOVED***;
+], function (ArrayAdapter, Utils, $) {
+  function AjaxAdapter ($element, options) {
+    this.ajaxOptions = this._applyDefaults(options.get('ajax'));
 
-    if (this.ajaxOptions.processResults != null***REMOVED*** {
+    if (this.ajaxOptions.processResults != null) {
       this.processResults = this.ajaxOptions.processResults;
-***REMOVED***
+    }
 
-    AjaxAdapter.__super__.constructor.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    AjaxAdapter.__super__.constructor.call(this, $element, options);
+  }
 
-  Utils.Extend(AjaxAdapter, ArrayAdapter***REMOVED***;
+  Utils.Extend(AjaxAdapter, ArrayAdapter);
 
-  AjaxAdapter.prototype._applyDefaults = function (options***REMOVED*** {
+  AjaxAdapter.prototype._applyDefaults = function (options) {
     var defaults = {
-      data: function (params***REMOVED*** {
-        return $.extend({***REMOVED***, params, {
+      data: function (params) {
+        return $.extend({}, params, {
           q: params.term
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-      transport: function (params, success, failure***REMOVED*** {
-        var $request = $.ajax(params***REMOVED***;
+        });
+      },
+      transport: function (params, success, failure) {
+        var $request = $.ajax(params);
 
-        $request.then(success***REMOVED***;
-        $request.fail(failure***REMOVED***;
+        $request.then(success);
+        $request.fail(failure);
 
         return $request;
-  ***REMOVED***
-***REMOVED***;
+      }
+    };
 
-    return $.extend({***REMOVED***, defaults, options, true***REMOVED***;
-  ***REMOVED***;
+    return $.extend({}, defaults, options, true);
+  };
 
-  AjaxAdapter.prototype.processResults = function (results***REMOVED*** {
+  AjaxAdapter.prototype.processResults = function (results) {
     return results;
-  ***REMOVED***;
+  };
 
-  AjaxAdapter.prototype.query = function (params, callback***REMOVED*** {
-    var matches = [***REMOVED***;
+  AjaxAdapter.prototype.query = function (params, callback) {
+    var matches = [];
     var self = this;
 
-    if (this._request != null***REMOVED*** {
+    if (this._request != null) {
       // JSONP requests cannot always be aborted
-      if ($.isFunction(this._request.abort***REMOVED******REMOVED*** {
-        this._request.abort(***REMOVED***;
-  ***REMOVED***
+      if ($.isFunction(this._request.abort)) {
+        this._request.abort();
+      }
 
       this._request = null;
-***REMOVED***
+    }
 
     var options = $.extend({
       type: 'GET'
-***REMOVED*** this.ajaxOptions***REMOVED***;
+    }, this.ajaxOptions);
 
-    if (typeof options.url === 'function'***REMOVED*** {
-      options.url = options.url.call(this.$element, params***REMOVED***;
-***REMOVED***
+    if (typeof options.url === 'function') {
+      options.url = options.url.call(this.$element, params);
+    }
 
-    if (typeof options.data === 'function'***REMOVED*** {
-      options.data = options.data.call(this.$element, params***REMOVED***;
-***REMOVED***
+    if (typeof options.data === 'function') {
+      options.data = options.data.call(this.$element, params);
+    }
 
-    function request (***REMOVED*** {
-      var $request = options.transport(options, function (data***REMOVED*** {
-        var results = self.processResults(data, params***REMOVED***;
+    function request () {
+      var $request = options.transport(options, function (data) {
+        var results = self.processResults(data, params);
 
-        if (self.options.get('debug'***REMOVED*** && window.console && console.error***REMOVED*** {
+        if (self.options.get('debug') && window.console && console.error) {
           // Check to make sure that the response included a `results` key.
-          if (!results || !results.results || !$.isArray(results.results***REMOVED******REMOVED*** {
+          if (!results || !results.results || !$.isArray(results.results)) {
             console.error(
               'Select2: The AJAX results did not return an array in the ' +
               '`results` key of the response.'
-            ***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+            );
+          }
+        }
 
-        callback(results***REMOVED***;
-  ***REMOVED*** function (***REMOVED*** {
+        callback(results);
+      }, function () {
         // Attempt to detect if a request was aborted
         // Only works if the transport exposes a status property
-        if ($request.status && $request.status === '0'***REMOVED*** {
+        if ($request.status && $request.status === '0') {
           return;
-    ***REMOVED***
+        }
 
         self.trigger('results:message', {
           message: 'errorLoading'
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
+        });
+      });
 
       self._request = $request;
-***REMOVED***
+    }
 
-    if (this.ajaxOptions.delay && params.term != null***REMOVED*** {
-      if (this._queryTimeout***REMOVED*** {
-        window.clearTimeout(this._queryTimeout***REMOVED***;
-  ***REMOVED***
+    if (this.ajaxOptions.delay && params.term != null) {
+      if (this._queryTimeout) {
+        window.clearTimeout(this._queryTimeout);
+      }
 
-      this._queryTimeout = window.setTimeout(request, this.ajaxOptions.delay***REMOVED***;
-***REMOVED*** else {
-      request(***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+      this._queryTimeout = window.setTimeout(request, this.ajaxOptions.delay);
+    } else {
+      request();
+    }
+  };
 
   return AjaxAdapter;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/tags',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function Tags (decorated, $element, options***REMOVED*** {
-    var tags = options.get('tags'***REMOVED***;
+], function ($) {
+  function Tags (decorated, $element, options) {
+    var tags = options.get('tags');
 
-    var createTag = options.get('createTag'***REMOVED***;
+    var createTag = options.get('createTag');
 
-    if (createTag !== undefined***REMOVED*** {
+    if (createTag !== undefined) {
       this.createTag = createTag;
-***REMOVED***
+    }
 
-    var insertTag = options.get('insertTag'***REMOVED***;
+    var insertTag = options.get('insertTag');
 
-    if (insertTag !== undefined***REMOVED*** {
+    if (insertTag !== undefined) {
         this.insertTag = insertTag;
-***REMOVED***
+    }
 
-    decorated.call(this, $element, options***REMOVED***;
+    decorated.call(this, $element, options);
 
-    if ($.isArray(tags***REMOVED******REMOVED*** {
-      for (var t = 0; t < tags.length; t++***REMOVED*** {
-        var tag = tags[t***REMOVED***;
-        var item = this._normalizeItem(tag***REMOVED***;
+    if ($.isArray(tags)) {
+      for (var t = 0; t < tags.length; t++) {
+        var tag = tags[t];
+        var item = this._normalizeItem(tag);
 
-        var $option = this.option(item***REMOVED***;
+        var $option = this.option(item);
 
-        this.$element.append($option***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-  ***REMOVED***
+        this.$element.append($option);
+      }
+    }
+  }
 
-  Tags.prototype.query = function (decorated, params, callback***REMOVED*** {
+  Tags.prototype.query = function (decorated, params, callback) {
     var self = this;
 
-    this._removeOldTags(***REMOVED***;
+    this._removeOldTags();
 
-    if (params.term == null || params.page != null***REMOVED*** {
-      decorated.call(this, params, callback***REMOVED***;
+    if (params.term == null || params.page != null) {
+      decorated.call(this, params, callback);
       return;
-***REMOVED***
+    }
 
-    function wrapper (obj, child***REMOVED*** {
+    function wrapper (obj, child) {
       var data = obj.results;
 
-      for (var i = 0; i < data.length; i++***REMOVED*** {
-        var option = data[i***REMOVED***;
+      for (var i = 0; i < data.length; i++) {
+        var option = data[i];
 
         var checkChildren = (
           option.children != null &&
           !wrapper({
             results: option.children
-  ***REMOVED*** true***REMOVED***
-        ***REMOVED***;
+          }, true)
+        );
 
         var checkText = option.text === params.term;
 
-        if (checkText || checkChildren***REMOVED*** {
-          if (child***REMOVED*** {
+        if (checkText || checkChildren) {
+          if (child) {
             return false;
-      ***REMOVED***
+          }
 
           obj.data = data;
-          callback(obj***REMOVED***;
+          callback(obj);
 
           return;
-    ***REMOVED***
-  ***REMOVED***
+        }
+      }
 
-      if (child***REMOVED*** {
+      if (child) {
         return true;
-  ***REMOVED***
+      }
 
-      var tag = self.createTag(params***REMOVED***;
+      var tag = self.createTag(params);
 
-      if (tag != null***REMOVED*** {
-        var $option = self.option(tag***REMOVED***;
-        $option.attr('data-select2-tag', true***REMOVED***;
+      if (tag != null) {
+        var $option = self.option(tag);
+        $option.attr('data-select2-tag', true);
 
-        self.addOptions([$option***REMOVED******REMOVED***;
+        self.addOptions([$option]);
 
-        self.insertTag(data, tag***REMOVED***;
-  ***REMOVED***
+        self.insertTag(data, tag);
+      }
 
       obj.results = data;
 
-      callback(obj***REMOVED***;
-***REMOVED***
+      callback(obj);
+    }
 
-    decorated.call(this, params, wrapper***REMOVED***;
-  ***REMOVED***;
+    decorated.call(this, params, wrapper);
+  };
 
-  Tags.prototype.createTag = function (decorated, params***REMOVED*** {
-    var term = $.trim(params.term***REMOVED***;
+  Tags.prototype.createTag = function (decorated, params) {
+    var term = $.trim(params.term);
 
-    if (term === ''***REMOVED*** {
+    if (term === '') {
       return null;
-***REMOVED***
+    }
 
     return {
       id: term,
       text: term
-***REMOVED***;
-  ***REMOVED***;
+    };
+  };
 
-  Tags.prototype.insertTag = function (_, data, tag***REMOVED*** {
-    data.unshift(tag***REMOVED***;
-  ***REMOVED***;
+  Tags.prototype.insertTag = function (_, data, tag) {
+    data.unshift(tag);
+  };
 
-  Tags.prototype._removeOldTags = function (_***REMOVED*** {
+  Tags.prototype._removeOldTags = function (_) {
     var tag = this._lastTag;
 
-    var $options = this.$element.find('option[data-select2-tag***REMOVED***'***REMOVED***;
+    var $options = this.$element.find('option[data-select2-tag]');
 
-    $options.each(function (***REMOVED*** {
-      if (this.selected***REMOVED*** {
+    $options.each(function () {
+      if (this.selected) {
         return;
-  ***REMOVED***
+      }
 
-      $(this***REMOVED***.remove(***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      $(this).remove();
+    });
+  };
 
   return Tags;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/tokenizer',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function Tokenizer (decorated, $element, options***REMOVED*** {
-    var tokenizer = options.get('tokenizer'***REMOVED***;
+], function ($) {
+  function Tokenizer (decorated, $element, options) {
+    var tokenizer = options.get('tokenizer');
 
-    if (tokenizer !== undefined***REMOVED*** {
+    if (tokenizer !== undefined) {
       this.tokenizer = tokenizer;
-***REMOVED***
+    }
 
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options);
+  }
 
-  Tokenizer.prototype.bind = function (decorated, container, $container***REMOVED*** {
-    decorated.call(this, container, $container***REMOVED***;
+  Tokenizer.prototype.bind = function (decorated, container, $container) {
+    decorated.call(this, container, $container);
 
     this.$search =  container.dropdown.$search || container.selection.$search ||
-      $container.find('.select2-search__field'***REMOVED***;
-  ***REMOVED***;
+      $container.find('.select2-search__field');
+  };
 
-  Tokenizer.prototype.query = function (decorated, params, callback***REMOVED*** {
+  Tokenizer.prototype.query = function (decorated, params, callback) {
     var self = this;
 
-    function createAndSelect (data***REMOVED*** {
+    function createAndSelect (data) {
       // Normalize the data object so we can use it for checks
-      var item = self._normalizeItem(data***REMOVED***;
+      var item = self._normalizeItem(data);
 
       // Check if the data object already exists as a tag
       // Select it if it doesn't
-      var $existingOptions = self.$element.find('option'***REMOVED***.filter(function (***REMOVED*** {
-        return $(this***REMOVED***.val(***REMOVED*** === item.id;
-  ***REMOVED******REMOVED***;
+      var $existingOptions = self.$element.find('option').filter(function () {
+        return $(this).val() === item.id;
+      });
 
       // If an existing option wasn't found for it, create the option
-      if (!$existingOptions.length***REMOVED*** {
-        var $option = self.option(item***REMOVED***;
-        $option.attr('data-select2-tag', true***REMOVED***;
+      if (!$existingOptions.length) {
+        var $option = self.option(item);
+        $option.attr('data-select2-tag', true);
 
-        self._removeOldTags(***REMOVED***;
-        self.addOptions([$option***REMOVED******REMOVED***;
-  ***REMOVED***
+        self._removeOldTags();
+        self.addOptions([$option]);
+      }
 
       // Select the item, now that we know there is an option for it
-      select(item***REMOVED***;
-***REMOVED***
+      select(item);
+    }
 
-    function select (data***REMOVED*** {
+    function select (data) {
       self.trigger('select', {
         data: data
-  ***REMOVED******REMOVED***;
-***REMOVED***
+      });
+    }
 
     params.term = params.term || '';
 
-    var tokenData = this.tokenizer(params, this.options, createAndSelect***REMOVED***;
+    var tokenData = this.tokenizer(params, this.options, createAndSelect);
 
-    if (tokenData.term !== params.term***REMOVED*** {
+    if (tokenData.term !== params.term) {
       // Replace the search term if we have the search box
-      if (this.$search.length***REMOVED*** {
-        this.$search.val(tokenData.term***REMOVED***;
-        this.$search.focus(***REMOVED***;
-  ***REMOVED***
+      if (this.$search.length) {
+        this.$search.val(tokenData.term);
+        this.$search.focus();
+      }
 
       params.term = tokenData.term;
-***REMOVED***
+    }
 
-    decorated.call(this, params, callback***REMOVED***;
-  ***REMOVED***;
+    decorated.call(this, params, callback);
+  };
 
-  Tokenizer.prototype.tokenizer = function (_, params, options, callback***REMOVED*** {
-    var separators = options.get('tokenSeparators'***REMOVED*** || [***REMOVED***;
+  Tokenizer.prototype.tokenizer = function (_, params, options, callback) {
+    var separators = options.get('tokenSeparators') || [];
     var term = params.term;
     var i = 0;
 
-    var createTag = this.createTag || function (params***REMOVED*** {
+    var createTag = this.createTag || function (params) {
       return {
         id: params.term,
         text: params.term
-  ***REMOVED***;
-***REMOVED***;
+      };
+    };
 
-    while (i < term.length***REMOVED*** {
-      var termChar = term[i***REMOVED***;
+    while (i < term.length) {
+      var termChar = term[i];
 
-      if ($.inArray(termChar, separators***REMOVED*** === -1***REMOVED*** {
+      if ($.inArray(termChar, separators) === -1) {
         i++;
 
         continue;
-  ***REMOVED***
+      }
 
-      var part = term.substr(0, i***REMOVED***;
-      var partParams = $.extend({***REMOVED***, params, {
+      var part = term.substr(0, i);
+      var partParams = $.extend({}, params, {
         term: part
-  ***REMOVED******REMOVED***;
+      });
 
-      var data = createTag(partParams***REMOVED***;
+      var data = createTag(partParams);
 
-      if (data == null***REMOVED*** {
+      if (data == null) {
         i++;
         continue;
-  ***REMOVED***
+      }
 
-      callback(data***REMOVED***;
+      callback(data);
 
       // Reset the term to not include the tokenized portion
-      term = term.substr(i + 1***REMOVED*** || '';
+      term = term.substr(i + 1) || '';
       i = 0;
-***REMOVED***
+    }
 
     return {
       term: term
-***REMOVED***;
-  ***REMOVED***;
+    };
+  };
 
   return Tokenizer;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/minimumInputLength',[
 
-***REMOVED***, function (***REMOVED*** {
-  function MinimumInputLength (decorated, $e, options***REMOVED*** {
-    this.minimumInputLength = options.get('minimumInputLength'***REMOVED***;
+], function () {
+  function MinimumInputLength (decorated, $e, options) {
+    this.minimumInputLength = options.get('minimumInputLength');
 
-    decorated.call(this, $e, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $e, options);
+  }
 
-  MinimumInputLength.prototype.query = function (decorated, params, callback***REMOVED*** {
+  MinimumInputLength.prototype.query = function (decorated, params, callback) {
     params.term = params.term || '';
 
-    if (params.term.length < this.minimumInputLength***REMOVED*** {
+    if (params.term.length < this.minimumInputLength) {
       this.trigger('results:message', {
         message: 'inputTooShort',
         args: {
           minimum: this.minimumInputLength,
           input: params.term,
           params: params
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
+        }
+      });
 
       return;
-***REMOVED***
+    }
 
-    decorated.call(this, params, callback***REMOVED***;
-  ***REMOVED***;
+    decorated.call(this, params, callback);
+  };
 
   return MinimumInputLength;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/maximumInputLength',[
 
-***REMOVED***, function (***REMOVED*** {
-  function MaximumInputLength (decorated, $e, options***REMOVED*** {
-    this.maximumInputLength = options.get('maximumInputLength'***REMOVED***;
+], function () {
+  function MaximumInputLength (decorated, $e, options) {
+    this.maximumInputLength = options.get('maximumInputLength');
 
-    decorated.call(this, $e, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $e, options);
+  }
 
-  MaximumInputLength.prototype.query = function (decorated, params, callback***REMOVED*** {
+  MaximumInputLength.prototype.query = function (decorated, params, callback) {
     params.term = params.term || '';
 
     if (this.maximumInputLength > 0 &&
-        params.term.length > this.maximumInputLength***REMOVED*** {
+        params.term.length > this.maximumInputLength) {
       this.trigger('results:message', {
         message: 'inputTooLong',
         args: {
           maximum: this.maximumInputLength,
           input: params.term,
           params: params
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
+        }
+      });
 
       return;
-***REMOVED***
+    }
 
-    decorated.call(this, params, callback***REMOVED***;
-  ***REMOVED***;
+    decorated.call(this, params, callback);
+  };
 
   return MaximumInputLength;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/data/maximumSelectionLength',[
 
-***REMOVED***, function (***REMOVED***{
-  function MaximumSelectionLength (decorated, $e, options***REMOVED*** {
-    this.maximumSelectionLength = options.get('maximumSelectionLength'***REMOVED***;
+], function (){
+  function MaximumSelectionLength (decorated, $e, options) {
+    this.maximumSelectionLength = options.get('maximumSelectionLength');
 
-    decorated.call(this, $e, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $e, options);
+  }
 
   MaximumSelectionLength.prototype.query =
-    function (decorated, params, callback***REMOVED*** {
+    function (decorated, params, callback) {
       var self = this;
 
-      this.current(function (currentData***REMOVED*** {
+      this.current(function (currentData) {
         var count = currentData != null ? currentData.length : 0;
         if (self.maximumSelectionLength > 0 &&
-          count >= self.maximumSelectionLength***REMOVED*** {
+          count >= self.maximumSelectionLength) {
           self.trigger('results:message', {
             message: 'maximumSelected',
             args: {
               maximum: self.maximumSelectionLength
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
+            }
+          });
           return;
-    ***REMOVED***
-        decorated.call(self, params, callback***REMOVED***;
-  ***REMOVED******REMOVED***;
-  ***REMOVED***;
+        }
+        decorated.call(self, params, callback);
+      });
+  };
 
   return MaximumSelectionLength;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown',[
   'jquery',
   './utils'
-***REMOVED***, function ($, Utils***REMOVED*** {
-  function Dropdown ($element, options***REMOVED*** {
+], function ($, Utils) {
+  function Dropdown ($element, options) {
     this.$element = $element;
     this.options = options;
 
-    Dropdown.__super__.constructor.call(this***REMOVED***;
-  ***REMOVED***
+    Dropdown.__super__.constructor.call(this);
+  }
 
-  Utils.Extend(Dropdown, Utils.Observable***REMOVED***;
+  Utils.Extend(Dropdown, Utils.Observable);
 
-  Dropdown.prototype.render = function (***REMOVED*** {
+  Dropdown.prototype.render = function () {
     var $dropdown = $(
       '<span class="select2-dropdown">' +
         '<span class="select2-results"></span>' +
       '</span>'
-    ***REMOVED***;
+    );
 
-    $dropdown.attr('dir', this.options.get('dir'***REMOVED******REMOVED***;
+    $dropdown.attr('dir', this.options.get('dir'));
 
     this.$dropdown = $dropdown;
 
     return $dropdown;
-  ***REMOVED***;
+  };
 
-  Dropdown.prototype.bind = function (***REMOVED*** {
+  Dropdown.prototype.bind = function () {
     // Should be implemented in subclasses
-  ***REMOVED***;
+  };
 
-  Dropdown.prototype.position = function ($dropdown, $container***REMOVED*** {
+  Dropdown.prototype.position = function ($dropdown, $container) {
     // Should be implmented in subclasses
-  ***REMOVED***;
+  };
 
-  Dropdown.prototype.destroy = function (***REMOVED*** {
+  Dropdown.prototype.destroy = function () {
     // Remove the dropdown from the DOM
-    this.$dropdown.remove(***REMOVED***;
-  ***REMOVED***;
+    this.$dropdown.remove();
+  };
 
   return Dropdown;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/search',[
   'jquery',
   '../utils'
-***REMOVED***, function ($, Utils***REMOVED*** {
-  function Search (***REMOVED*** { ***REMOVED***
+], function ($, Utils) {
+  function Search () { }
 
-  Search.prototype.render = function (decorated***REMOVED*** {
-    var $rendered = decorated.call(this***REMOVED***;
+  Search.prototype.render = function (decorated) {
+    var $rendered = decorated.call(this);
 
     var $search = $(
       '<span class="select2-search select2-search--dropdown">' +
@@ -3891,620 +3891,620 @@ S2.define('select2/dropdown/search',[
         ' autocomplete="off" autocorrect="off" autocapitalize="off"' +
         ' spellcheck="false" role="textbox" />' +
       '</span>'
-    ***REMOVED***;
+    );
 
     this.$searchContainer = $search;
-    this.$search = $search.find('input'***REMOVED***;
+    this.$search = $search.find('input');
 
-    $rendered.prepend($search***REMOVED***;
+    $rendered.prepend($search);
 
     return $rendered;
-  ***REMOVED***;
+  };
 
-  Search.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  Search.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    this.$search.on('keydown', function (evt***REMOVED*** {
-      self.trigger('keypress', evt***REMOVED***;
+    this.$search.on('keydown', function (evt) {
+      self.trigger('keypress', evt);
 
-      self._keyUpPrevented = evt.isDefaultPrevented(***REMOVED***;
-***REMOVED******REMOVED***;
+      self._keyUpPrevented = evt.isDefaultPrevented();
+    });
 
     // Workaround for browsers which do not support the `input` event
     // This will prevent double-triggering of events for browsers which support
     // both the `keyup` and `input` events.
-    this.$search.on('input', function (evt***REMOVED*** {
+    this.$search.on('input', function (evt) {
       // Unbind the duplicated `keyup` event
-      $(this***REMOVED***.off('keyup'***REMOVED***;
-***REMOVED******REMOVED***;
+      $(this).off('keyup');
+    });
 
-    this.$search.on('keyup input', function (evt***REMOVED*** {
-      self.handleSearch(evt***REMOVED***;
-***REMOVED******REMOVED***;
+    this.$search.on('keyup input', function (evt) {
+      self.handleSearch(evt);
+    });
 
-    container.on('open', function (***REMOVED*** {
-      self.$search.attr('tabindex', 0***REMOVED***;
+    container.on('open', function () {
+      self.$search.attr('tabindex', 0);
 
-      self.$search.focus(***REMOVED***;
+      self.$search.focus();
 
-      window.setTimeout(function (***REMOVED*** {
-        self.$search.focus(***REMOVED***;
-  ***REMOVED*** 0***REMOVED***;
-***REMOVED******REMOVED***;
+      window.setTimeout(function () {
+        self.$search.focus();
+      }, 0);
+    });
 
-    container.on('close', function (***REMOVED*** {
-      self.$search.attr('tabindex', -1***REMOVED***;
+    container.on('close', function () {
+      self.$search.attr('tabindex', -1);
 
-      self.$search.val(''***REMOVED***;
-***REMOVED******REMOVED***;
+      self.$search.val('');
+    });
 
-    container.on('focus', function (***REMOVED*** {
-      if (container.isOpen(***REMOVED******REMOVED*** {
-        self.$search.focus(***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+    container.on('focus', function () {
+      if (container.isOpen()) {
+        self.$search.focus();
+      }
+    });
 
-    container.on('results:all', function (params***REMOVED*** {
-      if (params.query.term == null || params.query.term === ''***REMOVED*** {
-        var showSearch = self.showSearch(params***REMOVED***;
+    container.on('results:all', function (params) {
+      if (params.query.term == null || params.query.term === '') {
+        var showSearch = self.showSearch(params);
 
-        if (showSearch***REMOVED*** {
-          self.$searchContainer.removeClass('select2-search--hide'***REMOVED***;
-    ***REMOVED*** else {
-          self.$searchContainer.addClass('select2-search--hide'***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+        if (showSearch) {
+          self.$searchContainer.removeClass('select2-search--hide');
+        } else {
+          self.$searchContainer.addClass('select2-search--hide');
+        }
+      }
+    });
+  };
 
-  Search.prototype.handleSearch = function (evt***REMOVED*** {
-    if (!this._keyUpPrevented***REMOVED*** {
-      var input = this.$search.val(***REMOVED***;
+  Search.prototype.handleSearch = function (evt) {
+    if (!this._keyUpPrevented) {
+      var input = this.$search.val();
 
       this.trigger('query', {
         term: input
-  ***REMOVED******REMOVED***;
-***REMOVED***
+      });
+    }
 
     this._keyUpPrevented = false;
-  ***REMOVED***;
+  };
 
-  Search.prototype.showSearch = function (_, params***REMOVED*** {
+  Search.prototype.showSearch = function (_, params) {
     return true;
-  ***REMOVED***;
+  };
 
   return Search;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/hidePlaceholder',[
 
-***REMOVED***, function (***REMOVED*** {
-  function HidePlaceholder (decorated, $element, options, dataAdapter***REMOVED*** {
-    this.placeholder = this.normalizePlaceholder(options.get('placeholder'***REMOVED******REMOVED***;
+], function () {
+  function HidePlaceholder (decorated, $element, options, dataAdapter) {
+    this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
 
-    decorated.call(this, $element, options, dataAdapter***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options, dataAdapter);
+  }
 
-  HidePlaceholder.prototype.append = function (decorated, data***REMOVED*** {
-    data.results = this.removePlaceholder(data.results***REMOVED***;
+  HidePlaceholder.prototype.append = function (decorated, data) {
+    data.results = this.removePlaceholder(data.results);
 
-    decorated.call(this, data***REMOVED***;
-  ***REMOVED***;
+    decorated.call(this, data);
+  };
 
-  HidePlaceholder.prototype.normalizePlaceholder = function (_, placeholder***REMOVED*** {
-    if (typeof placeholder === 'string'***REMOVED*** {
+  HidePlaceholder.prototype.normalizePlaceholder = function (_, placeholder) {
+    if (typeof placeholder === 'string') {
       placeholder = {
         id: '',
         text: placeholder
-  ***REMOVED***;
-***REMOVED***
+      };
+    }
 
     return placeholder;
-  ***REMOVED***;
+  };
 
-  HidePlaceholder.prototype.removePlaceholder = function (_, data***REMOVED*** {
-    var modifiedData = data.slice(0***REMOVED***;
+  HidePlaceholder.prototype.removePlaceholder = function (_, data) {
+    var modifiedData = data.slice(0);
 
-    for (var d = data.length - 1; d >= 0; d--***REMOVED*** {
-      var item = data[d***REMOVED***;
+    for (var d = data.length - 1; d >= 0; d--) {
+      var item = data[d];
 
-      if (this.placeholder.id === item.id***REMOVED*** {
-        modifiedData.splice(d, 1***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      if (this.placeholder.id === item.id) {
+        modifiedData.splice(d, 1);
+      }
+    }
 
     return modifiedData;
-  ***REMOVED***;
+  };
 
   return HidePlaceholder;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/infiniteScroll',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function InfiniteScroll (decorated, $element, options, dataAdapter***REMOVED*** {
-    this.lastParams = {***REMOVED***;
+], function ($) {
+  function InfiniteScroll (decorated, $element, options, dataAdapter) {
+    this.lastParams = {};
 
-    decorated.call(this, $element, options, dataAdapter***REMOVED***;
+    decorated.call(this, $element, options, dataAdapter);
 
-    this.$loadingMore = this.createLoadingMore(***REMOVED***;
+    this.$loadingMore = this.createLoadingMore();
     this.loading = false;
-  ***REMOVED***
+  }
 
-  InfiniteScroll.prototype.append = function (decorated, data***REMOVED*** {
-    this.$loadingMore.remove(***REMOVED***;
+  InfiniteScroll.prototype.append = function (decorated, data) {
+    this.$loadingMore.remove();
     this.loading = false;
 
-    decorated.call(this, data***REMOVED***;
+    decorated.call(this, data);
 
-    if (this.showLoadingMore(data***REMOVED******REMOVED*** {
-      this.$results.append(this.$loadingMore***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if (this.showLoadingMore(data)) {
+      this.$results.append(this.$loadingMore);
+    }
+  };
 
-  InfiniteScroll.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  InfiniteScroll.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    container.on('query', function (params***REMOVED*** {
+    container.on('query', function (params) {
       self.lastParams = params;
       self.loading = true;
-***REMOVED******REMOVED***;
+    });
 
-    container.on('query:append', function (params***REMOVED*** {
+    container.on('query:append', function (params) {
       self.lastParams = params;
       self.loading = true;
-***REMOVED******REMOVED***;
+    });
 
-    this.$results.on('scroll', function (***REMOVED*** {
+    this.$results.on('scroll', function () {
       var isLoadMoreVisible = $.contains(
         document.documentElement,
-        self.$loadingMore[0***REMOVED***
-      ***REMOVED***;
+        self.$loadingMore[0]
+      );
 
-      if (self.loading || !isLoadMoreVisible***REMOVED*** {
+      if (self.loading || !isLoadMoreVisible) {
         return;
-  ***REMOVED***
+      }
 
-      var currentOffset = self.$results.offset(***REMOVED***.top +
-        self.$results.outerHeight(false***REMOVED***;
-      var loadingMoreOffset = self.$loadingMore.offset(***REMOVED***.top +
-        self.$loadingMore.outerHeight(false***REMOVED***;
+      var currentOffset = self.$results.offset().top +
+        self.$results.outerHeight(false);
+      var loadingMoreOffset = self.$loadingMore.offset().top +
+        self.$loadingMore.outerHeight(false);
 
-      if (currentOffset + 50 >= loadingMoreOffset***REMOVED*** {
-        self.loadMore(***REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      if (currentOffset + 50 >= loadingMoreOffset) {
+        self.loadMore();
+      }
+    });
+  };
 
-  InfiniteScroll.prototype.loadMore = function (***REMOVED*** {
+  InfiniteScroll.prototype.loadMore = function () {
     this.loading = true;
 
-    var params = $.extend({***REMOVED***, {page: 1***REMOVED***, this.lastParams***REMOVED***;
+    var params = $.extend({}, {page: 1}, this.lastParams);
 
     params.page++;
 
-    this.trigger('query:append', params***REMOVED***;
-  ***REMOVED***;
+    this.trigger('query:append', params);
+  };
 
-  InfiniteScroll.prototype.showLoadingMore = function (_, data***REMOVED*** {
+  InfiniteScroll.prototype.showLoadingMore = function (_, data) {
     return data.pagination && data.pagination.more;
-  ***REMOVED***;
+  };
 
-  InfiniteScroll.prototype.createLoadingMore = function (***REMOVED*** {
+  InfiniteScroll.prototype.createLoadingMore = function () {
     var $option = $(
       '<li ' +
       'class="select2-results__option select2-results__option--load-more"' +
       'role="treeitem" aria-disabled="true"></li>'
-    ***REMOVED***;
+    );
 
-    var message = this.options.get('translations'***REMOVED***.get('loadingMore'***REMOVED***;
+    var message = this.options.get('translations').get('loadingMore');
 
-    $option.html(message(this.lastParams***REMOVED******REMOVED***;
+    $option.html(message(this.lastParams));
 
     return $option;
-  ***REMOVED***;
+  };
 
   return InfiniteScroll;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/attachBody',[
   'jquery',
   '../utils'
-***REMOVED***, function ($, Utils***REMOVED*** {
-  function AttachBody (decorated, $element, options***REMOVED*** {
-    this.$dropdownParent = options.get('dropdownParent'***REMOVED*** || $(document.body***REMOVED***;
+], function ($, Utils) {
+  function AttachBody (decorated, $element, options) {
+    this.$dropdownParent = options.get('dropdownParent') || $(document.body);
 
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options);
+  }
 
-  AttachBody.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  AttachBody.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
     var setupResultsEvents = false;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    container.on('open', function (***REMOVED*** {
-      self._showDropdown(***REMOVED***;
-      self._attachPositioningHandler(container***REMOVED***;
+    container.on('open', function () {
+      self._showDropdown();
+      self._attachPositioningHandler(container);
 
-      if (!setupResultsEvents***REMOVED*** {
+      if (!setupResultsEvents) {
         setupResultsEvents = true;
 
-        container.on('results:all', function (***REMOVED*** {
-          self._positionDropdown(***REMOVED***;
-          self._resizeDropdown(***REMOVED***;
-    ***REMOVED******REMOVED***;
+        container.on('results:all', function () {
+          self._positionDropdown();
+          self._resizeDropdown();
+        });
 
-        container.on('results:append', function (***REMOVED*** {
-          self._positionDropdown(***REMOVED***;
-          self._resizeDropdown(***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED******REMOVED***;
+        container.on('results:append', function () {
+          self._positionDropdown();
+          self._resizeDropdown();
+        });
+      }
+    });
 
-    container.on('close', function (***REMOVED*** {
-      self._hideDropdown(***REMOVED***;
-      self._detachPositioningHandler(container***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('close', function () {
+      self._hideDropdown();
+      self._detachPositioningHandler(container);
+    });
 
-    this.$dropdownContainer.on('mousedown', function (evt***REMOVED*** {
-      evt.stopPropagation(***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.$dropdownContainer.on('mousedown', function (evt) {
+      evt.stopPropagation();
+    });
+  };
 
-  AttachBody.prototype.destroy = function (decorated***REMOVED*** {
-    decorated.call(this***REMOVED***;
+  AttachBody.prototype.destroy = function (decorated) {
+    decorated.call(this);
 
-    this.$dropdownContainer.remove(***REMOVED***;
-  ***REMOVED***;
+    this.$dropdownContainer.remove();
+  };
 
-  AttachBody.prototype.position = function (decorated, $dropdown, $container***REMOVED*** {
+  AttachBody.prototype.position = function (decorated, $dropdown, $container) {
     // Clone all of the container classes
-    $dropdown.attr('class', $container.attr('class'***REMOVED******REMOVED***;
+    $dropdown.attr('class', $container.attr('class'));
 
-    $dropdown.removeClass('select2'***REMOVED***;
-    $dropdown.addClass('select2-container--open'***REMOVED***;
+    $dropdown.removeClass('select2');
+    $dropdown.addClass('select2-container--open');
 
     $dropdown.css({
       position: 'absolute',
       top: -999999
-***REMOVED******REMOVED***;
+    });
 
     this.$container = $container;
-  ***REMOVED***;
+  };
 
-  AttachBody.prototype.render = function (decorated***REMOVED*** {
-    var $container = $('<span></span>'***REMOVED***;
+  AttachBody.prototype.render = function (decorated) {
+    var $container = $('<span></span>');
 
-    var $dropdown = decorated.call(this***REMOVED***;
-    $container.append($dropdown***REMOVED***;
+    var $dropdown = decorated.call(this);
+    $container.append($dropdown);
 
     this.$dropdownContainer = $container;
 
     return $container;
-  ***REMOVED***;
+  };
 
-  AttachBody.prototype._hideDropdown = function (decorated***REMOVED*** {
-    this.$dropdownContainer.detach(***REMOVED***;
-  ***REMOVED***;
+  AttachBody.prototype._hideDropdown = function (decorated) {
+    this.$dropdownContainer.detach();
+  };
 
   AttachBody.prototype._attachPositioningHandler =
-      function (decorated, container***REMOVED*** {
+      function (decorated, container) {
     var self = this;
 
     var scrollEvent = 'scroll.select2.' + container.id;
     var resizeEvent = 'resize.select2.' + container.id;
     var orientationEvent = 'orientationchange.select2.' + container.id;
 
-    var $watchers = this.$container.parents(***REMOVED***.filter(Utils.hasScroll***REMOVED***;
-    $watchers.each(function (***REMOVED*** {
-      $(this***REMOVED***.data('select2-scroll-position', {
-        x: $(this***REMOVED***.scrollLeft(***REMOVED***,
-        y: $(this***REMOVED***.scrollTop(***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+    var $watchers = this.$container.parents().filter(Utils.hasScroll);
+    $watchers.each(function () {
+      $(this).data('select2-scroll-position', {
+        x: $(this).scrollLeft(),
+        y: $(this).scrollTop()
+      });
+    });
 
-    $watchers.on(scrollEvent, function (ev***REMOVED*** {
-      var position = $(this***REMOVED***.data('select2-scroll-position'***REMOVED***;
-      $(this***REMOVED***.scrollTop(position.y***REMOVED***;
-***REMOVED******REMOVED***;
+    $watchers.on(scrollEvent, function (ev) {
+      var position = $(this).data('select2-scroll-position');
+      $(this).scrollTop(position.y);
+    });
 
-    $(window***REMOVED***.on(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent,
-      function (e***REMOVED*** {
-      self._positionDropdown(***REMOVED***;
-      self._resizeDropdown(***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    $(window).on(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent,
+      function (e) {
+      self._positionDropdown();
+      self._resizeDropdown();
+    });
+  };
 
   AttachBody.prototype._detachPositioningHandler =
-      function (decorated, container***REMOVED*** {
+      function (decorated, container) {
     var scrollEvent = 'scroll.select2.' + container.id;
     var resizeEvent = 'resize.select2.' + container.id;
     var orientationEvent = 'orientationchange.select2.' + container.id;
 
-    var $watchers = this.$container.parents(***REMOVED***.filter(Utils.hasScroll***REMOVED***;
-    $watchers.off(scrollEvent***REMOVED***;
+    var $watchers = this.$container.parents().filter(Utils.hasScroll);
+    $watchers.off(scrollEvent);
 
-    $(window***REMOVED***.off(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent***REMOVED***;
-  ***REMOVED***;
+    $(window).off(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent);
+  };
 
-  AttachBody.prototype._positionDropdown = function (***REMOVED*** {
-    var $window = $(window***REMOVED***;
+  AttachBody.prototype._positionDropdown = function () {
+    var $window = $(window);
 
-    var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above'***REMOVED***;
-    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below'***REMOVED***;
+    var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
+    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
 
     var newDirection = null;
 
-    var offset = this.$container.offset(***REMOVED***;
+    var offset = this.$container.offset();
 
-    offset.bottom = offset.top + this.$container.outerHeight(false***REMOVED***;
+    offset.bottom = offset.top + this.$container.outerHeight(false);
 
     var container = {
-      height: this.$container.outerHeight(false***REMOVED***
-***REMOVED***;
+      height: this.$container.outerHeight(false)
+    };
 
     container.top = offset.top;
     container.bottom = offset.top + container.height;
 
     var dropdown = {
-      height: this.$dropdown.outerHeight(false***REMOVED***
-***REMOVED***;
+      height: this.$dropdown.outerHeight(false)
+    };
 
     var viewport = {
-      top: $window.scrollTop(***REMOVED***,
-      bottom: $window.scrollTop(***REMOVED*** + $window.height(***REMOVED***
-***REMOVED***;
+      top: $window.scrollTop(),
+      bottom: $window.scrollTop() + $window.height()
+    };
 
-    var enoughRoomAbove = viewport.top < (offset.top - dropdown.height***REMOVED***;
-    var enoughRoomBelow = viewport.bottom > (offset.bottom + dropdown.height***REMOVED***;
+    var enoughRoomAbove = viewport.top < (offset.top - dropdown.height);
+    var enoughRoomBelow = viewport.bottom > (offset.bottom + dropdown.height);
 
     var css = {
       left: offset.left,
       top: container.bottom
-***REMOVED***;
+    };
 
     // Determine what the parent element is to use for calciulating the offset
     var $offsetParent = this.$dropdownParent;
 
     // For statically positoned elements, we need to get the element
     // that is determining the offset
-    if ($offsetParent.css('position'***REMOVED*** === 'static'***REMOVED*** {
-      $offsetParent = $offsetParent.offsetParent(***REMOVED***;
-***REMOVED***
+    if ($offsetParent.css('position') === 'static') {
+      $offsetParent = $offsetParent.offsetParent();
+    }
 
-    var parentOffset = $offsetParent.offset(***REMOVED***;
+    var parentOffset = $offsetParent.offset();
 
     css.top -= parentOffset.top;
     css.left -= parentOffset.left;
 
-    if (!isCurrentlyAbove && !isCurrentlyBelow***REMOVED*** {
+    if (!isCurrentlyAbove && !isCurrentlyBelow) {
       newDirection = 'below';
-***REMOVED***
+    }
 
-    if (!enoughRoomBelow && enoughRoomAbove && !isCurrentlyAbove***REMOVED*** {
+    if (!enoughRoomBelow && enoughRoomAbove && !isCurrentlyAbove) {
       newDirection = 'above';
-***REMOVED*** else if (!enoughRoomAbove && enoughRoomBelow && isCurrentlyAbove***REMOVED*** {
+    } else if (!enoughRoomAbove && enoughRoomBelow && isCurrentlyAbove) {
       newDirection = 'below';
-***REMOVED***
+    }
 
     if (newDirection == 'above' ||
-      (isCurrentlyAbove && newDirection !== 'below'***REMOVED******REMOVED*** {
+      (isCurrentlyAbove && newDirection !== 'below')) {
       css.top = container.top - parentOffset.top - dropdown.height;
-***REMOVED***
+    }
 
-    if (newDirection != null***REMOVED*** {
+    if (newDirection != null) {
       this.$dropdown
-        .removeClass('select2-dropdown--below select2-dropdown--above'***REMOVED***
-        .addClass('select2-dropdown--' + newDirection***REMOVED***;
+        .removeClass('select2-dropdown--below select2-dropdown--above')
+        .addClass('select2-dropdown--' + newDirection);
       this.$container
-        .removeClass('select2-container--below select2-container--above'***REMOVED***
-        .addClass('select2-container--' + newDirection***REMOVED***;
-***REMOVED***
+        .removeClass('select2-container--below select2-container--above')
+        .addClass('select2-container--' + newDirection);
+    }
 
-    this.$dropdownContainer.css(css***REMOVED***;
-  ***REMOVED***;
+    this.$dropdownContainer.css(css);
+  };
 
-  AttachBody.prototype._resizeDropdown = function (***REMOVED*** {
+  AttachBody.prototype._resizeDropdown = function () {
     var css = {
-      width: this.$container.outerWidth(false***REMOVED*** + 'px'
-***REMOVED***;
+      width: this.$container.outerWidth(false) + 'px'
+    };
 
-    if (this.options.get('dropdownAutoWidth'***REMOVED******REMOVED*** {
+    if (this.options.get('dropdownAutoWidth')) {
       css.minWidth = css.width;
       css.position = 'relative';
       css.width = 'auto';
-***REMOVED***
+    }
 
-    this.$dropdown.css(css***REMOVED***;
-  ***REMOVED***;
+    this.$dropdown.css(css);
+  };
 
-  AttachBody.prototype._showDropdown = function (decorated***REMOVED*** {
-    this.$dropdownContainer.appendTo(this.$dropdownParent***REMOVED***;
+  AttachBody.prototype._showDropdown = function (decorated) {
+    this.$dropdownContainer.appendTo(this.$dropdownParent);
 
-    this._positionDropdown(***REMOVED***;
-    this._resizeDropdown(***REMOVED***;
-  ***REMOVED***;
+    this._positionDropdown();
+    this._resizeDropdown();
+  };
 
   return AttachBody;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/minimumResultsForSearch',[
 
-***REMOVED***, function (***REMOVED*** {
-  function countResults (data***REMOVED*** {
+], function () {
+  function countResults (data) {
     var count = 0;
 
-    for (var d = 0; d < data.length; d++***REMOVED*** {
-      var item = data[d***REMOVED***;
+    for (var d = 0; d < data.length; d++) {
+      var item = data[d];
 
-      if (item.children***REMOVED*** {
-        count += countResults(item.children***REMOVED***;
-  ***REMOVED*** else {
+      if (item.children) {
+        count += countResults(item.children);
+      } else {
         count++;
-  ***REMOVED***
-***REMOVED***
+      }
+    }
 
     return count;
-  ***REMOVED***
+  }
 
-  function MinimumResultsForSearch (decorated, $element, options, dataAdapter***REMOVED*** {
-    this.minimumResultsForSearch = options.get('minimumResultsForSearch'***REMOVED***;
+  function MinimumResultsForSearch (decorated, $element, options, dataAdapter) {
+    this.minimumResultsForSearch = options.get('minimumResultsForSearch');
 
-    if (this.minimumResultsForSearch < 0***REMOVED*** {
+    if (this.minimumResultsForSearch < 0) {
       this.minimumResultsForSearch = Infinity;
-***REMOVED***
+    }
 
-    decorated.call(this, $element, options, dataAdapter***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options, dataAdapter);
+  }
 
-  MinimumResultsForSearch.prototype.showSearch = function (decorated, params***REMOVED*** {
-    if (countResults(params.data.results***REMOVED*** < this.minimumResultsForSearch***REMOVED*** {
+  MinimumResultsForSearch.prototype.showSearch = function (decorated, params) {
+    if (countResults(params.data.results) < this.minimumResultsForSearch) {
       return false;
-***REMOVED***
+    }
 
-    return decorated.call(this, params***REMOVED***;
-  ***REMOVED***;
+    return decorated.call(this, params);
+  };
 
   return MinimumResultsForSearch;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/selectOnClose',[
 
-***REMOVED***, function (***REMOVED*** {
-  function SelectOnClose (***REMOVED*** { ***REMOVED***
+], function () {
+  function SelectOnClose () { }
 
-  SelectOnClose.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  SelectOnClose.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    container.on('close', function (params***REMOVED*** {
-      self._handleSelectOnClose(params***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    container.on('close', function (params) {
+      self._handleSelectOnClose(params);
+    });
+  };
 
-  SelectOnClose.prototype._handleSelectOnClose = function (_, params***REMOVED*** {
-    if (params && params.originalSelect2Event != null***REMOVED*** {
+  SelectOnClose.prototype._handleSelectOnClose = function (_, params) {
+    if (params && params.originalSelect2Event != null) {
       var event = params.originalSelect2Event;
 
       // Don't select an item if the close event was triggered from a select or
       // unselect event
-      if (event._type === 'select' || event._type === 'unselect'***REMOVED*** {
+      if (event._type === 'select' || event._type === 'unselect') {
         return;
-  ***REMOVED***
-***REMOVED***
+      }
+    }
 
-    var $highlightedResults = this.getHighlightedResults(***REMOVED***;
+    var $highlightedResults = this.getHighlightedResults();
 
     // Only select highlighted results
-    if ($highlightedResults.length < 1***REMOVED*** {
+    if ($highlightedResults.length < 1) {
       return;
-***REMOVED***
+    }
 
-    var data = $highlightedResults.data('data'***REMOVED***;
+    var data = $highlightedResults.data('data');
 
     // Don't re-select already selected resulte
     if (
-      (data.element != null && data.element.selected***REMOVED*** ||
-      (data.element == null && data.selected***REMOVED***
-    ***REMOVED*** {
+      (data.element != null && data.element.selected) ||
+      (data.element == null && data.selected)
+    ) {
       return;
-***REMOVED***
+    }
 
     this.trigger('select', {
         data: data
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    });
+  };
 
   return SelectOnClose;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/closeOnSelect',[
 
-***REMOVED***, function (***REMOVED*** {
-  function CloseOnSelect (***REMOVED*** { ***REMOVED***
+], function () {
+  function CloseOnSelect () { }
 
-  CloseOnSelect.prototype.bind = function (decorated, container, $container***REMOVED*** {
+  CloseOnSelect.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    decorated.call(this, container, $container***REMOVED***;
+    decorated.call(this, container, $container);
 
-    container.on('select', function (evt***REMOVED*** {
-      self._selectTriggered(evt***REMOVED***;
-***REMOVED******REMOVED***;
+    container.on('select', function (evt) {
+      self._selectTriggered(evt);
+    });
 
-    container.on('unselect', function (evt***REMOVED*** {
-      self._selectTriggered(evt***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    container.on('unselect', function (evt) {
+      self._selectTriggered(evt);
+    });
+  };
 
-  CloseOnSelect.prototype._selectTriggered = function (_, evt***REMOVED*** {
+  CloseOnSelect.prototype._selectTriggered = function (_, evt) {
     var originalEvent = evt.originalEvent;
 
     // Don't close if the control key is being held
-    if (originalEvent && originalEvent.ctrlKey***REMOVED*** {
+    if (originalEvent && originalEvent.ctrlKey) {
       return;
-***REMOVED***
+    }
 
     this.trigger('close', {
       originalEvent: originalEvent,
       originalSelect2Event: evt
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    });
+  };
 
   return CloseOnSelect;
-***REMOVED******REMOVED***;
+});
 
-S2.define('select2/i18n/en',[***REMOVED***,function (***REMOVED*** {
+S2.define('select2/i18n/en',[],function () {
   // English
   return {
-    errorLoading: function (***REMOVED*** {
+    errorLoading: function () {
       return 'The results could not be loaded.';
-***REMOVED***
-    inputTooLong: function (args***REMOVED*** {
+    },
+    inputTooLong: function (args) {
       var overChars = args.input.length - args.maximum;
 
       var message = 'Please delete ' + overChars + ' character';
 
-      if (overChars != 1***REMOVED*** {
+      if (overChars != 1) {
         message += 's';
-  ***REMOVED***
+      }
 
       return message;
-***REMOVED***
-    inputTooShort: function (args***REMOVED*** {
+    },
+    inputTooShort: function (args) {
       var remainingChars = args.minimum - args.input.length;
 
       var message = 'Please enter ' + remainingChars + ' or more characters';
 
       return message;
-***REMOVED***
-    loadingMore: function (***REMOVED*** {
+    },
+    loadingMore: function () {
       return 'Loading more results…';
-***REMOVED***
-    maximumSelected: function (args***REMOVED*** {
+    },
+    maximumSelected: function (args) {
       var message = 'You can only select ' + args.maximum + ' item';
 
-      if (args.maximum != 1***REMOVED*** {
+      if (args.maximum != 1) {
         message += 's';
-  ***REMOVED***
+      }
 
       return message;
-***REMOVED***
-    noResults: function (***REMOVED*** {
+    },
+    noResults: function () {
       return 'No results found';
-***REMOVED***
-    searching: function (***REMOVED*** {
+    },
+    searching: function () {
       return 'Searching…';
-***REMOVED***
-  ***REMOVED***;
-***REMOVED******REMOVED***;
+    }
+  };
+});
 
 S2.define('select2/defaults',[
   'jquery',
@@ -4542,7 +4542,7 @@ S2.define('select2/defaults',[
   './dropdown/closeOnSelect',
 
   './i18n/en'
-***REMOVED***, function ($, require,
+], function ($, require,
 
              ResultsList,
 
@@ -4557,307 +4557,307 @@ S2.define('select2/defaults',[
              Dropdown, DropdownSearch, HidePlaceholder, InfiniteScroll,
              AttachBody, MinimumResultsForSearch, SelectOnClose, CloseOnSelect,
 
-             EnglishTranslation***REMOVED*** {
-  function Defaults (***REMOVED*** {
-    this.reset(***REMOVED***;
-  ***REMOVED***
+             EnglishTranslation) {
+  function Defaults () {
+    this.reset();
+  }
 
-  Defaults.prototype.apply = function (options***REMOVED*** {
-    options = $.extend(true, {***REMOVED***, this.defaults, options***REMOVED***;
+  Defaults.prototype.apply = function (options) {
+    options = $.extend(true, {}, this.defaults, options);
 
-    if (options.dataAdapter == null***REMOVED*** {
-      if (options.ajax != null***REMOVED*** {
+    if (options.dataAdapter == null) {
+      if (options.ajax != null) {
         options.dataAdapter = AjaxData;
-  ***REMOVED*** else if (options.data != null***REMOVED*** {
+      } else if (options.data != null) {
         options.dataAdapter = ArrayData;
-  ***REMOVED*** else {
+      } else {
         options.dataAdapter = SelectData;
-  ***REMOVED***
+      }
 
-      if (options.minimumInputLength > 0***REMOVED*** {
+      if (options.minimumInputLength > 0) {
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
           MinimumInputLength
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.maximumInputLength > 0***REMOVED*** {
+      if (options.maximumInputLength > 0) {
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
           MaximumInputLength
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.maximumSelectionLength > 0***REMOVED*** {
+      if (options.maximumSelectionLength > 0) {
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
           MaximumSelectionLength
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.tags***REMOVED*** {
-        options.dataAdapter = Utils.Decorate(options.dataAdapter, Tags***REMOVED***;
-  ***REMOVED***
+      if (options.tags) {
+        options.dataAdapter = Utils.Decorate(options.dataAdapter, Tags);
+      }
 
-      if (options.tokenSeparators != null || options.tokenizer != null***REMOVED*** {
+      if (options.tokenSeparators != null || options.tokenizer != null) {
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
           Tokenizer
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.query != null***REMOVED*** {
-        var Query = require(options.amdBase + 'compat/query'***REMOVED***;
+      if (options.query != null) {
+        var Query = require(options.amdBase + 'compat/query');
 
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
           Query
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.initSelection != null***REMOVED*** {
-        var InitSelection = require(options.amdBase + 'compat/initSelection'***REMOVED***;
+      if (options.initSelection != null) {
+        var InitSelection = require(options.amdBase + 'compat/initSelection');
 
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
           InitSelection
-        ***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        );
+      }
+    }
 
-    if (options.resultsAdapter == null***REMOVED*** {
+    if (options.resultsAdapter == null) {
       options.resultsAdapter = ResultsList;
 
-      if (options.ajax != null***REMOVED*** {
+      if (options.ajax != null) {
         options.resultsAdapter = Utils.Decorate(
           options.resultsAdapter,
           InfiniteScroll
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.placeholder != null***REMOVED*** {
+      if (options.placeholder != null) {
         options.resultsAdapter = Utils.Decorate(
           options.resultsAdapter,
           HidePlaceholder
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.selectOnClose***REMOVED*** {
+      if (options.selectOnClose) {
         options.resultsAdapter = Utils.Decorate(
           options.resultsAdapter,
           SelectOnClose
-        ***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        );
+      }
+    }
 
-    if (options.dropdownAdapter == null***REMOVED*** {
-      if (options.multiple***REMOVED*** {
+    if (options.dropdownAdapter == null) {
+      if (options.multiple) {
         options.dropdownAdapter = Dropdown;
-  ***REMOVED*** else {
-        var SearchableDropdown = Utils.Decorate(Dropdown, DropdownSearch***REMOVED***;
+      } else {
+        var SearchableDropdown = Utils.Decorate(Dropdown, DropdownSearch);
 
         options.dropdownAdapter = SearchableDropdown;
-  ***REMOVED***
+      }
 
-      if (options.minimumResultsForSearch !== 0***REMOVED*** {
+      if (options.minimumResultsForSearch !== 0) {
         options.dropdownAdapter = Utils.Decorate(
           options.dropdownAdapter,
           MinimumResultsForSearch
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.closeOnSelect***REMOVED*** {
+      if (options.closeOnSelect) {
         options.dropdownAdapter = Utils.Decorate(
           options.dropdownAdapter,
           CloseOnSelect
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
       if (
         options.dropdownCssClass != null ||
         options.dropdownCss != null ||
         options.adaptDropdownCssClass != null
-      ***REMOVED*** {
-        var DropdownCSS = require(options.amdBase + 'compat/dropdownCss'***REMOVED***;
+      ) {
+        var DropdownCSS = require(options.amdBase + 'compat/dropdownCss');
 
         options.dropdownAdapter = Utils.Decorate(
           options.dropdownAdapter,
           DropdownCSS
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
       options.dropdownAdapter = Utils.Decorate(
         options.dropdownAdapter,
         AttachBody
-      ***REMOVED***;
-***REMOVED***
+      );
+    }
 
-    if (options.selectionAdapter == null***REMOVED*** {
-      if (options.multiple***REMOVED*** {
+    if (options.selectionAdapter == null) {
+      if (options.multiple) {
         options.selectionAdapter = MultipleSelection;
-  ***REMOVED*** else {
+      } else {
         options.selectionAdapter = SingleSelection;
-  ***REMOVED***
+      }
 
       // Add the placeholder mixin if a placeholder was specified
-      if (options.placeholder != null***REMOVED*** {
+      if (options.placeholder != null) {
         options.selectionAdapter = Utils.Decorate(
           options.selectionAdapter,
           Placeholder
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.allowClear***REMOVED*** {
+      if (options.allowClear) {
         options.selectionAdapter = Utils.Decorate(
           options.selectionAdapter,
           AllowClear
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      if (options.multiple***REMOVED*** {
+      if (options.multiple) {
         options.selectionAdapter = Utils.Decorate(
           options.selectionAdapter,
           SelectionSearch
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
       if (
         options.containerCssClass != null ||
         options.containerCss != null ||
         options.adaptContainerCssClass != null
-      ***REMOVED*** {
-        var ContainerCSS = require(options.amdBase + 'compat/containerCss'***REMOVED***;
+      ) {
+        var ContainerCSS = require(options.amdBase + 'compat/containerCss');
 
         options.selectionAdapter = Utils.Decorate(
           options.selectionAdapter,
           ContainerCSS
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
       options.selectionAdapter = Utils.Decorate(
         options.selectionAdapter,
         EventRelay
-      ***REMOVED***;
-***REMOVED***
+      );
+    }
 
-    if (typeof options.language === 'string'***REMOVED*** {
+    if (typeof options.language === 'string') {
       // Check if the language is specified with a region
-      if (options.language.indexOf('-'***REMOVED*** > 0***REMOVED*** {
+      if (options.language.indexOf('-') > 0) {
         // Extract the region information if it is included
-        var languageParts = options.language.split('-'***REMOVED***;
-        var baseLanguage = languageParts[0***REMOVED***;
+        var languageParts = options.language.split('-');
+        var baseLanguage = languageParts[0];
 
-        options.language = [options.language, baseLanguage***REMOVED***;
-  ***REMOVED*** else {
-        options.language = [options.language***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        options.language = [options.language, baseLanguage];
+      } else {
+        options.language = [options.language];
+      }
+    }
 
-    if ($.isArray(options.language***REMOVED******REMOVED*** {
-      var languages = new Translation(***REMOVED***;
-      options.language.push('en'***REMOVED***;
+    if ($.isArray(options.language)) {
+      var languages = new Translation();
+      options.language.push('en');
 
       var languageNames = options.language;
 
-      for (var l = 0; l < languageNames.length; l++***REMOVED*** {
-        var name = languageNames[l***REMOVED***;
-        var language = {***REMOVED***;
+      for (var l = 0; l < languageNames.length; l++) {
+        var name = languageNames[l];
+        var language = {};
 
         try {
           // Try to load it with the original name
-          language = Translation.loadPath(name***REMOVED***;
-    ***REMOVED*** catch (e***REMOVED*** {
+          language = Translation.loadPath(name);
+        } catch (e) {
           try {
             // If we couldn't load it, check if it wasn't the full path
             name = this.defaults.amdLanguageBase + name;
-            language = Translation.loadPath(name***REMOVED***;
-      ***REMOVED*** catch (ex***REMOVED*** {
+            language = Translation.loadPath(name);
+          } catch (ex) {
             // The translation could not be loaded at all. Sometimes this is
             // because of a configuration problem, other times this can be
             // because of how Select2 helps load all possible translation files.
-            if (options.debug && window.console && console.warn***REMOVED*** {
+            if (options.debug && window.console && console.warn) {
               console.warn(
                 'Select2: The language file for "' + name + '" could not be ' +
                 'automatically loaded. A fallback will be used instead.'
-              ***REMOVED***;
-        ***REMOVED***
+              );
+            }
 
             continue;
-      ***REMOVED***
-    ***REMOVED***
+          }
+        }
 
-        languages.extend(language***REMOVED***;
-  ***REMOVED***
+        languages.extend(language);
+      }
 
       options.translations = languages;
-***REMOVED*** else {
+    } else {
       var baseTranslation = Translation.loadPath(
         this.defaults.amdLanguageBase + 'en'
-      ***REMOVED***;
-      var customTranslation = new Translation(options.language***REMOVED***;
+      );
+      var customTranslation = new Translation(options.language);
 
-      customTranslation.extend(baseTranslation***REMOVED***;
+      customTranslation.extend(baseTranslation);
 
       options.translations = customTranslation;
-***REMOVED***
+    }
 
     return options;
-  ***REMOVED***;
+  };
 
-  Defaults.prototype.reset = function (***REMOVED*** {
-    function stripDiacritics (text***REMOVED*** {
+  Defaults.prototype.reset = function () {
+    function stripDiacritics (text) {
       // Used 'uni range + named function' from http://jsperf.com/diacritics/18
-      function match(a***REMOVED*** {
-        return DIACRITICS[a***REMOVED*** || a;
-  ***REMOVED***
+      function match(a) {
+        return DIACRITICS[a] || a;
+      }
 
-      return text.replace(/[^\u0000-\u007E***REMOVED***/g, match***REMOVED***;
-***REMOVED***
+      return text.replace(/[^\u0000-\u007E]/g, match);
+    }
 
-    function matcher (params, data***REMOVED*** {
+    function matcher (params, data) {
       // Always return the object if there is nothing to compare
-      if ($.trim(params.term***REMOVED*** === ''***REMOVED*** {
+      if ($.trim(params.term) === '') {
         return data;
-  ***REMOVED***
+      }
 
       // Do a recursive check for options with children
-      if (data.children && data.children.length > 0***REMOVED*** {
+      if (data.children && data.children.length > 0) {
         // Clone the data object if there are children
         // This is required as we modify the object to remove any non-matches
-        var match = $.extend(true, {***REMOVED***, data***REMOVED***;
+        var match = $.extend(true, {}, data);
 
         // Check each child of the option
-        for (var c = data.children.length - 1; c >= 0; c--***REMOVED*** {
-          var child = data.children[c***REMOVED***;
+        for (var c = data.children.length - 1; c >= 0; c--) {
+          var child = data.children[c];
 
-          var matches = matcher(params, child***REMOVED***;
+          var matches = matcher(params, child);
 
           // If there wasn't a match, remove the object in the array
-          if (matches == null***REMOVED*** {
-            match.children.splice(c, 1***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+          if (matches == null) {
+            match.children.splice(c, 1);
+          }
+        }
 
         // If any children matched, return the new object
-        if (match.children.length > 0***REMOVED*** {
+        if (match.children.length > 0) {
           return match;
-    ***REMOVED***
+        }
 
         // If there were no matching children, check just the plain object
-        return matcher(params, match***REMOVED***;
-  ***REMOVED***
+        return matcher(params, match);
+      }
 
-      var original = stripDiacritics(data.text***REMOVED***.toUpperCase(***REMOVED***;
-      var term = stripDiacritics(params.term***REMOVED***.toUpperCase(***REMOVED***;
+      var original = stripDiacritics(data.text).toUpperCase();
+      var term = stripDiacritics(params.term).toUpperCase();
 
       // Check if the text contains the term
-      if (original.indexOf(term***REMOVED*** > -1***REMOVED*** {
+      if (original.indexOf(term) > -1) {
         return data;
-  ***REMOVED***
+      }
 
       // If it doesn't contain the term, don't return anything
       return null;
-***REMOVED***
+    }
 
     this.defaults = {
       amdBase: './',
@@ -4873,529 +4873,529 @@ S2.define('select2/defaults',[
       maximumSelectionLength: 0,
       minimumResultsForSearch: 0,
       selectOnClose: false,
-      sorter: function (data***REMOVED*** {
+      sorter: function (data) {
         return data;
-  ***REMOVED***
-      templateResult: function (result***REMOVED*** {
+      },
+      templateResult: function (result) {
         return result.text;
-  ***REMOVED***
-      templateSelection: function (selection***REMOVED*** {
+      },
+      templateSelection: function (selection) {
         return selection.text;
-  ***REMOVED***
+      },
       theme: 'default',
       width: 'resolve'
-***REMOVED***;
-  ***REMOVED***;
+    };
+  };
 
-  Defaults.prototype.set = function (key, value***REMOVED*** {
-    var camelKey = $.camelCase(key***REMOVED***;
+  Defaults.prototype.set = function (key, value) {
+    var camelKey = $.camelCase(key);
 
-    var data = {***REMOVED***;
-    data[camelKey***REMOVED*** = value;
+    var data = {};
+    data[camelKey] = value;
 
-    var convertedData = Utils._convertData(data***REMOVED***;
+    var convertedData = Utils._convertData(data);
 
-    $.extend(this.defaults, convertedData***REMOVED***;
-  ***REMOVED***;
+    $.extend(this.defaults, convertedData);
+  };
 
-  var defaults = new Defaults(***REMOVED***;
+  var defaults = new Defaults();
 
   return defaults;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/options',[
   'require',
   'jquery',
   './defaults',
   './utils'
-***REMOVED***, function (require, $, Defaults, Utils***REMOVED*** {
-  function Options (options, $element***REMOVED*** {
+], function (require, $, Defaults, Utils) {
+  function Options (options, $element) {
     this.options = options;
 
-    if ($element != null***REMOVED*** {
-      this.fromElement($element***REMOVED***;
-***REMOVED***
+    if ($element != null) {
+      this.fromElement($element);
+    }
 
-    this.options = Defaults.apply(this.options***REMOVED***;
+    this.options = Defaults.apply(this.options);
 
-    if ($element && $element.is('input'***REMOVED******REMOVED*** {
-      var InputCompat = require(this.get('amdBase'***REMOVED*** + 'compat/inputData'***REMOVED***;
+    if ($element && $element.is('input')) {
+      var InputCompat = require(this.get('amdBase') + 'compat/inputData');
 
       this.options.dataAdapter = Utils.Decorate(
         this.options.dataAdapter,
         InputCompat
-      ***REMOVED***;
-***REMOVED***
-  ***REMOVED***
+      );
+    }
+  }
 
-  Options.prototype.fromElement = function ($e***REMOVED*** {
-    var excludedData = ['select2'***REMOVED***;
+  Options.prototype.fromElement = function ($e) {
+    var excludedData = ['select2'];
 
-    if (this.options.multiple == null***REMOVED*** {
-      this.options.multiple = $e.prop('multiple'***REMOVED***;
-***REMOVED***
+    if (this.options.multiple == null) {
+      this.options.multiple = $e.prop('multiple');
+    }
 
-    if (this.options.disabled == null***REMOVED*** {
-      this.options.disabled = $e.prop('disabled'***REMOVED***;
-***REMOVED***
+    if (this.options.disabled == null) {
+      this.options.disabled = $e.prop('disabled');
+    }
 
-    if (this.options.language == null***REMOVED*** {
-      if ($e.prop('lang'***REMOVED******REMOVED*** {
-        this.options.language = $e.prop('lang'***REMOVED***.toLowerCase(***REMOVED***;
-  ***REMOVED*** else if ($e.closest('[lang***REMOVED***'***REMOVED***.prop('lang'***REMOVED******REMOVED*** {
-        this.options.language = $e.closest('[lang***REMOVED***'***REMOVED***.prop('lang'***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    if (this.options.language == null) {
+      if ($e.prop('lang')) {
+        this.options.language = $e.prop('lang').toLowerCase();
+      } else if ($e.closest('[lang]').prop('lang')) {
+        this.options.language = $e.closest('[lang]').prop('lang');
+      }
+    }
 
-    if (this.options.dir == null***REMOVED*** {
-      if ($e.prop('dir'***REMOVED******REMOVED*** {
-        this.options.dir = $e.prop('dir'***REMOVED***;
-  ***REMOVED*** else if ($e.closest('[dir***REMOVED***'***REMOVED***.prop('dir'***REMOVED******REMOVED*** {
-        this.options.dir = $e.closest('[dir***REMOVED***'***REMOVED***.prop('dir'***REMOVED***;
-  ***REMOVED*** else {
+    if (this.options.dir == null) {
+      if ($e.prop('dir')) {
+        this.options.dir = $e.prop('dir');
+      } else if ($e.closest('[dir]').prop('dir')) {
+        this.options.dir = $e.closest('[dir]').prop('dir');
+      } else {
         this.options.dir = 'ltr';
-  ***REMOVED***
-***REMOVED***
+      }
+    }
 
-    $e.prop('disabled', this.options.disabled***REMOVED***;
-    $e.prop('multiple', this.options.multiple***REMOVED***;
+    $e.prop('disabled', this.options.disabled);
+    $e.prop('multiple', this.options.multiple);
 
-    if ($e.data('select2Tags'***REMOVED******REMOVED*** {
-      if (this.options.debug && window.console && console.warn***REMOVED*** {
+    if ($e.data('select2Tags')) {
+      if (this.options.debug && window.console && console.warn) {
         console.warn(
           'Select2: The `data-select2-tags` attribute has been changed to ' +
           'use the `data-data` and `data-tags="true"` attributes and will be ' +
           'removed in future versions of Select2.'
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      $e.data('data', $e.data('select2Tags'***REMOVED******REMOVED***;
-      $e.data('tags', true***REMOVED***;
-***REMOVED***
+      $e.data('data', $e.data('select2Tags'));
+      $e.data('tags', true);
+    }
 
-    if ($e.data('ajaxUrl'***REMOVED******REMOVED*** {
-      if (this.options.debug && window.console && console.warn***REMOVED*** {
+    if ($e.data('ajaxUrl')) {
+      if (this.options.debug && window.console && console.warn) {
         console.warn(
           'Select2: The `data-ajax-url` attribute has been changed to ' +
           '`data-ajax--url` and support for the old attribute will be removed' +
           ' in future versions of Select2.'
-        ***REMOVED***;
-  ***REMOVED***
+        );
+      }
 
-      $e.attr('ajax--url', $e.data('ajaxUrl'***REMOVED******REMOVED***;
-      $e.data('ajax--url', $e.data('ajaxUrl'***REMOVED******REMOVED***;
-***REMOVED***
+      $e.attr('ajax--url', $e.data('ajaxUrl'));
+      $e.data('ajax--url', $e.data('ajaxUrl'));
+    }
 
-    var dataset = {***REMOVED***;
+    var dataset = {};
 
     // Prefer the element's `dataset` attribute if it exists
     // jQuery 1.x does not correctly handle data attributes with multiple dashes
-    if ($.fn.jquery && $.fn.jquery.substr(0, 2***REMOVED*** == '1.' && $e[0***REMOVED***.dataset***REMOVED*** {
-      dataset = $.extend(true, {***REMOVED***, $e[0***REMOVED***.dataset, $e.data(***REMOVED******REMOVED***;
-***REMOVED*** else {
-      dataset = $e.data(***REMOVED***;
-***REMOVED***
+    if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
+      dataset = $.extend(true, {}, $e[0].dataset, $e.data());
+    } else {
+      dataset = $e.data();
+    }
 
-    var data = $.extend(true, {***REMOVED***, dataset***REMOVED***;
+    var data = $.extend(true, {}, dataset);
 
-    data = Utils._convertData(data***REMOVED***;
+    data = Utils._convertData(data);
 
-    for (var key in data***REMOVED*** {
-      if ($.inArray(key, excludedData***REMOVED*** > -1***REMOVED*** {
+    for (var key in data) {
+      if ($.inArray(key, excludedData) > -1) {
         continue;
-  ***REMOVED***
+      }
 
-      if ($.isPlainObject(this.options[key***REMOVED******REMOVED******REMOVED*** {
-        $.extend(this.options[key***REMOVED***, data[key***REMOVED******REMOVED***;
-  ***REMOVED*** else {
-        this.options[key***REMOVED*** = data[key***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      if ($.isPlainObject(this.options[key])) {
+        $.extend(this.options[key], data[key]);
+      } else {
+        this.options[key] = data[key];
+      }
+    }
 
     return this;
-  ***REMOVED***;
+  };
 
-  Options.prototype.get = function (key***REMOVED*** {
-    return this.options[key***REMOVED***;
-  ***REMOVED***;
+  Options.prototype.get = function (key) {
+    return this.options[key];
+  };
 
-  Options.prototype.set = function (key, val***REMOVED*** {
-    this.options[key***REMOVED*** = val;
-  ***REMOVED***;
+  Options.prototype.set = function (key, val) {
+    this.options[key] = val;
+  };
 
   return Options;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/core',[
   'jquery',
   './options',
   './utils',
   './keys'
-***REMOVED***, function ($, Options, Utils, KEYS***REMOVED*** {
-  var Select2 = function ($element, options***REMOVED*** {
-    if ($element.data('select2'***REMOVED*** != null***REMOVED*** {
-      $element.data('select2'***REMOVED***.destroy(***REMOVED***;
-***REMOVED***
+], function ($, Options, Utils, KEYS) {
+  var Select2 = function ($element, options) {
+    if ($element.data('select2') != null) {
+      $element.data('select2').destroy();
+    }
 
     this.$element = $element;
 
-    this.id = this._generateId($element***REMOVED***;
+    this.id = this._generateId($element);
 
-    options = options || {***REMOVED***;
+    options = options || {};
 
-    this.options = new Options(options, $element***REMOVED***;
+    this.options = new Options(options, $element);
 
-    Select2.__super__.constructor.call(this***REMOVED***;
+    Select2.__super__.constructor.call(this);
 
     // Set up the tabindex
 
-    var tabindex = $element.attr('tabindex'***REMOVED*** || 0;
-    $element.data('old-tabindex', tabindex***REMOVED***;
-    $element.attr('tabindex', '-1'***REMOVED***;
+    var tabindex = $element.attr('tabindex') || 0;
+    $element.data('old-tabindex', tabindex);
+    $element.attr('tabindex', '-1');
 
     // Set up containers and adapters
 
-    var DataAdapter = this.options.get('dataAdapter'***REMOVED***;
-    this.dataAdapter = new DataAdapter($element, this.options***REMOVED***;
+    var DataAdapter = this.options.get('dataAdapter');
+    this.dataAdapter = new DataAdapter($element, this.options);
 
-    var $container = this.render(***REMOVED***;
+    var $container = this.render();
 
-    this._placeContainer($container***REMOVED***;
+    this._placeContainer($container);
 
-    var SelectionAdapter = this.options.get('selectionAdapter'***REMOVED***;
-    this.selection = new SelectionAdapter($element, this.options***REMOVED***;
-    this.$selection = this.selection.render(***REMOVED***;
+    var SelectionAdapter = this.options.get('selectionAdapter');
+    this.selection = new SelectionAdapter($element, this.options);
+    this.$selection = this.selection.render();
 
-    this.selection.position(this.$selection, $container***REMOVED***;
+    this.selection.position(this.$selection, $container);
 
-    var DropdownAdapter = this.options.get('dropdownAdapter'***REMOVED***;
-    this.dropdown = new DropdownAdapter($element, this.options***REMOVED***;
-    this.$dropdown = this.dropdown.render(***REMOVED***;
+    var DropdownAdapter = this.options.get('dropdownAdapter');
+    this.dropdown = new DropdownAdapter($element, this.options);
+    this.$dropdown = this.dropdown.render();
 
-    this.dropdown.position(this.$dropdown, $container***REMOVED***;
+    this.dropdown.position(this.$dropdown, $container);
 
-    var ResultsAdapter = this.options.get('resultsAdapter'***REMOVED***;
-    this.results = new ResultsAdapter($element, this.options, this.dataAdapter***REMOVED***;
-    this.$results = this.results.render(***REMOVED***;
+    var ResultsAdapter = this.options.get('resultsAdapter');
+    this.results = new ResultsAdapter($element, this.options, this.dataAdapter);
+    this.$results = this.results.render();
 
-    this.results.position(this.$results, this.$dropdown***REMOVED***;
+    this.results.position(this.$results, this.$dropdown);
 
     // Bind events
 
     var self = this;
 
     // Bind the container to all of the adapters
-    this._bindAdapters(***REMOVED***;
+    this._bindAdapters();
 
     // Register any DOM event handlers
-    this._registerDomEvents(***REMOVED***;
+    this._registerDomEvents();
 
     // Register any internal event handlers
-    this._registerDataEvents(***REMOVED***;
-    this._registerSelectionEvents(***REMOVED***;
-    this._registerDropdownEvents(***REMOVED***;
-    this._registerResultsEvents(***REMOVED***;
-    this._registerEvents(***REMOVED***;
+    this._registerDataEvents();
+    this._registerSelectionEvents();
+    this._registerDropdownEvents();
+    this._registerResultsEvents();
+    this._registerEvents();
 
     // Set the initial state
-    this.dataAdapter.current(function (initialData***REMOVED*** {
+    this.dataAdapter.current(function (initialData) {
       self.trigger('selection:update', {
         data: initialData
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+      });
+    });
 
     // Hide the original select
-    $element.addClass('select2-hidden-accessible'***REMOVED***;
-    $element.attr('aria-hidden', 'true'***REMOVED***;
+    $element.addClass('select2-hidden-accessible');
+    $element.attr('aria-hidden', 'true');
 
     // Synchronize any monitored attributes
-    this._syncAttributes(***REMOVED***;
+    this._syncAttributes();
 
-    $element.data('select2', this***REMOVED***;
-  ***REMOVED***;
+    $element.data('select2', this);
+  };
 
-  Utils.Extend(Select2, Utils.Observable***REMOVED***;
+  Utils.Extend(Select2, Utils.Observable);
 
-  Select2.prototype._generateId = function ($element***REMOVED*** {
+  Select2.prototype._generateId = function ($element) {
     var id = '';
 
-    if ($element.attr('id'***REMOVED*** != null***REMOVED*** {
-      id = $element.attr('id'***REMOVED***;
-***REMOVED*** else if ($element.attr('name'***REMOVED*** != null***REMOVED*** {
-      id = $element.attr('name'***REMOVED*** + '-' + Utils.generateChars(2***REMOVED***;
-***REMOVED*** else {
-      id = Utils.generateChars(4***REMOVED***;
-***REMOVED***
+    if ($element.attr('id') != null) {
+      id = $element.attr('id');
+    } else if ($element.attr('name') != null) {
+      id = $element.attr('name') + '-' + Utils.generateChars(2);
+    } else {
+      id = Utils.generateChars(4);
+    }
 
-    id = id.replace(/(:|\.|\[|\***REMOVED***|,***REMOVED***/g, ''***REMOVED***;
+    id = id.replace(/(:|\.|\[|\]|,)/g, '');
     id = 'select2-' + id;
 
     return id;
-  ***REMOVED***;
+  };
 
-  Select2.prototype._placeContainer = function ($container***REMOVED*** {
-    $container.insertAfter(this.$element***REMOVED***;
+  Select2.prototype._placeContainer = function ($container) {
+    $container.insertAfter(this.$element);
 
-    var width = this._resolveWidth(this.$element, this.options.get('width'***REMOVED******REMOVED***;
+    var width = this._resolveWidth(this.$element, this.options.get('width'));
 
-    if (width != null***REMOVED*** {
-      $container.css('width', width***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if (width != null) {
+      $container.css('width', width);
+    }
+  };
 
-  Select2.prototype._resolveWidth = function ($element, method***REMOVED*** {
-    var WIDTH = /^width:(([-+***REMOVED***?([0-9***REMOVED****\.***REMOVED***?[0-9***REMOVED***+***REMOVED***(px|em|ex|%|in|cm|mm|pt|pc***REMOVED******REMOVED***/i;
+  Select2.prototype._resolveWidth = function ($element, method) {
+    var WIDTH = /^width:(([-+]?([0-9]*\.)?[0-9]+)(px|em|ex|%|in|cm|mm|pt|pc))/i;
 
-    if (method == 'resolve'***REMOVED*** {
-      var styleWidth = this._resolveWidth($element, 'style'***REMOVED***;
+    if (method == 'resolve') {
+      var styleWidth = this._resolveWidth($element, 'style');
 
-      if (styleWidth != null***REMOVED*** {
+      if (styleWidth != null) {
         return styleWidth;
-  ***REMOVED***
+      }
 
-      return this._resolveWidth($element, 'element'***REMOVED***;
-***REMOVED***
+      return this._resolveWidth($element, 'element');
+    }
 
-    if (method == 'element'***REMOVED*** {
-      var elementWidth = $element.outerWidth(false***REMOVED***;
+    if (method == 'element') {
+      var elementWidth = $element.outerWidth(false);
 
-      if (elementWidth <= 0***REMOVED*** {
+      if (elementWidth <= 0) {
         return 'auto';
-  ***REMOVED***
+      }
 
       return elementWidth + 'px';
-***REMOVED***
+    }
 
-    if (method == 'style'***REMOVED*** {
-      var style = $element.attr('style'***REMOVED***;
+    if (method == 'style') {
+      var style = $element.attr('style');
 
-      if (typeof(style***REMOVED*** !== 'string'***REMOVED*** {
+      if (typeof(style) !== 'string') {
         return null;
-  ***REMOVED***
+      }
 
-      var attrs = style.split(';'***REMOVED***;
+      var attrs = style.split(';');
 
-      for (var i = 0, l = attrs.length; i < l; i = i + 1***REMOVED*** {
-        var attr = attrs[i***REMOVED***.replace(/\s/g, ''***REMOVED***;
-        var matches = attr.match(WIDTH***REMOVED***;
+      for (var i = 0, l = attrs.length; i < l; i = i + 1) {
+        var attr = attrs[i].replace(/\s/g, '');
+        var matches = attr.match(WIDTH);
 
-        if (matches !== null && matches.length >= 1***REMOVED*** {
-          return matches[1***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+        if (matches !== null && matches.length >= 1) {
+          return matches[1];
+        }
+      }
 
       return null;
-***REMOVED***
+    }
 
     return method;
-  ***REMOVED***;
+  };
 
-  Select2.prototype._bindAdapters = function (***REMOVED*** {
-    this.dataAdapter.bind(this, this.$container***REMOVED***;
-    this.selection.bind(this, this.$container***REMOVED***;
+  Select2.prototype._bindAdapters = function () {
+    this.dataAdapter.bind(this, this.$container);
+    this.selection.bind(this, this.$container);
 
-    this.dropdown.bind(this, this.$container***REMOVED***;
-    this.results.bind(this, this.$container***REMOVED***;
-  ***REMOVED***;
+    this.dropdown.bind(this, this.$container);
+    this.results.bind(this, this.$container);
+  };
 
-  Select2.prototype._registerDomEvents = function (***REMOVED*** {
+  Select2.prototype._registerDomEvents = function () {
     var self = this;
 
-    this.$element.on('change.select2', function (***REMOVED*** {
-      self.dataAdapter.current(function (data***REMOVED*** {
+    this.$element.on('change.select2', function () {
+      self.dataAdapter.current(function (data) {
         self.trigger('selection:update', {
           data: data
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+        });
+      });
+    });
 
-    this.$element.on('focus.select2', function (evt***REMOVED*** {
-      self.trigger('focus', evt***REMOVED***;
-***REMOVED******REMOVED***;
+    this.$element.on('focus.select2', function (evt) {
+      self.trigger('focus', evt);
+    });
 
-    this._syncA = Utils.bind(this._syncAttributes, this***REMOVED***;
-    this._syncS = Utils.bind(this._syncSubtree, this***REMOVED***;
+    this._syncA = Utils.bind(this._syncAttributes, this);
+    this._syncS = Utils.bind(this._syncSubtree, this);
 
-    if (this.$element[0***REMOVED***.attachEvent***REMOVED*** {
-      this.$element[0***REMOVED***.attachEvent('onpropertychange', this._syncA***REMOVED***;
-***REMOVED***
+    if (this.$element[0].attachEvent) {
+      this.$element[0].attachEvent('onpropertychange', this._syncA);
+    }
 
     var observer = window.MutationObserver ||
       window.WebKitMutationObserver ||
       window.MozMutationObserver
     ;
 
-    if (observer != null***REMOVED*** {
-      this._observer = new observer(function (mutations***REMOVED*** {
-        $.each(mutations, self._syncA***REMOVED***;
-        $.each(mutations, self._syncS***REMOVED***;
-  ***REMOVED******REMOVED***;
-      this._observer.observe(this.$element[0***REMOVED***, {
+    if (observer != null) {
+      this._observer = new observer(function (mutations) {
+        $.each(mutations, self._syncA);
+        $.each(mutations, self._syncS);
+      });
+      this._observer.observe(this.$element[0], {
         attributes: true,
         childList: true,
         subtree: false
-  ***REMOVED******REMOVED***;
-***REMOVED*** else if (this.$element[0***REMOVED***.addEventListener***REMOVED*** {
-      this.$element[0***REMOVED***.addEventListener(
+      });
+    } else if (this.$element[0].addEventListener) {
+      this.$element[0].addEventListener(
         'DOMAttrModified',
         self._syncA,
         false
-      ***REMOVED***;
-      this.$element[0***REMOVED***.addEventListener(
+      );
+      this.$element[0].addEventListener(
         'DOMNodeInserted',
         self._syncS,
         false
-      ***REMOVED***;
-      this.$element[0***REMOVED***.addEventListener(
+      );
+      this.$element[0].addEventListener(
         'DOMNodeRemoved',
         self._syncS,
         false
-      ***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+      );
+    }
+  };
 
-  Select2.prototype._registerDataEvents = function (***REMOVED*** {
+  Select2.prototype._registerDataEvents = function () {
     var self = this;
 
-    this.dataAdapter.on('*', function (name, params***REMOVED*** {
-      self.trigger(name, params***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.dataAdapter.on('*', function (name, params) {
+      self.trigger(name, params);
+    });
+  };
 
-  Select2.prototype._registerSelectionEvents = function (***REMOVED*** {
+  Select2.prototype._registerSelectionEvents = function () {
     var self = this;
-    var nonRelayEvents = ['toggle', 'focus'***REMOVED***;
+    var nonRelayEvents = ['toggle', 'focus'];
 
-    this.selection.on('toggle', function (***REMOVED*** {
-      self.toggleDropdown(***REMOVED***;
-***REMOVED******REMOVED***;
+    this.selection.on('toggle', function () {
+      self.toggleDropdown();
+    });
 
-    this.selection.on('focus', function (params***REMOVED*** {
-      self.focus(params***REMOVED***;
-***REMOVED******REMOVED***;
+    this.selection.on('focus', function (params) {
+      self.focus(params);
+    });
 
-    this.selection.on('*', function (name, params***REMOVED*** {
-      if ($.inArray(name, nonRelayEvents***REMOVED*** !== -1***REMOVED*** {
+    this.selection.on('*', function (name, params) {
+      if ($.inArray(name, nonRelayEvents) !== -1) {
         return;
-  ***REMOVED***
+      }
 
-      self.trigger(name, params***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      self.trigger(name, params);
+    });
+  };
 
-  Select2.prototype._registerDropdownEvents = function (***REMOVED*** {
+  Select2.prototype._registerDropdownEvents = function () {
     var self = this;
 
-    this.dropdown.on('*', function (name, params***REMOVED*** {
-      self.trigger(name, params***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.dropdown.on('*', function (name, params) {
+      self.trigger(name, params);
+    });
+  };
 
-  Select2.prototype._registerResultsEvents = function (***REMOVED*** {
+  Select2.prototype._registerResultsEvents = function () {
     var self = this;
 
-    this.results.on('*', function (name, params***REMOVED*** {
-      self.trigger(name, params***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.results.on('*', function (name, params) {
+      self.trigger(name, params);
+    });
+  };
 
-  Select2.prototype._registerEvents = function (***REMOVED*** {
+  Select2.prototype._registerEvents = function () {
     var self = this;
 
-    this.on('open', function (***REMOVED*** {
-      self.$container.addClass('select2-container--open'***REMOVED***;
-***REMOVED******REMOVED***;
+    this.on('open', function () {
+      self.$container.addClass('select2-container--open');
+    });
 
-    this.on('close', function (***REMOVED*** {
-      self.$container.removeClass('select2-container--open'***REMOVED***;
-***REMOVED******REMOVED***;
+    this.on('close', function () {
+      self.$container.removeClass('select2-container--open');
+    });
 
-    this.on('enable', function (***REMOVED*** {
-      self.$container.removeClass('select2-container--disabled'***REMOVED***;
-***REMOVED******REMOVED***;
+    this.on('enable', function () {
+      self.$container.removeClass('select2-container--disabled');
+    });
 
-    this.on('disable', function (***REMOVED*** {
-      self.$container.addClass('select2-container--disabled'***REMOVED***;
-***REMOVED******REMOVED***;
+    this.on('disable', function () {
+      self.$container.addClass('select2-container--disabled');
+    });
 
-    this.on('blur', function (***REMOVED*** {
-      self.$container.removeClass('select2-container--focus'***REMOVED***;
-***REMOVED******REMOVED***;
+    this.on('blur', function () {
+      self.$container.removeClass('select2-container--focus');
+    });
 
-    this.on('query', function (params***REMOVED*** {
-      if (!self.isOpen(***REMOVED******REMOVED*** {
-        self.trigger('open', {***REMOVED******REMOVED***;
-  ***REMOVED***
+    this.on('query', function (params) {
+      if (!self.isOpen()) {
+        self.trigger('open', {});
+      }
 
-      this.dataAdapter.query(params, function (data***REMOVED*** {
+      this.dataAdapter.query(params, function (data) {
         self.trigger('results:all', {
           data: data,
           query: params
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+        });
+      });
+    });
 
-    this.on('query:append', function (params***REMOVED*** {
-      this.dataAdapter.query(params, function (data***REMOVED*** {
+    this.on('query:append', function (params) {
+      this.dataAdapter.query(params, function (data) {
         self.trigger('results:append', {
           data: data,
           query: params
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED******REMOVED***;
+        });
+      });
+    });
 
-    this.on('keypress', function (evt***REMOVED*** {
+    this.on('keypress', function (evt) {
       var key = evt.which;
 
-      if (self.isOpen(***REMOVED******REMOVED*** {
+      if (self.isOpen()) {
         if (key === KEYS.ESC || key === KEYS.TAB ||
-            (key === KEYS.UP && evt.altKey***REMOVED******REMOVED*** {
-          self.close(***REMOVED***;
+            (key === KEYS.UP && evt.altKey)) {
+          self.close();
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED*** else if (key === KEYS.ENTER***REMOVED*** {
-          self.trigger('results:select', {***REMOVED******REMOVED***;
+          evt.preventDefault();
+        } else if (key === KEYS.ENTER) {
+          self.trigger('results:select', {});
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED*** else if ((key === KEYS.SPACE && evt.ctrlKey***REMOVED******REMOVED*** {
-          self.trigger('results:toggle', {***REMOVED******REMOVED***;
+          evt.preventDefault();
+        } else if ((key === KEYS.SPACE && evt.ctrlKey)) {
+          self.trigger('results:toggle', {});
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED*** else if (key === KEYS.UP***REMOVED*** {
-          self.trigger('results:previous', {***REMOVED******REMOVED***;
+          evt.preventDefault();
+        } else if (key === KEYS.UP) {
+          self.trigger('results:previous', {});
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED*** else if (key === KEYS.DOWN***REMOVED*** {
-          self.trigger('results:next', {***REMOVED******REMOVED***;
+          evt.preventDefault();
+        } else if (key === KEYS.DOWN) {
+          self.trigger('results:next', {});
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED*** else {
+          evt.preventDefault();
+        }
+      } else {
         if (key === KEYS.ENTER || key === KEYS.SPACE ||
-            (key === KEYS.DOWN && evt.altKey***REMOVED******REMOVED*** {
-          self.open(***REMOVED***;
+            (key === KEYS.DOWN && evt.altKey)) {
+          self.open();
 
-          evt.preventDefault(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+          evt.preventDefault();
+        }
+      }
+    });
+  };
 
-  Select2.prototype._syncAttributes = function (***REMOVED*** {
-    this.options.set('disabled', this.$element.prop('disabled'***REMOVED******REMOVED***;
+  Select2.prototype._syncAttributes = function () {
+    this.options.set('disabled', this.$element.prop('disabled'));
 
-    if (this.options.get('disabled'***REMOVED******REMOVED*** {
-      if (this.isOpen(***REMOVED******REMOVED*** {
-        this.close(***REMOVED***;
-  ***REMOVED***
+    if (this.options.get('disabled')) {
+      if (this.isOpen()) {
+        this.close();
+      }
 
-      this.trigger('disable', {***REMOVED******REMOVED***;
-***REMOVED*** else {
-      this.trigger('enable', {***REMOVED******REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+      this.trigger('disable', {});
+    } else {
+      this.trigger('enable', {});
+    }
+  };
 
-  Select2.prototype._syncSubtree = function (evt, mutations***REMOVED*** {
+  Select2.prototype._syncSubtree = function (evt, mutations) {
     var changed = false;
     var self = this;
 
@@ -5404,666 +5404,666 @@ S2.define('select2/core',[
     if (
       evt && evt.target && (
         evt.target.nodeName !== 'OPTION' && evt.target.nodeName !== 'OPTGROUP'
-      ***REMOVED***
-    ***REMOVED*** {
+      )
+    ) {
       return;
-***REMOVED***
+    }
 
-    if (!mutations***REMOVED*** {
+    if (!mutations) {
       // If mutation events aren't supported, then we can only assume that the
       // change affected the selections
       changed = true;
-***REMOVED*** else if (mutations.addedNodes && mutations.addedNodes.length > 0***REMOVED*** {
-      for (var n = 0; n < mutations.addedNodes.length; n++***REMOVED*** {
-        var node = mutations.addedNodes[n***REMOVED***;
+    } else if (mutations.addedNodes && mutations.addedNodes.length > 0) {
+      for (var n = 0; n < mutations.addedNodes.length; n++) {
+        var node = mutations.addedNodes[n];
 
-        if (node.selected***REMOVED*** {
+        if (node.selected) {
           changed = true;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED*** else if (mutations.removedNodes && mutations.removedNodes.length > 0***REMOVED*** {
+        }
+      }
+    } else if (mutations.removedNodes && mutations.removedNodes.length > 0) {
       changed = true;
-***REMOVED***
+    }
 
     // Only re-pull the data if we think there is a change
-    if (changed***REMOVED*** {
-      this.dataAdapter.current(function (currentData***REMOVED*** {
+    if (changed) {
+      this.dataAdapter.current(function (currentData) {
         self.trigger('selection:update', {
           data: currentData
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+        });
+      });
+    }
+  };
 
   /**
    * Override the trigger method to automatically trigger pre-events when
    * there are events that can be prevented.
    */
-  Select2.prototype.trigger = function (name, args***REMOVED*** {
+  Select2.prototype.trigger = function (name, args) {
     var actualTrigger = Select2.__super__.trigger;
     var preTriggerMap = {
       'open': 'opening',
       'close': 'closing',
       'select': 'selecting',
       'unselect': 'unselecting'
-***REMOVED***;
+    };
 
-    if (args === undefined***REMOVED*** {
-      args = {***REMOVED***;
-***REMOVED***
+    if (args === undefined) {
+      args = {};
+    }
 
-    if (name in preTriggerMap***REMOVED*** {
-      var preTriggerName = preTriggerMap[name***REMOVED***;
+    if (name in preTriggerMap) {
+      var preTriggerName = preTriggerMap[name];
       var preTriggerArgs = {
         prevented: false,
         name: name,
         args: args
-  ***REMOVED***;
+      };
 
-      actualTrigger.call(this, preTriggerName, preTriggerArgs***REMOVED***;
+      actualTrigger.call(this, preTriggerName, preTriggerArgs);
 
-      if (preTriggerArgs.prevented***REMOVED*** {
+      if (preTriggerArgs.prevented) {
         args.prevented = true;
 
         return;
-  ***REMOVED***
-***REMOVED***
+      }
+    }
 
-    actualTrigger.call(this, name, args***REMOVED***;
-  ***REMOVED***;
+    actualTrigger.call(this, name, args);
+  };
 
-  Select2.prototype.toggleDropdown = function (***REMOVED*** {
-    if (this.options.get('disabled'***REMOVED******REMOVED*** {
+  Select2.prototype.toggleDropdown = function () {
+    if (this.options.get('disabled')) {
       return;
-***REMOVED***
+    }
 
-    if (this.isOpen(***REMOVED******REMOVED*** {
-      this.close(***REMOVED***;
-***REMOVED*** else {
-      this.open(***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+    if (this.isOpen()) {
+      this.close();
+    } else {
+      this.open();
+    }
+  };
 
-  Select2.prototype.open = function (***REMOVED*** {
-    if (this.isOpen(***REMOVED******REMOVED*** {
+  Select2.prototype.open = function () {
+    if (this.isOpen()) {
       return;
-***REMOVED***
+    }
 
-    this.trigger('query', {***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.trigger('query', {});
+  };
 
-  Select2.prototype.close = function (***REMOVED*** {
-    if (!this.isOpen(***REMOVED******REMOVED*** {
+  Select2.prototype.close = function () {
+    if (!this.isOpen()) {
       return;
-***REMOVED***
+    }
 
-    this.trigger('close', {***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.trigger('close', {});
+  };
 
-  Select2.prototype.isOpen = function (***REMOVED*** {
-    return this.$container.hasClass('select2-container--open'***REMOVED***;
-  ***REMOVED***;
+  Select2.prototype.isOpen = function () {
+    return this.$container.hasClass('select2-container--open');
+  };
 
-  Select2.prototype.hasFocus = function (***REMOVED*** {
-    return this.$container.hasClass('select2-container--focus'***REMOVED***;
-  ***REMOVED***;
+  Select2.prototype.hasFocus = function () {
+    return this.$container.hasClass('select2-container--focus');
+  };
 
-  Select2.prototype.focus = function (data***REMOVED*** {
+  Select2.prototype.focus = function (data) {
     // No need to re-trigger focus events if we are already focused
-    if (this.hasFocus(***REMOVED******REMOVED*** {
+    if (this.hasFocus()) {
       return;
-***REMOVED***
+    }
 
-    this.$container.addClass('select2-container--focus'***REMOVED***;
-    this.trigger('focus', {***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.$container.addClass('select2-container--focus');
+    this.trigger('focus', {});
+  };
 
-  Select2.prototype.enable = function (args***REMOVED*** {
-    if (this.options.get('debug'***REMOVED*** && window.console && console.warn***REMOVED*** {
+  Select2.prototype.enable = function (args) {
+    if (this.options.get('debug') && window.console && console.warn) {
       console.warn(
-        'Select2: The `select2("enable"***REMOVED***` method has been deprecated and will' +
-        ' be removed in later Select2 versions. Use $element.prop("disabled"***REMOVED***' +
+        'Select2: The `select2("enable")` method has been deprecated and will' +
+        ' be removed in later Select2 versions. Use $element.prop("disabled")' +
         ' instead.'
-      ***REMOVED***;
-***REMOVED***
+      );
+    }
 
-    if (args == null || args.length === 0***REMOVED*** {
-      args = [true***REMOVED***;
-***REMOVED***
+    if (args == null || args.length === 0) {
+      args = [true];
+    }
 
-    var disabled = !args[0***REMOVED***;
+    var disabled = !args[0];
 
-    this.$element.prop('disabled', disabled***REMOVED***;
-  ***REMOVED***;
+    this.$element.prop('disabled', disabled);
+  };
 
-  Select2.prototype.data = function (***REMOVED*** {
-    if (this.options.get('debug'***REMOVED*** &&
-        arguments.length > 0 && window.console && console.warn***REMOVED*** {
+  Select2.prototype.data = function () {
+    if (this.options.get('debug') &&
+        arguments.length > 0 && window.console && console.warn) {
       console.warn(
-        'Select2: Data can no longer be set using `select2("data"***REMOVED***`. You ' +
-        'should consider setting the value instead using `$element.val(***REMOVED***`.'
-      ***REMOVED***;
-***REMOVED***
+        'Select2: Data can no longer be set using `select2("data")`. You ' +
+        'should consider setting the value instead using `$element.val()`.'
+      );
+    }
 
-    var data = [***REMOVED***;
+    var data = [];
 
-    this.dataAdapter.current(function (currentData***REMOVED*** {
+    this.dataAdapter.current(function (currentData) {
       data = currentData;
-***REMOVED******REMOVED***;
+    });
 
     return data;
-  ***REMOVED***;
+  };
 
-  Select2.prototype.val = function (args***REMOVED*** {
-    if (this.options.get('debug'***REMOVED*** && window.console && console.warn***REMOVED*** {
+  Select2.prototype.val = function (args) {
+    if (this.options.get('debug') && window.console && console.warn) {
       console.warn(
-        'Select2: The `select2("val"***REMOVED***` method has been deprecated and will be' +
-        ' removed in later Select2 versions. Use $element.val(***REMOVED*** instead.'
-      ***REMOVED***;
-***REMOVED***
+        'Select2: The `select2("val")` method has been deprecated and will be' +
+        ' removed in later Select2 versions. Use $element.val() instead.'
+      );
+    }
 
-    if (args == null || args.length === 0***REMOVED*** {
-      return this.$element.val(***REMOVED***;
-***REMOVED***
+    if (args == null || args.length === 0) {
+      return this.$element.val();
+    }
 
-    var newVal = args[0***REMOVED***;
+    var newVal = args[0];
 
-    if ($.isArray(newVal***REMOVED******REMOVED*** {
-      newVal = $.map(newVal, function (obj***REMOVED*** {
-        return obj.toString(***REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED***
+    if ($.isArray(newVal)) {
+      newVal = $.map(newVal, function (obj) {
+        return obj.toString();
+      });
+    }
 
-    this.$element.val(newVal***REMOVED***.trigger('change'***REMOVED***;
-  ***REMOVED***;
+    this.$element.val(newVal).trigger('change');
+  };
 
-  Select2.prototype.destroy = function (***REMOVED*** {
-    this.$container.remove(***REMOVED***;
+  Select2.prototype.destroy = function () {
+    this.$container.remove();
 
-    if (this.$element[0***REMOVED***.detachEvent***REMOVED*** {
-      this.$element[0***REMOVED***.detachEvent('onpropertychange', this._syncA***REMOVED***;
-***REMOVED***
+    if (this.$element[0].detachEvent) {
+      this.$element[0].detachEvent('onpropertychange', this._syncA);
+    }
 
-    if (this._observer != null***REMOVED*** {
-      this._observer.disconnect(***REMOVED***;
+    if (this._observer != null) {
+      this._observer.disconnect();
       this._observer = null;
-***REMOVED*** else if (this.$element[0***REMOVED***.removeEventListener***REMOVED*** {
-      this.$element[0***REMOVED***
-        .removeEventListener('DOMAttrModified', this._syncA, false***REMOVED***;
-      this.$element[0***REMOVED***
-        .removeEventListener('DOMNodeInserted', this._syncS, false***REMOVED***;
-      this.$element[0***REMOVED***
-        .removeEventListener('DOMNodeRemoved', this._syncS, false***REMOVED***;
-***REMOVED***
+    } else if (this.$element[0].removeEventListener) {
+      this.$element[0]
+        .removeEventListener('DOMAttrModified', this._syncA, false);
+      this.$element[0]
+        .removeEventListener('DOMNodeInserted', this._syncS, false);
+      this.$element[0]
+        .removeEventListener('DOMNodeRemoved', this._syncS, false);
+    }
 
     this._syncA = null;
     this._syncS = null;
 
-    this.$element.off('.select2'***REMOVED***;
-    this.$element.attr('tabindex', this.$element.data('old-tabindex'***REMOVED******REMOVED***;
+    this.$element.off('.select2');
+    this.$element.attr('tabindex', this.$element.data('old-tabindex'));
 
-    this.$element.removeClass('select2-hidden-accessible'***REMOVED***;
-    this.$element.attr('aria-hidden', 'false'***REMOVED***;
-    this.$element.removeData('select2'***REMOVED***;
+    this.$element.removeClass('select2-hidden-accessible');
+    this.$element.attr('aria-hidden', 'false');
+    this.$element.removeData('select2');
 
-    this.dataAdapter.destroy(***REMOVED***;
-    this.selection.destroy(***REMOVED***;
-    this.dropdown.destroy(***REMOVED***;
-    this.results.destroy(***REMOVED***;
+    this.dataAdapter.destroy();
+    this.selection.destroy();
+    this.dropdown.destroy();
+    this.results.destroy();
 
     this.dataAdapter = null;
     this.selection = null;
     this.dropdown = null;
     this.results = null;
-  ***REMOVED***;
+  };
 
-  Select2.prototype.render = function (***REMOVED*** {
+  Select2.prototype.render = function () {
     var $container = $(
       '<span class="select2 select2-container">' +
         '<span class="selection"></span>' +
         '<span class="dropdown-wrapper" aria-hidden="true"></span>' +
       '</span>'
-    ***REMOVED***;
+    );
 
-    $container.attr('dir', this.options.get('dir'***REMOVED******REMOVED***;
+    $container.attr('dir', this.options.get('dir'));
 
     this.$container = $container;
 
-    this.$container.addClass('select2-container--' + this.options.get('theme'***REMOVED******REMOVED***;
+    this.$container.addClass('select2-container--' + this.options.get('theme'));
 
-    $container.data('element', this.$element***REMOVED***;
+    $container.data('element', this.$element);
 
     return $container;
-  ***REMOVED***;
+  };
 
   return Select2;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/compat/utils',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function syncCssClasses ($dest, $src, adapter***REMOVED*** {
-    var classes, replacements = [***REMOVED***, adapted;
+], function ($) {
+  function syncCssClasses ($dest, $src, adapter) {
+    var classes, replacements = [], adapted;
 
-    classes = $.trim($dest.attr('class'***REMOVED******REMOVED***;
+    classes = $.trim($dest.attr('class'));
 
-    if (classes***REMOVED*** {
+    if (classes) {
       classes = '' + classes; // for IE which returns object
 
-      $(classes.split(/\s+/***REMOVED******REMOVED***.each(function (***REMOVED*** {
+      $(classes.split(/\s+/)).each(function () {
         // Save all Select2 classes
-        if (this.indexOf('select2-'***REMOVED*** === 0***REMOVED*** {
-          replacements.push(this***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED***
+        if (this.indexOf('select2-') === 0) {
+          replacements.push(this);
+        }
+      });
+    }
 
-    classes = $.trim($src.attr('class'***REMOVED******REMOVED***;
+    classes = $.trim($src.attr('class'));
 
-    if (classes***REMOVED*** {
+    if (classes) {
       classes = '' + classes; // for IE which returns object
 
-      $(classes.split(/\s+/***REMOVED******REMOVED***.each(function (***REMOVED*** {
+      $(classes.split(/\s+/)).each(function () {
         // Only adapt non-Select2 classes
-        if (this.indexOf('select2-'***REMOVED*** !== 0***REMOVED*** {
-          adapted = adapter(this***REMOVED***;
+        if (this.indexOf('select2-') !== 0) {
+          adapted = adapter(this);
 
-          if (adapted != null***REMOVED*** {
-            replacements.push(adapted***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED***
+          if (adapted != null) {
+            replacements.push(adapted);
+          }
+        }
+      });
+    }
 
-    $dest.attr('class', replacements.join(' '***REMOVED******REMOVED***;
-  ***REMOVED***
+    $dest.attr('class', replacements.join(' '));
+  }
 
   return {
     syncCssClasses: syncCssClasses
-  ***REMOVED***;
-***REMOVED******REMOVED***;
+  };
+});
 
 S2.define('select2/compat/containerCss',[
   'jquery',
   './utils'
-***REMOVED***, function ($, CompatUtils***REMOVED*** {
+], function ($, CompatUtils) {
   // No-op CSS adapter that discards all classes by default
-  function _containerAdapter (clazz***REMOVED*** {
+  function _containerAdapter (clazz) {
     return null;
-  ***REMOVED***
+  }
 
-  function ContainerCSS (***REMOVED*** { ***REMOVED***
+  function ContainerCSS () { }
 
-  ContainerCSS.prototype.render = function (decorated***REMOVED*** {
-    var $container = decorated.call(this***REMOVED***;
+  ContainerCSS.prototype.render = function (decorated) {
+    var $container = decorated.call(this);
 
-    var containerCssClass = this.options.get('containerCssClass'***REMOVED*** || '';
+    var containerCssClass = this.options.get('containerCssClass') || '';
 
-    if ($.isFunction(containerCssClass***REMOVED******REMOVED*** {
-      containerCssClass = containerCssClass(this.$element***REMOVED***;
-***REMOVED***
+    if ($.isFunction(containerCssClass)) {
+      containerCssClass = containerCssClass(this.$element);
+    }
 
-    var containerCssAdapter = this.options.get('adaptContainerCssClass'***REMOVED***;
+    var containerCssAdapter = this.options.get('adaptContainerCssClass');
     containerCssAdapter = containerCssAdapter || _containerAdapter;
 
-    if (containerCssClass.indexOf(':all:'***REMOVED*** !== -1***REMOVED*** {
-      containerCssClass = containerCssClass.replace(':all:', ''***REMOVED***;
+    if (containerCssClass.indexOf(':all:') !== -1) {
+      containerCssClass = containerCssClass.replace(':all:', '');
 
       var _cssAdapter = containerCssAdapter;
 
-      containerCssAdapter = function (clazz***REMOVED*** {
-        var adapted = _cssAdapter(clazz***REMOVED***;
+      containerCssAdapter = function (clazz) {
+        var adapted = _cssAdapter(clazz);
 
-        if (adapted != null***REMOVED*** {
+        if (adapted != null) {
           // Append the old one along with the adapted one
           return adapted + ' ' + clazz;
-    ***REMOVED***
+        }
 
         return clazz;
-  ***REMOVED***;
-***REMOVED***
+      };
+    }
 
-    var containerCss = this.options.get('containerCss'***REMOVED*** || {***REMOVED***;
+    var containerCss = this.options.get('containerCss') || {};
 
-    if ($.isFunction(containerCss***REMOVED******REMOVED*** {
-      containerCss = containerCss(this.$element***REMOVED***;
-***REMOVED***
+    if ($.isFunction(containerCss)) {
+      containerCss = containerCss(this.$element);
+    }
 
-    CompatUtils.syncCssClasses($container, this.$element, containerCssAdapter***REMOVED***;
+    CompatUtils.syncCssClasses($container, this.$element, containerCssAdapter);
 
-    $container.css(containerCss***REMOVED***;
-    $container.addClass(containerCssClass***REMOVED***;
+    $container.css(containerCss);
+    $container.addClass(containerCssClass);
 
     return $container;
-  ***REMOVED***;
+  };
 
   return ContainerCSS;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/compat/dropdownCss',[
   'jquery',
   './utils'
-***REMOVED***, function ($, CompatUtils***REMOVED*** {
+], function ($, CompatUtils) {
   // No-op CSS adapter that discards all classes by default
-  function _dropdownAdapter (clazz***REMOVED*** {
+  function _dropdownAdapter (clazz) {
     return null;
-  ***REMOVED***
+  }
 
-  function DropdownCSS (***REMOVED*** { ***REMOVED***
+  function DropdownCSS () { }
 
-  DropdownCSS.prototype.render = function (decorated***REMOVED*** {
-    var $dropdown = decorated.call(this***REMOVED***;
+  DropdownCSS.prototype.render = function (decorated) {
+    var $dropdown = decorated.call(this);
 
-    var dropdownCssClass = this.options.get('dropdownCssClass'***REMOVED*** || '';
+    var dropdownCssClass = this.options.get('dropdownCssClass') || '';
 
-    if ($.isFunction(dropdownCssClass***REMOVED******REMOVED*** {
-      dropdownCssClass = dropdownCssClass(this.$element***REMOVED***;
-***REMOVED***
+    if ($.isFunction(dropdownCssClass)) {
+      dropdownCssClass = dropdownCssClass(this.$element);
+    }
 
-    var dropdownCssAdapter = this.options.get('adaptDropdownCssClass'***REMOVED***;
+    var dropdownCssAdapter = this.options.get('adaptDropdownCssClass');
     dropdownCssAdapter = dropdownCssAdapter || _dropdownAdapter;
 
-    if (dropdownCssClass.indexOf(':all:'***REMOVED*** !== -1***REMOVED*** {
-      dropdownCssClass = dropdownCssClass.replace(':all:', ''***REMOVED***;
+    if (dropdownCssClass.indexOf(':all:') !== -1) {
+      dropdownCssClass = dropdownCssClass.replace(':all:', '');
 
       var _cssAdapter = dropdownCssAdapter;
 
-      dropdownCssAdapter = function (clazz***REMOVED*** {
-        var adapted = _cssAdapter(clazz***REMOVED***;
+      dropdownCssAdapter = function (clazz) {
+        var adapted = _cssAdapter(clazz);
 
-        if (adapted != null***REMOVED*** {
+        if (adapted != null) {
           // Append the old one along with the adapted one
           return adapted + ' ' + clazz;
-    ***REMOVED***
+        }
 
         return clazz;
-  ***REMOVED***;
-***REMOVED***
+      };
+    }
 
-    var dropdownCss = this.options.get('dropdownCss'***REMOVED*** || {***REMOVED***;
+    var dropdownCss = this.options.get('dropdownCss') || {};
 
-    if ($.isFunction(dropdownCss***REMOVED******REMOVED*** {
-      dropdownCss = dropdownCss(this.$element***REMOVED***;
-***REMOVED***
+    if ($.isFunction(dropdownCss)) {
+      dropdownCss = dropdownCss(this.$element);
+    }
 
-    CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter***REMOVED***;
+    CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter);
 
-    $dropdown.css(dropdownCss***REMOVED***;
-    $dropdown.addClass(dropdownCssClass***REMOVED***;
+    $dropdown.css(dropdownCss);
+    $dropdown.addClass(dropdownCssClass);
 
     return $dropdown;
-  ***REMOVED***;
+  };
 
   return DropdownCSS;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/compat/initSelection',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function InitSelection (decorated, $element, options***REMOVED*** {
-    if (options.get('debug'***REMOVED*** && window.console && console.warn***REMOVED*** {
+], function ($) {
+  function InitSelection (decorated, $element, options) {
+    if (options.get('debug') && window.console && console.warn) {
       console.warn(
         'Select2: The `initSelection` option has been deprecated in favor' +
         ' of a custom data adapter that overrides the `current` method. ' +
         'This method is now called multiple times instead of a single ' +
         'time when the instance is initialized. Support will be removed ' +
         'for the `initSelection` option in future versions of Select2'
-      ***REMOVED***;
-***REMOVED***
+      );
+    }
 
-    this.initSelection = options.get('initSelection'***REMOVED***;
+    this.initSelection = options.get('initSelection');
     this._isInitialized = false;
 
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options);
+  }
 
-  InitSelection.prototype.current = function (decorated, callback***REMOVED*** {
+  InitSelection.prototype.current = function (decorated, callback) {
     var self = this;
 
-    if (this._isInitialized***REMOVED*** {
-      decorated.call(this, callback***REMOVED***;
+    if (this._isInitialized) {
+      decorated.call(this, callback);
 
       return;
-***REMOVED***
+    }
 
-    this.initSelection.call(null, this.$element, function (data***REMOVED*** {
+    this.initSelection.call(null, this.$element, function (data) {
       self._isInitialized = true;
 
-      if (!$.isArray(data***REMOVED******REMOVED*** {
-        data = [data***REMOVED***;
-  ***REMOVED***
+      if (!$.isArray(data)) {
+        data = [data];
+      }
 
-      callback(data***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      callback(data);
+    });
+  };
 
   return InitSelection;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/compat/inputData',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function InputData (decorated, $element, options***REMOVED*** {
-    this._currentData = [***REMOVED***;
-    this._valueSeparator = options.get('valueSeparator'***REMOVED*** || ',';
+], function ($) {
+  function InputData (decorated, $element, options) {
+    this._currentData = [];
+    this._valueSeparator = options.get('valueSeparator') || ',';
 
-    if ($element.prop('type'***REMOVED*** === 'hidden'***REMOVED*** {
-      if (options.get('debug'***REMOVED*** && console && console.warn***REMOVED*** {
+    if ($element.prop('type') === 'hidden') {
+      if (options.get('debug') && console && console.warn) {
         console.warn(
           'Select2: Using a hidden input with Select2 is no longer ' +
           'supported and may stop working in the future. It is recommended ' +
           'to use a `<select>` element instead.'
-        ***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        );
+      }
+    }
 
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options);
+  }
 
-  InputData.prototype.current = function (_, callback***REMOVED*** {
-    function getSelected (data, selectedIds***REMOVED*** {
-      var selected = [***REMOVED***;
+  InputData.prototype.current = function (_, callback) {
+    function getSelected (data, selectedIds) {
+      var selected = [];
 
-      if (data.selected || $.inArray(data.id, selectedIds***REMOVED*** !== -1***REMOVED*** {
+      if (data.selected || $.inArray(data.id, selectedIds) !== -1) {
         data.selected = true;
-        selected.push(data***REMOVED***;
-  ***REMOVED*** else {
+        selected.push(data);
+      } else {
         data.selected = false;
-  ***REMOVED***
+      }
 
-      if (data.children***REMOVED*** {
-        selected.push.apply(selected, getSelected(data.children, selectedIds***REMOVED******REMOVED***;
-  ***REMOVED***
+      if (data.children) {
+        selected.push.apply(selected, getSelected(data.children, selectedIds));
+      }
 
       return selected;
-***REMOVED***
+    }
 
-    var selected = [***REMOVED***;
+    var selected = [];
 
-    for (var d = 0; d < this._currentData.length; d++***REMOVED*** {
-      var data = this._currentData[d***REMOVED***;
+    for (var d = 0; d < this._currentData.length; d++) {
+      var data = this._currentData[d];
 
       selected.push.apply(
         selected,
         getSelected(
           data,
-          this.$element.val(***REMOVED***.split(
+          this.$element.val().split(
             this._valueSeparator
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***;
-***REMOVED***
+          )
+        )
+      );
+    }
 
-    callback(selected***REMOVED***;
-  ***REMOVED***;
+    callback(selected);
+  };
 
-  InputData.prototype.select = function (_, data***REMOVED*** {
-    if (!this.options.get('multiple'***REMOVED******REMOVED*** {
-      this.current(function (allData***REMOVED*** {
-        $.map(allData, function (data***REMOVED*** {
+  InputData.prototype.select = function (_, data) {
+    if (!this.options.get('multiple')) {
+      this.current(function (allData) {
+        $.map(allData, function (data) {
           data.selected = false;
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
+        });
+      });
 
-      this.$element.val(data.id***REMOVED***;
-      this.$element.trigger('change'***REMOVED***;
-***REMOVED*** else {
-      var value = this.$element.val(***REMOVED***;
+      this.$element.val(data.id);
+      this.$element.trigger('change');
+    } else {
+      var value = this.$element.val();
       value += this._valueSeparator + data.id;
 
-      this.$element.val(value***REMOVED***;
-      this.$element.trigger('change'***REMOVED***;
-***REMOVED***
-  ***REMOVED***;
+      this.$element.val(value);
+      this.$element.trigger('change');
+    }
+  };
 
-  InputData.prototype.unselect = function (_, data***REMOVED*** {
+  InputData.prototype.unselect = function (_, data) {
     var self = this;
 
     data.selected = false;
 
-    this.current(function (allData***REMOVED*** {
-      var values = [***REMOVED***;
+    this.current(function (allData) {
+      var values = [];
 
-      for (var d = 0; d < allData.length; d++***REMOVED*** {
-        var item = allData[d***REMOVED***;
+      for (var d = 0; d < allData.length; d++) {
+        var item = allData[d];
 
-        if (data.id == item.id***REMOVED*** {
+        if (data.id == item.id) {
           continue;
-    ***REMOVED***
+        }
 
-        values.push(item.id***REMOVED***;
-  ***REMOVED***
+        values.push(item.id);
+      }
 
-      self.$element.val(values.join(self._valueSeparator***REMOVED******REMOVED***;
-      self.$element.trigger('change'***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+      self.$element.val(values.join(self._valueSeparator));
+      self.$element.trigger('change');
+    });
+  };
 
-  InputData.prototype.query = function (_, params, callback***REMOVED*** {
-    var results = [***REMOVED***;
+  InputData.prototype.query = function (_, params, callback) {
+    var results = [];
 
-    for (var d = 0; d < this._currentData.length; d++***REMOVED*** {
-      var data = this._currentData[d***REMOVED***;
+    for (var d = 0; d < this._currentData.length; d++) {
+      var data = this._currentData[d];
 
-      var matches = this.matches(params, data***REMOVED***;
+      var matches = this.matches(params, data);
 
-      if (matches !== null***REMOVED*** {
-        results.push(matches***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      if (matches !== null) {
+        results.push(matches);
+      }
+    }
 
     callback({
       results: results
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    });
+  };
 
-  InputData.prototype.addOptions = function (_, $options***REMOVED*** {
-    var options = $.map($options, function ($option***REMOVED*** {
-      return $.data($option[0***REMOVED***, 'data'***REMOVED***;
-***REMOVED******REMOVED***;
+  InputData.prototype.addOptions = function (_, $options) {
+    var options = $.map($options, function ($option) {
+      return $.data($option[0], 'data');
+    });
 
-    this._currentData.push.apply(this._currentData, options***REMOVED***;
-  ***REMOVED***;
+    this._currentData.push.apply(this._currentData, options);
+  };
 
   return InputData;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/compat/matcher',[
   'jquery'
-***REMOVED***, function ($***REMOVED*** {
-  function oldMatcher (matcher***REMOVED*** {
-    function wrappedMatcher (params, data***REMOVED*** {
-      var match = $.extend(true, {***REMOVED***, data***REMOVED***;
+], function ($) {
+  function oldMatcher (matcher) {
+    function wrappedMatcher (params, data) {
+      var match = $.extend(true, {}, data);
 
-      if (params.term == null || $.trim(params.term***REMOVED*** === ''***REMOVED*** {
+      if (params.term == null || $.trim(params.term) === '') {
         return match;
-  ***REMOVED***
+      }
 
-      if (data.children***REMOVED*** {
-        for (var c = data.children.length - 1; c >= 0; c--***REMOVED*** {
-          var child = data.children[c***REMOVED***;
+      if (data.children) {
+        for (var c = data.children.length - 1; c >= 0; c--) {
+          var child = data.children[c];
 
           // Check if the child object matches
           // The old matcher returned a boolean true or false
-          var doesMatch = matcher(params.term, child.text, child***REMOVED***;
+          var doesMatch = matcher(params.term, child.text, child);
 
           // If the child didn't match, pop it off
-          if (!doesMatch***REMOVED*** {
-            match.children.splice(c, 1***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+          if (!doesMatch) {
+            match.children.splice(c, 1);
+          }
+        }
 
-        if (match.children.length > 0***REMOVED*** {
+        if (match.children.length > 0) {
           return match;
-    ***REMOVED***
-  ***REMOVED***
+        }
+      }
 
-      if (matcher(params.term, data.text, data***REMOVED******REMOVED*** {
+      if (matcher(params.term, data.text, data)) {
         return match;
-  ***REMOVED***
+      }
 
       return null;
-***REMOVED***
+    }
 
     return wrappedMatcher;
-  ***REMOVED***
+  }
 
   return oldMatcher;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/compat/query',[
 
-***REMOVED***, function (***REMOVED*** {
-  function Query (decorated, $element, options***REMOVED*** {
-    if (options.get('debug'***REMOVED*** && window.console && console.warn***REMOVED*** {
+], function () {
+  function Query (decorated, $element, options) {
+    if (options.get('debug') && window.console && console.warn) {
       console.warn(
         'Select2: The `query` option has been deprecated in favor of a ' +
         'custom data adapter that overrides the `query` method. Support ' +
         'will be removed for the `query` option in future versions of ' +
         'Select2.'
-      ***REMOVED***;
-***REMOVED***
+      );
+    }
 
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+    decorated.call(this, $element, options);
+  }
 
-  Query.prototype.query = function (_, params, callback***REMOVED*** {
+  Query.prototype.query = function (_, params, callback) {
     params.callback = callback;
 
-    var query = this.options.get('query'***REMOVED***;
+    var query = this.options.get('query');
 
-    query.call(null, params***REMOVED***;
-  ***REMOVED***;
+    query.call(null, params);
+  };
 
   return Query;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/attachContainer',[
 
-***REMOVED***, function (***REMOVED*** {
-  function AttachContainer (decorated, $element, options***REMOVED*** {
-    decorated.call(this, $element, options***REMOVED***;
-  ***REMOVED***
+], function () {
+  function AttachContainer (decorated, $element, options) {
+    decorated.call(this, $element, options);
+  }
 
   AttachContainer.prototype.position =
-    function (decorated, $dropdown, $container***REMOVED*** {
-    var $dropdownContainer = $container.find('.dropdown-wrapper'***REMOVED***;
-    $dropdownContainer.append($dropdown***REMOVED***;
+    function (decorated, $dropdown, $container) {
+    var $dropdownContainer = $container.find('.dropdown-wrapper');
+    $dropdownContainer.append($dropdown);
 
-    $dropdown.addClass('select2-dropdown--below'***REMOVED***;
-    $container.addClass('select2-container--below'***REMOVED***;
-  ***REMOVED***;
+    $dropdown.addClass('select2-dropdown--below');
+    $container.addClass('select2-container--below');
+  };
 
   return AttachContainer;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/dropdown/stopPropagation',[
 
-***REMOVED***, function (***REMOVED*** {
-  function StopPropagation (***REMOVED*** { ***REMOVED***
+], function () {
+  function StopPropagation () { }
 
-  StopPropagation.prototype.bind = function (decorated, container, $container***REMOVED*** {
-    decorated.call(this, container, $container***REMOVED***;
+  StopPropagation.prototype.bind = function (decorated, container, $container) {
+    decorated.call(this, container, $container);
 
     var stoppedEvents = [
     'blur',
@@ -6086,23 +6086,23 @@ S2.define('select2/dropdown/stopPropagation',[
     'search',
     'touchend',
     'touchstart'
-    ***REMOVED***;
+    ];
 
-    this.$dropdown.on(stoppedEvents.join(' '***REMOVED***, function (evt***REMOVED*** {
-      evt.stopPropagation(***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.$dropdown.on(stoppedEvents.join(' '), function (evt) {
+      evt.stopPropagation();
+    });
+  };
 
   return StopPropagation;
-***REMOVED******REMOVED***;
+});
 
 S2.define('select2/selection/stopPropagation',[
 
-***REMOVED***, function (***REMOVED*** {
-  function StopPropagation (***REMOVED*** { ***REMOVED***
+], function () {
+  function StopPropagation () { }
 
-  StopPropagation.prototype.bind = function (decorated, container, $container***REMOVED*** {
-    decorated.call(this, container, $container***REMOVED***;
+  StopPropagation.prototype.bind = function (decorated, container, $container) {
+    decorated.call(this, container, $container);
 
     var stoppedEvents = [
       'blur',
@@ -6125,15 +6125,15 @@ S2.define('select2/selection/stopPropagation',[
       'search',
       'touchend',
       'touchstart'
-    ***REMOVED***;
+    ];
 
-    this.$selection.on(stoppedEvents.join(' '***REMOVED***, function (evt***REMOVED*** {
-      evt.stopPropagation(***REMOVED***;
-***REMOVED******REMOVED***;
-  ***REMOVED***;
+    this.$selection.on(stoppedEvents.join(' '), function (evt) {
+      evt.stopPropagation();
+    });
+  };
 
   return StopPropagation;
-***REMOVED******REMOVED***;
+});
 
 /*!
  * jQuery Mousewheel 3.1.13
@@ -6143,178 +6143,178 @@ S2.define('select2/selection/stopPropagation',[
  * http://jquery.org/license
  */
 
-(function (factory***REMOVED*** {
-    if ( typeof S2.define === 'function' && S2.define.amd ***REMOVED*** {
+(function (factory) {
+    if ( typeof S2.define === 'function' && S2.define.amd ) {
         // AMD. Register as an anonymous module.
-        S2.define('jquery-mousewheel',['jquery'***REMOVED***, factory***REMOVED***;
-***REMOVED*** else if (typeof exports === 'object'***REMOVED*** {
+        S2.define('jquery-mousewheel',['jquery'], factory);
+    } else if (typeof exports === 'object') {
         // Node/CommonJS style for Browserify
         module.exports = factory;
-***REMOVED*** else {
+    } else {
         // Browser globals
-        factory(jQuery***REMOVED***;
-***REMOVED***
-***REMOVED***(function ($***REMOVED*** {
+        factory(jQuery);
+    }
+}(function ($) {
 
-    var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'***REMOVED***,
-        toBind = ( 'onwheel' in document || document.documentMode >= 9 ***REMOVED*** ?
-                    ['wheel'***REMOVED*** : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'***REMOVED***,
+    var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
+        toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
+                    ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
         slice  = Array.prototype.slice,
         nullLowestDeltaTimeout, lowestDelta;
 
-    if ( $.event.fixHooks ***REMOVED*** {
-        for ( var i = toFix.length; i; ***REMOVED*** {
-            $.event.fixHooks[ toFix[--i***REMOVED*** ***REMOVED*** = $.event.mouseHooks;
-    ***REMOVED***
-***REMOVED***
+    if ( $.event.fixHooks ) {
+        for ( var i = toFix.length; i; ) {
+            $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
+        }
+    }
 
     var special = $.event.special.mousewheel = {
         version: '3.1.12',
 
-        setup: function(***REMOVED*** {
-            if ( this.addEventListener ***REMOVED*** {
-                for ( var i = toBind.length; i; ***REMOVED*** {
-                    this.addEventListener( toBind[--i***REMOVED***, handler, false ***REMOVED***;
-            ***REMOVED***
-        ***REMOVED*** else {
+        setup: function() {
+            if ( this.addEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.addEventListener( toBind[--i], handler, false );
+                }
+            } else {
                 this.onmousewheel = handler;
-        ***REMOVED***
+            }
             // Store the line height and page height for this particular element
-            $.data(this, 'mousewheel-line-height', special.getLineHeight(this***REMOVED******REMOVED***;
-            $.data(this, 'mousewheel-page-height', special.getPageHeight(this***REMOVED******REMOVED***;
-***REMOVED***
+            $.data(this, 'mousewheel-line-height', special.getLineHeight(this));
+            $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
+        },
 
-        teardown: function(***REMOVED*** {
-            if ( this.removeEventListener ***REMOVED*** {
-                for ( var i = toBind.length; i; ***REMOVED*** {
-                    this.removeEventListener( toBind[--i***REMOVED***, handler, false ***REMOVED***;
-            ***REMOVED***
-        ***REMOVED*** else {
+        teardown: function() {
+            if ( this.removeEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.removeEventListener( toBind[--i], handler, false );
+                }
+            } else {
                 this.onmousewheel = null;
-        ***REMOVED***
+            }
             // Clean up the data we added to the element
-            $.removeData(this, 'mousewheel-line-height'***REMOVED***;
-            $.removeData(this, 'mousewheel-page-height'***REMOVED***;
-***REMOVED***
+            $.removeData(this, 'mousewheel-line-height');
+            $.removeData(this, 'mousewheel-page-height');
+        },
 
-        getLineHeight: function(elem***REMOVED*** {
-            var $elem = $(elem***REMOVED***,
-                $parent = $elem['offsetParent' in $.fn ? 'offsetParent' : 'parent'***REMOVED***(***REMOVED***;
-            if (!$parent.length***REMOVED*** {
-                $parent = $('body'***REMOVED***;
-        ***REMOVED***
-            return parseInt($parent.css('fontSize'***REMOVED***, 10***REMOVED*** || parseInt($elem.css('fontSize'***REMOVED***, 10***REMOVED*** || 16;
-***REMOVED***
+        getLineHeight: function(elem) {
+            var $elem = $(elem),
+                $parent = $elem['offsetParent' in $.fn ? 'offsetParent' : 'parent']();
+            if (!$parent.length) {
+                $parent = $('body');
+            }
+            return parseInt($parent.css('fontSize'), 10) || parseInt($elem.css('fontSize'), 10) || 16;
+        },
 
-        getPageHeight: function(elem***REMOVED*** {
-            return $(elem***REMOVED***.height(***REMOVED***;
-***REMOVED***
+        getPageHeight: function(elem) {
+            return $(elem).height();
+        },
 
         settings: {
-            adjustOldDeltas: true, // see shouldAdjustOldDeltas(***REMOVED*** below
+            adjustOldDeltas: true, // see shouldAdjustOldDeltas() below
             normalizeOffset: true  // calls getBoundingClientRect for each event
-    ***REMOVED***
-***REMOVED***;
+        }
+    };
 
     $.fn.extend({
-        mousewheel: function(fn***REMOVED*** {
-            return fn ? this.bind('mousewheel', fn***REMOVED*** : this.trigger('mousewheel'***REMOVED***;
-***REMOVED***
+        mousewheel: function(fn) {
+            return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
+        },
 
-        unmousewheel: function(fn***REMOVED*** {
-            return this.unbind('mousewheel', fn***REMOVED***;
-    ***REMOVED***
-***REMOVED******REMOVED***;
+        unmousewheel: function(fn) {
+            return this.unbind('mousewheel', fn);
+        }
+    });
 
 
-    function handler(event***REMOVED*** {
+    function handler(event) {
         var orgEvent   = event || window.event,
-            args       = slice.call(arguments, 1***REMOVED***,
+            args       = slice.call(arguments, 1),
             delta      = 0,
             deltaX     = 0,
             deltaY     = 0,
             absDelta   = 0,
             offsetX    = 0,
             offsetY    = 0;
-        event = $.event.fix(orgEvent***REMOVED***;
+        event = $.event.fix(orgEvent);
         event.type = 'mousewheel';
 
         // Old school scrollwheel delta
-        if ( 'detail'      in orgEvent ***REMOVED*** { deltaY = orgEvent.detail * -1;  ***REMOVED***
-        if ( 'wheelDelta'  in orgEvent ***REMOVED*** { deltaY = orgEvent.wheelDelta;   ***REMOVED***
-        if ( 'wheelDeltaY' in orgEvent ***REMOVED*** { deltaY = orgEvent.wheelDeltaY;  ***REMOVED***
-        if ( 'wheelDeltaX' in orgEvent ***REMOVED*** { deltaX = orgEvent.wheelDeltaX * -1; ***REMOVED***
+        if ( 'detail'      in orgEvent ) { deltaY = orgEvent.detail * -1;      }
+        if ( 'wheelDelta'  in orgEvent ) { deltaY = orgEvent.wheelDelta;       }
+        if ( 'wheelDeltaY' in orgEvent ) { deltaY = orgEvent.wheelDeltaY;      }
+        if ( 'wheelDeltaX' in orgEvent ) { deltaX = orgEvent.wheelDeltaX * -1; }
 
         // Firefox < 17 horizontal scrolling related to DOMMouseScroll event
-        if ( 'axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ***REMOVED*** {
+        if ( 'axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
             deltaX = deltaY * -1;
             deltaY = 0;
-    ***REMOVED***
+        }
 
         // Set delta to be deltaY or deltaX if deltaY is 0 for backwards compatabilitiy
         delta = deltaY === 0 ? deltaX : deltaY;
 
-        // New school wheel delta (wheel event***REMOVED***
-        if ( 'deltaY' in orgEvent ***REMOVED*** {
+        // New school wheel delta (wheel event)
+        if ( 'deltaY' in orgEvent ) {
             deltaY = orgEvent.deltaY * -1;
             delta  = deltaY;
-    ***REMOVED***
-        if ( 'deltaX' in orgEvent ***REMOVED*** {
+        }
+        if ( 'deltaX' in orgEvent ) {
             deltaX = orgEvent.deltaX;
-            if ( deltaY === 0 ***REMOVED*** { delta  = deltaX * -1; ***REMOVED***
-    ***REMOVED***
+            if ( deltaY === 0 ) { delta  = deltaX * -1; }
+        }
 
         // No change actually happened, no reason to go any further
-        if ( deltaY === 0 && deltaX === 0 ***REMOVED*** { return; ***REMOVED***
+        if ( deltaY === 0 && deltaX === 0 ) { return; }
 
         // Need to convert lines and pages to pixels if we aren't already in pixels
         // There are three delta modes:
         //   * deltaMode 0 is by pixels, nothing to do
         //   * deltaMode 1 is by lines
         //   * deltaMode 2 is by pages
-        if ( orgEvent.deltaMode === 1 ***REMOVED*** {
-            var lineHeight = $.data(this, 'mousewheel-line-height'***REMOVED***;
+        if ( orgEvent.deltaMode === 1 ) {
+            var lineHeight = $.data(this, 'mousewheel-line-height');
             delta  *= lineHeight;
             deltaY *= lineHeight;
             deltaX *= lineHeight;
-    ***REMOVED*** else if ( orgEvent.deltaMode === 2 ***REMOVED*** {
-            var pageHeight = $.data(this, 'mousewheel-page-height'***REMOVED***;
+        } else if ( orgEvent.deltaMode === 2 ) {
+            var pageHeight = $.data(this, 'mousewheel-page-height');
             delta  *= pageHeight;
             deltaY *= pageHeight;
             deltaX *= pageHeight;
-    ***REMOVED***
+        }
 
         // Store lowest absolute delta to normalize the delta values
-        absDelta = Math.max( Math.abs(deltaY***REMOVED***, Math.abs(deltaX***REMOVED*** ***REMOVED***;
+        absDelta = Math.max( Math.abs(deltaY), Math.abs(deltaX) );
 
-        if ( !lowestDelta || absDelta < lowestDelta ***REMOVED*** {
+        if ( !lowestDelta || absDelta < lowestDelta ) {
             lowestDelta = absDelta;
 
             // Adjust older deltas if necessary
-            if ( shouldAdjustOldDeltas(orgEvent, absDelta***REMOVED*** ***REMOVED*** {
+            if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
                 lowestDelta /= 40;
-        ***REMOVED***
-    ***REMOVED***
+            }
+        }
 
         // Adjust older deltas if necessary
-        if ( shouldAdjustOldDeltas(orgEvent, absDelta***REMOVED*** ***REMOVED*** {
+        if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
             // Divide all the things by 40!
             delta  /= 40;
             deltaX /= 40;
             deltaY /= 40;
-    ***REMOVED***
+        }
 
         // Get a whole, normalized value for the deltas
-        delta  = Math[ delta  >= 1 ? 'floor' : 'ceil' ***REMOVED***(delta  / lowestDelta***REMOVED***;
-        deltaX = Math[ deltaX >= 1 ? 'floor' : 'ceil' ***REMOVED***(deltaX / lowestDelta***REMOVED***;
-        deltaY = Math[ deltaY >= 1 ? 'floor' : 'ceil' ***REMOVED***(deltaY / lowestDelta***REMOVED***;
+        delta  = Math[ delta  >= 1 ? 'floor' : 'ceil' ](delta  / lowestDelta);
+        deltaX = Math[ deltaX >= 1 ? 'floor' : 'ceil' ](deltaX / lowestDelta);
+        deltaY = Math[ deltaY >= 1 ? 'floor' : 'ceil' ](deltaY / lowestDelta);
 
         // Normalise offsetX and offsetY properties
-        if ( special.settings.normalizeOffset && this.getBoundingClientRect ***REMOVED*** {
-            var boundingRect = this.getBoundingClientRect(***REMOVED***;
+        if ( special.settings.normalizeOffset && this.getBoundingClientRect ) {
+            var boundingRect = this.getBoundingClientRect();
             offsetX = event.clientX - boundingRect.left;
             offsetY = event.clientY - boundingRect.top;
-    ***REMOVED***
+        }
 
         // Add information to the event object
         event.deltaX = deltaX;
@@ -6328,23 +6328,23 @@ S2.define('select2/selection/stopPropagation',[
         event.deltaMode = 0;
 
         // Add event and delta to the front of the arguments
-        args.unshift(event, delta, deltaX, deltaY***REMOVED***;
+        args.unshift(event, delta, deltaX, deltaY);
 
         // Clearout lowestDelta after sometime to better
         // handle multiple device types that give different
         // a different lowestDelta
         // Ex: trackpad = 3 and mouse wheel = 120
-        if (nullLowestDeltaTimeout***REMOVED*** { clearTimeout(nullLowestDeltaTimeout***REMOVED***; ***REMOVED***
-        nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200***REMOVED***;
+        if (nullLowestDeltaTimeout) { clearTimeout(nullLowestDeltaTimeout); }
+        nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200);
 
-        return ($.event.dispatch || $.event.handle***REMOVED***.apply(this, args***REMOVED***;
-***REMOVED***
+        return ($.event.dispatch || $.event.handle).apply(this, args);
+    }
 
-    function nullLowestDelta(***REMOVED*** {
+    function nullLowestDelta() {
         lowestDelta = null;
-***REMOVED***
+    }
 
-    function shouldAdjustOldDeltas(orgEvent, absDelta***REMOVED*** {
+    function shouldAdjustOldDeltas(orgEvent, absDelta) {
         // If this is an older event and the delta is divisable by 120,
         // then we are assuming that the browser is treating this as an
         // older mouse wheel event and that we should divide the deltas
@@ -6353,9 +6353,9 @@ S2.define('select2/selection/stopPropagation',[
         // in older browsers and can cause scrolling to be slower than native.
         // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
         return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
-***REMOVED***
+    }
 
-***REMOVED******REMOVED******REMOVED***;
+}));
 
 S2.define('jquery.select2',[
   'jquery',
@@ -6363,68 +6363,68 @@ S2.define('jquery.select2',[
 
   './select2/core',
   './select2/defaults'
-***REMOVED***, function ($, _, Select2, Defaults***REMOVED*** {
-  if ($.fn.select2 == null***REMOVED*** {
+], function ($, _, Select2, Defaults) {
+  if ($.fn.select2 == null) {
     // All methods that should return the element
-    var thisMethods = ['open', 'close', 'destroy'***REMOVED***;
+    var thisMethods = ['open', 'close', 'destroy'];
 
-    $.fn.select2 = function (options***REMOVED*** {
-      options = options || {***REMOVED***;
+    $.fn.select2 = function (options) {
+      options = options || {};
 
-      if (typeof options === 'object'***REMOVED*** {
-        this.each(function (***REMOVED*** {
-          var instanceOptions = $.extend(true, {***REMOVED***, options***REMOVED***;
+      if (typeof options === 'object') {
+        this.each(function () {
+          var instanceOptions = $.extend(true, {}, options);
 
-          var instance = new Select2($(this***REMOVED***, instanceOptions***REMOVED***;
-    ***REMOVED******REMOVED***;
+          var instance = new Select2($(this), instanceOptions);
+        });
 
         return this;
-  ***REMOVED*** else if (typeof options === 'string'***REMOVED*** {
+      } else if (typeof options === 'string') {
         var ret;
-        var args = Array.prototype.slice.call(arguments, 1***REMOVED***;
+        var args = Array.prototype.slice.call(arguments, 1);
 
-        this.each(function (***REMOVED*** {
-          var instance = $(this***REMOVED***.data('select2'***REMOVED***;
+        this.each(function () {
+          var instance = $(this).data('select2');
 
-          if (instance == null && window.console && console.error***REMOVED*** {
+          if (instance == null && window.console && console.error) {
             console.error(
-              'The select2(\'' + options + '\'***REMOVED*** method was called on an ' +
+              'The select2(\'' + options + '\') method was called on an ' +
               'element that is not using Select2.'
-            ***REMOVED***;
-      ***REMOVED***
+            );
+          }
 
-          ret = instance[options***REMOVED***.apply(instance, args***REMOVED***;
-    ***REMOVED******REMOVED***;
+          ret = instance[options].apply(instance, args);
+        });
 
         // Check if we should be returning `this`
-        if ($.inArray(options, thisMethods***REMOVED*** > -1***REMOVED*** {
+        if ($.inArray(options, thisMethods) > -1) {
           return this;
-    ***REMOVED***
+        }
 
         return ret;
-  ***REMOVED*** else {
-        throw new Error('Invalid arguments for Select2: ' + options***REMOVED***;
-  ***REMOVED***
-***REMOVED***;
-  ***REMOVED***
+      } else {
+        throw new Error('Invalid arguments for Select2: ' + options);
+      }
+    };
+  }
 
-  if ($.fn.select2.defaults == null***REMOVED*** {
+  if ($.fn.select2.defaults == null) {
     $.fn.select2.defaults = Defaults;
-  ***REMOVED***
+  }
 
   return Select2;
-***REMOVED******REMOVED***;
+});
 
   // Return the AMD loader configuration so it can be used outside of this file
   return {
     define: S2.define,
     require: S2.require
-  ***REMOVED***;
-***REMOVED***(***REMOVED******REMOVED***;
+  };
+}());
 
   // Autoload the jQuery bindings
   // We know that all of the modules exist above this, so we're safe
-  var select2 = S2.require('jquery.select2'***REMOVED***;
+  var select2 = S2.require('jquery.select2');
 
   // Hold the AMD module references on the jQuery function that was just loaded
   // This allows Select2 to use the internal loader outside of this file, such
@@ -6433,4 +6433,4 @@ S2.define('jquery.select2',[
 
   // Return the Select2 instance for anyone who is importing it.
   return select2;
-***REMOVED******REMOVED******REMOVED***;
+}));

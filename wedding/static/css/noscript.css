@@ -2,7 +2,7 @@
 
 	body.is-preload #bg:before {
 		background-color: transparent;
-	***REMOVED***
+	}
 
 /* Header */
 
@@ -11,21 +11,21 @@
 		-webkit-filter: none;
 		-ms-filter: none;
 		filter: none;
-	***REMOVED***
+	}
 
 		body.is-preload #header > * {
 			opacity: 1;
-		***REMOVED***
+		}
 
 		body.is-preload #header .content .inner {
 			max-height: none;
 			padding: 3rem 2rem;
 			opacity: 1;
-		***REMOVED***
+		}
 
 /* Main */
 
 	#main article {
 		opacity: 1;
 		margin: 4rem 0 0 0;
-	***REMOVED***
+	}

@@ -1,11 +1,11 @@
 ///
 /// Dimension by HTML5 UP
 /// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 // Reset.
-// Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain***REMOVED***
+// Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain)
 
 	html, body, div, span, applet, object,
 	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -24,20 +24,20 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
-	***REMOVED***
+	}
 
 	article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;
-	***REMOVED***
+	}
 
 	body {
 		line-height: 1;
-	***REMOVED***
+	}
 
 	ol, ul {
 		list-style:none;
-	***REMOVED***
+	}
 
 	blockquote,	q {
 		quotes: none;
@@ -46,31 +46,31 @@
 		&:after {
 			content: '';
 			content: none;
-		***REMOVED***
-	***REMOVED***
+		}
+	}
 
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
-	***REMOVED***
+	}
 
 	body {
 		-webkit-text-size-adjust: none;
-	***REMOVED***
+	}
 
 	mark {
 		background-color: transparent;
 		color: inherit;
-	***REMOVED***
+	}
 
 	input::-moz-focus-inner {
 		border: 0;
 		padding: 0;
-	***REMOVED***
+	}
 
 	input, select, textarea {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-	***REMOVED***
+	}

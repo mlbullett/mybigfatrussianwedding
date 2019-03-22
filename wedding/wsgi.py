@@ -1,16 +1,16 @@
-***REMOVED***
+"""
 WSGI config for wedding project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
-***REMOVED***
+For more information on this file, see
 https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
-***REMOVED***
+"""
 
-***REMOVED***
+import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wedding.settings'***REMOVED***
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wedding.settings')
 
-application = get_wsgi_application(***REMOVED***
+application = get_wsgi_application()

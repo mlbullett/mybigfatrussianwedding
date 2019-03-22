@@ -3,17 +3,17 @@
 // Vars.
 
 	/// Vendor prefixes.
-	/// @var {list***REMOVED***
+	/// @var {list}
 	$vendor-prefixes: (
 		'-moz-',
 		'-webkit-',
 		'-ms-',
 		''
-	***REMOVED***;
+	);
 
 	/// Properties that should be vendorized.
 	/// Data via caniuse.com, github.com/postcss/autoprefixer, and developer.mozilla.org
-	/// @var {list***REMOVED***
+	/// @var {list}
 	$vendor-properties: (
 
 		// Animation.
@@ -190,11 +190,11 @@
 		// Writing mode.
 			'writing-mode',
 
-	***REMOVED***;
+	);
 
 	/// Values that should be vendorized.
 	/// Data via caniuse.com, github.com/postcss/autoprefixer, and developer.mozilla.org
-	/// @var {list***REMOVED***
+	/// @var {list}
 	$vendor-values: (
 
 		// Cross fade.
@@ -245,132 +245,132 @@
 			'zoom-in',
 			'zoom-out',
 
-	***REMOVED***;
+	);
 
 // Functions.
 
 	/// Removes a specific item from a list.
 	/// @author Hugo Giraudel
-	/// @param {list***REMOVED*** $list List.
-	/// @param {integer***REMOVED*** $index Index.
-	/// @return {list***REMOVED*** Updated list.
-	@function remove-nth($list, $index***REMOVED*** {
+	/// @param {list} $list List.
+	/// @param {integer} $index Index.
+	/// @return {list} Updated list.
+	@function remove-nth($list, $index) {
 
 		$result: null;
 
-		@if type-of($index***REMOVED*** != number {
-			@warn "$index: #{quote($index***REMOVED******REMOVED*** is not a number for `remove-nth`.";
-		***REMOVED***
+		@if type-of($index) != number {
+			@warn "$index: #{quote($index)} is not a number for `remove-nth`.";
+		}
 		@else if $index == 0 {
 			@warn "List index 0 must be a non-zero integer for `remove-nth`.";
-		***REMOVED***
-		@else if abs($index***REMOVED*** > length($list***REMOVED*** {
-			@warn "List index is #{$index***REMOVED*** but list is only #{length($list***REMOVED******REMOVED*** item long for `remove-nth`.";
-		***REMOVED***
+		}
+		@else if abs($index) > length($list) {
+			@warn "List index is #{$index} but list is only #{length($list)} item long for `remove-nth`.";
+		}
 		@else {
 
-			$result: (***REMOVED***;
-			$index: if($index < 0, length($list***REMOVED*** + $index + 1, $index***REMOVED***;
+			$result: ();
+			$index: if($index < 0, length($list) + $index + 1, $index);
 
-			@for $i from 1 through length($list***REMOVED*** {
+			@for $i from 1 through length($list) {
 
 				@if $i != $index {
-					$result: append($result, nth($list, $i***REMOVED******REMOVED***;
-				***REMOVED***
+					$result: append($result, nth($list, $i));
+				}
 
-			***REMOVED***
+			}
 
-		***REMOVED***
+		}
 
 		@return $result;
 
-	***REMOVED***
+	}
 
 	/// Replaces a substring within another string.
 	/// @author Hugo Giraudel
-	/// @param {string***REMOVED*** $string String.
-	/// @param {string***REMOVED*** $search Substring.
-	/// @param {string***REMOVED*** $replace Replacement.
-	/// @return {string***REMOVED*** Updated string.
-	@function str-replace($string, $search, $replace: ''***REMOVED*** {
+	/// @param {string} $string String.
+	/// @param {string} $search Substring.
+	/// @param {string} $replace Replacement.
+	/// @return {string} Updated string.
+	@function str-replace($string, $search, $replace: '') {
 
-		$index: str-index($string, $search***REMOVED***;
+		$index: str-index($string, $search);
 
 		@if $index {
-			@return str-slice($string, 1, $index - 1***REMOVED*** + $replace + str-replace(str-slice($string, $index + str-length($search***REMOVED******REMOVED***, $search, $replace***REMOVED***;
-		***REMOVED***
+			@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+		}
 
 		@return $string;
 
-	***REMOVED***
+	}
 
 	/// Replaces a substring within each string in a list.
-	/// @param {list***REMOVED*** $strings List of strings.
-	/// @param {string***REMOVED*** $search Substring.
-	/// @param {string***REMOVED*** $replace Replacement.
-	/// @return {list***REMOVED*** Updated list of strings.
-	@function str-replace-all($strings, $search, $replace: ''***REMOVED*** {
+	/// @param {list} $strings List of strings.
+	/// @param {string} $search Substring.
+	/// @param {string} $replace Replacement.
+	/// @return {list} Updated list of strings.
+	@function str-replace-all($strings, $search, $replace: '') {
 
 		@each $string in $strings {
-			$strings: set-nth($strings, index($strings, $string***REMOVED***, str-replace($string, $search, $replace***REMOVED******REMOVED***;
-		***REMOVED***
+			$strings: set-nth($strings, index($strings, $string), str-replace($string, $search, $replace));
+		}
 
 		@return $strings;
 
-	***REMOVED***
+	}
 
 // Mixins.
 
 	/// Wraps @content in vendorized keyframe blocks.
-	/// @param {string***REMOVED*** $name Name.
-	@mixin keyframes($name***REMOVED*** {
+	/// @param {string} $name Name.
+	@mixin keyframes($name) {
 
-		@-moz-keyframes #{$name***REMOVED*** { @content; ***REMOVED***
-		@-webkit-keyframes #{$name***REMOVED*** { @content; ***REMOVED***
-		@-ms-keyframes #{$name***REMOVED*** { @content; ***REMOVED***
-		@keyframes #{$name***REMOVED*** { @content; ***REMOVED***
+		@-moz-keyframes #{$name} { @content; }
+		@-webkit-keyframes #{$name} { @content; }
+		@-ms-keyframes #{$name} { @content; }
+		@keyframes #{$name} { @content; }
 
-	***REMOVED***
+	}
 
-	/// Vendorizes a declaration's property and/or value(s***REMOVED***.
-	/// @param {string***REMOVED*** $property Property.
-	/// @param {mixed***REMOVED*** $value String/list of value(s***REMOVED***.
-	@mixin vendor($property, $value***REMOVED*** {
+	/// Vendorizes a declaration's property and/or value(s).
+	/// @param {string} $property Property.
+	/// @param {mixed} $value String/list of value(s).
+	@mixin vendor($property, $value) {
 
 		// Determine if property should expand.
-			$expandProperty: index($vendor-properties, $property***REMOVED***;
+			$expandProperty: index($vendor-properties, $property);
 
-		// Determine if value should expand (and if so, add '-prefix-' placeholder***REMOVED***.
+		// Determine if value should expand (and if so, add '-prefix-' placeholder).
 			$expandValue: false;
 
 			@each $x in $value {
 				@each $y in $vendor-values {
-					@if $y == str-slice($x, 1, str-length($y***REMOVED******REMOVED*** {
+					@if $y == str-slice($x, 1, str-length($y)) {
 
-						$value: set-nth($value, index($value, $x***REMOVED***, '-prefix-' + $x***REMOVED***;
+						$value: set-nth($value, index($value, $x), '-prefix-' + $x);
 						$expandValue: true;
 
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
+					}
+				}
+			}
 
 		// Expand property?
 			@if $expandProperty {
 			    @each $vendor in $vendor-prefixes {
-			        #{$vendor***REMOVED***#{$property***REMOVED***: #{str-replace-all($value, '-prefix-', $vendor***REMOVED******REMOVED***;
-			***REMOVED***
-			***REMOVED***
+			        #{$vendor}#{$property}: #{str-replace-all($value, '-prefix-', $vendor)};
+			    }
+			}
 
 		// Expand just the value?
 			@elseif $expandValue {
 			    @each $vendor in $vendor-prefixes {
-			        #{$property***REMOVED***: #{str-replace-all($value, '-prefix-', $vendor***REMOVED******REMOVED***;
-			***REMOVED***
-			***REMOVED***
+			        #{$property}: #{str-replace-all($value, '-prefix-', $vendor)};
+			    }
+			}
 
 		// Neither? Treat them as a normal declaration.
 			@else {
-		        #{$property***REMOVED***: #{$value***REMOVED***;
-			***REMOVED***
+		        #{$property}: #{$value};
+			}
 
-	***REMOVED***
+	}

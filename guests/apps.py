@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class GuestsConfig(AppConfig***REMOVED***:
+class GuestsConfig(AppConfig):
     name = 'guests'

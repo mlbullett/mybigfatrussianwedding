@@ -1,7 +1,7 @@
 ///
 /// Dimension by HTML5 UP
 /// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license***REMOVED***
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Table */
@@ -9,43 +9,43 @@
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
-	***REMOVED***
+	}
 
 	table {
-		margin: 0 0 _size(element-margin***REMOVED*** 0;
+		margin: 0 0 _size(element-margin) 0;
 		width: 100%;
 
 		tbody {
 			tr {
-				border: solid _size(border-width***REMOVED*** _palette(border***REMOVED***;
+				border: solid _size(border-width) _palette(border);
 				border-left: 0;
 				border-right: 0;
 
-				&:nth-child(2n + 1***REMOVED*** {
-					background-color: _palette(border-bg***REMOVED***;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				&:nth-child(2n + 1) {
+					background-color: _palette(border-bg);
+				}
+			}
+		}
 
 		td {
 			padding: 0.75em 0.75em;
-		***REMOVED***
+		}
 
 		th {
-			color: _palette(fg-bold***REMOVED***;
+			color: _palette(fg-bold);
 			font-size: 0.9em;
-			font-weight: _font(weight-bold***REMOVED***;
+			font-weight: _font(weight-bold);
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;
-		***REMOVED***
+		}
 
 		thead {
-			border-bottom: solid (_size(border-width***REMOVED*** * 2***REMOVED*** _palette(border***REMOVED***;
-		***REMOVED***
+			border-bottom: solid (_size(border-width) * 2) _palette(border);
+		}
 
 		tfoot {
-			border-top: solid (_size(border-width***REMOVED*** * 2***REMOVED*** _palette(border***REMOVED***;
-		***REMOVED***
+			border-top: solid (_size(border-width) * 2) _palette(border);
+		}
 
 		&.alt {
 			border-collapse: separate;
@@ -53,29 +53,29 @@
 			tbody {
 				tr {
 					td {
-						border: solid _size(border-width***REMOVED*** _palette(border***REMOVED***;
+						border: solid _size(border-width) _palette(border);
 						border-left-width: 0;
 						border-top-width: 0;
 
 						&:first-child {
-							border-left-width: _size(border-width***REMOVED***;
-						***REMOVED***
-					***REMOVED***
+							border-left-width: _size(border-width);
+						}
+					}
 
 					&:first-child {
 						td {
-							border-top-width: _size(border-width***REMOVED***;
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
+							border-top-width: _size(border-width);
+						}
+					}
+				}
+			}
 
 			thead {
 				border-bottom: 0;
-			***REMOVED***
+			}
 
 			tfoot {
 				border-top: 0;
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+			}
+		}
+	}

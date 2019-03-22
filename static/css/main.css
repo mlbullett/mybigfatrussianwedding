@@ -1,7 +1,7 @@
-{% load static %***REMOVED***
+{% load static %}
 
-@import url(font-awesome.min.css***REMOVED***;
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600"***REMOVED***;
+@import url(font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 html,
 body,
 div,
@@ -89,7 +89,7 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-***REMOVED***
+}
 
 article,
 aside,
@@ -103,21 +103,21 @@ menu,
 nav,
 section {
     display: block;
-***REMOVED***
+}
 
 body {
     line-height: 1;
-***REMOVED***
+}
 
 ol,
 ul {
     list-style: none;
-***REMOVED***
+}
 
 blockquote,
 q {
     quotes: none;
-***REMOVED***
+}
 
 blockquote:before,
 blockquote:after,
@@ -125,26 +125,26 @@ q:before,
 q:after {
     content: "";
     content: none;
-***REMOVED***
+}
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
-***REMOVED***
+}
 
 body {
     -webkit-text-size-adjust: none;
-***REMOVED***
+}
 
 mark {
     background-color: transparent;
     color: inherit;
-***REMOVED***
+}
 
 input::-moz-focus-inner {
     border: 0;
     padding: 0;
-***REMOVED***
+}
 
 input,
 select,
@@ -153,35 +153,35 @@ textarea {
     -webkit-appearance: none;
     -ms-appearance: none;
     appearance: none;
-***REMOVED***
+}
 
 
 /* Basic */
 
 @-ms-viewport {
     width: device-width;
-***REMOVED***
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     html,
     body {
         min-width: 320px;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 html {
     box-sizing: border-box;
-***REMOVED***
+}
 
 *,
 *:before,
 *:after {
     box-sizing: inherit;
-***REMOVED***
+}
 
 body {
     background: #1b1f22;
-***REMOVED***
+}
 
 body.is-preload *,
 body.is-preload *:before,
@@ -194,32 +194,32 @@ body.is-preload *:after {
     -webkit-transition: none !important;
     -ms-transition: none !important;
     transition: none !important;
-***REMOVED***
+}
 
 
 /* Type */
 
 html {
     font-size: 16pt;
-***REMOVED***
+}
 
-@media screen and (max-width: 1680px***REMOVED*** {
+@media screen and (max-width: 1680px) {
     html {
         font-size: 12pt;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     html {
         font-size: 11pt;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 360px***REMOVED*** {
+@media screen and (max-width: 360px) {
     html {
         font-size: 10pt;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 body,
 input,
@@ -230,36 +230,36 @@ textarea {
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.65;
-***REMOVED***
+}
 
 a {
     -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    border-bottom: dotted 1px rgba(255, 255, 255, 0.5***REMOVED***;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
     text-decoration: none;
     color: inherit;
-***REMOVED***
+}
 
 a:hover {
     border-bottom-color: transparent;
-***REMOVED***
+}
 
 strong,
 b {
     color: #ffffff;
     font-weight: 600;
-***REMOVED***
+}
 
 em,
 i {
     font-style: italic;
-***REMOVED***
+}
 
 p {
     margin: 0 0 2rem 0;
-***REMOVED***
+}
 
 h1,
 h2,
@@ -273,7 +273,7 @@ h6 {
     margin: 0 0 1rem 0;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-***REMOVED***
+}
 
 h1 a,
 h2 a,
@@ -283,7 +283,7 @@ h5 a,
 h6 a {
     color: inherit;
     text-decoration: none;
-***REMOVED***
+}
 
 h1.major,
 h2.major,
@@ -298,117 +298,117 @@ h6.major {
     width: max-content;
     padding-bottom: 0.5rem;
     margin: 0 0 2rem 0;
-***REMOVED***
+}
 
 h1 {
     font-size: 2.25rem;
     line-height: 1.3;
     letter-spacing: 0.5rem;
-***REMOVED***
+}
 
 h2 {
     font-size: 1.5rem;
     line-height: 1.4;
     letter-spacing: 0.5rem;
-***REMOVED***
+}
 
 h3 {
     font-size: 1rem;
-***REMOVED***
+}
 
 h4 {
     font-size: 0.8rem;
-***REMOVED***
+}
 
 h5 {
     font-size: 0.7rem;
-***REMOVED***
+}
 
 h6 {
     font-size: 0.6rem;
-***REMOVED***
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     h1 {
         font-size: 1.75rem;
         line-height: 1.4;
-***REMOVED***
+    }
     h2 {
         font-size: 1.25em;
         line-height: 1.5;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 sub {
     font-size: 0.8rem;
     position: relative;
     top: 0.5rem;
-***REMOVED***
+}
 
 sup {
     font-size: 0.8rem;
     position: relative;
     top: -0.5rem;
-***REMOVED***
+}
 
 blockquote {
     border-left: solid 4px #ffffff;
     font-style: italic;
     margin: 0 0 2rem 0;
     padding: 0.5rem 0 0.5rem 2rem;
-***REMOVED***
+}
 
 code {
-    background: rgba(255, 255, 255, 0.075***REMOVED***;
+    background: rgba(255, 255, 255, 0.075);
     border-radius: 4px;
     font-family: "Courier New", monospace;
     font-size: 0.9rem;
     margin: 0 0.25rem;
     padding: 0.25rem 0.65rem;
-***REMOVED***
+}
 
 pre {
     -webkit-overflow-scrolling: touch;
     font-family: "Courier New", monospace;
     font-size: 0.9rem;
     margin: 0 0 2rem 0;
-***REMOVED***
+}
 
 pre code {
     display: block;
     line-height: 1.75;
     padding: 1rem 1.5rem;
     overflow-x: auto;
-***REMOVED***
+}
 
 hr {
     border: 0;
     border-bottom: solid 1px #ffffff;
     margin: 2.75rem 0;
-***REMOVED***
+}
 
 .align-left {
     text-align: left;
-***REMOVED***
+}
 
 .align-center {
     text-align: center;
-***REMOVED***
+}
 
 .align-right {
     text-align: right;
-***REMOVED***
+}
 
 
 /* Form */
 
 form {
     margin: 0 0 2rem 0;
-***REMOVED***
+}
 
 form> :last-child {
     margin-bottom: 0;
-***REMOVED***
+}
 
 form>.fields {
     display: -moz-flex;
@@ -419,9 +419,9 @@ form>.fields {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    width: calc(100% + 3rem***REMOVED***;
+    width: calc(100% + 3rem);
     margin: -1.5rem 0 2rem -1.5rem;
-***REMOVED***
+}
 
 form>.fields>.field {
     -moz-flex-grow: 0;
@@ -433,40 +433,40 @@ form>.fields>.field {
     -ms-flex-shrink: 0;
     flex-shrink: 0;
     padding: 1.5rem 0 0 1.5rem;
-    width: calc(100% - 1.5rem***REMOVED***;
-***REMOVED***
+    width: calc(100% - 1.5rem);
+}
 
 form>.fields>.field.half {
-    width: calc(50% - 0.75rem***REMOVED***;
-***REMOVED***
+    width: calc(50% - 0.75rem);
+}
 
 form>.fields>.field.third {
-    width: calc(100% / 3 - 0.5rem***REMOVED***;
-***REMOVED***
+    width: calc(100% / 3 - 0.5rem);
+}
 
 form>.fields>.field.quarter {
-    width: calc(25% - 0.375rem***REMOVED***;
-***REMOVED***
+    width: calc(25% - 0.375rem);
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     form>.fields {
-        width: calc(100% + 3rem***REMOVED***;
+        width: calc(100% + 3rem);
         margin: -1.5rem 0 2rem -1.5rem;
-***REMOVED***
+    }
     form>.fields>.field {
         padding: 1.5rem 0 0 1.5rem;
-        width: calc(100% - 1.5rem***REMOVED***;
-***REMOVED***
+        width: calc(100% - 1.5rem);
+    }
     form>.fields>.field.half {
-        width: calc(100% - 1.5rem***REMOVED***;
-***REMOVED***
+        width: calc(100% - 1.5rem);
+    }
     form>.fields>.field.third {
-        width: calc(100% - 1.5rem***REMOVED***;
-***REMOVED***
+        width: calc(100% - 1.5rem);
+    }
     form>.fields>.field.quarter {
-        width: calc(100% - 1.5rem***REMOVED***;
-***REMOVED***
-***REMOVED***
+        width: calc(100% - 1.5rem);
+    }
+}
 
 label {
     color: #ffffff;
@@ -477,12 +477,12 @@ label {
     line-height: 1.5;
     margin: 0 0 1rem 0;
     text-transform: uppercase;
-***REMOVED***
+}
 
-input[type="text"***REMOVED***,
-input[type="password"***REMOVED***,
-input[type="email"***REMOVED***,
-input[type="tel"***REMOVED***,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
 select,
 textarea {
     -moz-appearance: none;
@@ -502,64 +502,64 @@ textarea {
     padding: 0 1rem;
     text-decoration: none;
     width: 100%;
-***REMOVED***
+}
 
-input[type="text"***REMOVED***:invalid,
-input[type="password"***REMOVED***:invalid,
-input[type="email"***REMOVED***:invalid,
-input[type="tel"***REMOVED***:invalid,
+input[type="text"]:invalid,
+input[type="password"]:invalid,
+input[type="email"]:invalid,
+input[type="tel"]:invalid,
 select:invalid,
 textarea:invalid {
     box-shadow: none;
-***REMOVED***
+}
 
-input[type="text"***REMOVED***:focus,
-input[type="password"***REMOVED***:focus,
-input[type="email"***REMOVED***:focus,
-input[type="tel"***REMOVED***:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-    background: rgba(255, 255, 255, 0.075***REMOVED***;
+    background: rgba(255, 255, 255, 0.075);
     border-color: #ffffff;
     box-shadow: 0 0 0 1px #ffffff;
-***REMOVED***
+}
 
 select {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23ffffff' /%3E%3C/svg%3E"***REMOVED***;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23ffffff' /%3E%3C/svg%3E");
     background-size: 1.25rem;
     background-repeat: no-repeat;
-    background-position: calc(100% - 1rem***REMOVED*** center;
+    background-position: calc(100% - 1rem) center;
     height: 2.75rem;
     padding-right: 2.75rem;
     text-overflow: ellipsis;
-***REMOVED***
+}
 
 select option {
     color: #ffffff;
     background: #1b1f22;
-***REMOVED***
+}
 
 select:focus::-ms-value {
     background-color: transparent;
-***REMOVED***
+}
 
 select::-ms-expand {
     display: none;
-***REMOVED***
+}
 
-input[type="text"***REMOVED***,
-input[type="password"***REMOVED***,
-input[type="email"***REMOVED***,
+input[type="text"],
+input[type="password"],
+input[type="email"],
 select {
     height: 2.75rem;
-***REMOVED***
+}
 
 textarea {
     padding: 0.75rem 1rem;
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***,
-input[type="radio"***REMOVED*** {
+input[type="checkbox"],
+input[type="radio"] {
     -moz-appearance: none;
     -webkit-appearance: none;
     -ms-appearance: none;
@@ -570,10 +570,10 @@ input[type="radio"***REMOVED*** {
     opacity: 0;
     width: 1rem;
     z-index: -1;
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***+label,
-input[type="radio"***REMOVED***+label {
+input[type="checkbox"]+label,
+input[type="radio"]+label {
     text-decoration: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -588,20 +588,20 @@ input[type="radio"***REMOVED***+label {
     padding-left: 2.65rem;
     padding-right: 0.75rem;
     position: relative;
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***+label:before,
-input[type="radio"***REMOVED***+label:before {
+input[type="checkbox"]+label:before,
+input[type="radio"]+label:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***+label:before,
-input[type="radio"***REMOVED***+label:before {
+input[type="checkbox"]+label:before,
+input[type="radio"]+label:before {
     -moz-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
     -webkit-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
     -ms-transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -612,60 +612,60 @@ input[type="radio"***REMOVED***+label:before {
     display: inline-block;
     height: 1.65rem;
     left: 0;
-    line-height: calc(1.58125rem + 0em***REMOVED***;
+    line-height: calc(1.58125rem + 0em);
     position: absolute;
     text-align: center;
     top: -0.125rem;
     width: 1.65rem;
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***:checked+label:before,
-input[type="radio"***REMOVED***:checked+label:before {
+input[type="checkbox"]:checked+label:before,
+input[type="radio"]:checked+label:before {
     background: #ffffff !important;
     border-color: #ffffff !important;
     color: #1b1f22;
     content: "\f00c";
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***:focus+label:before,
-input[type="radio"***REMOVED***:focus+label:before {
-    background: rgba(255, 255, 255, 0.075***REMOVED***;
+input[type="checkbox"]:focus+label:before,
+input[type="radio"]:focus+label:before {
+    background: rgba(255, 255, 255, 0.075);
     border-color: #ffffff;
     box-shadow: 0 0 0 1px #ffffff;
-***REMOVED***
+}
 
-input[type="checkbox"***REMOVED***+label:before {
+input[type="checkbox"]+label:before {
     border-radius: 4px;
-***REMOVED***
+}
 
-input[type="radio"***REMOVED***+label:before {
+input[type="radio"]+label:before {
     border-radius: 100%;
-***REMOVED***
+}
 
 ::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.5***REMOVED*** !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     opacity: 1;
-***REMOVED***
+}
 
 :-moz-placeholder {
-    color: rgba(255, 255, 255, 0.5***REMOVED*** !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     opacity: 1;
-***REMOVED***
+}
 
 ::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.5***REMOVED*** !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     opacity: 1;
-***REMOVED***
+}
 
 :-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5***REMOVED*** !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     opacity: 1;
-***REMOVED***
+}
 
 .formerize-placeholder {
-    color: rgba(255, 255, 255, 0.5***REMOVED*** !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     opacity: 1;
-***REMOVED***
+}
 
 
 /* Box */
@@ -675,19 +675,19 @@ input[type="radio"***REMOVED***+label:before {
     border: solid 1px #ffffff;
     margin-bottom: 2rem;
     padding: 1.5em;
-***REMOVED***
+}
 
 .box> :last-child,
 .box> :last-child> :last-child,
 .box> :last-child> :last-child> :last-child {
     margin-bottom: 0;
-***REMOVED***
+}
 
 .box.alt {
     border: 0;
     border-radius: 0;
     padding: 0;
-***REMOVED***
+}
 
 
 /* Icon */
@@ -696,7 +696,7 @@ input[type="radio"***REMOVED***+label:before {
     text-decoration: none;
     border-bottom: none;
     position: relative;
-***REMOVED***
+}
 
 .icon:before {
     -moz-osx-font-smoothing: grayscale;
@@ -705,11 +705,11 @@ input[type="radio"***REMOVED***+label:before {
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
-***REMOVED***
+}
 
 .icon>.label {
     display: none;
-***REMOVED***
+}
 
 
 /* Image */
@@ -719,12 +719,12 @@ input[type="radio"***REMOVED***+label:before {
     border: 0;
     display: inline-block;
     position: relative;
-***REMOVED***
+}
 
 .image:before {
     pointer-events: none;
-    background-image: url('../img/overlay.png'***REMOVED***;
-    background-color: rgba(19, 21, 25, 0.5***REMOVED***;
+    background-image: url('../img/overlay.png');
+    background-color: rgba(19, 21, 25, 0.5);
     border-radius: 4px;
     content: "";
     display: block;
@@ -734,66 +734,66 @@ input[type="radio"***REMOVED***+label:before {
     position: absolute;
     top: 0;
     width: 100%;
-***REMOVED***
+}
 
 .image img {
     border-radius: 4px;
     display: block;
-***REMOVED***
+}
 
 .image.left,
 .image.right {
     max-width: 40%;
-***REMOVED***
+}
 
 .image.left img,
 .image.right img {
     width: 100%;
-***REMOVED***
+}
 
 .image.left {
     float: left;
     padding: 0 1.5em 1em 0;
     top: 0.25em;
-***REMOVED***
+}
 
 .image.right {
     float: right;
     padding: 0 0 1em 1.5em;
     top: 0.25em;
-***REMOVED***
+}
 
 .image.fit {
     display: block;
     margin: 0 0 2rem 0;
     width: 100%;
-***REMOVED***
+}
 
 .image.fit img {
     width: 100%;
-***REMOVED***
+}
 
 .image.main {
     display: block;
     margin: 2.5rem 0;
     width: 100%;
-***REMOVED***
+}
 
 .image.main img {
     width: 100%;
-***REMOVED***
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     .image.main {
         margin: 2rem 0;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     .image.main {
         margin: 1.5rem 0;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 
 /* List */
@@ -802,50 +802,50 @@ ol {
     list-style: decimal;
     margin: 0 0 2rem 0;
     padding-left: 1.25em;
-***REMOVED***
+}
 
 ol li {
     padding-left: 0.25em;
-***REMOVED***
+}
 
 ul {
     list-style: disc;
     margin: 0 0 2rem 0;
     padding-left: 1em;
-***REMOVED***
+}
 
 ul li {
     padding-left: 0.5em;
-***REMOVED***
+}
 
 ul.alt {
     list-style: none;
     padding-left: 0;
-***REMOVED***
+}
 
 ul.alt li {
     border-top: solid 1px #ffffff;
     padding: 0.5em 0;
-***REMOVED***
+}
 
 ul.alt li:first-child {
     border-top: 0;
     padding-top: 0;
-***REMOVED***
+}
 
 dl {
     margin: 0 0 2rem 0;
-***REMOVED***
+}
 
 dl dt {
     display: block;
     font-weight: 600;
     margin: 0 0 1rem 0;
-***REMOVED***
+}
 
 dl dd {
     margin-left: 2rem;
-***REMOVED***
+}
 
 
 /* Actions */
@@ -859,12 +859,12 @@ ul.actions {
     list-style: none;
     margin-left: -1rem;
     padding-left: 0;
-***REMOVED***
+}
 
 ul.actions li {
     padding: 0 0 0 1rem;
     vertical-align: middle;
-***REMOVED***
+}
 
 ul.actions.special {
     -moz-justify-content: center;
@@ -873,11 +873,11 @@ ul.actions.special {
     justify-content: center;
     width: 100%;
     margin-left: 0;
-***REMOVED***
+}
 
 ul.actions.special li:first-child {
     padding-left: 0;
-***REMOVED***
+}
 
 ul.actions.stacked {
     -moz-flex-direction: column;
@@ -885,19 +885,19 @@ ul.actions.stacked {
     -ms-flex-direction: column;
     flex-direction: column;
     margin-left: 0;
-***REMOVED***
+}
 
 ul.actions.stacked li {
     padding: 1.3rem 0 0 0;
-***REMOVED***
+}
 
 ul.actions.stacked li:first-child {
     padding-top: 0;
-***REMOVED***
+}
 
 ul.actions.fit {
-    width: calc(100% + 1rem***REMOVED***;
-***REMOVED***
+    width: calc(100% + 1rem);
+}
 
 ul.actions.fit li {
     -moz-flex-grow: 1;
@@ -909,26 +909,26 @@ ul.actions.fit li {
     -ms-flex-shrink: 1;
     flex-shrink: 1;
     width: 100%;
-***REMOVED***
+}
 
 ul.actions.fit li>* {
     width: 100%;
-***REMOVED***
+}
 
 ul.actions.fit.stacked {
     width: 100%;
-***REMOVED***
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
-    ul.actions:not(.fixed***REMOVED*** {
+@media screen and (max-width: 480px) {
+    ul.actions:not(.fixed) {
         -moz-flex-direction: column;
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
         margin-left: 0;
         width: 100% !important;
-***REMOVED***
-    ul.actions:not(.fixed***REMOVED*** li {
+    }
+    ul.actions:not(.fixed) li {
         -moz-flex-grow: 1;
         -webkit-flex-grow: 1;
         -ms-flex-grow: 1;
@@ -940,28 +940,28 @@ ul.actions.fit.stacked {
         padding: 1rem 0 0 0;
         text-align: center;
         width: 100%;
-***REMOVED***
-    ul.actions:not(.fixed***REMOVED*** li>* {
+    }
+    ul.actions:not(.fixed) li>* {
         width: 100%;
-***REMOVED***
-    ul.actions:not(.fixed***REMOVED*** li:first-child {
+    }
+    ul.actions:not(.fixed) li:first-child {
         padding-top: 0;
-***REMOVED***
-    ul.actions:not(.fixed***REMOVED*** li input[type="submit"***REMOVED***,
-    ul.actions:not(.fixed***REMOVED*** li input[type="reset"***REMOVED***,
-    ul.actions:not(.fixed***REMOVED*** li input[type="button"***REMOVED***,
-    ul.actions:not(.fixed***REMOVED*** li button,
-    ul.actions:not(.fixed***REMOVED*** li .button {
+    }
+    ul.actions:not(.fixed) li input[type="submit"],
+    ul.actions:not(.fixed) li input[type="reset"],
+    ul.actions:not(.fixed) li input[type="button"],
+    ul.actions:not(.fixed) li button,
+    ul.actions:not(.fixed) li .button {
         width: 100%;
-***REMOVED***
-    ul.actions:not(.fixed***REMOVED*** li input[type="submit"***REMOVED***.icon:before,
-    ul.actions:not(.fixed***REMOVED*** li input[type="reset"***REMOVED***.icon:before,
-    ul.actions:not(.fixed***REMOVED*** li input[type="button"***REMOVED***.icon:before,
-    ul.actions:not(.fixed***REMOVED*** li button.icon:before,
-    ul.actions:not(.fixed***REMOVED*** li .button.icon:before {
+    }
+    ul.actions:not(.fixed) li input[type="submit"].icon:before,
+    ul.actions:not(.fixed) li input[type="reset"].icon:before,
+    ul.actions:not(.fixed) li input[type="button"].icon:before,
+    ul.actions:not(.fixed) li button.icon:before,
+    ul.actions:not(.fixed) li .button.icon:before {
         margin-left: -0.5em;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 
 /* Icons */
@@ -970,16 +970,16 @@ ul.icons {
     cursor: default;
     list-style: none;
     padding-left: 0;
-***REMOVED***
+}
 
 ul.icons li {
     display: inline-block;
     padding: 0 0.75em 0 0;
-***REMOVED***
+}
 
 ul.icons li:last-child {
     padding-right: 0;
-***REMOVED***
+}
 
 ul.icons li a {
     border-radius: 100%;
@@ -989,15 +989,15 @@ ul.icons li a {
     line-height: 2.25rem;
     text-align: center;
     width: 2.25rem;
-***REMOVED***
+}
 
 ul.icons li a:hover {
-    background-color: rgba(255, 255, 255, 0.075***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.075);
+}
 
 ul.icons li a:active {
-    background-color: rgba(255, 255, 255, 0.175***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.175);
+}
 
 
 /* Table */
@@ -1005,26 +1005,26 @@ ul.icons li a:active {
 .table-wrapper {
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
-***REMOVED***
+}
 
 table {
     margin: 0 0 2rem 0;
     width: 100%;
-***REMOVED***
+}
 
 table tbody tr {
     border: solid 1px #ffffff;
     border-left: 0;
     border-right: 0;
-***REMOVED***
+}
 
-table tbody tr:nth-child(2n+1***REMOVED*** {
-    background-color: rgba(255, 255, 255, 0.075***REMOVED***;
-***REMOVED***
+table tbody tr:nth-child(2n+1) {
+    background-color: rgba(255, 255, 255, 0.075);
+}
 
 table td {
     padding: 0.75em 0.75em;
-***REMOVED***
+}
 
 table th {
     color: #ffffff;
@@ -1032,48 +1032,48 @@ table th {
     font-weight: 600;
     padding: 0 0.75em 0.75em 0.75em;
     text-align: left;
-***REMOVED***
+}
 
 table thead {
     border-bottom: solid 2px #ffffff;
-***REMOVED***
+}
 
 table tfoot {
     border-top: solid 2px #ffffff;
-***REMOVED***
+}
 
 table.alt {
     border-collapse: separate;
-***REMOVED***
+}
 
 table.alt tbody tr td {
     border: solid 1px #ffffff;
     border-left-width: 0;
     border-top-width: 0;
-***REMOVED***
+}
 
 table.alt tbody tr td:first-child {
     border-left-width: 1px;
-***REMOVED***
+}
 
 table.alt tbody tr:first-child td {
     border-top-width: 1px;
-***REMOVED***
+}
 
 table.alt thead {
     border-bottom: 0;
-***REMOVED***
+}
 
 table.alt tfoot {
     border-top: 0;
-***REMOVED***
+}
 
 
 /* Button */
 
-input[type="submit"***REMOVED***,
-input[type="reset"***REMOVED***,
-input[type="button"***REMOVED***,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
 button,
 .button {
     -moz-appearance: none;
@@ -1102,66 +1102,66 @@ button,
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
-***REMOVED***
+}
 
-input[type="submit"***REMOVED***:hover,
-input[type="reset"***REMOVED***:hover,
-input[type="button"***REMOVED***:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
 button:hover,
 .button:hover {
-    background-color: rgba(255, 255, 255, 0.075***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.075);
+}
 
-input[type="submit"***REMOVED***:active,
-input[type="reset"***REMOVED***:active,
-input[type="button"***REMOVED***:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
 button:active,
 .button:active {
-    background-color: rgba(255, 255, 255, 0.175***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.175);
+}
 
-input[type="submit"***REMOVED***.icon:before,
-input[type="reset"***REMOVED***.icon:before,
-input[type="button"***REMOVED***.icon:before,
+input[type="submit"].icon:before,
+input[type="reset"].icon:before,
+input[type="button"].icon:before,
 button.icon:before,
 .button.icon:before {
     margin-right: 0.5em;
-***REMOVED***
+}
 
-input[type="submit"***REMOVED***.fit,
-input[type="reset"***REMOVED***.fit,
-input[type="button"***REMOVED***.fit,
+input[type="submit"].fit,
+input[type="reset"].fit,
+input[type="button"].fit,
 button.fit,
 .button.fit {
     width: 100%;
-***REMOVED***
+}
 
-input[type="submit"***REMOVED***.small,
-input[type="reset"***REMOVED***.small,
-input[type="button"***REMOVED***.small,
+input[type="submit"].small,
+input[type="reset"].small,
+input[type="button"].small,
 button.small,
 .button.small {
     font-size: 0.6rem;
     height: 2.0625rem;
     line-height: 2.0625rem;
-***REMOVED***
+}
 
-input[type="submit"***REMOVED***.primary,
-input[type="reset"***REMOVED***.primary,
-input[type="button"***REMOVED***.primary,
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
 button.primary,
 .button.primary {
     background-color: #ffffff;
     color: #1b1f22 !important;
     font-weight: 600;
-***REMOVED***
+}
 
-input[type="submit"***REMOVED***.disabled,
-input[type="submit"***REMOVED***:disabled,
-input[type="reset"***REMOVED***.disabled,
-input[type="reset"***REMOVED***:disabled,
-input[type="button"***REMOVED***.disabled,
-input[type="button"***REMOVED***:disabled,
+input[type="submit"].disabled,
+input[type="submit"]:disabled,
+input[type="reset"].disabled,
+input[type="reset"]:disabled,
+input[type="button"].disabled,
+input[type="button"]:disabled,
 button.disabled,
 button:disabled,
 .button.disabled,
@@ -1169,23 +1169,23 @@ button:disabled,
     pointer-events: none;
     cursor: default;
     opacity: 0.25;
-***REMOVED***
+}
 
-input[type="submit"***REMOVED***,
-input[type="reset"***REMOVED***,
-input[type="button"***REMOVED***,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
 button {
-    line-height: calc(2.75rem - 2px***REMOVED***;
-***REMOVED***
+    line-height: calc(2.75rem - 2px);
+}
 
 
 /* BG */
 
 #bg {
-    -moz-transform: scale(1***REMOVED***;
-    -webkit-transform: scale(1***REMOVED***;
-    -ms-transform: scale(1***REMOVED***;
-    transform: scale(1***REMOVED***;
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
     -webkit-backface-visibility: hidden;
     position: fixed;
     top: 0;
@@ -1193,7 +1193,7 @@ button {
     width: 100%;
     height: 100vh;
     z-index: 1;
-***REMOVED***
+}
 
 #bg:before,
 #bg:after {
@@ -1204,7 +1204,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-***REMOVED***
+}
 
 #bg:before {
     -moz-transition: background-color 2.5s ease-in-out;
@@ -1215,43 +1215,43 @@ button {
     -webkit-transition-delay: 0.75s;
     -ms-transition-delay: 0.75s;
     transition-delay: 0.75s;
-    background-image: linear-gradient( to top, rgba(19, 21, 25, 0.5***REMOVED***, rgba(19, 21, 25, 0.5***REMOVED******REMOVED***, url('../img/overlay.png'***REMOVED***;
+    background-image: linear-gradient( to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url('../img/overlay.png');
     background-size: auto, 256px 256px;
     background-position: center, center;
     background-repeat: no-repeat, repeat;
     z-index: 2;
-***REMOVED***
+}
 
 #bg:after {
-    -moz-transform: scale(1.125***REMOVED***;
-    -webkit-transform: scale(1.125***REMOVED***;
-    -ms-transform: scale(1.125***REMOVED***;
-    transform: scale(1.125***REMOVED***;
+    -moz-transform: scale(1.125);
+    -webkit-transform: scale(1.125);
+    -ms-transform: scale(1.125);
+    transform: scale(1.125);
     -moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out;
     -webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
     -ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
     transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-    background-image: url('../img/bg.jpg'***REMOVED***;
+    background-image: url('../img/bg.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 1;
-***REMOVED***
+}
 
 body.is-article-visible #bg:after {
-    -moz-transform: scale(1.0825***REMOVED***;
-    -webkit-transform: scale(1.0825***REMOVED***;
-    -ms-transform: scale(1.0825***REMOVED***;
-    transform: scale(1.0825***REMOVED***;
-    -moz-filter: blur(0.2rem***REMOVED***;
-    -webkit-filter: blur(0.2rem***REMOVED***;
-    -ms-filter: blur(0.2rem***REMOVED***;
-    filter: blur(0.2rem***REMOVED***;
-***REMOVED***
+    -moz-transform: scale(1.0825);
+    -webkit-transform: scale(1.0825);
+    -ms-transform: scale(1.0825);
+    transform: scale(1.0825);
+    -moz-filter: blur(0.2rem);
+    -webkit-filter: blur(0.2rem);
+    -ms-filter: blur(0.2rem);
+    filter: blur(0.2rem);
+}
 
 body.is-preload #bg:before {
     background-color: #000000;
-***REMOVED***
+}
 
 
 /* Wrapper */
@@ -1278,30 +1278,30 @@ body.is-preload #bg:before {
     width: 100%;
     padding: 4rem 2rem;
     z-index: 3;
-***REMOVED***
+}
 
 #wrapper:before {
     content: "";
     display: block;
-***REMOVED***
+}
 
-@media screen and (max-width: 1680px***REMOVED*** {
+@media screen and (max-width: 1680px) {
     #wrapper {
         padding: 3rem 2rem;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     #wrapper {
         padding: 2rem 1rem;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     #wrapper {
         padding: 1rem;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 
 /* Header */
@@ -1323,13 +1323,13 @@ body.is-preload #bg:before {
     -webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
     -ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
     transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
-    background-image: -moz-radial-gradient( rgba(0, 0, 0, 0.25***REMOVED*** 25%, rgba(0, 0, 0, 0***REMOVED*** 55%***REMOVED***;
-    background-image: -webkit-radial-gradient( rgba(0, 0, 0, 0.25***REMOVED*** 25%, rgba(0, 0, 0, 0***REMOVED*** 55%***REMOVED***;
-    background-image: -ms-radial-gradient( rgba(0, 0, 0, 0.25***REMOVED*** 25%, rgba(0, 0, 0, 0***REMOVED*** 55%***REMOVED***;
-    background-image: radial-gradient( rgba(0, 0, 0, 0.25***REMOVED*** 25%, rgba(0, 0, 0, 0***REMOVED*** 55%***REMOVED***;
+    background-image: -moz-radial-gradient( rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
+    background-image: -webkit-radial-gradient( rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
+    background-image: -ms-radial-gradient( rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
+    background-image: radial-gradient( rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
     max-width: 100%;
     text-align: center;
-***REMOVED***
+}
 
 #header>* {
     -moz-transition: opacity 0.325s ease-in-out;
@@ -1338,26 +1338,26 @@ body.is-preload #bg:before {
     transition: opacity 0.325s ease-in-out;
     position: relative;
     margin-top: 3.5rem;
-***REMOVED***
+}
 
 #header>*:before {
     content: "";
     display: block;
     position: absolute;
-    top: calc(-3.5rem - 1px***REMOVED***;
-    left: calc(50% - 1px***REMOVED***;
+    top: calc(-3.5rem - 1px);
+    left: calc(50% - 1px);
     width: 1px;
-    height: calc(3.5rem + 1px***REMOVED***;
+    height: calc(3.5rem + 1px);
     background: #ffffff;
-***REMOVED***
+}
 
 #header> :first-child {
     margin-top: 0;
-***REMOVED***
+}
 
 #header> :first-child:before {
     display: none;
-***REMOVED***
+}
 
 #header .logo {
     width: 5.5rem;
@@ -1365,11 +1365,11 @@ body.is-preload #bg:before {
     line-height: 5.5rem;
     border: solid 1px #ffffff;
     border-radius: 100%;
-***REMOVED***
+}
 
 #header .logo .icon:before {
     font-size: 2.5rem;
-***REMOVED***
+}
 
 #header .content {
     border-style: solid;
@@ -1377,7 +1377,7 @@ body.is-preload #bg:before {
     border-top-width: 1px;
     border-bottom-width: 1px;
     max-width: 100%;
-***REMOVED***
+}
 
 #header .content .inner {
     -moz-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
@@ -1391,18 +1391,18 @@ body.is-preload #bg:before {
     padding: 3rem 2rem;
     max-height: 40rem;
     overflow: hidden;
-***REMOVED***
+}
 
 #header .content .inner> :last-child {
     margin-bottom: 0;
-***REMOVED***
+}
 
 #header .content p {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-size: 0.8rem;
     line-height: 2;
-***REMOVED***
+}
 
 #header nav ul {
     display: -moz-flex;
@@ -1414,16 +1414,16 @@ body.is-preload #bg:before {
     padding-left: 0;
     border: solid 1px #ffffff;
     border-radius: 4px;
-***REMOVED***
+}
 
 #header nav ul li {
     padding-left: 0;
     border-left: solid 1px #ffffff;
-***REMOVED***
+}
 
 #header nav ul li:first-child {
     border-left: 0;
-***REMOVED***
+}
 
 #header nav ul li a {
     display: block;
@@ -1435,98 +1435,98 @@ body.is-preload #bg:before {
     letter-spacing: 0.2rem;
     font-size: 0.8rem;
     border-bottom: 0;
-***REMOVED***
+}
 
 #header nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.075***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.075);
+}
 
 #header nav ul li a:active {
-    background-color: rgba(255, 255, 255, 0.175***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.175);
+}
 
 #header nav.use-middle:after {
     content: "";
     display: block;
     position: absolute;
     top: 0;
-    left: calc(50% - 1px***REMOVED***;
+    left: calc(50% - 1px);
     width: 1px;
     height: 100%;
     background: #ffffff;
-***REMOVED***
+}
 
 #header nav.use-middle ul li.is-middle {
     border-left: 0;
-***REMOVED***
+}
 
 body.is-article-visible #header {
-    -moz-transform: scale(0.95***REMOVED***;
-    -webkit-transform: scale(0.95***REMOVED***;
-    -ms-transform: scale(0.95***REMOVED***;
-    transform: scale(0.95***REMOVED***;
-    -moz-filter: blur(0.1rem***REMOVED***;
-    -webkit-filter: blur(0.1rem***REMOVED***;
-    -ms-filter: blur(0.1rem***REMOVED***;
-    filter: blur(0.1rem***REMOVED***;
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    -moz-filter: blur(0.1rem);
+    -webkit-filter: blur(0.1rem);
+    -ms-filter: blur(0.1rem);
+    filter: blur(0.1rem);
     opacity: 0;
-***REMOVED***
+}
 
 body.is-preload #header {
-    -moz-filter: blur(0.125rem***REMOVED***;
-    -webkit-filter: blur(0.125rem***REMOVED***;
-    -ms-filter: blur(0.125rem***REMOVED***;
-    filter: blur(0.125rem***REMOVED***;
-***REMOVED***
+    -moz-filter: blur(0.125rem);
+    -webkit-filter: blur(0.125rem);
+    -ms-filter: blur(0.125rem);
+    filter: blur(0.125rem);
+}
 
 body.is-preload #header>* {
     opacity: 0;
-***REMOVED***
+}
 
 body.is-preload #header .content .inner {
     max-height: 0;
     padding-top: 0;
     padding-bottom: 0;
     opacity: 0;
-***REMOVED***
+}
 
-@media screen and (max-width: 980px***REMOVED*** {
+@media screen and (max-width: 980px) {
     #header .content p br {
         display: none;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     #header>* {
         margin-top: 2rem;
-***REMOVED***
+    }
     #header>*:before {
-        top: calc(-2rem - 1px***REMOVED***;
-        height: calc(2rem + 1px***REMOVED***;
-***REMOVED***
+        top: calc(-2rem - 1px);
+        height: calc(2rem + 1px);
+    }
     #header .logo {
         width: 4.75rem;
         height: 4.75rem;
         line-height: 4.75rem;
-***REMOVED***
+    }
     #header .logo .icon:before {
         font-size: 2.25rem;
-***REMOVED***
+    }
     #header .content .inner {
         padding: 2.5rem 1rem;
-***REMOVED***
+    }
     #header .content p {
         line-height: 1.875;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     #header {
         padding: 1.5rem 0;
-***REMOVED***
+    }
     #header .content .inner {
         padding: 2.5rem 0;
-***REMOVED***
+    }
     #header nav ul {
         -moz-flex-direction: column;
         -webkit-flex-direction: column;
@@ -1534,24 +1534,24 @@ body.is-preload #header .content .inner {
         flex-direction: column;
         min-width: 10rem;
         max-width: 100%;
-***REMOVED***
+    }
     #header nav ul li {
         border-left: 0;
         border-top: solid 1px #ffffff;
-***REMOVED***
+    }
     #header nav ul li:first-child {
         border-top: 0;
-***REMOVED***
+    }
     #header nav ul li a {
         height: 3rem;
         line-height: 3rem;
         min-width: 0;
         width: 100%;
-***REMOVED***
+    }
     #header nav.use-middle:after {
         display: none;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 
 /* Main */
@@ -1584,13 +1584,13 @@ body.is-preload #header .content .inner {
     position: relative;
     max-width: 100%;
     z-index: 3;
-***REMOVED***
+}
 
 #main article {
-    -moz-transform: translateY(0.25rem***REMOVED***;
-    -webkit-transform: translateY(0.25rem***REMOVED***;
-    -ms-transform: translateY(0.25rem***REMOVED***;
-    transform: translateY(0.25rem***REMOVED***;
+    -moz-transform: translateY(0.25rem);
+    -webkit-transform: translateY(0.25rem);
+    -ms-transform: translateY(0.25rem);
+    transform: translateY(0.25rem);
     -moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
     -webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
     -ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
@@ -1599,18 +1599,18 @@ body.is-preload #header .content .inner {
     position: relative;
     width: 40rem;
     max-width: 100%;
-    background-color: rgba(27, 31, 34, 0.85***REMOVED***;
+    background-color: rgba(27, 31, 34, 0.85);
     border-radius: 4px;
     opacity: 0;
-***REMOVED***
+}
 
 #main article.active {
-    -moz-transform: translateY(0***REMOVED***;
-    -webkit-transform: translateY(0***REMOVED***;
-    -ms-transform: translateY(0***REMOVED***;
-    transform: translateY(0***REMOVED***;
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
     opacity: 1;
-***REMOVED***
+}
 
 #main article .close {
     display: block;
@@ -1623,7 +1623,7 @@ body.is-preload #header .content .inner {
     text-indent: 4rem;
     overflow: hidden;
     white-space: nowrap;
-***REMOVED***
+}
 
 #main article .close:before {
     -moz-transition: background-color 0.2s ease-in-out;
@@ -1639,37 +1639,37 @@ body.is-preload #header .content .inner {
     height: 2.5rem;
     border-radius: 100%;
     background-position: center;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E"***REMOVED***;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
     background-size: 20px 20px;
     background-repeat: no-repeat;
-***REMOVED***
+}
 
 #main article .close:hover:before {
-    background-color: rgba(255, 255, 255, 0.075***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.075);
+}
 
 #main article .close:active:before {
-    background-color: rgba(255, 255, 255, 0.175***REMOVED***;
-***REMOVED***
+    background-color: rgba(255, 255, 255, 0.175);
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     #main article {
         padding: 3.5rem 2rem 0.5rem 2rem;
-***REMOVED***
+    }
     #main article .close:before {
         top: 0.875rem;
         left: 0.875rem;
         width: 2.25rem;
         height: 2.25rem;
         background-size: 14px 14px;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     #main article {
         padding: 3rem 1.5rem 0.5rem 1.5rem;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 
 /* Footer */
@@ -1684,20 +1684,20 @@ body.is-preload #header .content .inner {
     margin-top: 2rem;
     margin-bottom: -2rem;
     text-align: right;
-***REMOVED***
+}
 
-@media screen and (max-width: 736px***REMOVED*** {
+@media screen and (max-width: 736px) {
     #footer {
         margin-bottom: -1rem;
-***REMOVED***
-***REMOVED***
+    }
+}
 
-@media screen and (max-width: 480px***REMOVED*** {
+@media screen and (max-width: 480px) {
     #footer {
         margin-bottom: 0;
         margin-right: 0;
-***REMOVED***
-***REMOVED***
+    }
+}
 
 #footer .copyright {
     letter-spacing: 0.2rem;
@@ -1705,20 +1705,20 @@ body.is-preload #header .content .inner {
     opacity: 0.75;
     margin-bottom: 0;
     text-transform: uppercase;
-***REMOVED***
+}
 
 body.is-article-visible #footer {
-    -moz-transform: scale(0.95***REMOVED***;
-    -webkit-transform: scale(0.95***REMOVED***;
-    -ms-transform: scale(0.95***REMOVED***;
-    transform: scale(0.95***REMOVED***;
-    -moz-filter: blur(0.1rem***REMOVED***;
-    -webkit-filter: blur(0.1rem***REMOVED***;
-    -ms-filter: blur(0.1rem***REMOVED***;
-    filter: blur(0.1rem***REMOVED***;
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    -moz-filter: blur(0.1rem);
+    -webkit-filter: blur(0.1rem);
+    -ms-filter: blur(0.1rem);
+    filter: blur(0.1rem);
     opacity: 0;
-***REMOVED***
+}
 
 body.is-preload #footer {
     opacity: 0;
-***REMOVED***
+}

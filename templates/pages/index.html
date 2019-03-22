@@ -1,10 +1,10 @@
-{% extends "base.html" %***REMOVED***
-{% load i18n %***REMOVED***
-{% get_current_language as LANGUAGE_CODE %***REMOVED***
-{% get_available_languages as LANGUAGES %***REMOVED***
-{% load static %***REMOVED***
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% load static %}
 
-{% block content %***REMOVED***
+{% block content %}
 <!-- Header -->
 <header id="header">
   <div class="logo">
@@ -12,18 +12,18 @@
   </div>
   <div class="content">
     <div class="inner">
-      <h1>{% trans "Anastasia &<br />Max's wedding" %***REMOVED***</h1>
-      <p>{% trans "Join us!" %***REMOVED***</p>
+      <h1>{% trans "Anastasia &<br />Max's wedding" %}</h1>
+      <p>{% trans "Join us!" %}</p>
     </div>
   </div>
 
   <nav>
     <ul>
-      <li><a href="#story">{% trans "Story" %***REMOVED***</a></li>
-      <li><a href="#wedding">{% trans "Wedding" %***REMOVED***</a></li>
-      <li><a href="#travel">{% trans "Travel" %***REMOVED***</a></li>
-      <li><a href="#registry">{% trans "Registry" %***REMOVED***</a></li>
-      <li><a href="#rsvp">{% trans "RSVP" %***REMOVED***</a></li>
+      <li><a href="#story">{% trans "Story" %}</a></li>
+      <li><a href="#wedding">{% trans "Wedding" %}</a></li>
+      <li><a href="#travel">{% trans "Travel" %}</a></li>
+      <li><a href="#registry">{% trans "Registry" %}</a></li>
+      <li><a href="#rsvp">{% trans "RSVP" %}</a></li>
     </ul>
   </nav>
 </header>
@@ -32,168 +32,168 @@
 <div id="main">
   <!-- Languages -->
   <article id="languages">
-    <h2 class="major">{% trans "Languages" %***REMOVED***</h2>
+    <h2 class="major">{% trans "Languages" %}</h2>
     <ul class="actions">
-    ***REMOVED***% for code, name in LANGUAGES %***REMOVED***
+        {% for code, name in LANGUAGES %}
         <li>
-          <input type="button" value="{{ name ***REMOVED******REMOVED***" onClick="location.href='/{{ code ***REMOVED******REMOVED***'" {% if code == LANGUAGE_CODE %***REMOVED***disabled{% endif %***REMOVED*** >
+          <input type="button" value="{{ name }}" onClick="location.href='/{{ code }}'" {% if code == LANGUAGE_CODE %}disabled{% endif %} >
         </li>
-    ***REMOVED***% endfor %***REMOVED***
+        {% endfor %}
     </ul>
     </p>
   </article>
 
   <!-- Story -->
   <article id="story">
-    <h2 class="major">{% trans "Story" %***REMOVED***</h2>
+    <h2 class="major">{% trans "Story" %}</h2>
     <span class="image main">
-      <img src="{% static 'img/story1.jpg' %***REMOVED***" alt="" />
+      <img src="{% static 'img/story1.jpg' %}" alt="" />
     </span>
-    <h3>{% trans "Saturday, 21 March 2015:" %***REMOVED***</h3>
+    <h3>{% trans "Saturday, 21 March 2015:" %}</h3>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open...
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% blocktrans trimmed %}There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open...
+      {% endblocktrans %}
     </p>
-    <h3>{% trans "Thursday, 8 March 2018:" %***REMOVED***</h3>
+    <h3>{% trans "Thursday, 8 March 2018:" %}</h3>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of butterflies currently laying waste to his stomach. They had set out to Chenonceau that morning under the guise of a quixotic expedition, little did his better half know what awaited for her. Although he had gotten used to the weight of the small box that had been sitting in his pocket for the last 4 months, it seemed to get exponentially heavier with each step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee.
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% blocktrans trimmed %}<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of butterflies currently laying waste to his stomach. They had set out to Chenonceau that morning under the guise of a quixotic expedition, little did his better half know what awaited for her. Although he had gotten used to the weight of the small box that had been sitting in his pocket for the last 4 months, it seemed to get exponentially heavier with each step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee.
+      {% endblocktrans %}
     </p>
     <span class="image main">
-      <img src="{% static 'img/story2.jpg' %***REMOVED***" alt="" />
+      <img src="{% static 'img/story2.jpg' %}" alt="" />
     </span>
-    <h3>{% trans "Tuesday, 10 July 2018:" %***REMOVED***</h3>
+    <h3>{% trans "Tuesday, 10 July 2018:" %}</h3>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***<strong>THEY</strong> stood in front of the mayor of that fateful little village in the Loire valley. Backed by their close family, they beamed with delight as they tried to listen attentively to his courteous discourse. In the eyes of the law, they were now bound.
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% blocktrans trimmed %}<strong>THEY</strong> stood in front of the mayor of that fateful little village in the Loire valley. Backed by their close family, they beamed with delight as they tried to listen attentively to his courteous discourse. In the eyes of the law, they were now bound.
+      {% endblocktrans %}
     </p>
-    <h3>{% trans "Sunday, 1 September 2019" %***REMOVED***</h3>
+    <h3>{% trans "Sunday, 1 September 2019" %}</h3>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***
-        Now the moment has come for <strong>US</strong> to vow our undying love in the presence of God and <strong>YOU</strong> our most cherished comrades. Join us for our crowning ceremony (orthodox wedding rite***REMOVED*** and a celebration of unprecedented lavishness in Saint Petersburg.
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% blocktrans trimmed %}
+        Now the moment has come for <strong>US</strong> to vow our undying love in the presence of God and <strong>YOU</strong> our most cherished comrades. Join us for our crowning ceremony (orthodox wedding rite) and a celebration of unprecedented lavishness in Saint Petersburg.
+      {% endblocktrans %}
     </p>
   </article>
 
   <!-- Wedding -->
   <article id="wedding">
-    <h2 class="major">{% trans "Wedding" %***REMOVED***</h2>
-***REMOVED***% csrf_token %***REMOVED***
+    <h2 class="major">{% trans "Wedding" %}</h2>
+    {% csrf_token %}
     <iframe src="https://www.google.com/maps/d/u/1/embed?mid=17YtiK7Vm45ZVEeqrZQtS7id6XHX3QPRT&z=12" width="100%" height="420"></iframe>
-    <h3>{% trans "Sunday, 1 September 2019:" %***REMOVED***<br />15:00</h3>
+    <h3>{% trans "Sunday, 1 September 2019:" %}<br />15:00</h3>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***
+      {% blocktrans trimmed %}
         The wedding day will begin with the traditional Russian Orthodox crowning ceremony in the Church Of the Holy Righteous Simeon and Anna the Prophetess. The church was built in 1734 by Empress Anna Ioannovna in the heart of Saint Petersburg.<br />
         The ceremony will start with the betrothal service, during which the priest blesses the rings. After which the couple exchanges them, placing them on their right hand.<br />
         This is immediately followed by the wedding service. The bride and groom will carry candles as the priest joins their hands whilst praying for their marriage. The candle- and hand-holding will continue until the end of the ceremony as a symbol of union.<br />
         Now comes the moment for the centerpiece of the Orthodox wedding ceremony: the Crowning. The crowns, held above the heads of the bride and the groom by the witnesses, symbolize the glory and honor that is being bestowed on them by God during the holy sacrament of marriage.<br />
         After the crowns have been placed firmly on the couple's heads, the bride and groom take three sips of wine from a shared cup. The wine is reminiscent of the miracle of the wedding of Cana of Galilee, where water was famously turned into wine.<br />
-        Finally, the bride and groom will circle the central altar three times, echoing a pre-Christian ritual dance, accompanied by a choir. In this act, the couple takes their first steps as a married couple and the ceremony is concluded with the ancient blessing "Na zisete" ("May you live!"***REMOVED***
-  ***REMOVED***% endblocktrans %***REMOVED***
+        Finally, the bride and groom will circle the central altar three times, echoing a pre-Christian ritual dance, accompanied by a choir. In this act, the couple takes their first steps as a married couple and the ceremony is concluded with the ancient blessing "Na zisete" ("May you live!")
+      {% endblocktrans %}
     </p>
     <span class="image main">
-      <img src="{% static 'img/church.jpg' %***REMOVED***" alt="" />
+      <img src="{% static 'img/church.jpg' %}" alt="" />
     </span>
     <h3>17:00</h3>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***
+      {% blocktrans trimmed %}
         After seeing the lush, rich, Imperial Saint Petersburg, you will get the opportunity to see the other side of the city: underground, vintage, and artistic. The reception will take place in the Craft Loft “Vesseniy”, not 15 minutes away by car. You'll be greeted with bubbles, canapés, and music. Shortly after which, the banquet will be served.<br />
         Russian wedding traditions are numerous and rich, a few you may want to know and participate in are as follows.<br />
-        You may overhear guests talking about the bitterness of the food. This is no culinary critique, but one of the traditional wedding games. Guests slowly start to chant "Gorka, gorka, gorka..." (meaning "bitter"***REMOVED*** until the newlyweds kiss after which the guests start counting upwards. The goal being to kiss for as long as possible and then exclaim: "No, it's sweet!".<br />
+        You may overhear guests talking about the bitterness of the food. This is no culinary critique, but one of the traditional wedding games. Guests slowly start to chant "Gorka, gorka, gorka..." (meaning "bitter") until the newlyweds kiss after which the guests start counting upwards. The goal being to kiss for as long as possible and then exclaim: "No, it's sweet!".<br />
         During the long banquet, all guests are welcome to perform a speech, song, dance, roast, or any other variety of number, in groups or alone. With multiple cultures and languages present, this is a relaxed and informal opportunity to exchange and bring the party together.
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% endblocktrans %}
     </p>
     <span class="image main">
-      <img src="{% static 'img/loft.jpg' %***REMOVED***" alt="" />
+      <img src="{% static 'img/loft.jpg' %}" alt="" />
     </span>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***
+      {% blocktrans trimmed %}
         We will provide you with further information about the proceedings, transportation, and activities surrounding this momentous occasion by email and on the website as the story develops.
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% endblocktrans %}
     </p>
   </article>
 
     <!-- Travel -->
     <article id="travel">
-      <h2 class="major">{% trans "Travel" %***REMOVED***</h2>
+      <h2 class="major">{% trans "Travel" %}</h2>
       <span class="image main">
-        <img src="{% static 'img/peter1.jpg' %***REMOVED***" alt="" />
+        <img src="{% static 'img/peter1.jpg' %}" alt="" />
       </span>
       <p>
-    ***REMOVED***% blocktrans trimmed %***REMOVED***
+        {% blocktrans trimmed %}
           Russia is a vast and diverse country, full of idyllic and culturally rich cities. As this may be the first time in the Russian Federation for a lot of our guests, we have a few tips to make your stay one to remember!
-    ***REMOVED***% endblocktrans %***REMOVED***
+        {% endblocktrans %}
       </p>
-      <h3>{% trans "Visas:" %***REMOVED***</h3>
+      <h3>{% trans "Visas:" %}</h3>
       <p>
-    ***REMOVED***% blocktrans trimmed %***REMOVED***
+        {% blocktrans trimmed %}
           The first thing you'll need is a visa. While Russia has a number of <a href="http://www.saint-petersburg.com/russian-visa/visa-free-travel/">visa-free</a> agreements, it is quite likely you'll need to apply for a <a href="http://www.saint-petersburg.com/russian-visa/tourist-visas/">tourist visa</a>. You'll require a tourist voucher alongside a valid passport, photo, and travel insurance. This voucher is either provided by the hotel you'll be staying at or can be <a href="https://www.travelrussia.su/en/visa.tourist.php"> purchased online</a> for a reasonable price if you will be staying at an airbnb for example.<br />
           Once you have all these documents in hand, you'll be required to fill out a <a href="https://visa.kdmid.ru/">visa application form</a> before submitting the request to the nearest Russian Consular Department or Visa Center.<br />
           Keep in mind that application duration can vary from country to country and may require several weeks!<br />
-    ***REMOVED***% endblocktrans %***REMOVED***
+        {% endblocktrans %}
       </p>
-      <h3>{% trans "Accommodation:" %***REMOVED***</h3>
+      <h3>{% trans "Accommodation:" %}</h3>
       <p>
-    ***REMOVED***% blocktrans trimmed %***REMOVED***
+        {% blocktrans trimmed %}
           Finding accommodations in Saint Petersburg should be a fairly straightforwards endeavour but, nevertheless, here are a few pointers.<br />
           We highly recommend you choose accommodations on the south bank of the Neva river as the bridges are raised at night inhibiting traffic. Although Airbnb is a completely viable and cost-effective option, guests desiring to stay in hotels should keep in mind that there is no official nationwide hotel rating system in Russia. One should thus rely on recognizable international brands or review sites such as <a href="https://www.tripadvisor.com/Home-g298507">Tripadvisor</a> when researching hotels.
-    ***REMOVED***% endblocktrans %***REMOVED***
+        {% endblocktrans %}
       </p>
       <span class="image main">
-        <img src="{% static 'img/peter2.jpg' %***REMOVED***" alt="" />
+        <img src="{% static 'img/peter2.jpg' %}" alt="" />
       </span>
-      <h3>{% trans "Additional tips:" %***REMOVED***</h3>
+      <h3>{% trans "Additional tips:" %}</h3>
       <p>
-    ***REMOVED***% trans "Some additional tips to consider during your stay:" %***REMOVED***
+        {% trans "Some additional tips to consider during your stay:" %}
       </p>
           <ul>
             <li>
-          ***REMOVED***% blocktrans trimmed %***REMOVED***
+              {% blocktrans trimmed %}
                 It is currently illegal to drive with any level of blood-alcohol content in Russia. Thankfully, taxis and similar services are cheap and the center of Saint Petersburg is fairly small.
-          ***REMOVED***% endblocktrans %***REMOVED***
+              {% endblocktrans %}
             </li>
             <li>
-          ***REMOVED***% blocktrans trimmed %***REMOVED***
+              {% blocktrans trimmed %}
                 Water sanitation is a somewhat contentious point, with the quality of tap water varying from region to region. Although it should be fine in Saint Petersburg, we still recommend only consuming filtered or bottled water when possible.
-          ***REMOVED***% endblocktrans %***REMOVED***
+              {% endblocktrans %}
             </li>
             <li>
-          ***REMOVED***% blocktrans trimmed %***REMOVED***
+              {% blocktrans trimmed %}
                 Tipping is increasingly expected in restaurants in Russia. The standard tip is about 10%.
-          ***REMOVED***% endblocktrans %***REMOVED***
+              {% endblocktrans %}
             </li>
             <li>
-          ***REMOVED***% blocktrans trimmed %***REMOVED***
-                Though Saint Petersburg is the cultural and touristic heart of Russia, you may find it useful to learn some basic russian phrases and even how to read Cyrillic (which is really not as daunting as it seems***REMOVED***. <a href="https://www.duolingo.com/course/ru/en/Learn-Russian">Duolingo</a> has a particularly good basic course as your faithful servant can attest to.
-          ***REMOVED***% endblocktrans %***REMOVED***
+              {% blocktrans trimmed %}
+                Though Saint Petersburg is the cultural and touristic heart of Russia, you may find it useful to learn some basic russian phrases and even how to read Cyrillic (which is really not as daunting as it seems). <a href="https://www.duolingo.com/course/ru/en/Learn-Russian">Duolingo</a> has a particularly good basic course as your faithful servant can attest to.
+              {% endblocktrans %}
             </li>
         </ul>
       <p>
-    ***REMOVED***% blocktrans trimmed %***REMOVED***
+        {% blocktrans trimmed %}
           If you have any questions or would like some recommendations, feel free to reach out by <a href="mailto:joinus@mybigfatrussian.wedding">email</a>.
-    ***REMOVED***% endblocktrans %***REMOVED***
+        {% endblocktrans %}
       </p>
     </article>
 
   <!-- Registry -->
   <article id="registry">
-    <h2 class="major">{% trans "Registry" %***REMOVED***</h2>
+    <h2 class="major">{% trans "Registry" %}</h2>
     <span class="image main"
-      ><img src="{% static 'img/ourstory.jpg' %***REMOVED***" alt=""
+      ><img src="{% static 'img/ourstory.jpg' %}" alt=""
     /></span>
     <p>
-  ***REMOVED***% blocktrans trimmed %***REMOVED***
+      {% blocktrans trimmed %}
         We're grateful for the efforts all guests will be making to join us in Saint Petersburg on this momentous day. Your presence is truly the greatest gift one could wish for. However, for friends and family who have expressed an interest, we have created an <a href="">online gift registry</a> for your convenience. Guests can choose from our selection as well as participate in larger gifts to help us start our new married life.
-  ***REMOVED***% endblocktrans %***REMOVED***
+      {% endblocktrans %}
     </p>
   </article>
 
   <!-- RSVP -->
   <article id="rsvp">
-    <h2 class="major">{% trans "RSVP" %***REMOVED***</h2>
-    <h3>{% trans "Please RSVP before the 1st June 2019." %***REMOVED***</h3>
+    <h2 class="major">{% trans "RSVP" %}</h2>
+    <h3>{% trans "Please RSVP before the 1st June 2019." %}</h3>
     <section>
       <!-- Alerts -->
-  ***REMOVED***% include 'partials/_alerts.html' %***REMOVED***
+      {% include 'partials/_alerts.html' %}
       <form method="post" action="#">
         <div class="fields">
           <div class="field">
@@ -266,4 +266,4 @@
     </section>
   </article>
 </div>
-{% endblock content %***REMOVED***
+{% endblock content %}
