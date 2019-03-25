@@ -12,6 +12,11 @@ autopep8 = "*"
 pep8 = "*"
 
 [packages]
+django = "*"
+mysqlclient = "*"
+flake8 = "*"
+pylint = "*"
+bandit = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,0 +1,336 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-25 23:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: contactus/views.py:29
+msgid "We will get back to you as soon as a possible!"
+msgstr ""
+
+#: templates/404.html:12
+msgid "Looks like you've had a bit to drink! Time to <a href='/'>go home</a>"
+msgstr ""
+
+#: templates/500.html:12
+msgid ""
+"Looks like the server's had a few too many! Time to <a href='/'>go home</a>."
+msgstr ""
+
+#: templates/base.html:16
+msgid "Anastasia & Max"
+msgstr ""
+
+#: templates/pages/index.html:15
+msgid "Anastasia &<br />Max's wedding"
+msgstr ""
+
+#: templates/pages/index.html:16
+msgid "Join us!"
+msgstr ""
+
+#: templates/pages/index.html:22 templates/pages/index.html:48
+msgid "Story"
+msgstr ""
+
+#: templates/pages/index.html:23 templates/pages/index.html:91
+msgid "Wedding"
+msgstr ""
+
+#: templates/pages/index.html:24 templates/pages/index.html:151
+msgid "Travel"
+msgstr ""
+
+#: templates/pages/index.html:25 templates/pages/index.html:233
+msgid "Registry"
+msgstr ""
+
+#: templates/pages/index.html:26 templates/pages/index.html:248
+msgid "RSVP"
+msgstr ""
+
+#: templates/pages/index.html:35
+msgid "Languages"
+msgstr ""
+
+#: templates/pages/index.html:52
+msgid "Saturday, 21 March 2015:"
+msgstr ""
+
+#: templates/pages/index.html:54
+msgid ""
+"There <strong>SHE</strong> sat, in one of the typically rundown and smoky "
+"dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's "
+"usual imperceptible pace as she phased in and out of her friends' "
+"conversations. Despite its languor, the evening was coming to a dull close, "
+"absent of coveted adventure. Suddenly, the door crashed open..."
+msgstr ""
+
+#: templates/pages/index.html:60
+msgid "Thursday, 8 March 2018:"
+msgstr ""
+
+#: templates/pages/index.html:62
+msgid ""
+"<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask "
+"the tempest of butterflies currently laying waste to his stomach. They had "
+"set out to Chenonceau that morning under the guise of a quixotic expedition, "
+"little did his better half know what awaited for her. Although he had gotten "
+"used to the weight of the small box that had been sitting in his pocket for "
+"the last 4 months, it seemed to get exponentially heavier with each step "
+"down the fir-lined trail until he couldn't bear it anymore and dropped to "
+"one knee."
+msgstr ""
+
+#: templates/pages/index.html:72
+msgid "Tuesday, 10 July 2018:"
+msgstr ""
+
+#: templates/pages/index.html:74
+msgid ""
+"<strong>THEY</strong> stood in front of the mayor of that fateful little "
+"village in the Loire valley. Backed by their close family, they beamed with "
+"delight as they tried to listen attentively to his courteous discourse. In "
+"the eyes of the law, they were now bound."
+msgstr ""
+
+#: templates/pages/index.html:79
+msgid "Sunday, 1 September 2019"
+msgstr ""
+
+#: templates/pages/index.html:81
+msgid ""
+"Now the moment has come for <strong>US</strong> to vow our undying love in "
+"the presence of God and <strong>YOU</strong> our most cherished comrades. "
+"Join us for our crowning ceremony (orthodox wedding rite) and a celebration "
+"of unprecedented lavishness in Saint Petersburg."
+msgstr ""
+
+#: templates/pages/index.html:95
+msgid "Sunday, 1 September 2019:"
+msgstr ""
+
+#: templates/pages/index.html:97
+msgid ""
+"The wedding day will begin with the traditional Russian Orthodox crowning "
+"ceremony in the Church Of the Holy Righteous Simeon and Anna the Prophetess. "
+"The church was built in 1734 by Empress Anna Ioannovna in the heart of Saint "
+"Petersburg.<br /> The ceremony will start with the betrothal service, during "
+"which the priest blesses the rings. After which the couple exchanges them, "
+"placing them on their right hand.<br /> This is immediately followed by the "
+"wedding service. The bride and groom will carry candles as the priest joins "
+"their hands whilst praying for their marriage. The candle- and hand-holding "
+"will continue until the end of the ceremony as a symbol of union.<br /> Now "
+"comes the moment for the centerpiece of the Orthodox wedding ceremony: the "
+"Crowning. The crowns, held above the heads of the bride and the groom by the "
+"witnesses, symbolize the glory and honor that is being bestowed on them by "
+"God during the holy sacrament of marriage.<br /> After the crowns have been "
+"placed firmly on the couple's heads, the bride and groom take three sips of "
+"wine from a shared cup. The wine is reminiscent of the miracle of the "
+"wedding of Cana of Galilee, where water was famously turned into wine.<br /> "
+"Finally, the bride and groom will circle the central altar three times, "
+"echoing a pre-Christian ritual dance, accompanied by a choir. In this act, "
+"the couple takes their first steps as a married couple and the ceremony is "
+"concluded with the ancient blessing \"Na zisete\" (\"May you live!\")"
+msgstr ""
+
+#: templates/pages/index.html:122
+msgid ""
+"After seeing the lush, rich, Imperial Saint Petersburg, you will get the "
+"opportunity to see the other side of the city: underground, vintage, and "
+"artistic. The reception will take place in the Craft Loft “Vesseniy”, not 15 "
+"minutes away by car. You'll be greeted with bubbles, canapés, and music. "
+"Shortly after which, the banquet will be served.<br /> Russian wedding "
+"traditions are numerous and rich, a few you may want to know and participate "
+"in are as follows.<br /> You may overhear guests talking about the "
+"bitterness of the food. This is no culinary critique, but one of the "
+"traditional wedding games. Guests slowly start to chant \"Gorka, gorka, "
+"gorka...\" (meaning \"bitter\") until the newlyweds kiss after which the "
+"guests start counting upwards. The goal being to kiss for as long as "
+"possible and then exclaim: \"No, it's sweet!\".<br /> During the long "
+"banquet, all guests are welcome to perform a speech, song, dance, roast, or "
+"any other variety of number, in groups or alone. With multiple cultures and "
+"languages present, this is a relaxed and informal opportunity to exchange "
+"and bring the party together."
+msgstr ""
+
+#: templates/pages/index.html:141
+msgid ""
+"We will provide you with further information about the proceedings, "
+"transportation, and activities surrounding this momentous occasion by email "
+"and on the website as the story develops.<br /> If you have any question, "
+"please feel free to <a href=\"#contactus\">contact us</a>."
+msgstr ""
+
+#: templates/pages/index.html:156
+msgid ""
+"Russia is a vast and diverse country, full of idyllic and culturally rich "
+"cities. As this may be the first time in the Russian Federation for a lot of "
+"our guests, we have a few tips to make your stay one to remember!"
+msgstr ""
+
+#: templates/pages/index.html:161
+msgid "Visas:"
+msgstr ""
+
+#: templates/pages/index.html:163
+msgid ""
+"The first thing you'll need is a visa. While Russia has a number of <a href="
+"\"http://www.saint-petersburg.com/russian-visa/visa-free-travel/\" rel="
+"\"noopener noreferrer\" target=\"_blank\">visa-free</a> agreements, it is "
+"quite likely you'll need to apply for a <a href=\"http://www.saint-"
+"petersburg.com/russian-visa/tourist-visas/\" rel=\"noopener noreferrer\" "
+"target=\"_blank\">tourist visa</a>. You'll require a tourist voucher "
+"alongside a valid passport, photo, and travel insurance. This voucher is "
+"either provided by the hotel you'll be staying at or can be <a href="
+"\"https://www.travelrussia.su/en/visa.tourist.php\" rel=\"noopener noreferrer"
+"\" target=\"_blank\"> purchased online</a> for a reasonable price if you "
+"will be staying at an airbnb for example.<br /> Once you have all these "
+"documents in hand, you'll be required to fill out a <a href=\"https://visa."
+"kdmid.ru/\" rel=\"noopener noreferrer\" target=\"_blank\">visa application "
+"form</a> before submitting the request to the nearest Russian Consular "
+"Department or Visa Center.<br /> Keep in mind that application duration can "
+"vary from country to country and may require several weeks!<br />"
+msgstr ""
+
+#: templates/pages/index.html:177
+msgid "Accommodation:"
+msgstr ""
+
+#: templates/pages/index.html:179
+msgid ""
+"Finding accommodations in Saint Petersburg should be a fairly "
+"straightforwards endeavour but, nevertheless, here are a few pointers.<br /> "
+"We highly recommend you choose accommodations on the south bank of the Neva "
+"river as the bridges are raised at night inhibiting traffic. Although Airbnb "
+"is a completely viable and cost-effective option, guests desiring to stay in "
+"hotels should keep in mind that there is no official nationwide hotel rating "
+"system in Russia. One should thus rely on recognizable international brands "
+"or review sites such as <a href=\"https://www.tripadvisor.com/Home-g298507\" "
+"rel=\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a> when "
+"researching hotels."
+msgstr ""
+
+#: templates/pages/index.html:192
+msgid "Additional tips:"
+msgstr ""
+
+#: templates/pages/index.html:194
+msgid "Some additional tips to consider during your stay:"
+msgstr ""
+
+#: templates/pages/index.html:198
+msgid ""
+"It is currently illegal to drive with any level of blood-alcohol content in "
+"Russia. Thankfully, taxis and similar services are cheap and the center of "
+"Saint Petersburg is fairly small."
+msgstr ""
+
+#: templates/pages/index.html:204
+msgid ""
+"Water sanitation is a somewhat contentious point, with the quality of tap "
+"water varying from region to region. Although it should be fine in Saint "
+"Petersburg, we still recommend only consuming filtered or bottled water when "
+"possible."
+msgstr ""
+
+#: templates/pages/index.html:211
+#, python-format
+msgid ""
+"Tipping is increasingly expected in restaurants in Russia. The standard tip "
+"is about 10%%."
+msgstr ""
+
+#: templates/pages/index.html:216
+msgid ""
+"Though Saint Petersburg is the cultural and touristic heart of Russia, you "
+"may find it useful to learn some basic russian phrases and even how to read "
+"Cyrillic (which is really not as daunting as it seems). <a href=\"https://"
+"www.duolingo.com/course/ru/en/Learn-Russian\" rel=\"noopener noreferrer\" "
+"target=\"_blank\">Duolingo</a> has a particularly good basic course as your "
+"faithful servant can attest to."
+msgstr ""
+
+#: templates/pages/index.html:225
+msgid ""
+"If you have any questions or would like some recommendations, feel free to "
+"<a href=\"#contactus\">contact us</a>."
+msgstr ""
+
+#: templates/pages/index.html:238
+msgid ""
+"We're grateful for the efforts all guests will be making to join us in Saint "
+"Petersburg on this momentous day. Your presence is truly the greatest gift "
+"one could wish for. However, for friends and family who have expressed an "
+"interest, we have created an <a href=\"http://uk.millemercismariage.com/"
+"mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank"
+"\">online gift registry</a> for your convenience."
+msgstr ""
+
+#: templates/pages/index.html:249
+msgid "Please RSVP before the 1st June 2019."
+msgstr ""
+
+#: templates/pages/index.html:258 templates/pages/index.html:302
+msgid "Email address"
+msgstr ""
+
+#: templates/pages/index.html:261
+msgid "First name"
+msgstr ""
+
+#: templates/pages/index.html:264
+msgid "Last name"
+msgstr ""
+
+#: templates/pages/index.html:267
+msgid "Dietary restrictions"
+msgstr ""
+
+#: templates/pages/index.html:271
+msgid "Accept, with pleasure"
+msgstr ""
+
+#: templates/pages/index.html:275
+msgid "Decline, with regrets"
+msgstr ""
+
+#: templates/pages/index.html:278
+msgid "Suggest a song for the reception!"
+msgstr ""
+
+#: templates/pages/index.html:281
+msgid "Leave a message for the bride and groom!"
+msgstr ""
+
+#: templates/pages/index.html:293
+msgid "Contact us"
+msgstr ""
+
+#: templates/pages/index.html:299
+msgid "Name"
+msgstr ""
+
+#: templates/pages/index.html:305
+msgid "Let us know how we can help you."
+msgstr ""
+
+#: templates/pages/index.html:311
+msgid "Send"
+msgstr ""

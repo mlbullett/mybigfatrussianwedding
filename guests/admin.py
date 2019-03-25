@@ -4,7 +4,7 @@ from .models import Group, Guest
 
 class GuestInline(admin.TabularInline):
     model = Guest
-    fields = ('first_name', 'last_name', 'email', 'is_attending', 'dietary_specs')
+    fields = ('first_name', 'last_name', 'dietary')
 
 
 class GroupAdmin(admin.ModelAdmin):
@@ -14,8 +14,14 @@ class GroupAdmin(admin.ModelAdmin):
 
 
 class GuestAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'group', 'email', 'is_attending', 'dietary_specs')
-    list_filter = ('is_attending', 'group__category', 'group__language', 'group__is_invited')
+    list_display = ('first_name', 'last_name', 'group', 'get_email', 'get_attending', 'dietary')
+    list_filter = ('group__is_attending', 'group__category', 'group__language', 'group__is_invited')
+
+    def get_email(self, obj):
+        return obj.group.email
+
+    def get_attending(self, obj):
+        return obj.group.is_attending
 
 
 admin.site.register(Group, GroupAdmin)

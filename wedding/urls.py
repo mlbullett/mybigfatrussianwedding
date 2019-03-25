@@ -8,4 +8,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', include('pages.urls')),
+    path('contactus/', include('contactus.urls')),
 )
