@@ -1,13 +1,15 @@
+/* Mybigfatrussian.wedding by Maximilien Bullett is licensed under a CCA 4.0 international license (https://creativecommons.org/licenses/by/4.0/) */
 $(document).ready(function () {
 
-    // Send contact form on submit
+    // Contact form
     $("#contactform").submit(function (event) {
+        // Submit contact form
         event.preventDefault();
         send_contact();
     });
 
-    // AJAX for contact
     function send_contact() {
+        // AJAX for contact form
         var name = $('#name').val();
         var from_email = $('#from_email').val();
         var message = $('#message').val();
@@ -25,11 +27,11 @@ $(document).ready(function () {
                 $('#name').val('');
                 $('#from_email').val('');
                 $('#message').val('');
-                $('#contactresult').html("<div id='alerts'>" + json.result + " <a href='#' class='close'>&times;</a></div>");
+                $('#contactresult').text(json.success);
             },
 
-            error: function (xhr, errmsg, err) {
-                $('#contactresult').html("<div id='alerts'>Oops! We have encountered an error: " + errmsg + " <a href='#' class='close'>&times;</a></div>");
+            error: function (json) {
+                $('#contactresult').text(json.responseJSON.error);
             }
         });
     };

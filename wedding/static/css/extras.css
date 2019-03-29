@@ -1,8 +1,15 @@
-/* Language menu */
+/* Mybigfatrussian.wedding by Maximilien Bullett is licensed under a CCA 4.0 international license (https://creativecommons.org/licenses/by/4.0/) */
+/* Footer menu */
 
-.langmenu {
+.footerbuttons {
     position: static;
     border: none;
+}
+
+#footerwrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 /* RSVP Form */
