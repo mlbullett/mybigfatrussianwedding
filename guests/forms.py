@@ -1,4 +1,12 @@
+""" Imports """
 from django import forms
+from .models import Party, Guest
 
-class NameForm(forms.Form):
-    your_name = forms.CharField(label='Your name', max_length=100)
+
+class GuestForm(forms.Form):
+    class Meta:
+        model = Party
+        fields = [
+            'email',
+            'is_attending',
+        ]

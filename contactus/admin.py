@@ -1,12 +1,14 @@
+""" contactus/admin """
 from django.contrib import admin
 
 from .models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'email', 'contact_date', 'message')
+    """ Admin view of contacts """
+    list_display = ('id', 'name', 'from_email', 'contact_date', 'message')
     list_display_links = ('id', 'name')
-    search_fields = ('name','email', 'message')
+    search_fields = ('name', 'from_email', 'message')
     list_per_page = 25
 
 

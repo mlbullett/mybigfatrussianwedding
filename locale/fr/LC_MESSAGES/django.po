@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-25 23:45+0100\n"
+"POT-Creation-Date: 2019-03-27 23:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,16 +24,11 @@ msgstr "Nous reviendrons vers vous dès que possible!"
 
 #: templates/404.html:12
 msgid "Looks like you've had a bit to drink! Time to <a href='/'>go home</a>"
-msgstr ""
-"On dirait que vous avez eu un peu à boire! Il est temps de <a "
-"href='/'>rentrer à la maison.</a>"
+msgstr "Il semblerait que vous ayez un peu trop bu! Il serait temps de <a href='/'>rentrer à la maison.</a>"
 
 #: templates/500.html:12
-msgid ""
-"Looks like the server's had a few too many! Time to <a href='/'>go home</a>."
-msgstr ""
-"On dirait que le serveur en a eu un peu trop! Il est temps de <a href='/'> "
-"rentrer à la maison </a>."
+msgid "Looks like the server's had a few too many! Time to <a href='/'>go home</a>."
+msgstr "On dirait que le serveur en a eu un peu trop! Il est temps de <a href='/'> rentrer à la maison </a>."
 
 #: templates/base.html:16
 msgid "Anastasia & Max"
@@ -51,19 +46,19 @@ msgstr "Rejoignez-nous!"
 msgid "Story"
 msgstr "Histoire"
 
-#: templates/pages/index.html:23 templates/pages/index.html:91
+#: templates/pages/index.html:23 templates/pages/index.html:83
 msgid "Wedding"
 msgstr "Mariage"
 
-#: templates/pages/index.html:24 templates/pages/index.html:151
+#: templates/pages/index.html:24 templates/pages/index.html:121
 msgid "Travel"
 msgstr "Voyage"
 
-#: templates/pages/index.html:25 templates/pages/index.html:233
+#: templates/pages/index.html:25 templates/pages/index.html:183
 msgid "Registry"
 msgstr "Liste"
 
-#: templates/pages/index.html:26 templates/pages/index.html:248
+#: templates/pages/index.html:26 templates/pages/index.html:196
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -73,387 +68,153 @@ msgstr "Langues"
 
 #: templates/pages/index.html:52
 msgid "Saturday, 21 March 2015:"
-msgstr "Le samedi, 21 mars 2015:"
+msgstr "Samedi, 21 mars 2015:"
 
 #: templates/pages/index.html:54
-msgid ""
-"There <strong>SHE</strong> sat, in one of the typically rundown and smoky "
-"dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's "
-"usual imperceptible pace as she phased in and out of her friends' "
-"conversations. Despite its languor, the evening was coming to a dull close, "
-"absent of coveted adventure. Suddenly, the door crashed open..."
-msgstr ""
-"<strong>ELLE</strong> était assise là, dans une gargote enfumée et délabrée "
-"sur Torstrasse, dans un des quartiers hipster de Berlin. Le temps s'étirait "
-"lamentablement au rythme habituel et imperceptible des conversations, "
-"passant d'une amie à l'autre. Cette soirée monotone tirait doucement à sa "
-"fin sans aucun espoir de lueur aventureuse quand tout un coup la porte du "
-"bar s'ouvrit brutalement..."
+msgid "There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open..."
+msgstr "<strong>ELLE</strong> était assise là, dans une des gargotes enfumées et délabrées de Torstrasse, l'un des quartiers hipster de Berlin. Le temps s'étirait lamentablement au rythme habituel et imperceptible des conversations, passant d'une amie à l'autre. Néanmoins, cette soirée monotone tirait doucement à sa fin, sans aucun espoir de lueur aventureuse. Quand, tout un coup, la porte du bar s'ouvrit brutalement..."
+
+#: templates/pages/index.html:58
+msgid "Thursday, 8 March 2018:"
+msgstr "Jeudi, 8 mars 2018:"
 
 #: templates/pages/index.html:60
-msgid "Thursday, 8 March 2018:"
-msgstr "Le jeudi, 21 mars 2018:"
+msgid "<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of butterflies currently laying waste to his stomach. They had set out to Chenonceau that morning under the guise of a quixotic expedition, little did his better half know what awaited for her. Although he had gotten used to the weight of the small box that had been sitting in his pocket for the last four months, it seemed to get exponentially heavier with each step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee."
+msgstr "<strong>IL</strong> espérait que son attitude faussement relax et désinvolte masquerait les noeuds qui s'empilaient dans son estomac. Ils se mirent en route pour le château de Chenonceau en ce matin ensoleillé, sa presque moitié ne se doutant point de l'objet de cette expédition chevaleresque. Bien qu'il eut pris l'habitude du poids de cette petite boîte coincée dans le fond de sa poche depuis plus de quatre mois, il semblait qu'elle devenait exponentiellement plus lourde à chaque pas; avançant nerveuseument dans l'allée bordée de pins centenaires, n'en pouvant plus, il mit un genou à terre."
 
-#: templates/pages/index.html:62
-msgid ""
-"<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask "
-"the tempest of butterflies currently laying waste to his stomach. They had "
-"set out to Chenonceau that morning under the guise of a quixotic expedition, "
-"little did his better half know what awaited for her. Although he had gotten "
-"used to the weight of the small box that had been sitting in his pocket for "
-"the last 4 months, it seemed to get exponentially heavier with each step "
-"down the fir-lined trail until he couldn't bear it anymore and dropped to "
-"one knee."
-msgstr ""
-"<strong>IL</strong> espérait que son attitude faussement relax et désinvolte "
-"masquerait les noeuds qui s'empilaient dans son estomac. Ils partirent donc "
-"pour le château de Chenonceau en ce matin ensoleillé, sa presque moitié ne "
-"se doutant point de l'objet de cette expédition chevaleresque. Bien qu'il "
-"eut pris l'habitude du poids de cette petite boîte coincée dans le fond de "
-"sa poche depuis plus de quatre mois, il semblait qu'elle devenait "
-"exponentiellement plus lourde à chaque pas; avançant nerveuseument dans "
-"l'allée bordée de pins centenaires, n'en pouvant plus, il mit un genou à "
-"terre."
-
-#: templates/pages/index.html:72
+#: templates/pages/index.html:67
 msgid "Tuesday, 10 July 2018:"
-msgstr "Le mardi, 10 juillet 2018:"
+msgstr "Mardi, 10 juillet 2018:"
 
-#: templates/pages/index.html:74
-msgid ""
-"<strong>THEY</strong> stood in front of the mayor of that fateful little "
-"village in the Loire valley. Backed by their close family, they beamed with "
-"delight as they tried to listen attentively to his courteous discourse. In "
-"the eyes of the law, they were now bound."
-msgstr ""
-"<strong>ILS</strong> se tinrent face au maire de cet incontournable petit "
-"village de la vallée de la Loire. Entourés de leur famille, ils rayonnaient "
-"de bonheur, tentant de se concentrer sur le discours de ce dernier. Aux yeux "
-"de la loi ils étaient désormais liés."
+#: templates/pages/index.html:69
+msgid "<strong>THEY</strong> stood in front of the mayor of that fateful little village in the Loire valley. Backed by their close family, they beamed with delight as they tried to listen attentively to his courteous discourse. In the eyes of the law, they were now bound."
+msgstr "<strong>ILS</strong> se tinrent face au maire de cet incontournable petit village du val de Loire. Entourés de leurs familles, ils rayonnaient de bonheur, tentant de se concentrer sur le discours de ce dernier. Aux yeux de la loi ils étaient désormais liés."
 
-#: templates/pages/index.html:79
-msgid "Sunday, 1 September 2019"
-msgstr "Le dimanche 1er Septembre 2019:"
-
-#: templates/pages/index.html:81
-msgid ""
-"Now the moment has come for <strong>US</strong> to vow our undying love in "
-"the presence of God and <strong>YOU</strong> our most cherished comrades. "
-"Join us for our crowning ceremony (orthodox wedding rite) and a celebration "
-"of unprecedented lavishness in Saint Petersburg."
-msgstr ""
-"Maintenant le moment est venu d'échanger nos voeux matrimoniaux devant Dieu "
-"et nos proches. Nous <strong>VOUS</strong> prions de <strong>NOUS</strong> "
-"rejoindre pour la cérémonie de couronnement de rite orthodoxe et pour la "
-"célébration qui suivra."
-
-#: templates/pages/index.html:95
+#: templates/pages/index.html:73 templates/pages/index.html:87
 msgid "Sunday, 1 September 2019:"
-msgstr "Le dimanche 1er Septembre 2019:"
+msgstr "Dimanche, 1 Septembre 2019:"
 
-#: templates/pages/index.html:97
-msgid ""
-"The wedding day will begin with the traditional Russian Orthodox crowning "
-"ceremony in the Church Of the Holy Righteous Simeon and Anna the Prophetess. "
-"The church was built in 1734 by Empress Anna Ioannovna in the heart of Saint "
-"Petersburg.<br /> The ceremony will start with the betrothal service, during "
-"which the priest blesses the rings. After which the couple exchanges them, "
-"placing them on their right hand.<br /> This is immediately followed by the "
-"wedding service. The bride and groom will carry candles as the priest joins "
-"their hands whilst praying for their marriage. The candle- and hand-holding "
-"will continue until the end of the ceremony as a symbol of union.<br /> Now "
-"comes the moment for the centerpiece of the Orthodox wedding ceremony: the "
-"Crowning. The crowns, held above the heads of the bride and the groom by the "
-"witnesses, symbolize the glory and honor that is being bestowed on them by "
-"God during the holy sacrament of marriage.<br /> After the crowns have been "
-"placed firmly on the couple's heads, the bride and groom take three sips of "
-"wine from a shared cup. The wine is reminiscent of the miracle of the "
-"wedding of Cana of Galilee, where water was famously turned into wine.<br /> "
-"Finally, the bride and groom will circle the central altar three times, "
-"echoing a pre-Christian ritual dance, accompanied by a choir. In this act, "
-"the couple takes their first steps as a married couple and the ceremony is "
-"concluded with the ancient blessing \"Na zisete\" (\"May you live!\")"
-msgstr ""
-"Le mariage commencera par le traditionnel couronnement orthodoxe russe, "
-"cérémonie qui se déroulera en l'Eglise Saint Siméon le Juste et Sainte Anna "
-"la Prophétesse. Cette Eglise fut construite par l'Impératrice Anna Ioannovna "
-"au coeur de Saint Petersbourg.<br />La cérémonie commencera par les "
-"fiançailles durant lesquels le prêtre bénira les anneaux que les futurs "
-"époux échangeront et placeront sur la main droite.<br />Les mariés tiendront "
-"chacun un cierge et le prêtre joindra leur main en récitant les prières du "
-"mariage. Ils garderont les cierges et les mains jointes jusqu'à la fin de la "
-"célébration comme symbole de leur union.<br />Ensuite commence la partie la "
-"plus importante de la cérémonie nuptiale orthodoxe: le couronnement. Les "
-"couronnes sont tenus audessus de la tête des mariés par les témoins, "
-"symbolisant la gloire et l'honneur qui leur est conféré par Dieu dans le "
-"Saint Sacrement du Mariage.<br />Après que les couronnes soient déposées sur "
-"leur tête, les mariés prendront une gorgée de vin d'une coupe, le vin "
-"rappelant le miracle de Cana en Galilée où l'eau fut changée en vin par le "
-"Christ.<br />Enfin les mariés feront trois fois le tour de l'autel central, "
-"souvenir d'un rite pré-chrétien, acconpagnés par la choral, faisant ainsi "
-"leur premier pas en tant que couple marié. La cérémonie se terminera par une "
-"bénédiction: \"Na zisete!\", (\"Longue vie!\")"
+#: templates/pages/index.html:75
+msgid "Now the moment has come for <strong>US</strong> to vow our undying love in the presence of God and <strong>YOU</strong> our most cherished comrades. Join us for our crowning ceremony (orthodox wedding rite) and a celebration of unprecedented lavishness in Saint Petersburg."
+msgstr "Le moment est maintenant venu pour <strong>NOUS</strong> de vouer notre amour indéfectible devant Dieu et nos proches les plus chers. Nous <strong>VOUS</strong> prions de nous rejoindre à Saint-Pétersbourg pour la cérémonie de couronnement de rite orthodoxe et la célébration, d'une prodigalité sans précédent, qui suivra."
 
-#: templates/pages/index.html:122
-msgid ""
-"After seeing the lush, rich, Imperial Saint Petersburg, you will get the "
-"opportunity to see the other side of the city: underground, vintage, and "
-"artistic. The reception will take place in the Craft Loft “Vesseniy”, not 15 "
-"minutes away by car. You'll be greeted with bubbles, canapés, and music. "
-"Shortly after which, the banquet will be served.<br /> Russian wedding "
-"traditions are numerous and rich, a few you may want to know and participate "
-"in are as follows.<br /> You may overhear guests talking about the "
-"bitterness of the food. This is no culinary critique, but one of the "
-"traditional wedding games. Guests slowly start to chant \"Gorka, gorka, "
-"gorka...\" (meaning \"bitter\") until the newlyweds kiss after which the "
-"guests start counting upwards. The goal being to kiss for as long as "
-"possible and then exclaim: \"No, it's sweet!\".<br /> During the long "
-"banquet, all guests are welcome to perform a speech, song, dance, roast, or "
-"any other variety of number, in groups or alone. With multiple cultures and "
-"languages present, this is a relaxed and informal opportunity to exchange "
-"and bring the party together."
-msgstr ""
-"Après avoir admiré la luxuriante, riche et impériale ville de Saint "
-"Petersbourg, vous aurez la possibilité de voir un autre visage de la ville, "
-"son côté artistique et vintage loin des touristes. La réception se tiendra "
-"dans un le craft loft “Vesseniy”, à moins de 15 minutes en voiture de "
-"l'église. Vous serez accueillis avec bulles, canapés et musique et peu aprés "
-"le dîner sera servi.<br />Les mariages russes sont riches en traditions "
-"auxquelles vous pourrez participer.<br />Vous entendrez parler de l'amertume "
-"de la nourriture qui n'est pas une critique culinaire mais un des jeux de "
-"noce russe traditionnels: les invités commencent doucement par chanter "
-"\"Gorka, gorka, gorka...\" qui signifie \"amer\" jusqu'à ce que les jeunes "
-"mariés s'embrassent et que les invités commencent à compter à rebours, le "
-"but étant que le baiser dure le plus longtemps possible et qu'ils s'écrient "
-"\"non c'est doux\".<br />Pendant le long banquet les invités seront les "
-"bienvenus pour exprimer leurs talents au travers de chants, danses, blagues "
-"et autres amusements. Les differentes nationnalités donneront l'occasion "
-"d'échanges bien divertissants."
+#: templates/pages/index.html:89
+msgid "The wedding day will begin with the traditional Russian Orthodox crowning ceremony in the Church Of the Holy Righteous Simeon and Anna the Prophetess. The church was built in 1734 by Empress Anna Ioannovna in the heart of Saint Petersburg.<br /> The ceremony will start with the betrothal service, during which the priest blesses the rings. After which the couple exchanges them, placing them on their right hand.<br /> This is immediately followed by the wedding service. The bride and groom will carry candles as the priest joins their hands whilst praying for their marriage. The candle- and hand-holding will continue until the end of the ceremony as a symbol of union.<br /> Now comes the moment for the centerpiece of the Orthodox wedding ceremony: the Crowning. The crowns, held above the heads of the bride and the groom by the witnesses, symbolize the glory and honor that is being bestowed on them by God during the holy sacrament of marriage.<br /> After the crowns have been placed firmly on the couple's heads, the bride and groom take three sips of wine from a shared cup. The wine is reminiscent of the miracle of the wedding of Cana of Galilee, where water was famously turned into wine.<br /> Finally, the bride and groom will circle the central altar three times, echoing a pre-Christian ritual dance, accompanied by a choir. In this act, the couple takes their first steps as a married couple and the ceremony is concluded with the ancient blessing \"Na zisete\" (\"May you live!\")"
+msgstr "Le mariage commencera par le traditionnel couronnement orthodoxe russe, cérémonie qui se déroulera dans l'Eglise Saint Siméon le Juste et Sainte Anna la Prophétesse. Cette Eglise fut construite par l'Impératrice Anna Ioannovna au coeur de Saint Petersbourg.<br />La cérémonie commencera par les fiançailles durant lesquels le prêtre bénira les anneaux que les futurs époux échangeront et placeront sur la main droite.<br />Les mariés tiendront chacun un cierge et le prêtre joindra leurs mains en récitant les prières du mariage. Ils garderont les cierges et les mains jointes jusqu'à la fin de la célébration comme symbole de leur union.<br />Ensuite commence la partie la plus importante de la cérémonie nuptiale orthodoxe: le couronnement. Les couronnes sont tenus audessus de la tête des mariés par les témoins, symbolisant la gloire et l'honneur qui leur est conféré par Dieu dans le Saint Sacrement du Mariage.<br />Après que les couronnes soient déposées sur leur tête, les mariés prendront une gorgée de vin d'une coupe, le vin rappelant le miracle de Cana en Galilée où l'eau fut changée en vin par le Christ.<br />Enfin les mariés feront trois fois le tour de l'autel central, souvenir d'une danse rituelle pré-chrétienne, accompagnés par la choral, faisant ainsi leur premier pas en tant que couple marié. La cérémonie se terminera par une bénédiction: \"Na zisete!\", (\"Longue vie!\")"
 
-#: templates/pages/index.html:141
-msgid ""
-"We will provide you with further information about the proceedings, "
-"transportation, and activities surrounding this momentous occasion by email "
-"and on the website as the story develops.<br /> If you have any question, "
-"please feel free to <a href=\"#contactus\">contact us</a>."
-msgstr ""
-"Nous vous communiquerons par mails et sur ce site des informations utiles "
-"concernant le séjour, le transport et les activitées entourant cette "
-"événement mémorable.<br />Si vous avez une quelconque question, n'hésitez "
-"pas à <a href=\"#contactus\">nous contacter</a>."
+#: templates/pages/index.html:103
+msgid "After seeing the lush, rich, Imperial Saint Petersburg, you will get the opportunity to see the other side of the city: underground, vintage, and artistic. The reception will take place in the Craft Loft “Vesseniy”, not 15 minutes away by car. You'll be greeted with bubbles, canapés, and music. Shortly after which, the banquet will be served.<br /> Russian wedding traditions are numerous and rich, a few you may want to know and participate in are as follows.<br /> You may overhear guests talking about the bitterness of the food. This is no culinary critique, but one of the traditional wedding games. Guests slowly start to chant \"Gorka, gorka, gorka...\" (meaning \"bitter\") until the newlyweds kiss after which the guests start counting upwards. The goal being to kiss for as long as possible and then exclaim: \"No, it's sweet!\".<br /> During the long banquet, all guests are welcome to perform a speech, song, dance, roast, or any other variety of number, in groups or alone. With multiple cultures and languages present, this is a relaxed and informal pportunity to exchange and bring the party together."
+msgstr "Après avoir admiré la luxuriante, riche et impériale ville de Saint Petersbourg, vous aurez la possibilité de voir un autre visage de la ville, son côté artistique et vintage loin des touristes. La réception se tiendra dans le craft loft “Vesseniy”, à moins de 15 minutes en voiture de l'église. Vous serez accueillis avec bulles, canapés et musique et peu aprés le dîner sera servi.<br />Les mariages russes sont riches en traditions auxquelles vous pourrez participer.<br />Vous entendrez parler de l'amertume de la nourriture qui n'est pas une critique culinaire mais un des jeux de noce russe traditionnels: les invités commencent doucement par chanter \"Gorka, gorka, gorka...\" qui signifie \"amer\" jusqu'à ce que les jeunes mariés s'embrassent et que les invités commencent à compter à rebours, le but étant que le baiser dure le plus longtemps possible et qu'ils s'écrient \"non c'est doux\".<br />Pendant le long banquet les invités seront les bienvenus pour exprimer leurs talents au travers de chants, danses, blagues et autres amusements. Les differentes nationnalités donneront l'occasion d'échanges bien divertissants."
 
-#: templates/pages/index.html:156
-msgid ""
-"Russia is a vast and diverse country, full of idyllic and culturally rich "
-"cities. As this may be the first time in the Russian Federation for a lot of "
-"our guests, we have a few tips to make your stay one to remember!"
-msgstr ""
-"La Russie est un pays immense et varié avec de nombreuses destinations "
-"culturelles et pittoresques; c'est sans doute pour beaucoup de nos invités "
-"leur première visite dans la Fédération de Russie et nous sommes à votre "
-"disposition pour rendre votre séjour inoubliable."
+#: templates/pages/index.html:113
+msgid "We will provide you with further information about the proceedings, transportation, and activities surrounding this momentous occasion by email and on the website as the story develops.<br />If you have any question, please feel free to <a href=\"#contactus\">contact us</a>."
+msgstr "Nous vous communiquerons, par mail et sur ce site, des informations utiles concernant le séjour, le transport et les activitées entourant cette événement mémorable.<br />Si vous avez quelconque question, n'hésitez pas à <a href=\"#contactus\">nous contacter</a>."
 
-#: templates/pages/index.html:161
+#: templates/pages/index.html:126
+msgid "Russia is a vast and diverse country, full of idyllic and culturally rich cities. As this may be the first time in the Russian Federation for a lot of our guests, we have a few tips to make your stay one to remember!"
+msgstr "La Russie est un pays immense et varié avec de nombreuses destinations culturelles et pittoresques; c'est sans doute pour beaucoup de nos invités leur première visite dans la Fédération de Russie et nous sommes à votre disposition pour rendre votre séjour inoubliable."
+
+#: templates/pages/index.html:130
 msgid "Visas:"
 msgstr "Visas:"
 
-#: templates/pages/index.html:163
-#, fuzzy
-msgid ""
-"The first thing you'll need is a visa. While Russia has a number of <a href="
-"\"http://www.saint-petersburg.com/russian-visa/visa-free-travel/\" rel="
-"\"noopener noreferrer\" target=\"_blank\">visa-free</a> agreements, it is "
-"quite likely you'll need to apply for a <a href=\"http://www.saint-"
-"petersburg.com/russian-visa/tourist-visas/\" rel=\"noopener noreferrer\" "
-"target=\"_blank\">tourist visa</a>. You'll require a tourist voucher "
-"alongside a valid passport, photo, and travel insurance. This voucher is "
-"either provided by the hotel you'll be staying at or can be <a href="
-"\"https://www.travelrussia.su/en/visa.tourist.php\" rel=\"noopener noreferrer"
-"\" target=\"_blank\"> purchased online</a> for a reasonable price if you "
-"will be staying at an airbnb for example.<br /> Once you have all these "
-"documents in hand, you'll be required to fill out a <a href=\"https://visa."
-"kdmid.ru/\" rel=\"noopener noreferrer\" target=\"_blank\">visa application "
-"form</a> before submitting the request to the nearest Russian Consular "
-"Department or Visa Center.<br /> Keep in mind that application duration can "
-"vary from country to country and may require several weeks!<br />"
-msgstr ""
-"Vous aurez tout d'abord besoin d'un visa. Bien que la Russie ait conclu "
-"plusieurs accords <a href=\"http://www.saint-petersburg.com/russian-visa/"
-"visa-free-travel/\" rel=\"noopener noreferrer\" target=\"_blank\">sans visa</"
-"a>, il est fort probable que vous deviez demander un <a href=\"http://www."
-"saint-petersburg.com/russian-visa/tourist-visas/\" rel=\"noopener noreferrer"
-"\" target=\"_blank\">visa de touriste</a>. Vous aurez besoin d'un bon "
-"touristique, accompagné d'un passeport valide, d'une photo et d'une "
-"assurance voyage. Ce bon est fourni par l’hôtel où vous allez séjourner ou "
-"peut être <a href=\"https://www.travelrussia.su/en/visa.tourist.php\" rel="
-"\"noopener noreferrer\" target=\"_blank\">acheté en ligne</a> à un prix "
-"raisonnable si vous séjournez dans un Airbnb par exemple.<br />Une fois que "
-"vous avez tous ces documents en main, vous devrez remplir un <a href="
-"\"https://visa.kdmid.ru/\" rel=\"noopener noreferrer\" target=\"_blank"
-"\">formulaire de demande de visa</a> avant de soumettre votre demande au "
-"service consulaire ou au centre des visas russe le plus proche.<br />Gardez "
-"à l'esprit que la durée de l'application peut varier d'un pays à l'autre et "
-"peut prendre plusieurs semaines!"
+#: templates/pages/index.html:132
+msgid "The first thing you'll need is a visa. While Russia has a number of <a href=\"http://www.saint-petersburg.com/russian-visa/visa-free-travel/\" rel=\"noopener noreferrer\" target=\"_blank\">visa-free</a> agreements, it is quite likely you'll need to apply for a <a href=\"http://www.saint-petersburg.com/russian-visa/tourist-visas/\" rel=\"noopener noreferrer\" target=\"_blank\">tourist visa</a>. You'll require a tourist voucher alongside a valid passport, photo, and travel insurance. This voucher is either provided by the hotel you'll be staying at or can be <a href=\"https://www.travelrussia.su/en/visa.tourist.php\" rel=\"noopener noreferrer\" target=\"_blank\">purchased online</a> for a reasonable price if you will be staying at an airbnb for example.<br /> Once you have all these documents in hand, you'll be required to fill out a <a href=\"https://visa.kdmid.ru/\" rel=\"noopener noreferrer\" target=\"_blank\">visa application form</a> before submitting the request to the nearest Russian Consular Department or Visa Center.<br /> Keep in mind that application duration can vary from country to country and may require several weeks!"
+msgstr "Vous aurez tout d'abord besoin d'un visa. Bien que la Russie ait conclu plusieurs accords <a href=\"http://www.saint-petersburg.com/russian-visa/visa-free-travel/\" rel=\"noopener noreferrer\" target=\"_blank\">sans visa</a>, il est fort probable que vous deviez demander un <a href=\"http://www.saint-petersburg.com/russian-visa/tourist-visas/\" rel=\"noopener noreferrer\" target=\"_blank\">visa de touriste</a>. Vous aurez besoin d'un bon touristique, accompagné d'un passeport valide, d'une photo et d'une assurance voyage. Ce bon est fourni par l’hôtel où vous allez séjourner ou peut être <a href=\"https://www.travelrussia.su/en/visa.tourist.php\" rel=\"noopener noreferrer\" target=\"_blank\">acheté en ligne</a> à un prix raisonnable si vous séjournez dans un Airbnb, par exemple.<br />Une fois que vous avez tous ces documents en main, vous devrez remplir un <a href=\"https://visa.kdmid.ru/\" rel=\"noopener noreferrer\" target=\"_blank\">formulaire de demande de visa</a> avant de soumettre votre demande au service consulaire ou au centre des visas russe le plus proche.<br />Gardez à l'esprit que la durée de l'application peut varier d'un pays à l'autre et peut prendre plusieurs semaines!"
 
-#: templates/pages/index.html:177
+#: templates/pages/index.html:138
 msgid "Accommodation:"
 msgstr "Logement:"
 
-#: templates/pages/index.html:179
-#, fuzzy
-msgid ""
-"Finding accommodations in Saint Petersburg should be a fairly "
-"straightforwards endeavour but, nevertheless, here are a few pointers.<br /> "
-"We highly recommend you choose accommodations on the south bank of the Neva "
-"river as the bridges are raised at night inhibiting traffic. Although Airbnb "
-"is a completely viable and cost-effective option, guests desiring to stay in "
-"hotels should keep in mind that there is no official nationwide hotel rating "
-"system in Russia. One should thus rely on recognizable international brands "
-"or review sites such as <a href=\"https://www.tripadvisor.com/Home-g298507\" "
-"rel=\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a> when "
-"researching hotels."
-msgstr ""
-"Trouver un logement à Saint Petersbourg est facile, néanmoins, voici "
-"quelques indications.<br />Nous vous conseillons de choisir un hôtel ou "
-"Airbnb sur la rive sud de la Neva en raison du trafic fluvial et des ponts "
-"levés. Bien que Airbnb soit une option totalement viable et économique, les "
-"invités souhaitant séjourner dans des hôtels doivent garder à l’esprit que "
-"la classification des hôtels ne correspond pas toujours à nos standards "
-"européens sauf en ce qui concerne les labels internationnaux. Les "
-"commentaires sur <a href=\"https://www.tripadvisor.fr/Home-g298507\" rel="
-"\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a> sont souvent un "
-"bon indicateur"
+#: templates/pages/index.html:140
+msgid "Finding accommodations in Saint Petersburg should be a fairly straightforwards endeavour but, nevertheless, here are a few pointers.<br /> We highly recommend you choose accommodations on the south bank of the Neva river as the bridges are raised at night inhibiting traffic. Although Airbnb is a completely viable and cost-effective option, guests desiring to stay in hotels should keep in mind that there is no official nationwide hotel rating system in Russia. One should thus rely on recognizable international brands or review sites such as <a href=\"https://www.tripadvisor.com/Home-g298507\" rel=\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a> when researching hotels."
+msgstr "Trouver un logement à Saint Petersbourg est facile, néanmoins, voici quelques indications.<br />Nous vous conseillons de choisir un hôtel ou Airbnb sur la rive sud de la Neva en raison du trafic fluvial et des ponts levés. Bien que Airbnb soit une option totalement viable et économique, les invités souhaitant séjourner dans des hôtels doivent garder à l’esprit que la classification des hôtels ne correspond pas toujours à nos standards européens sauf en ce qui concerne les labels internationnaux. Les commentaires sur <a href=\"https://www.tripadvisor.fr/Home-g298507\" rel=\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a> sont souvent un bon indicateur"
 
-#: templates/pages/index.html:192
+#: templates/pages/index.html:148
 msgid "Additional tips:"
 msgstr "Astuces:"
 
-#: templates/pages/index.html:194
+#: templates/pages/index.html:150
 msgid "Some additional tips to consider during your stay:"
 msgstr "Encore quelques petites informations pour votre séjour:"
 
-#: templates/pages/index.html:198
-msgid ""
-"It is currently illegal to drive with any level of blood-alcohol content in "
-"Russia. Thankfully, taxis and similar services are cheap and the center of "
-"Saint Petersburg is fairly small."
-msgstr ""
-"Il est actuellement illégal de conduire avec n'importe quel niveau "
-"d'alcoolémie en Russie. Heureusement les taxis ou autres services sont bon "
-"marché et le centre de Saint Petersbourg est petit."
+#: templates/pages/index.html:154
+msgid "It is currently illegal to drive with any level of blood-alcohol content in Russia. Thankfully, taxis and similar services are cheap and the center of Saint Petersburg is fairly small."
+msgstr "Il est actuellement illégal de conduire avec n'importe quel niveau d'alcoolémie en Russie. Heureusement les taxis ou autres services sont bon marché et le centre de Saint Petersbourg est petit."
 
-#: templates/pages/index.html:204
-msgid ""
-"Water sanitation is a somewhat contentious point, with the quality of tap "
-"water varying from region to region. Although it should be fine in Saint "
-"Petersburg, we still recommend only consuming filtered or bottled water when "
-"possible."
-msgstr ""
-"La qualité de l'eau du robinet varie selon les régions en Russie, même si "
-"elle est correcte à Saint Petersbourg il est préférable de consommer de "
-"l'eau filtrée ou de l'eau en bouteille."
+#: templates/pages/index.html:159
+msgid "Water sanitation is a somewhat contentious point, with the quality of tap water varying from region to region. Although it should be fine in Saint Petersburg, we still recommend only consuming filtered or bottled water when possible."
+msgstr "La qualité de l'eau du robinet varie selon les régions en Russie, même si elle est correcte à Saint Petersbourg il est préférable de consommer de l'eau filtrée ou de l'eau en bouteille."
 
-#: templates/pages/index.html:211
+#: templates/pages/index.html:164
 #, python-format
-msgid ""
-"Tipping is increasingly expected in restaurants in Russia. The standard tip "
-"is about 10%%."
+msgid "Tipping is increasingly expected in restaurants in Russia. The standard tip is about 10%%."
 msgstr "Les pouboires sont de mise en Russie, compter environ 10%%."
 
-#: templates/pages/index.html:216
-#, fuzzy
-msgid ""
-"Though Saint Petersburg is the cultural and touristic heart of Russia, you "
-"may find it useful to learn some basic russian phrases and even how to read "
-"Cyrillic (which is really not as daunting as it seems). <a href=\"https://"
-"www.duolingo.com/course/ru/en/Learn-Russian\" rel=\"noopener noreferrer\" "
-"target=\"_blank\">Duolingo</a> has a particularly good basic course as your "
-"faithful servant can attest to."
-msgstr ""
-"Même si Saint Petersbourg est la ville la plus culturelle et touristique de "
-"Russie, il est parfois utile de connaître quelques phrases et même "
-"l'alphabet Cyrillique (moins difficile qu'on le pense). <a href=\"https://"
-"www.duolingo.com/course/ru/en/Learn-Russian\" rel=\"noopener noreferrer\" "
-"target=\"_blank\">Duolingo</a> a un cours de base particulièrement bon, "
-"comme peut en témoigner votre fidèle serviteur."
+#: templates/pages/index.html:169
+msgid "Though Saint Petersburg is the cultural and touristic heart of Russia, you may find it useful to learn some basic russian phrases and even how to read Cyrillic (which is really not as daunting as it seems). <a href=\"https://www.duolingo.com/course/ru/en/Learn-Russian\" rel=\"noopener noreferrer\" target=\"_blank\">Duolingo</a> has a particularly good basic course as your faithful servant can attest to."
+msgstr "Même si Saint Petersbourg est la ville la plus culturelle et touristique de Russie, il est parfois utile de connaître quelques phrases et même l'alphabet Cyrillique (moins difficile qu'on le pense). <a href=\"https://fr.duolingo.com/course/ru/en/apprends-russe\" rel=\"noopener noreferrer\" target=\"_blank\">Duolingo</a> a un cours de base particulièrement bon, comme peut en témoigner votre fidèle serviteur."
 
-#: templates/pages/index.html:225
-#, fuzzy
-#| msgid ""
-#| "If you have any questions or would like some recommendations, feel free "
-#| "to reach out by <a href=\"mailto:joinus@mybigfatrussian.wedding\">email</"
-#| "a>."
-msgid ""
-"If you have any questions or would like some recommendations, feel free to "
-"<a href=\"#contactus\">contact us</a>."
-msgstr ""
-"Pour toutes questions et recommandations, n'hésitez pas à <a href="
-"\"#contactus\">nous contacter</a>."
+#: templates/pages/index.html:175
+msgid "If you have any questions or would like some recommendations, feel free to <a href=\"#contactus\">contact us</a>."
+msgstr "Pour toutes questions et recommandations, n'hésitez pas à <a href=\"#contactus\">nous contacter</a>."
 
-#: templates/pages/index.html:238
-#, fuzzy
-msgid ""
-"We're grateful for the efforts all guests will be making to join us in Saint "
-"Petersburg on this momentous day. Your presence is truly the greatest gift "
-"one could wish for. However, for friends and family who have expressed an "
-"interest, we have created an <a href=\"http://uk.millemercismariage.com/"
-"mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank"
-"\">online gift registry</a> for your convenience."
-msgstr ""
-"Nous sommes très reconnaissant à tous les invités qui nous rejoindrons à "
-"Saint Petersbourg pour cette belle journée, votre présence est le plus beau "
-"des cadeau. Nous avons, cependant une <a href=\"http://uk.millemercismariage."
-"com/mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank"
-"\">liste en ligne</a> pour ceux qui le désire."
+#: templates/pages/index.html:188
+msgid "We're grateful for the efforts all guests will be making to join us in Saint Petersburg on this momentous day. Your presence is truly the greatest gift one could wish for. However, for friends and family who have expressed an interest, we have created an <a href=\"http://uk.millemercismariage.com/mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank\">online gift registry</a> for your convenience."
+msgstr "Nous sommes très reconnaissant à tous les invités qui nous rejoindrons à Saint Petersbourg pour cette belle journée, votre présence est le plus beau des cadeau. Nous avons, cependant une <a href=\"http://www.millemercismariage.com/mybigfatrussian/liste.html\" rel=\"noopener noreferrer\" target=\"_blank\">liste en ligne</a> pour ceux qui le désire."
 
-#: templates/pages/index.html:249
+#: templates/pages/index.html:197
 msgid "Please RSVP before the 1st June 2019."
 msgstr "Nous vous remercions de bien vouloir répondre avant le 1er juin 2019"
 
-#: templates/pages/index.html:258 templates/pages/index.html:302
+#: templates/pages/index.html:206 templates/pages/index.html:250
 msgid "Email address"
 msgstr "Adresse email"
 
-#: templates/pages/index.html:261
+#: templates/pages/index.html:209
 msgid "First name"
 msgstr "Prénom"
 
-#: templates/pages/index.html:264
+#: templates/pages/index.html:212
 msgid "Last name"
 msgstr "Nom de famille"
 
-#: templates/pages/index.html:267
+#: templates/pages/index.html:215
 msgid "Dietary restrictions"
 msgstr "Restrictions diététiques"
 
-#: templates/pages/index.html:271
+#: templates/pages/index.html:219
 msgid "Accept, with pleasure"
 msgstr "Accepte avec plaisir"
 
-#: templates/pages/index.html:275
+#: templates/pages/index.html:223
 msgid "Decline, with regrets"
 msgstr "Déclin, avec regret"
 
-#: templates/pages/index.html:278
+#: templates/pages/index.html:226
 msgid "Suggest a song for the reception!"
 msgstr "Suggérez une chanson pour la réception!"
 
-#: templates/pages/index.html:281
+#: templates/pages/index.html:229
 msgid "Leave a message for the bride and groom!"
 msgstr "Laissez un message pour les mariés!"
 
-#: templates/pages/index.html:293
-msgid "Contact us"
-msgstr "Contactez nous"
+#: templates/pages/index.html:233
+msgid "Confirm"
+msgstr "Confirmer"
 
-#: templates/pages/index.html:299
+#: templates/pages/index.html:241
+msgid "Contact us"
+msgstr "Contactez-nous"
+
+#: templates/pages/index.html:247
 msgid "Name"
 msgstr "Nom"
 
-#: templates/pages/index.html:305
+#: templates/pages/index.html:253
 msgid "Let us know how we can help you."
 msgstr "Dites-nous comment nous pouvons vous aider."
 
-#: templates/pages/index.html:311
+#: templates/pages/index.html:259
 msgid "Send"
 msgstr "Envoyer"

@@ -30,6 +30,7 @@
 
 <!-- Main -->
 <div id="main">
+  <!-- Utility articles -->
   <!-- Languages -->
   <article id="languages">
     <h2 class="major">{% trans "Languages" %}</h2>
@@ -43,6 +44,34 @@
     </ul>
   </article>
 
+  <!-- Contact Us -->
+  <article id="contactus">
+    <h2 class="major">{% trans "Contact us" %}</h2>
+    <section>
+
+      <!--form method="POST" action={% url 'contactus' %}-->
+      <form id="contactform" method="POST">
+        {% csrf_token %}
+        <div class="fields">
+          <div class="field half">
+            <input type="text" name="name" id="name" placeholder='{% trans "Name" %}' required />
+          </div>
+          <div class="field half">
+            <input type="email" name="from_email" id="from_email" placeholder='{% trans "Email address" %}' required />
+          </div>
+          <div class="field">
+            <textarea name="message" id="message" placeholder='{% trans "Let us know how we can help you." %}' rows="6"
+              required></textarea>
+          </div>
+        </div>
+        <div id="contactresult"></div>
+        <ul class="actions">
+          <li><input type="submit" value='{% trans "Send" %}' class="primary" /></li>
+        </ul>
+      </form>
+    </section>
+  </article>
+
   <!-- Story -->
   <article id="story">
     <h2 class="major">{% trans "Story" %}</h2>
@@ -51,19 +80,21 @@
     </span>
     <h3>{% trans "Saturday, 21 March 2015:" %}</h3>
     <p>
-      {% blocktrans trimmed %}There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off
-      Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of
-      her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted
-      adventure. Suddenly, the door crashed open...
+      {% blocktrans trimmed %}
+      There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's
+      wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends'
+      conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly,
+      the door crashed open...
       {% endblocktrans %}
     </p>
     <h3>{% trans "Thursday, 8 March 2018:" %}</h3>
     <p>
-      {% blocktrans trimmed %}<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of
-      butterflies currently laying waste to his stomach. They had set out to Chenonceau that morning under the guise of
-      a quixotic expedition, little did his better half know what awaited for her. Although he had gotten used to the
-      weight of the small box that had been sitting in his pocket for the last 4 months, it seemed to get exponentially
-      heavier with each step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee.
+      {% blocktrans trimmed %}
+      <strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of butterflies currently
+      laying waste to his stomach. They had set out to Chenonceau that morning under the guise of a quixotic expedition,
+      little did his better half know what awaited for her. Although he had gotten used to the weight of the small box
+      that had been sitting in his pocket for the last four months, it seemed to get exponentially heavier with each
+      step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee.
       {% endblocktrans %}
     </p>
     <span class="image main">
@@ -71,12 +102,13 @@
     </span>
     <h3>{% trans "Tuesday, 10 July 2018:" %}</h3>
     <p>
-      {% blocktrans trimmed %}<strong>THEY</strong> stood in front of the mayor of that fateful little village in the
-      Loire valley. Backed by their close family, they beamed with delight as they tried to listen attentively to his
-      courteous discourse. In the eyes of the law, they were now bound.
+      {% blocktrans trimmed %}
+      <strong>THEY</strong> stood in front of the mayor of that fateful little village in the Loire valley. Backed by
+      their close family, they beamed with delight as they tried to listen attentively to his courteous discourse. In
+      the eyes of the law, they were now bound.
       {% endblocktrans %}
     </p>
-    <h3>{% trans "Sunday, 1 September 2019" %}</h3>
+    <h3>{% trans "Sunday, 1 September 2019:" %}</h3>
     <p>
       {% blocktrans trimmed %}
       Now the moment has come for <strong>US</strong> to vow our undying love in the presence of God and
@@ -132,7 +164,7 @@
       then exclaim: "No, it's sweet!".<br />
       During the long banquet, all guests are welcome to perform a speech, song, dance, roast, or any other variety of
       number, in groups or alone. With multiple cultures and languages present, this is a relaxed and informal
-      opportunity to exchange and bring the party together.
+      pportunity to exchange and bring the party together.
       {% endblocktrans %}
     </p>
     <span class="image main">
@@ -140,8 +172,8 @@
     </span>
     {% blocktrans trimmed %}
     We will provide you with further information about the proceedings, transportation, and activities surrounding this
-    momentous occasion by email and on the website as the story develops.<br />
-    If you have any question, please feel free to <a href="#contactus">contact us</a>.
+    momentous occasion by email and on the website as the story develops.<br />If you have any question, please feel
+    free to <a href="#contactus">contact us</a>.
     {% endblocktrans %}
     </p>
   </article>
@@ -162,16 +194,17 @@
     <p>
       {% blocktrans trimmed %}
       The first thing you'll need is a visa. While Russia has a number of <a
-        href="http://www.saint-petersburg.com/russian-visa/visa-free-travel/" rel="noopener noreferrer" target="_blank">visa-free</a> agreements, it is quite
-      likely you'll need to apply for a <a href="http://www.saint-petersburg.com/russian-visa/tourist-visas/" rel="noopener noreferrer" target="_blank">tourist
-        visa</a>. You'll require a tourist voucher alongside a valid passport, photo, and travel insurance. This voucher
-      is either provided by the hotel you'll be staying at or can be <a
-        href="https://www.travelrussia.su/en/visa.tourist.php" rel="noopener noreferrer" target="_blank"> purchased online</a> for a reasonable price if you will
-      be staying at an airbnb for example.<br />
-      Once you have all these documents in hand, you'll be required to fill out a <a href="https://visa.kdmid.ru/" rel="noopener noreferrer" target="_blank">visa
-        application form</a> before submitting the request to the nearest Russian Consular Department or Visa
-      Center.<br />
-      Keep in mind that application duration can vary from country to country and may require several weeks!<br />
+        href="http://www.saint-petersburg.com/russian-visa/visa-free-travel/" rel="noopener noreferrer"
+        target="_blank">visa-free</a> agreements, it is quite likely you'll need to apply for a <a
+        href="http://www.saint-petersburg.com/russian-visa/tourist-visas/" rel="noopener noreferrer"
+        target="_blank">tourist visa</a>. You'll require a tourist voucher alongside a valid passport, photo, and travel
+      insurance. This voucher is either provided by the hotel you'll be staying at or can be <a
+        href="https://www.travelrussia.su/en/visa.tourist.php" rel="noopener noreferrer" target="_blank">purchased
+        online</a> for a reasonable price if you will be staying at an airbnb for example.<br />
+      Once you have all these documents in hand, you'll be required to fill out a <a href="https://visa.kdmid.ru/"
+        rel="noopener noreferrer" target="_blank">visa application form</a> before submitting the request to the nearest
+      Russian Consular Department or Visa Center.<br />
+      Keep in mind that application duration can vary from country to country and may require several weeks!
       {% endblocktrans %}
     </p>
     <h3>{% trans "Accommodation:" %}</h3>
@@ -183,7 +216,8 @@
       night inhibiting traffic. Although Airbnb is a completely viable and cost-effective option, guests desiring to
       stay in hotels should keep in mind that there is no official nationwide hotel rating system in Russia. One should
       thus rely on recognizable international brands or review sites such as <a
-        href="https://www.tripadvisor.com/Home-g298507" rel="noopener noreferrer" target="_blank">Tripadvisor</a> when researching hotels.
+        href="https://www.tripadvisor.com/Home-g298507" rel="noopener noreferrer" target="_blank">Tripadvisor</a> when
+      researching hotels.
       {% endblocktrans %}
     </p>
     <span class="image main">
@@ -216,14 +250,15 @@
         {% blocktrans trimmed %}
         Though Saint Petersburg is the cultural and touristic heart of Russia, you may find it useful to learn some
         basic russian phrases and even how to read Cyrillic (which is really not as daunting as it seems). <a
-          href="https://www.duolingo.com/course/ru/en/Learn-Russian" rel="noopener noreferrer" target="_blank">Duolingo</a> has a particularly good basic course
-        as your faithful servant can attest to.
+          href="https://www.duolingo.com/course/ru/en/Learn-Russian" rel="noopener noreferrer"
+          target="_blank">Duolingo</a> has a particularly good basic course as your faithful servant can attest to.
         {% endblocktrans %}
       </li>
     </ul>
     <p>
       {% blocktrans trimmed %}
-      If you have any questions or would like some recommendations, feel free to <a href="#contactus">contact us</a>.
+      If you have any questions or would like some recommendations, feel free to <a href="#contactus">contact
+        us</a>.
       {% endblocktrans %}
     </p>
   </article>
@@ -238,7 +273,8 @@
       {% blocktrans trimmed %}
       We're grateful for the efforts all guests will be making to join us in Saint Petersburg on this momentous day.
       Your presence is truly the greatest gift one could wish for. However, for friends and family who have expressed an
-      interest, we have created an <a href="http://uk.millemercismariage.com/mybigfatrussian/list.html" rel="noopener noreferrer" target="_blank">online gift registry</a> for your convenience.
+      interest, we have created an <a href="http://uk.millemercismariage.com/mybigfatrussian/list.html"
+        rel="noopener noreferrer" target="_blank">online gift registry</a> for your convenience.
       {% endblocktrans %}
     </p>
   </article>
@@ -251,7 +287,7 @@
       <!-- Alerts -->
       {% include 'partials/_alerts.html' %}
 
-      <form method="post" action="#">
+      <form method="POST" action="{% url "rsvp" %}">
         {% csrf_token %}
         <div class="fields">
           <div class="field">
@@ -264,10 +300,10 @@
             <input type="text" name="lastname" id="lastname" placeholder='{% trans "Last name" %}' required />
           </div>
           <div class="field">
-            <input type="text" name="dietary" id="dietary" placeholder='{% trans "Dietary restrictions" %}' required />
+            <input type="text" name="dietary" id="dietary" placeholder='{% trans "Dietary restrictions" %}' />
           </div>
           <div class="field half">
-            <input type="radio" name="rsvp-attendance" id="rsvp-accept" value="accepted" />
+            <input type="radio" name="rsvp-attendance" id="rsvp-accept" value="accepted" required />
             <label for="rsvp-accept">{% trans "Accept, with pleasure" %}</label>
           </div>
           <div class="field half">
@@ -275,40 +311,16 @@
             <label for="rsvp-decline">{% trans "Decline, with regrets" %}</label>
           </div>
           <div class="field">
-            <input type="text" name="rsvp-song" id="rsvp-song" placeholder='{% trans "Suggest a song for the reception!" %}' />
+            <input type="text" name="rsvp-song" id="rsvp-song"
+              placeholder='{% trans "Suggest a song for the reception!" %}' />
           </div>
           <div class="field">
-            <textarea name="rsvp-message" id="rsvp-message" placeholder='{% trans "Leave a message for the bride and groom!" %}' rows="6"></textarea>
+            <textarea name="rsvp-message" id="rsvp-message"
+              placeholder='{% trans "Leave a message for the bride and groom!" %}' rows="6"></textarea>
           </div>
         </div>
         <ul class="actions">
-          <li><input type="submit" value="Confirm" class="primary" /></li>
-        </ul>
-      </form>
-    </section>
-  </article>
-
-  <!-- Contact Us -->
-  <article id="contactus">
-    <h2 class="major">{% trans "Contact us" %}</h2>
-    <section>
-      <form method="POST" action="{% url 'contactus' %}">
-        {% csrf_token %}
-        <div class="fields">
-          <div class="field half">
-            <input type="text" name="name" id="name" placeholder='{% trans "Name" %}' required />
-          </div>
-          <div class="field half">
-            <input type="email" name="email" id="email" placeholder='{% trans "Email address" %}' required />
-          </div>
-          <div class="field">
-            <textarea name="message" id="message" placeholder='{% trans "Let us know how we can help you." %}'
-              rows="6"></textarea>
-          </div>
-        </div>
-        <input type="hidden" name="next" value="{{ request.path }}">
-        <ul class="actions">
-          <li><input type="submit" value='{% trans "Send" %}' class="primary" /></li>
+          <li><input type="submit" value="{% trans "Confirm" %}" class="primary" /></li>
         </ul>
       </form>
     </section>

@@ -1,30 +1,49 @@
-from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
-from django.contrib import messages
+""" contactus/views.py """
+import json
+from django.core.mail import send_mail, BadHeaderError
+#from django.contrib import messages
+from django.http import HttpResponse
 from django.utils.translation import gettext as _
-
 
 from .models import Contact
 
 
 def contactus(request):
+    """ Contact form handling """
+    print(request.method)
     if request.method == 'POST':
         name = request.POST['name']
-        email = request.POST['email']
+        from_email = request.POST['from_email']
         message = request.POST['message']
-        next = request.POST.get('next', '/')
 
-        contact = Contact(name=name, email=email, message=message)
-
+        contact = Contact(
+            name=name,
+            from_email=from_email,
+            message=message
+        )
         contact.save()
 
-        #send_mail(
-        #    name + ' has a question regarding the wedding!',
-        #    message,
-        #    email,
-        #    ['joinus@mybigfatrussian.wedding'],
-        #    fail_silently=False
-        #)
+        """
+        try:
+            send_mail(
+                name + ' has a question regarding the wedding!',
+                message,
+                from_email,
+                ['joinus@mybigfatrussian.wedding']
+            )
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        """
 
-        messages.success(request, _("We will get back to you as soon as a possible!"))
-        return HttpResponseRedirect(next)
+        response_data = {}
+        response_data['result'] = 'Message sent!'
+        response_data['name'] = contact.name
+
+        return HttpResponse(
+            json.dumps(response_data),
+            content_type="application/json"
+        )
+    return HttpResponse(
+        json.dumps({"nothing to see": "this isn't happening"}),
+        content_type="application/json"
+    )
