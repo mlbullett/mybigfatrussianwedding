@@ -1,21 +1,114 @@
 /* Mybigfatrussian.wedding by Maximilien Bullett is licensed under a CCA 4.0 international license (https://creativecommons.org/licenses/by/4.0/) */
+/* Dynamic form handling */
 $(document).ready(function () {
+    var form = $('#rsvpform')
+    var emptyForm = $('.empty-form').children();
+    var totalForms = $(form).children('input[name$=TOTAL_FORMS]');
+    var initialForms = $(form).children('input[name$=INITIAL_FORMS]');
+    var prefix = initialForms.attr('name').replace(/-INITIAL_FORMS$/, '');
 
-    // Contact form
-    $("#contactform").submit(function (event) {
-        // Submit contact form
-        event.preventDefault();
-        send_contact();
+    function addForm() {
+        var newForm = emptyForm.clone(true);
+        newForm.addClass('guest');
+        var total = totalForms.val();
+        newForm.find('input').each(function () {
+            var name = $(this).attr('name').replace('__prefix__', total);
+            var id = 'id_' + name;
+            $(this).attr({ 'name': name, 'id': id }).val('');
+        });
+        newForm.find('[id$="_name"]').attr('required', true);
+        newForm.find('[data-formset-remove-form]').click(function () {
+            removeForm($(this), total);
+        });
+        total++;
+        totalForms.val(total);
+        last = $('.guest').filter(':last');
+        newForm.insertAfter(last);
+    }
+
+    function removeForm(btn, num) {
+        var total = totalForms.val();
+        total--;
+        totalForms.val(total);
+        btn.parent().parent().remove();
+        var i = 0;
+        form.find('.guest').each(function () {
+            $(this).find('input').each(function () {
+                var name = $(this).attr('name').replace(/\d+/, i);
+                var id = 'id_' + name;
+                $(this).attr({ 'name': name, 'id': id });
+            });
+            i++;
+        });
+    }
+
+    $('[data-formset-add-form]').click(function () {
+        addForm();
     });
 
+    $('.empty-form :input[required]').removeAttr('required');
+});
+
+/* AJAX form handling*/
+$(document).ready(function () {
+
+    // AJAX for RSVP form
+    function send_rsvp() {
+        var guests = [];
+        $('.guest').each(function () {
+            var guest = {};
+            guest['first_name'] = $(this).find('input[name$="-first_name"]').val();
+            guest['last_name'] = $(this).find('input[name$="-last_name"]').val();
+            guest['dietary'] = $(this).find('input[name$="-dietary"]').val();
+            guests.push(guest);
+        });
+        var is_attending = $("input[name='rsvp-is_attending']:checked").val();
+        var email = $('#id_rsvp-email').val();
+        var song = $('#id_rsvp-song').val();
+        var message = $('#id_rsvp-message').val();
+
+        $.ajax({
+            type: 'POST',
+            url: 'rsvp',
+            data: {
+                'guests': JSON.stringify(guests),
+                'is_attending': is_attending,
+                'email': email,
+                'song': song,
+                'message': message
+            },
+
+            success: function (json) {
+                $('input[name$="-first_name"]').val("");
+                $('input[name$="-last_name"]').val("");
+                $('input[name$="-dietary"]').val("");
+                $("input[name='rsvp-is_attending']").removeAttr("checked");
+                $('#id_rsvp-email').val("");
+                $('#id_rsvp-song').val("");
+                $('#id_rsvp-message').val("");
+                $('#rsvpresult').text(json.success);
+            },
+
+            error: function (json) {
+                $('#rsvpresult').text(json.responseJSON.error);
+            }
+        });
+    }
+
+    // Submit RSVP form
+    $('#rsvpform').submit(function (event) {
+        event.preventDefault();
+        send_rsvp();
+    });
+
+    // AJAX for contact form
     function send_contact() {
-        // AJAX for contact form
         var name = $('#name').val();
         var from_email = $('#from_email').val();
         var message = $('#message').val();
 
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: 'contactus',
             data: {
                 'name': name,
@@ -35,8 +128,17 @@ $(document).ready(function () {
             }
         });
     };
+
+    // Submit contact form
+    $('#contactform').submit(function (event) {
+        console.log(event);
+        event.preventDefault();
+        send_contact();
+    });
+
 });
 
+/* csrf handling */
 $(function () {
 
 
@@ -86,7 +188,7 @@ $(function () {
                 // Send the token to same-origin, relative URLs only.
                 // Send the token only if the method warrants CSRF protection
                 // Using the CSRFToken value acquired earlier
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                xhr.setRequestHeader('X-CSRFToken', csrftoken);
             }
         }
     });

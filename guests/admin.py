@@ -15,10 +15,8 @@ class PartyAdmin(admin.ModelAdmin):
     """
     Party view
     """
-    list_display = ('partyname', 'category', 'language', 'invitation_sent',
-                    'invitation_opened', 'is_invited', 'is_attending')
-    list_filter = ('category', 'language', 'invitation_sent',
-                   'invitation_opened', 'is_invited', 'is_attending')
+    list_display = ('partyname', 'email', 'language', 'is_attending')
+    list_filter = ('language', 'is_attending')
     inlines = [GuestInline]
 
 
@@ -27,9 +25,8 @@ class GuestAdmin(admin.ModelAdmin):
     Guest view
     """
     list_display = ('first_name', 'last_name', 'party',
-                    'get_email', 'get_attending', 'dietary')
-    list_filter = ('party__is_attending', 'party__category',
-                   'party__language', 'party__is_invited')
+                    'get_email', 'get_lang', 'get_attending', 'dietary')
+    list_filter = ('party__is_attending', 'party__language')
 
     def get_email(self, obj):
         """ Needed to display party leader email """
@@ -38,6 +35,10 @@ class GuestAdmin(admin.ModelAdmin):
     def get_attending(self, obj):
         """ Needed to display party attendance """
         return obj.party.is_attending
+
+    def get_lang(self, obj):
+        """ Needed to display guest language """
+        return obj.party.language
 
 
 admin.site.register(Party, PartyAdmin)

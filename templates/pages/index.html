@@ -284,43 +284,74 @@
     <h2 class="major">{% trans "RSVP" %}</h2>
     <h3>{% trans "Please RSVP before the 1st June 2019." %}</h3>
     <section>
-      <!-- Alerts -->
-      {% include 'partials/_alerts.html' %}
-
-      <form method="POST" action="{% url "rsvp" %}">
+      <form id="rsvpform" method="POST">
         {% csrf_token %}
+        {{ guestformset.management_form }}
+        <div disabled class="empty-form" style="display: none">
+          <div class="fields">
+            <div class="field half">
+              {{ guestformset.empty_form.first_name }}
+            </div>
+            <div class="field half">
+              {{ guestformset.empty_form.last_name }}
+            </div>
+            <div class="field threequarter">
+              {{ guestformset.empty_form.dietary }}
+            </div>
+            <div class="field quarter">
+              <button type="button" class="remove" data-formset-remove-form>
+                {% trans "Remove" %}
+              </button>
+            </div>
+            {{ guestformset.empty_form.non_field_errors }}
+            {{ guestformset.empty_form.errors }}
+          </div>
+        </div>
+        <!-- Guests -->
+        <div class="fields guest">
+          {% for form in guestformset.forms %}
+          <div class="field half">
+            {{ form.first_name }}
+          </div>
+          <div class="field half">
+            {{ form.last_name }}
+          </div>
+          <div class="field">
+            {{ form.dietary }}
+          </div>
+          {{ form.non_field_errors }}
+          {{ form.errors }}
+          {% endfor %}
+        </div>
         <div class="fields">
           <div class="field">
-            <input type="email" name="email" id="email" placeholder='{% trans "Email address" %}' required />
+            <input type="button" value='{% trans "Add a guest" %}' data-formset-add-form>
           </div>
+        </div>
+
+        <!-- Party -->
+        <div class="fields">
+          {% for choice in partyform.is_attending %}
           <div class="field half">
-            <input type="text" name="firstname" id="firstname" placeholder='{% trans "First name" %}' required />
+            {{ choice.tag }}
+            <label for="{{ choice.id_for_label }}">
+              {{ choice.choice_label }}
+            </label>
           </div>
-          <div class="field half">
-            <input type="text" name="lastname" id="lastname" placeholder='{% trans "Last name" %}' required />
+          {% endfor %}
+          <div class="field">
+            {{ partyform.email }}
           </div>
           <div class="field">
-            <input type="text" name="dietary" id="dietary" placeholder='{% trans "Dietary restrictions" %}' />
-          </div>
-          <div class="field half">
-            <input type="radio" name="rsvp-attendance" id="rsvp-accept" value="accepted" required />
-            <label for="rsvp-accept">{% trans "Accept, with pleasure" %}</label>
-          </div>
-          <div class="field half">
-            <input type="radio" name="rsvp-attendance" id="rsvp-decline" value="declined" />
-            <label for="rsvp-decline">{% trans "Decline, with regrets" %}</label>
+            {{ partyform.song }}
           </div>
           <div class="field">
-            <input type="text" name="rsvp-song" id="rsvp-song"
-              placeholder='{% trans "Suggest a song for the reception!" %}' />
-          </div>
-          <div class="field">
-            <textarea name="rsvp-message" id="rsvp-message"
-              placeholder='{% trans "Leave a message for the bride and groom!" %}' rows="6"></textarea>
+            {{ partyform.message }}
           </div>
         </div>
         <ul class="actions">
           <li><input type="submit" value="{% trans "Confirm" %}" class="primary" /></li>
+          <li id="rsvpresult"></li>
         </ul>
       </form>
     </section>

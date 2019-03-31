@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 17:09+0100\n"
+"POT-Creation-Date: 2019-04-01 01:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,208 +18,238 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: contactus/views.py:49
+#: contactus/views.py:41 guests/views.py:60
+msgid "Invalid header found. Please refresh the page and try again."
+msgstr "Найден неверный заголовок. Пожалуйста, обновите страницу и попробуйте снова."
+
+#: contactus/views.py:47
 #, python-format
 msgid "Thank you %(name)s, we will get back to you as soon as possible!"
-msgstr ""
+msgstr "Спасибо %(name)s, мы свяжемся с вами как можно скорее!"
 
-#: contactus/views.py:54
+#: contactus/views.py:52 guests/views.py:78
 msgid "Invalid request. Please refresh the page and try again."
-msgstr ""
+msgstr "Неверный запрос. Пожалуйста, обновите страницу и попробуйте снова."
+
+#: guests/forms.py:7
+msgid "First name"
+msgstr "Имя"
+
+#: guests/forms.py:8
+msgid "Surname"
+msgstr "Фамилия"
+
+#: guests/forms.py:9
+msgid "Any dietary restrictions?"
+msgstr "Диетические ограничения"
+
+#: guests/forms.py:10
+msgid "Accept with pleasure"
+msgstr "С удовольствием приду"
+
+#: guests/forms.py:11
+msgid "Decline with regrets"
+msgstr "К сожалению, не смогу прийти"
+
+#: guests/forms.py:12
+msgid "Your email address"
+msgstr "Ваш адрес электронной почты"
+
+#: guests/forms.py:13
+msgid "Suggest a song for the reception"
+msgstr "Предложить песню на прием"
+
+#: guests/forms.py:14
+msgid "Leave a message for the bride and groom"
+msgstr "Оставьте сообщение для жениха и невесты"
+
+#: guests/views.py:15
+msgid "You've already RSVPed!"
+msgstr "Вы уже ответили!"
+
+#: guests/views.py:66
+#, python-format
+msgid "Thank you for accepting %(name)s, we can't wait to celebrate with you!"
+msgstr "Спасибо %(name)s, нам не терпится отпраздновать с вами!"
+
+#: guests/views.py:70
+#, python-format
+msgid "Thank you for taking the time to answer %(name)s. Although we understand, you will be missed at our wedding."
+msgstr "Спасибо, что нашли время ответить %(name)s. Вас будет не хватать на нашей свадьбе."
 
 #: templates/404.html:12
 msgid "Looks like you've had a bit to drink! Time to <a href='/'>go home</a>"
-msgstr ""
+msgstr "Похоже, ты немного выпил! Пора <a href='/'>идти домой!</a>"
 
 #: templates/500.html:12
 msgid "Looks like the server's had a few too many! Time to <a href='/'>go home</a>."
-msgstr ""
+msgstr "Похоже, сервер много выпил! Пора <a href='/'>идти домой!</a>"
 
-#: templates/base.html:14
+#: templates/base.html:16
 msgid "Anastasia & Max"
-msgstr ""
+msgstr "Анастасия и Макс"
 
 #: templates/pages/index.html:15
 msgid "Anastasia &<br />Max's wedding"
-msgstr ""
+msgstr "Свадьбы &<br />Анастасии и Макса"
 
 #: templates/pages/index.html:16
 msgid "Join us!"
-msgstr ""
+msgstr "Присоединяйтесь к нам!"
 
 #: templates/pages/index.html:22 templates/pages/index.html:77
 msgid "Story"
-msgstr ""
+msgstr "История"
 
 #: templates/pages/index.html:23 templates/pages/index.html:123
 msgid "Wedding"
-msgstr ""
+msgstr "Свадьба"
 
 #: templates/pages/index.html:24 templates/pages/index.html:183
 msgid "Travel"
-msgstr ""
+msgstr "Путешествие"
 
 #: templates/pages/index.html:25 templates/pages/index.html:268
 msgid "Registry"
-msgstr ""
+msgstr "Подарки"
 
 #: templates/pages/index.html:26 templates/pages/index.html:284
 msgid "RSVP"
-msgstr ""
+msgstr "RSVP"
 
 #: templates/pages/index.html:36
 msgid "Languages"
-msgstr ""
+msgstr "Язык"
 
 #: templates/pages/index.html:49
 msgid "Contact us"
-msgstr ""
+msgstr "Связаться с нами"
 
 #: templates/pages/index.html:57
 msgid "Name"
-msgstr ""
+msgstr "имя"
 
-#: templates/pages/index.html:60 templates/pages/index.html:294
+#: templates/pages/index.html:60
 msgid "Email address"
-msgstr ""
+msgstr "Адрес электронной почты"
 
 #: templates/pages/index.html:63
 msgid "Let us know how we can help you."
-msgstr ""
+msgstr "Дайте нам знать, как мы можем помочь вам."
 
 #: templates/pages/index.html:68
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/pages/index.html:81
 msgid "Saturday, 21 March 2015:"
-msgstr ""
+msgstr "Суббота, 21 марта 2015:"
 
 #: templates/pages/index.html:83
 msgid "There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open..."
-msgstr ""
+msgstr "<strong>Она</strong> сидела в одном из обветшавших и накуренных заведений на Торштрассе, тусовочном берлинском районе. Время неспешно текло, и Она то и дела то погружалась в разговоры своих друзей, то выпадала из них. Вечер медленно становился поздним, не предвещая никаких приключений. Неожиданно открылась дверь..."
 
 #: templates/pages/index.html:90
 msgid "Thursday, 8 March 2018:"
-msgstr ""
+msgstr "Четверг, 8 марта 2018:"
 
 #: templates/pages/index.html:92
 msgid "<strong>HE</strong> hoped his cool and jaunty demeanor was enough to mask the tempest of butterflies currently laying waste to his stomach. They had set out to Chenonceau that morning under the guise of a quixotic expedition, little did his better half know what awaited for her. Although he had gotten used to the weight of the small box that had been sitting in his pocket for the last four months, it seemed to get exponentially heavier with each step down the fir-lined trail until he couldn't bear it anymore and dropped to one knee."
-msgstr ""
+msgstr "Маской беспечности на своем лице <strong>Он</strong> пытался скрыть волнение, царящее внутри. Они направились в замок Шенонсо под предлогом занимательной туристической поездки, и Она даже не догадывалась об ожидаемом ее развитии событий. Прогуливаясь по тенистой обрамленной соснами дорожке в замковом лесу, Он начал чувствовать, что хранящаяся в его кармане четыре месяца маленькая коробочка с каждым его шагом становилось все тяжелее и тяжелее. Когда же вес ее стал для него невыносим, Он не выдержал и упал на одно колено.."
 
 #: templates/pages/index.html:103
 msgid "Tuesday, 10 July 2018:"
-msgstr ""
+msgstr "Вторник, 10 июня 2018:"
 
 #: templates/pages/index.html:105
 msgid "<strong>THEY</strong> stood in front of the mayor of that fateful little village in the Loire valley. Backed by their close family, they beamed with delight as they tried to listen attentively to his courteous discourse. In the eyes of the law, they were now bound."
-msgstr ""
+msgstr "<strong>Они</strong> стояли перед мэром маленькой деревушки в Долине Луары в окружении своих семей, с просветленными лицами слушая его заботливые речи, сияя от счастья. Теперь Они муж и жена."
 
 #: templates/pages/index.html:111 templates/pages/index.html:127
 msgid "Sunday, 1 September 2019:"
-msgstr ""
+msgstr "Воскресенье, 1 сентября 2019:"
 
 #: templates/pages/index.html:113
 msgid "Now the moment has come for <strong>US</strong> to vow our undying love in the presence of God and <strong>YOU</strong> our most cherished comrades. Join us for our crowning ceremony (orthodox wedding rite) and a celebration of unprecedented lavishness in Saint Petersburg."
-msgstr ""
+msgstr "Теперь <strong>Мы</strong> готовы соединиться вечным союзом перед лицом Бога и наших самых близких и любимых людей. Мы ждем <strong>Вас</strong> в Санкт-Петербурге на церемонии нашего венчания и последующем ему празднике жизни, счастья и любви!"
 
 #: templates/pages/index.html:129
 msgid "The wedding day will begin with the traditional Russian Orthodox crowning ceremony in the Church Of the Holy Righteous Simeon and Anna the Prophetess. The church was built in 1734 by Empress Anna Ioannovna in the heart of Saint Petersburg.<br /> The ceremony will start with the betrothal service, during which the priest blesses the rings. After which the couple exchanges them, placing them on their right hand.<br /> This is immediately followed by the wedding service. The bride and groom will carry candles as the priest joins their hands whilst praying for their marriage. The candle- and hand-holding will continue until the end of the ceremony as a symbol of union.<br /> Now comes the moment for the centerpiece of the Orthodox wedding ceremony: the Crowning. The crowns, held above the heads of the bride and the groom by the witnesses, symbolize the glory and honor that is being bestowed on them by God during the holy sacrament of marriage.<br /> After the crowns have been placed firmly on the couple's heads, the bride and groom take three sips of wine from a shared cup. The wine is reminiscent of the miracle of the wedding of Cana of Galilee, where water was famously turned into wine.<br /> Finally, the bride and groom will circle the central altar three times, echoing a pre-Christian ritual dance, accompanied by a choir. In this act, the couple takes their first steps as a married couple and the ceremony is concluded with the ancient blessing \"Na zisete\" (\"May you live!\")"
-msgstr ""
+msgstr "День свадьбы начнется с традиционной Русской Православной церемонии венчания в церкви Святого Праведного Симеона и Анны Пророчицы. Церковь была построена в 1734 году императрицей Анной Иоанновной в самом сердце Петербурга.<br /> Церемония начнется с обручения, во время которго священник благословляет кольца, после чего пара обменивается ими.<br /> Затем начинается свадебный обряд. Жених и невеста несут свечи, священник соединяет их руки, произнося молитвы. Свечи держатся до конца церемонии как символ союза.<br /> Теперь наступает момент для центральной части православной свадебной церемонии: Венчание. Венцы, удерживаемые над головами жениха и невесты свидетелями, символизируют славу и честь, которые даруются им Богом во время священного таинства брака.<br /> После надевания венцов жених и невеста делают три глотка вина из общей чаши. Вино напоминает о чуде на свадьбе Кана Галилейского, где вода была известным образом превращена в вино.<br /> Наконец, жених и невеста трижды обойдут вокруг центрального алтаря (отсыл к дохристианскому ритуальному танцу) в сопровождении хора. Пара делает свои первые шаги в качестве супругов, и церемония завершается древним благословением."
 
 #: templates/pages/index.html:154
 msgid "After seeing the lush, rich, Imperial Saint Petersburg, you will get the opportunity to see the other side of the city: underground, vintage, and artistic. The reception will take place in the Craft Loft “Vesseniy”, not 15 minutes away by car. You'll be greeted with bubbles, canapés, and music. Shortly after which, the banquet will be served.<br /> Russian wedding traditions are numerous and rich, a few you may want to know and participate in are as follows.<br /> You may overhear guests talking about the bitterness of the food. This is no culinary critique, but one of the traditional wedding games. Guests slowly start to chant \"Gorka, gorka, gorka...\" (meaning \"bitter\") until the newlyweds kiss after which the guests start counting upwards. The goal being to kiss for as long as possible and then exclaim: \"No, it's sweet!\".<br /> During the long banquet, all guests are welcome to perform a speech, song, dance, roast, or any other variety of number, in groups or alone. With multiple cultures and languages present, this is a relaxed and informal pportunity to exchange and bring the party together."
-msgstr ""
+msgstr "Увидев пышный, богатый, Императорский Санкт-Петербург, вы получите возможность увидеть другую современную и необычную сторону этого города. Банкет состоится в винтажнем лофте “Весенний”, в 15 минутах езды на машине от церкви. Вас встретят шампанским, канапе и музыкой. Вскоре после этого будет подан ужин.<br /> Русские свадебные традиции многочисленны и богаты, некоторые из них вы можете узнать и принять участие.<br /> Часто вы можете услышать, как гости говорят о горечи еды. Это не кулинарная критика, а одна из традиционных свадебных игр. Гости потихоньку начинают кричать \"Горько, горько, горько..\" до тех пор, пока молодожены не поцелуются, после чего гости начинают отсчет. Цель состоит в том, чтобы целоваться как можно дольше, и в конце сказать: \"нет, сладко!\".<br /> В течение длительного банкета все гости приглашаются выступить с речью, песней, танцем или любым другим номером в группах или поодиночке. Это поможет присутствующим представителем разных культур, говорящим на разных языках, узнать друг друга и создаст атмосферу веселья и праздника."
 
 #: templates/pages/index.html:173
 msgid "We will provide you with further information about the proceedings, transportation, and activities surrounding this momentous occasion by email and on the website as the story develops.<br />If you have any question, please feel free to <a href=\"#contactus\">contact us</a>."
-msgstr ""
+msgstr "Более точная информация о транспорте и других деталях мероприятия будет сообщена позднее по электронной почте и на сайте.<br /> Если у вас есть какие-либо вопросы, пожалуйста, <a href=\"#contactus\">свяжитесь с нами</a>."
 
 #: templates/pages/index.html:188
 msgid "Russia is a vast and diverse country, full of idyllic and culturally rich cities. As this may be the first time in the Russian Federation for a lot of our guests, we have a few tips to make your stay one to remember!"
-msgstr ""
+msgstr "Наша свадьба-несомненно, возможность для нас собрать всех любимых и близких. Однако мы бы также хотели, чтобы она послужила вам поводом насладиться Санкт-Петербургом, а также поближе познакомиться с представителями разных культур, которые, как и вы, будут присутствовать на свадьбе. "
 
 #: templates/pages/index.html:193
 msgid "Visas:"
-msgstr ""
+msgstr "Достопримечательности:"
 
 #: templates/pages/index.html:195
 msgid "The first thing you'll need is a visa. While Russia has a number of <a href=\"http://www.saint-petersburg.com/russian-visa/visa-free-travel/\" rel=\"noopener noreferrer\" target=\"_blank\">visa-free</a> agreements, it is quite likely you'll need to apply for a <a href=\"http://www.saint-petersburg.com/russian-visa/tourist-visas/\" rel=\"noopener noreferrer\" target=\"_blank\">tourist visa</a>. You'll require a tourist voucher alongside a valid passport, photo, and travel insurance. This voucher is either provided by the hotel you'll be staying at or can be <a href=\"https://www.travelrussia.su/en/visa.tourist.php\" rel=\"noopener noreferrer\" target=\"_blank\">purchased online</a> for a reasonable price if you will be staying at an airbnb for example.<br /> Once you have all these documents in hand, you'll be required to fill out a <a href=\"https://visa.kdmid.ru/\" rel=\"noopener noreferrer\" target=\"_blank\">visa application form</a> before submitting the request to the nearest Russian Consular Department or Visa Center.<br /> Keep in mind that application duration can vary from country to country and may require several weeks!"
-msgstr ""
+msgstr "Несомненно, Санкт-Петербург и его окрестности не охватить за короткую поездку. Но Если вы посещаете этот город впервые, то вы просто обязаны увидеть основные достопримечательности.<br /> Дворцовая площадь – главная площадь Санкт-Петербурга и одна из красивейших в мире, ее образуют исторические памятники культурного наследия Российской Федерации: Зимний дворец, здания Главного штаба и штаба Гвардейского корпуса, Александровская колонна. Вам также нужно увидеть Исаакиевский Собор, являющийся крупнейшим православным храмом Санкт-Петербурга, Спас на Крови и Казанский Собор. Обязательно прогуляйтесь вдоль каналов Невы и по Невскому проспекту и не забудьте про великолепный Аничков Мост.<br /> Если у вас будет достаточно времени, посетите окрестности города-Петергоф, Царское Село, Павловск."
 
 #: templates/pages/index.html:210
 msgid "Accommodation:"
-msgstr ""
+msgstr "Размещение:"
 
 #: templates/pages/index.html:212
 msgid "Finding accommodations in Saint Petersburg should be a fairly straightforwards endeavour but, nevertheless, here are a few pointers.<br /> We highly recommend you choose accommodations on the south bank of the Neva river as the bridges are raised at night inhibiting traffic. Although Airbnb is a completely viable and cost-effective option, guests desiring to stay in hotels should keep in mind that there is no official nationwide hotel rating system in Russia. One should thus rely on recognizable international brands or review sites such as <a href=\"https://www.tripadvisor.com/Home-g298507\" rel=\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a> when researching hotels."
-msgstr ""
+msgstr "Найти размещение в Санкт-Петербурге должно быть просто. Мы советуем Вам остановиться на южной стороны Невы, так как развод мостов делает передвижение в ночное время затруднительным. Airbnb является прекрасной финансово доступной возможностью. Гостям, желающим остановиться в отеле, мы советуем придерживаться известных мировых брендов. Также вы можете полагаться на отзывы на сайте <a href=\"https://www.tripadvisor.ru/Home-g298507\" rel=\"noopener noreferrer\" target=\"_blank\">Tripadvisor</a>. "
 
 #: templates/pages/index.html:226
 msgid "Additional tips:"
-msgstr ""
+msgstr "Многонациональная свадьба:"
 
 #: templates/pages/index.html:228
 msgid "Some additional tips to consider during your stay:"
-msgstr ""
+msgstr "Какие еще гости придут к нам?"
 
 #: templates/pages/index.html:232
 msgid "It is currently illegal to drive with any level of blood-alcohol content in Russia. Thankfully, taxis and similar services are cheap and the center of Saint Petersburg is fairly small."
-msgstr ""
+msgstr "Наши свадьба будет интернациональным мероприятием. На ней будут присутствовать гости из России, Франции, Англии, Южной Африки, Зимбабве, Германии, Индии и Польши."
 
 #: templates/pages/index.html:238
 msgid "Water sanitation is a somewhat contentious point, with the quality of tap water varying from region to region. Although it should be fine in Saint Petersburg, we still recommend only consuming filtered or bottled water when possible."
-msgstr ""
+msgstr "Большинство иностранных гостей говорит по-английски и по-французски, некоторые владеют также немецким и даже русским языком."
 
 #: templates/pages/index.html:245
 #, python-format
 msgid "Tipping is increasingly expected in restaurants in Russia. The standard tip is about 10%%."
-msgstr ""
+msgstr "Не бойтесь языкового барьера!"
 
 #: templates/pages/index.html:250
 msgid "Though Saint Petersburg is the cultural and touristic heart of Russia, you may find it useful to learn some basic russian phrases and even how to read Cyrillic (which is really not as daunting as it seems). <a href=\"https://www.duolingo.com/course/ru/en/Learn-Russian\" rel=\"noopener noreferrer\" target=\"_blank\">Duolingo</a> has a particularly good basic course as your faithful servant can attest to."
-msgstr ""
+msgstr "Многие из гостей будут в России впервые и мало знают о нашей традиции и культуре. Помогите нам рассказать им о нашей удивительной стране и заставить их захотеть приехать вновь!"
 
 #: templates/pages/index.html:259
 msgid "If you have any questions or would like some recommendations, feel free to <a href=\"#contactus\">contact us</a>."
-msgstr ""
+msgstr "Если у вас возникли какие либо вопросы, <a href=\"#contactus\">обращайтесь к нам</a>."
 
 #: templates/pages/index.html:273
 msgid "We're grateful for the efforts all guests will be making to join us in Saint Petersburg on this momentous day. Your presence is truly the greatest gift one could wish for. However, for friends and family who have expressed an interest, we have created an <a href=\"http://uk.millemercismariage.com/mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank\">online gift registry</a> for your convenience."
-msgstr ""
+msgstr "Мы благодарны всем нашим гостям за те усилия, которые они приложили, чтобы присоединиться к нам в этот день. Ваше присутствие-лучший подарок для нас! Однако, для тех членов семьи и друзей, которые все же желают преподнести нам подарки, мы создали этот <a href=\"http://uk.millemercismariage.com/mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank\">список</a>. Вы можете поучаствовать в приобретении любой из представленных в списке вещей, пожертвовав любую комфортную для вас сумму."
 
 #: templates/pages/index.html:285
 msgid "Please RSVP before the 1st June 2019."
-msgstr ""
-
-#: templates/pages/index.html:297
-msgid "First name"
-msgstr ""
-
-#: templates/pages/index.html:300
-msgid "Last name"
-msgstr ""
+msgstr "Пожалуйста, сообщите, сможете ли вы присоединиться к нам (RSVP) до 1 июня 2019 года."
 
 #: templates/pages/index.html:303
-msgid "Dietary restrictions"
-msgstr ""
+msgid "Remove"
+msgstr "Удалить"
 
-#: templates/pages/index.html:307
-msgid "Accept, with pleasure"
-msgstr ""
+#: templates/pages/index.html:328
+msgid "Add a guest"
+msgstr "Добавить гостя"
 
-#: templates/pages/index.html:311
-msgid "Decline, with regrets"
-msgstr ""
-
-#: templates/pages/index.html:315
-msgid "Suggest a song for the reception!"
-msgstr ""
-
-#: templates/pages/index.html:319
-msgid "Leave a message for the bride and groom!"
-msgstr ""
-
-#: templates/pages/index.html:323
+#: templates/pages/index.html:353
 msgid "Confirm"
-msgstr ""
+msgstr "подтвердить"

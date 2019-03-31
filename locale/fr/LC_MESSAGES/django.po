@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 17:09+0100\n"
+"POT-Creation-Date: 2019-04-01 01:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: contactus/views.py:49
+#: contactus/views.py:41 guests/views.py:60
+#, fuzzy
+#| msgid "Invalid request. Please refresh the page and try again."
+msgid "Invalid header found. Please refresh the page and try again."
+msgstr "Requête invalide. Veuillez actualiser la page et réessayer."
+
+#: contactus/views.py:47
 #, python-format
 msgid "Thank you %(name)s, we will get back to you as soon as possible!"
 msgstr "Merci %(name)s, nous reviendrons vers vous dès que possible!"
 
-#: contactus/views.py:54
+#: contactus/views.py:52 guests/views.py:78
 msgid "Invalid request. Please refresh the page and try again."
 msgstr "Requête invalide. Veuillez actualiser la page et réessayer."
+
+#: guests/forms.py:7
+msgid "First name"
+msgstr "Prénom"
+
+#: guests/forms.py:8
+msgid "Surname"
+msgstr "Nom de famille"
+
+#: guests/forms.py:9
+#, fuzzy
+#| msgid "Dietary restrictions"
+msgid "Any dietary restrictions?"
+msgstr "Restrictions diététiques"
+
+#: guests/forms.py:10
+#, fuzzy
+#| msgid "Accept, with pleasure"
+msgid "Accept with pleasure"
+msgstr "Accepte avec plaisir"
+
+#: guests/forms.py:11
+#, fuzzy
+#| msgid "Decline, with regrets"
+msgid "Decline with regrets"
+msgstr "Déclin, avec regret"
+
+#: guests/forms.py:12
+#, fuzzy
+#| msgid "Email address"
+msgid "Your email address"
+msgstr "Adresse email"
+
+#: guests/forms.py:13
+#, fuzzy
+#| msgid "Suggest a song for the reception!"
+msgid "Suggest a song for the reception"
+msgstr "Suggérez une chanson pour la réception!"
+
+#: guests/forms.py:14
+#, fuzzy
+#| msgid "Leave a message for the bride and groom!"
+msgid "Leave a message for the bride and groom"
+msgstr "Laissez un message pour les mariés!"
+
+#: guests/views.py:15
+msgid "You've already RSVPed!"
+msgstr "Vous avez déjà répondu"
+
+#: guests/views.py:66
+#, python-format
+msgid "Thank you for accepting %(name)s, we can't wait to celebrate with you!"
+msgstr "Merci d'avoir accepté %(name)s, nous avons hâte de célébrer avec vous!"
+
+#: guests/views.py:70
+#, python-format
+msgid "Thank you for taking the time to answer %(name)s. Although we understand, you will be missed at our wedding."
+msgstr "Merci d'avoir pris le temps de répondre %(name)s. Bien que nous comprenions, vous nous manquerez à notre mariage"
 
 #: templates/404.html:12
 msgid "Looks like you've had a bit to drink! Time to <a href='/'>go home</a>"
@@ -35,7 +99,7 @@ msgstr "Il semblerait que vous ayez un peu trop bu! Il serait temps de <a href='
 msgid "Looks like the server's had a few too many! Time to <a href='/'>go home</a>."
 msgstr "On dirait que le serveur en a eu un peu trop! Il est temps de <a href='/'> rentrer à la maison </a>."
 
-#: templates/base.html:14
+#: templates/base.html:16
 msgid "Anastasia & Max"
 msgstr "Anastasia & Max"
 
@@ -79,7 +143,7 @@ msgstr "Contactez-nous"
 msgid "Name"
 msgstr "Nom"
 
-#: templates/pages/index.html:60 templates/pages/index.html:294
+#: templates/pages/index.html:60
 msgid "Email address"
 msgstr "Adresse email"
 
@@ -192,34 +256,14 @@ msgstr "Nous sommes très reconnaissant à tous les invités qui nous rejoindron
 msgid "Please RSVP before the 1st June 2019."
 msgstr "Nous vous remercions de bien vouloir répondre avant le 1er juin 2019"
 
-#: templates/pages/index.html:297
-msgid "First name"
-msgstr "Prénom"
-
-#: templates/pages/index.html:300
-msgid "Last name"
-msgstr "Nom de famille"
-
 #: templates/pages/index.html:303
-msgid "Dietary restrictions"
-msgstr "Restrictions diététiques"
+msgid "Remove"
+msgstr "Retirer"
 
-#: templates/pages/index.html:307
-msgid "Accept, with pleasure"
-msgstr "Accepte avec plaisir"
+#: templates/pages/index.html:328
+msgid "Add a guest"
+msgstr "Ajouter"
 
-#: templates/pages/index.html:311
-msgid "Decline, with regrets"
-msgstr "Déclin, avec regret"
-
-#: templates/pages/index.html:315
-msgid "Suggest a song for the reception!"
-msgstr "Suggérez une chanson pour la réception!"
-
-#: templates/pages/index.html:319
-msgid "Leave a message for the bride and groom!"
-msgstr "Laissez un message pour les mariés!"
-
-#: templates/pages/index.html:323
+#: templates/pages/index.html:353
 msgid "Confirm"
 msgstr "Confirmer"
