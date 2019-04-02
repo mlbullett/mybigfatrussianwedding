@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 01:39+0200\n"
+"POT-Creation-Date: 2019-04-02 13:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,11 +77,11 @@ msgstr "Спасибо %(name)s, нам не терпится отпраздно
 msgid "Thank you for taking the time to answer %(name)s. Although we understand, you will be missed at our wedding."
 msgstr "Спасибо, что нашли время ответить %(name)s. Вас будет не хватать на нашей свадьбе."
 
-#: templates/404.html:12
+#: templates/404.html:13
 msgid "Looks like you've had a bit to drink! Time to <a href='/'>go home</a>"
 msgstr "Похоже, ты немного выпил! Пора <a href='/'>идти домой!</a>"
 
-#: templates/500.html:12
+#: templates/500.html:13
 msgid "Looks like the server's had a few too many! Time to <a href='/'>go home</a>."
 msgstr "Похоже, сервер много выпил! Пора <a href='/'>идти домой!</a>"
 
