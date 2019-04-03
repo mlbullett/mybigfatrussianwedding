@@ -6,6 +6,16 @@
     border: none;
 }
 
+.footerbuttons>span {
+    font-size: 1.8rem;
+}
+
+@media screen and (max-width: 736px) {
+    .footerbuttons>span {
+        font-size: 1.4rem;
+    }
+}
+
 #footerwrapper {
     display: flex;
     flex-wrap: nowrap;
