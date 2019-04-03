@@ -161,7 +161,7 @@ msgstr "Samedi, 21 mars 2015:"
 
 #: templates/pages/index.html:83
 msgid "There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open..."
-msgstr "<strong>ELLE</strong> était assise là, dans une des gargotes enfumées et délabrées de Torstrasse, quartiers hipster de Berlin. Le temps semblait s'étirait lamentablement, dans le brouhaha imperceptible des conversations, passant d'une amie à l'autre. Cette soirée qu'on crut banale tirait doucement à sa fin, tout espoir d'aventure ayant été dissipé. Quand soudain, la porte du bar s'ouvrit brutalement..."
+msgstr "<strong>ELLE</strong> était assise là, dans une des gargotes enfumées et délabrées de Torstrasse, quartier hipster de Berlin. Le temps semblait s'étirer lamentablement, dans le brouhaha imperceptible des conversations, passant d'une amie à l'autre. Cette soirée qu'on crut banale tirait doucement à sa fin, tout espoir d'aventure ayant été dissipé. Quand soudain, la porte du bar s'ouvrit brutalement..."
 
 #: templates/pages/index.html:90
 msgid "Thursday, 8 March 2018:"
