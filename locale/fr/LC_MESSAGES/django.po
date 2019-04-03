@@ -249,8 +249,8 @@ msgid "If you have any questions or would like some recommendations, feel free t
 msgstr "Pour toutes questions et recommandations, n'hésitez pas à <a href=\"#contactus\">nous contacter</a>."
 
 #: templates/pages/index.html:273
-msgid "We're grateful for the efforts all guests will be making to join us in Saint Petersburg on this momentous day. Your presence is truly the greatest gift one could wish for. However, for friends and family who have expressed an interest, we have created an <a href=\"http://uk.millemercismariage.com/mybigfatrussian/list.html\" rel=\"noopener noreferrer\" target=\"_blank\">online gift registry</a> for your convenience."
-msgstr "Nous sommes très reconnaissant à tous les invités qui nous rejoindrons à Saint Petersbourg pour cette belle journée, votre présence est le plus beau des cadeau. Nous avons, cependant une <a href=\"http://www.millemercismariage.com/mybigfatrussian/liste.html\" rel=\"noopener noreferrer\" target=\"_blank\">liste en ligne</a> pour ceux qui le désire."
+msgid "We're grateful for the efforts all guests will be making to join us in Saint Petersburg on this momentous day. Your presence is truly the greatest gift one could wish for. However, for friends and family who have expressed an interest, we have created an <a href=\"http://uk.millemercismariage.com/mybigfatrussian/list.html?mobile=0\" rel=\"noopener noreferrer\" target=\"_blank\">online gift registry</a> for your convenience."
+msgstr "Nous sommes très reconnaissant à tous les invités qui nous rejoindrons à Saint Petersbourg pour cette belle journée, votre présence est le plus beau des cadeau. Nous avons, cependant une <a href=\"http://www.millemercismariage.com/mybigfatrussian/liste.html?mobile=0\" rel=\"noopener noreferrer\" target=\"_blank\">liste en ligne</a> pour ceux qui le désire."
 
 #: templates/pages/index.html:285
 msgid "Please RSVP before the 1st June 2019."
