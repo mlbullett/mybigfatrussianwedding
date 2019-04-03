@@ -37,7 +37,7 @@ def rsvp_view(request):
             )
 
             if guestlead is None:
-                guestlead = newguest.first_name
+                guestlead = newguest.first_name + " " + newguest.last_name
             newguest.save()
 
         newparty.partyname = guestlead
