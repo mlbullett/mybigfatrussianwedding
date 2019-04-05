@@ -15,9 +15,10 @@ class PartyAdmin(admin.ModelAdmin):
     """
     Party view
     """
-    list_display = ('partyname', 'email', 'language', 'is_attending')
+    list_display = ('partyname', 'email', 'language',
+                    'is_attending', 'message', 'song')
     list_filter = ('language', 'is_attending')
-    inlines = [GuestInline]
+    inlines = [GuestInline, ]
 
 
 class GuestAdmin(admin.ModelAdmin):

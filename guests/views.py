@@ -28,6 +28,9 @@ def rsvp_view(request):
         newparty.save()
 
         guestlead = None
+        email_content = "Message:\n" + newparty.message + \
+            "\n\nSong:\n" + newparty.song + "\n"
+
         for i in json.loads(request.POST['guests']):
             newguest = Guest(
                 first_name=i['first_name'],
@@ -36,9 +39,12 @@ def rsvp_view(request):
                 party_id=newparty.pk
             )
 
+            newguest.save()
+
             if guestlead is None:
                 guestlead = newguest.first_name + " " + newguest.last_name
-            newguest.save()
+            email_content += "\n" + newguest.first_name + " " + \
+                newguest.last_name + "\nDietary needs:" + newguest.dietary
 
         newparty.partyname = guestlead
         newparty.save()
@@ -48,10 +54,10 @@ def rsvp_view(request):
                 subject = guestlead + ' is coming to our wedding!'
             else:
                 subject = guestlead + ' unfortunately won\'t make it to our wedding.'
-            print(subject)
+
             send_mail(
-                guestlead + subject,
-                newparty.message,
+                subject,
+                email_content,
                 newparty.email,
                 ['joinus@mybigfatrussian.wedding']
             )
