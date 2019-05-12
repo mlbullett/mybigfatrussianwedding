@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 13:52+0200\n"
+"POT-Creation-Date: 2019-05-12 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: contactus/views.py:41 guests/views.py:60
+#: contactus/views.py:41 guests/views.py:66
 msgid "Invalid header found. Please refresh the page and try again."
 msgstr "Найден неверный заголовок. Пожалуйста, обновите страницу и попробуйте снова."
 
@@ -27,7 +27,7 @@ msgstr "Найден неверный заголовок. Пожалуйста, 
 msgid "Thank you %(name)s, we will get back to you as soon as possible!"
 msgstr "Спасибо %(name)s, мы свяжемся с вами как можно скорее!"
 
-#: contactus/views.py:52 guests/views.py:78
+#: contactus/views.py:52 guests/views.py:84
 msgid "Invalid request. Please refresh the page and try again."
 msgstr "Неверный запрос. Пожалуйста, обновите страницу и попробуйте снова."
 
@@ -67,12 +67,12 @@ msgstr "Оставьте сообщение для жениха и невест�
 msgid "You've already RSVPed!"
 msgstr "Вы уже ответили!"
 
-#: guests/views.py:66
+#: guests/views.py:72
 #, python-format
 msgid "Thank you for accepting %(name)s, we can't wait to celebrate with you!"
 msgstr "Спасибо %(name)s, нам не терпится отпраздновать с вами!"
 
-#: guests/views.py:70
+#: guests/views.py:76
 #, python-format
 msgid "Thank you for taking the time to answer %(name)s. Although we understand, you will be missed at our wedding."
 msgstr "Спасибо, что нашли время ответить %(name)s. Вас будет не хватать на нашей свадьбе."
@@ -91,7 +91,7 @@ msgstr "Анастасия и Макс"
 
 #: templates/pages/index.html:15
 msgid "Anastasia &<br />Max's wedding"
-msgstr "Свадьбы &<br />Анастасии и Макса"
+msgstr "Свадьба &<br />Анастасии и Макса"
 
 #: templates/pages/index.html:16
 msgid "Join us!"
@@ -147,7 +147,7 @@ msgstr "Суббота, 21 марта 2015:"
 
 #: templates/pages/index.html:83
 msgid "There <strong>SHE</strong> sat, in one of the typically rundown and smoky dives just off Torstraße, Berlin's wealthy slums. Time crawled on at it's usual imperceptible pace as she phased in and out of her friends' conversations. Despite its languor, the evening was coming to a dull close, absent of coveted adventure. Suddenly, the door crashed open..."
-msgstr "<strong>Она</strong> сидела в одном из обветшавших и накуренных заведений на Торштрассе, тусовочном берлинском районе. Время неспешно текло, и Она то и дела то погружалась в разговоры своих друзей, то выпадала из них. Вечер медленно становился поздним, не предвещая никаких приключений. Неожиданно открылась дверь..."
+msgstr "<strong>Она</strong> сидела в одном из обветшавших и накуренных заведений на Торштрассе, тусовочном берлинском районе. Время неспешно текло, и Она то и дело то погружалась в разговоры своих друзей, то выпадала из них. Вечер медленно становился поздним, не предвещая никаких приключений. Неожиданно открылась дверь..."
 
 #: templates/pages/index.html:90
 msgid "Thursday, 8 March 2018:"

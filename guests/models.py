@@ -10,6 +10,10 @@ ALLOWED_LANGS = [
 
 class Party(models.Model):
     """ Model for parties consisting of one or more guests """
+    class Meta:
+        """ Meta properties """
+        verbose_name_plural = 'Parties'
+
     partyname = models.CharField(max_length=100, null=True)
     email = models.EmailField(max_length=100)
     language = models.CharField(max_length=10, choices=ALLOWED_LANGS)
