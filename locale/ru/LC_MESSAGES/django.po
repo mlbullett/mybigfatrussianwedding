@@ -91,7 +91,7 @@ msgstr "Анастасия и Макс"
 
 #: templates/pages/index.html:15
 msgid "Anastasia &<br />Max's wedding"
-msgstr "Свадьба &<br />Анастасии и Макса"
+msgstr "Свадьба <br />Анастасии и Макса"
 
 #: templates/pages/index.html:16
 msgid "Join us!"
